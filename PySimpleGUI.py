@@ -1,492 +1,8 @@
 #!/usr/bin/python3
 
-version = __version__ = "4.61.0.206 Unreleased"
+version = __version__ = "5.0.0rc1"
 
-_change_log = """
-    Changelog since 4.60.0 released to PyPI on 8-May-2022
-    
-    4.61.0.1
-        main_open_github_issue - prefill the "Details" using the platform module (thank you macdeport!)
-            Fills Mac, Windows and Linux with details
-    4.61.0.2
-        Fix for the "jumping window problem on Linux".  Major credit to Chr0nic for his amazing "stick with it" work on this problem!
-    4.61.0.3
-        Removed the previous fix attempt for jumping window on linux
-        Added ability for Mac users to specify file_type in Browse and popup_get_file
-            This feature must be ENABLED by the user in the Mac control panel that can be found in the PySimpleGUI Global Settings
-            The default is this feature is OFF
-    4.61.0.4
-        New location parameter option for Windows. Setting location=None tells PySimpleGUI to not set any location when window is created. It's up to the OS to decide.
-            The docstring for Window has been changed, but not all the other places (like popup). Want to make sure this works before making all those changes.            
-    4.61.0.5
-        Added check for None invalid values parm when creating a Listbox element
-    4.61.0.6
-        Column docstring changed to add reminder to call contents_changed if changing the contents of a scrollable column
-    4.61.0.7
-        Fixed crash when horizontal_scroll=True for Listbox element
-    4.61.0.8
-        Added readonly to Input.update
-    4.61.0.9
-        Added Window.set_resizable - can change the X and Y axis resizing after window is created
-    4.61.0.10
-        Added wrap parameter to Spin element - if True, wraps back to the first value when at the end
-        Temp test code added for a new verification feature
-    4.61.0.11
-        Fixed Spin Element docstring - readonly was not correct
-    4.61.0.12
-        Output element - addition of wrap_lines and horizontal_scroll parameters
-        Multiline element -  addition of wrap_lines parameter
-    4.61.0.13
-        Added Window.unbind
-    4.61.0.14
-        Added (None, None) to the Window docstring
-    4.61.0.15
-        Fix for continuous Graph element mouse up events when reading with a timeout=0. Big thank you to @davesmivers (THANKS DAVE!!) for finding and fixing
-    4.61.0.16
-        Added platform (Windows, Mac, Linux) and platform version information to the get_versions function
-    4.61.0.17
-        Added a fix for the file_types Mac problem that doesn't require the system settings to be used... let's give it a go!
-    4.61.0.18
-        Added ubiquitious Edit Me to the right click menu
-    4.61.0.19
-        PySimpleGUI Anniversary sale on Udemy course coupon 
-    4.61.0.20
-        Fix for bind_return_key - if a button has been disabled, then the event shouldn't be generated for the return key being pressed
-    4.61.0.21
-        Added cols_justification for Table element - list or tuple of strings that indicates how each column should be justified
-    4.61.0.22
-        Better error handling for table element's new justification list. If a bad value is found, will use the default value
-    4.61.0.23
-        Additional mac filetype testing.... added more combinations that specify 
-    4.61.0.24
-        Added * *.* to the Mac filetypes to check for
-    4.61.0.25
-        New logic for checking for the * case for Mac filetypes
-    4.61.0.26
-        Docstring update - TabGroup visible parameter marked as deprecated .  Use a Column element to make a TabGroup invisible
-    4.61.0.27
-        Docstring update for the pin helper function that describes the shrinking of the container that it helps provide.  
-        Also added explanation that it's the elements you want to make visible/invisible that are what you want to pin
-    4.61.0.28
-        Applied same Mac file_types fix to popup_get_file
-        Removed filetypes setting from Mac Feature Control Panel
-    4.61.0.29
-        Addition of enable_window_config_events to the Window object. This will cause a EVENT_WIMDOW_CONFIG event to be returned
-            if the window is moved or resized.
-    4.61.0.30
-        Made upgrade from GitHub window resizable so can screencapture the entire session
-    4.61.0.31
-        Added new constant TKINTER_CURSORS which contains a list of the standard tkinter cursor names
-    4.61.0.32
-        Added erase_all parameter to cprint (like the Debug Print already has)
-    4.61.0.33
-        Fix popup_scrolled - was only adding the Sizegrip when there was no titlebar.  It should be added to all windows
-            unless the no_sizegrip parameter is set.
-        popup_scrolled - added no_buttons option. If True then there will not be a row at the bottom where the buttons normally are.
-            User will have to close the window with the "X"
-    4.61.0.34
-        popup_scrolled - added button_justification parameter. Wanted to make scrolled popups consistent with other popups which have left justified
-            buttons.  But since they've been right justified in the past, want to give users the ability to retain that look. 
-            Since the Sizegrip works correctly now, it increases the changes of accidently clicking a button if it's right justified.
-    4.61.0.35
-        Added default_color to ColorChooser button
-    4.61.0.36
-        Added to Button element error message that images must be in PNG or GIF format
-    4.61.0.37
-        Added exapnd_x and expand_y to all of the "lazy buttons" and Chooser buttons
-    4.61.0.38
-        Column element - added horizontal_scroll_only parameter (fingers crossed on this one....)
-    4.61.0.39
-        New signature testing
-    4.61.0.40
-        Exposed the Table Element's ttk style using member variable TABLE.table_ttk_style_name
-    4.61.0.41
-        New signature format
-    4.61.0.42
-        Backed out the changes from 4.61.0.38 (horizontal_scroll_only parameter).  Those changes broke code in the scrollable columns.  Need to make time to work on this feature more.
-    4.61.0.43
-        Added a print if get an exception trying to set the alpha channel after a window is created (troubleshooting a Mac problem)
-    4.61.0.44
-        Updated Menubar docstring to clarify the Menubar iself cannot have colors changed, only the submenus. Use MenubarCustom if you want full control
-        Format of file-signature changed
-    4.61.0.45
-        Further refinement of Menubar docstring
-    4.61.0.46
-        Added suggestion of using the Demo Browser to the checklist item of "Look for Demo Programs similar to your problem"
-    4.61.0.47
-        Testing some importing methods
-        Delay rerouting stdout and stderr in Output and Multiline elements until window is being built instead of when element is initialized
-    4.61.0.48
-        Additional window movement capability. If Control+Mouse movement feature is enabled, then Control+Arrow key will move the window 1 pixel
-            in the indicated direction
-    4.61.0.49
-        Added Window.set_size to match the other settings that are performed through method calls. There is also the Window.size property, but
-            since PySimpleGUI rarely uses properties, it makes sense to include a method as well as a property
-    4.61.0.50
-        Fix for ColorChooser button filling in a None value when cancel from color choise dialog box.  Nothing will be filled in target if dialog cancelled
-    4.61.0.51
-        vtop, vcenter, vbottom helper functions gets background_color parameter
-        vcenter and vbottom - added USING the expand_x and expand_y parms that were already defined.  (HOPE NOTHING BREAKS!)
-    4.61.0.52
-        justification parameter added to Listbox (default is left.. can be right and center now too)
-    4.61.0.53
-        Made settings dictionary multiline in test harness write-only.  New coupon code                
-    4.61.0.54
-        alpha_channel added to set_options.  This sets the default value for the alpha_channel for all windows both user generated and PySimpleGUI generated (such as popups).
-    4.61.0.55
-        Allow Browse/Chooser buttons (that have a target) to indicate a target key that is a tuple.
-    4.61.0.55
-        While not actually correct.... 4.60.1 was released in the middle of the development above... I'm changing the version to look as
-            if this release is based on 4.60.1.  This code DOES have the same code that's in 4.60.1 so it's more a matter of symantics.
-            Hoping this clears up confusion.  Sorry for the dot-release causing so much confusion.
-    4.61.0.56
-        Fix for Window.extend_layout.  Was not picking up the background color of the container that the rows were being added to.
-    4.61.0.57
-        Fixed Text element's update method docstring to indicate that value can be "Any" type not just strings
-    4.61.0.58
-        Addition of without_titlebar paramter to Window.current_location.  Defaults to False.  If True, then the location of the main portion of the window
-            will be returned (i.e. will not have the titlebar)
-    4.61.0.59
-        Fix for crash if COLOR_SYSTEM_DEFAULT specified in parameter disabled_readonly_background_color or disabled_readonly_text_color for Input Element.
-        Also applied similar fix for Tab element's focus color
-    4.61.0.60
-        Addition of set_option parameter hide_window_when_creating. If set to False then window will not be hidden while creating and moving
-    4.61.0.61
-        Changed the documentation location to PySimpleGUI.org (updated some comments as well as the SDK Reference Window's links)
-        New coupon code.  Make the Udemy button in the test harness now include the coupon code automatically
-    4.61.0.62
-        Removed the "NOT avoilable on the MAC" from file_types parameter in the docstrings
-        Use Withdraw to hide window during creation
-    4.61.0.63
-        Addition of checklist item when logging new issue to  GitHub - upgraded to latest version of PySimpleGUI on PyPI
-        Listbox justification parameter found to not be implemented on some early verions of tkinter so had to protect this situation. This new feature crashed on the Pi for example
-    4.61.0.64
-        Allow set_options(window_location=None) to indicate the OS should provide the window location.  
-            This will stop the Alpha channel being set to 0 when the window is created
-    4.61.0.65
-        Addition of new Mac Control Panel option and emergency patch for MacOS version 12.3+
-            If MacOS version 12.3 or greater than option is ON by default
-            When ON, the default Alpha channel for all windows is set to 0.99. 
-            This can either be turned off, or can be overridden by calling set_options in your application
-    4.61.0.65
-        Bumping version number to avoid confusion.  An emergency 4.60.2 release was posted to PyPI. This change was added to this current GitHub version of PySimpleGUI.  
-    4.61.0.66
-        Fixed bug in checking Mac OS version number that is being released as 4.60.3
-    4.61.0.67
-        Correctly check for Mac 12.3+ AND 13+ this time.
-    4.61.0.68
-        Roll in the changes being released to PyPI as 4.60.3
-    4.61.0.69
-        Test to see if the additional pack of Notebook in Tab code was causing expansion problems        
-    4.61.0.70
-        Debug Print - fix for bug caused by no_button being set with non_blocking... a lesson in thorough testing... assumption was either blocking OR no_button (or else app would
-            close without seeing the output... unless something else blocked. (DOH)
-    4.61.0.71
-        "Window closed" check added to update methods for elements. This will prevent a crash and instead show an error popup
-            Will be helpful for users that forget to check for closed window event in their event loop and try to call update after window closed. 
-    4.61.0.72
-        Output element now automatically sets auto_refresh to True.   Should this not be desired, switch to using the Multiline element.  There will likely be
-            no impact to this change as it seems like the windows are alredy refreshing OK, but adding it just to be sure.
-    4.61.0.73
-        Addition of Window.key_is_good(key) method.  Returns True if key is used in the window. Saves from having to understand the window's key dictionary.
-            Makes for easier code completion versus writing  "if key in window.key_dict"
-    4.61.0.74
-        Combo - if readonly, then set the select colors to be "transparent" (text=text color, background=background color)
-    4.61.0.75
-        Better description of bar_color parm for the ProgressMeter element and the one_line_progress_meter function
-        Combo element - addition of select parameter to enable easier selection of the contents of clearing of the selection of the contents.
-    4.61.0.76
-        Changed the _this_elements_window_closed to use a flag "quick_check" for cheking is the window is closed.  Found that calling tkinter.update takes over 500ms sometimes!
-            For appllications that call update frequently, this caused a catestrophic slowdown for complex windows.
-    4.61.0.77
-        New Window method - get_scaling - gets the scaling value from tkinter.  Returns DEFAULT_SCALING if error.
-    4.61.0.78
-        Custom Titlebar - Support added to Window.minimize, Window.maximize, and Window.normal
-    4.61.0.79
-        Fix for Mulitline showing constant error messages after a Window is closed. 
-        Fix for correctly restoring stdout, stderr after they've been rerouted. THIS CODE IS NOT YET COMPLETE! Shooting for this weekend to get it done!
-        Image element - more speicific with tkinter when chaning to a new image so that pypy would stop crashing due to garbage collect not running. 
-            This change didn't fix the pypy problem but it also didn't hurt the code to have it
-    4.61.0.80
-        Quick and dirty addition of Alt-shortcuts for Buttons (like exists for Menus)
-            For backward compatablity, must be enabled using set_options with use_button_shortcuts=True
-        Fixed docstring errors in set_options docstring
-    4.61.0.81
-        Completed restoration of stdout & stderr
-            If an Output Element is used or a Multline element to reroute stdout and/or stderr, then this hasn't worked quite right in the past
-            Hopefuly now, it does.  A LIFO list (stack) is used to keep track of the current output device and is scrubbed for closed windows and restored if one is closed
-    4.61.0.82
-        Addition of Style Names for horizontaland vertical ttk scrollbars - hsb_style_name and vsb_style_name so that scrollbar colors can be changed in user code
-    4.61.0.83
-        Output element - now automatically reroutes cprint to here as well. Assumption is that you want stuff to go here without
-            needing to specify each thing.  If want more control, then use the Multiline directly
-    4.61.0.84
-        Output element - updated docstring
-    4.61.0.85
-        Combo Element - new parameter enable_per_char_events.  When True will get an event when individual characters are entered.
-    4.61.0.86
-        Added path to the interpreter to the get_versions information for better debugging
-    4.61.0.87
-        Dark Gray 16 theme added
-    4.61.0.88
-        New batch of Emojis!
-    4.61.0.89
-        Addition of TITLEBAR_TEXT_KEY to provide access to custom titlebar titles
-    4.61.0.90
-        Implemented the visible parameter for TabGroup.  Was not being honored when creating element. Added TabGroup.update so it can be made visible.
-    4.61.0.91
-        Added support for Custom Titlebar to the Window.set_title method
-    4.61.0.92
-        Addition of starting_row_number parameter to the Table element.  Sets the value for the first row in the table.
-    4.61.0.93
-        Added 2 parameters to popup - drop_whitespace is passed to the wraptext.fill method. right_justify_buttons will "push" buttons to
-            the right side if set to True
-    4.61.0.94
-        Added Element.save_element_screenshot_to_disk - uses the same PIL integration that the save window screenshot to disk uses but applied to a single element
-    4.61.0.95
-        Changed popup again - replaced right_justify_buttons with button_justification.  Also removed the extra padding that was being added to the buttons.  This
-            matches a changed made to popup_scrolled earlier
-    4.61.0.96
-        More emojis?  Yes... more emojis...
-    4.61.0.97
-        The main test harness now shows the python interpreter used to launch the test harness to make clearer what's running
-    4.61.0.98
-        Better alignment of text in test harness
-        Fixed mispelling in SystemTray.show_message - crashed if an int was passed in as the time value
-    4.61.0.99
-        popup_get_text - Addition of history feature to bring up to same level as other popup_get_ functions.
-    4.61.0.100
-        Set the "Active" foreground and background colors for Menu and ButtonMenu items.  Automatically uses the swapped foreground and background colors.
-            This impacts both inside the menus themseleves as well as the ButtonMenus so that when they are used in a MenubarCustom they mouseover nicely now.
-    4.61.0.101
-        Added Window.is_hidden method.  Returns True if the window is currently hidden
-    4.61.0.102
-        Fixed error in the main test harness "not modal" popup test.  Was setting the "Force Modal" setting to true after the popup test. 
-    4.61.0.103
-        Trinket is detected using a new mechansim now.  The previous one was waayyy too simnple and as a result has broken in the past week.  
-    4.61.0.104
-        Version bump to keep up with the PyPI emergency 4.60.4 release 
-    4.61.0.105
-        Added SYMBOL_BULLET character
-    4.61.0.106
-        Neon Green, Blue, Yellow themes... was writing some tests using them and thought why not start a new theme color category... "neon"
-    4.61.0.107
-        Fixed an unreported problem perhaps...  Added saving new menu into the Menu.Widget memeber variable in the Menu.update method.
-    4.61.0.108
-        Added drop_whitespace to the docstring for popup.  Parm has been in the code for quite some time but forgot the docstring so it's not in the SDK reference.
-    4.61.0.109
-        Changed error message in error window when an element reuse has been detected in a layout.  Previous message wasn't clear why there was an error.
-    4.61.0.110
-        Added very detailed information to popup_error_with_traceback if the Exception information is passed in as one of the arguments
-    4.61.0.111
-        Menu Element - delete all items in existing Menu widget rather than making a new one when the Menu definition changes
-    4.61.0.112
-        Input.update - added font parameter
-    4.61.0.113
-        Dark Blue 18 theme, a materially kinda theme, added - tip - experiment like PySimpleGUI does when "computing" colors. Grab a color of a part of a theme and use it as a background or a secondary button color.  In other words, mix and match since the colors should all work together by design.
-    4.61.0.114
-        Added execute_py_get_running_interpreter to differentiate between the one in the settings file versus currently running interpreter
-    4.61.0.115
-        Image Element... added Zooooooooommmmm parameter
-    4.61.0.116
-        Proliferiation/infection of the zoom parameter to more elements with images - Button, ButtonMenu
-            Note that zoom and subsample can BOTH be used. This enables fractional scaling. Want 2/3 the size of the image? subsample=3, zoom=2
-            Tab is the remaining element this is being added to
-            The Buttons implemented as functions need this addition as well
-        Addition of the image_source parameter to Button and Button.update. This way of specifying images is commonly used in other elements 
-        Fixed ButtonMenu bug - subsample was not being applied to initial image in the layout
-    4.61.0.117
-        Fix for set_vscroll_position not working correctly for a scrollable Column
-    4.61.0.118
-        Completed addition of zoom options for images by adding image_zoom parameter to Tab element
-    4.61.0.119
-        Fixed Neon Yellow theme.  Had an extra "#" in a color.
-    4.61.0.120
-        New coupon code
-    4.61.0.121
-        New Jedi emoji
-    4.61.0.122
-        Swapped Push and Stretch, VPush and VStretch.  Made Push and VPush the function and Stratch and VStresth the aliases. Did this because
-            Push is used almost universally, not Stretch.
-    4.61.0.123
-        Fix for incorrect values for Element.ttk_style and Element.ttk_style_name. Some elements had values overwritten if a scrollbar, etc, was used
-        Changed a number of the ttk elements (Button for example) to use the base name as the parm to creating the custom style to achieve
-            a more predictable naming style (relies on the formula used in the create style function rather than ad hoc adding "custom" onto name)
-    4.61.0.124
-        Multiline Element docstring fixes
-    4.61.0.125
-        Addition of 2 overrides to Window.find_element so that more control is available to applications wishing to perform special key lookups 
-    4.61.0.126
-        Made button_color parameter's docstring value consistent across all calls.  Now set to - (str, str) | str
-    4.61.0.127
-        User settings delete calls - aded silent_on_error option so deletes of non-existant entries can uappen silently if desired.
-        popup_quick_message - now defaults to keep-on-top to True
-    4.61.0.128
-        Cleaned up User Settings API code for porting
-    4.61.0.129
-        button_color parm added to ButtonMenu.update
-    4.61.0.130
-        New coupon
-    4.61.0.131
-        Window timers feature added.  Get a single or repeating timer events for your Window by calling window.timer_start
-    4.61.0.132
-        Added the Window.stop_all method to stop all timers for a window 
-    4.61.0.133
-        Added Window.timer_get_active_timers to get a list of the active timers for the window
-    4.61.0.134
-        popup_get_date - exposed the fonts as parameters so that the user code and modify them (specifically to get around a Mac font bug)
-    4.61.0.135
-        Renamed QuickMeter to _QuickMeter so that it's clear that it's not an object meant to be used by users
-    4.61.0.136
-        Tree element - if headings is set to None, no headings area is shown
-    4.61.0.137
-        "Take me to error" button is disabled in error traceback popup if not editor is configured. Also adds instructions if no editor.
-    4.61.0.138
-        Added begin_at_sunday_plus to the CalendarButton docstring
-    4.61.0.139
-        Moved debugger constants to inside of the debugger class. Simplified the locals and globals popups.
-    4.61.0.140
-        Experimental change.... Table.get now returns the values from the widget's selection method
-    4.61.0.141
-        Made the Debugger's use of popups change the theme to the same dark gray theme used in the rest of the debugger windows.
-    4.61.0.142
-        Added selected_text_color & selected_background_color to Input element. Will override the default values
-    4.61.0.143
-        Fixed bug in Combo.update - the width of the element wasn't getting updated to match new values
-    4.61.0.144
-        Added selected_text_color & selected_background_color to Multiline element. Will override the default values
-    4.61.0.145
-        Fixed bind_return_key docstrings in the pre-defined buttons. Made the Button bind_return_key docstring more descriptive
-    4.61.0.146
-        Changed version numbers to 4.61.0 to try and fix the confusion about what's been released to PyPI.
-    4.61.0.147
-        New Udemy coupon code
-    4.61.0.148
-        Removed the print when the Mac Alpha Channel 0.99 patch is applied
-    4.61.0.149
-        Removed second print when Mac patch applied
-    4.61.0.150
-        Tree Element new parameter - click_toggles_select - if True then clicking a selected item will unselect it
-    4.61.0.151
-        Fixed problem with TabGroups when the text was blank for a Tab. Was not correctly identifying the active tab in the Values dictionary
-    4.61.0.152
-        Updated TabGroup.get to use the same method to find the currently active tab that was just added above. 
-    4.61.0.153
-        Updated layout error messages to include "sometimes" in the description of what may be causing error
-    4.61.0.154
-        Updated Window.start_timer docstring to include the constants EVENT_TIMER and TIMER_KEY since the call reference doesn't show the variable names but rather the string value. 
-    4.61.0.155
-        Multiline new parameter autoscroll_only_at_bottom. When True, the element will autoscroll (keep scrollbar at the bottom) only if the scrollbar is already at the bottom.
-    4.61.0.156
-        Added the new Multiline parameter autoscroll_only_at_bottom so that the Output element can also use this option
-    4.61.0.157
-        Added the _optional_window_data function that is used to help with local PySimpleGUI testing of release candidates. Not meant to be used by end-users.
-    4.61.0.158
-        Changed Checkbox activeforeground to be the same as the text so mouseover doesn't change color
-    4.61.0.159
-        New Global Settings feature - Window watermarking. Can be forced on temporarily by settings watermark=True in your Window creation
-    4.61.0.160
-        Fix "Bold" crash from watermarking feature
-    4.61.0.161
-        New set_options to control user-defined watermarks
-    4.61.0.162
-        Addition of new parms to Combo.update - text color, background color.  Also font now applied correctly to dropdown list
-    4.61.0.163
-        Checkbox - added highlight thickness parm to control how thick the focus ring is. Defaults to 1 still but now changable
-    4.61.0.164
-        Input element - fixed problem where the input 'cursor' (the I-beam) was being set to the THEME'S color, not the color indicated by the individual element
-    4.61.0.165
-        Multiline & Spin - Applied same fix for input "cursor" (I-Beam) color that was added to the Input element.
-        Added new method - set_ibeam_color to Input, Multiline and Spin elements.  Combo is a ttk element so it's not available using this call yet
-    4.61.0.166
-        New Udemy coupon
-    4.61.0.167
-        New Udemy coupon
-        Fix for bad user settings key for user watermark. Added Python version to watermark
-    4.61.0.168
-       Changed Radio activeforeground to be the same as the text so mouseover doesn't change color
-    4.61.0.169
-        Allow no end-key to be specified for perform_long_operation/start_thread.  Careful with backward compatibility! If you skip adding parm on old versions of PySimpleGUI then it'll not work.
-    4.61.0.170
-        Possible fix for Mac Input Element issue that's been happening with no-titlebar windows on MacOS 13.2.1 Ventura
-    4.61.0.171
-        Added formatted_datetime_now function for easy timestamps for logging
-    4.61.0.172
-        Added upgrade service - No notification popups should be shown yet.  Don't want to SPAM users while testing
-    4.61.0.173
-        Made changing the "Show only critical" setting in global settings take effect immediately rather than waiting until closed settings window
-        Added timer_stop_usec to return timer value in microseconds
-    4.61.0.174
-        Overwrite upgrade data if any portion has changed
-    4.61.0.175
-        Notification window - added countdown counter. Added hand cursor if message is a link and enable clicking of link to open the browser to that link
-    4.61.0.176
-        Improved linux distro detection
-    4.61.0.177
-        Custom Titlebar - Support for disabling resizing (maximizing too), support for disable minimize and disable close
-    4.61.0.178
-        Input element - fix for bug with text color & logic wasn't quite right with the "read for disabled" stuff in the update as well as when making window
-    4.61.0.179
-        New Udemy coupon
-    4.61.0.180
-        Removed Security tab from system settings
-    4.61.0.181
-        Added check for None and COLOR_SYSTEM_DEFAULT before any colors being set in Input.update
-    4.61.0.182
-        Only enable the Mac alpha channel 0.99 patch when tkinter version is 8.6.12. Have learned this is not needed for any other tkinter version
-    4.61.0.183
-        Show Critical upgrade service messages.  Removed the extra upgrade from github button from tab.
-    4.61.0.184
-        Fix for Combo.update background color changing incorrect widget setting.
-    4.61.0.185
-        Fix for crash when no headings specified for a table by casting values into strings
-    4.61.0.186
-        Fix for popup_get_file when using no_window=True. Now returns None if cancelled or window closed
-    4.61.0.187
-        Corrected the Table.get docstring to reflect that it returns a list of ints
-    4.61.0.188
-        Finished correcting the Table.get docstring.... think I got it right this time....
-    4.61.0.189
-        Changed Table click events to be generated on Button Release instead of Button (down). Was not getting the
-            correct selected rows in the values dictionary when the click event was generated using down. Now the selected rows is correct
-    4.61.0.190
-        Addition of black2 theme
-        Fix typo of text in _widget_was_created
-    4.61.0.191
-        Fixed bug in Button.update.  Was setting the activeforeground and activebackground which broke the mouseover or mouse press colors
-    4.61.0.192
-        Fixed bug in Button.update.  Corrected when activeforeground and activebackground are set.  Removing them in version above was a mistake
-    4.61.0.193
-        Fixed spelling errors... resuse should have been reuse
-    4.61.0.194
-        Added Listbox.select_index and Listbox.set_index_color
-    4.61.0.195
-        New Udemy Coupon
-    4.61.0.196
-        Added highlight colors to the set_index_color method. Parms highlight_text_color & highlight_background_color control changing the highlight colors 
-    4.61.0.197
-        Made Table Element Header mouse-over and clicked be the inverse of the normal header colors. Makes for a much nicer experience
-    4.61.0.198
-        Added no_buffering option to popup_animated
-    4.61.0.199
-        Updated Udemy coupon code
-    4.61.0.200
-        Fix for grab anywhere window movement and control+left_mouse_drag.  Window move smoother, including the Move-All-Windows feature. Thank you JASON for the help!
-    4.61.0.201
-        Added init for _mouse_offset_x and y in case tkinter doesn't call the mouse down callback
-    4.61.0.202
-        Added doctring and destroy previous right click menu to set_right_click_menu
-    4.61.0.203
-        Changed Sizer element to use Canvas instead of Column element
-    4.61.0.204
-        One more change to sizer so that it uses pad instead of size.
-    4.61.0.205
-        Fixed docstring for execute_command_subprocess.  The command description was incorrect
-    4.61.0.206
-        New Udemy Coupon code
-    
-
-    """
+_change_log = ""
 
 __version__ = version.split()[0]  # For PEP 396 and PEP 345
 
@@ -500,122 +16,6 @@ except:
 
 port = 'PySimpleGUI'
 
-# 8""""8        8""""8                             8""""8 8   8 8
-# 8    8 e    e 8      e  eeeeeee eeeee e     eeee 8    " 8   8 8
-# 8eeee8 8    8 8eeeee 8  8  8  8 8   8 8     8    8e     8e  8 8e
-# 88     8eeee8     88 8e 8e 8  8 8eee8 8e    8eee 88  ee 88  8 88
-# 88       88   e   88 88 88 8  8 88    88    88   88   8 88  8 88
-# 88       88   8eee88 88 88 8  8 88    88eee 88ee 88eee8 88ee8 88
-
-
-"""
-    Copyright 2018, 2019, 2020, 2021, 2022, 2023 PySimpleGUI(tm)
-
-    Before getting into the details, let's talk about the high level goals of the PySimpleGUI project.
-
-    From the inception these have been the project principals upon which it is all built
-    1. Fun - it's a serious goal of the project. If we're not having FUN while making stuff, then something's not right
-    2. Successful - you need to be successful or it's all for naught
-    3. You are the important party - It's your success that determines the success of PySimpleGUI
-
-    If these 3 things are kept at the forefront, then the rest tends to fall into place.
-
-    PySimpleGUI is a "system", not just a program.  There are 4 components of the "PySimpleGUI system"
-    1. This software - PySimpleGUI.com
-    2. The documentation - PySimpleGUI.org
-        * PySimpleGUI.org
-        * Calls.PySimpleGUI.org
-        * Cookbook.PySimpleGUI.org
-    3. Demo Programs - Demos.PySimpleGUI.org
-    4. Support - Issues.PySimpleGUI.org
-    5. eCookbook - eCookbook.PySimpleGUI.org
-
-
-    Now available - "The Official PySimpleGUI Course" on Udemy!
-    https://www.udemy.com/pysimplegui
-    
-    Watch for a coupon codes in the documentation on PySimpleGUI.org
-
-    Please consider sponsoring all open source developers that make software you or your business use. They need your help.
-    
-
-    This software is available for your use under a LGPL3+ license
-
-    This notice, these first 150 lines of code shall remain unchanged
-
-
-
-    888      .d8888b.  8888888b.  888      .d8888b.          
-    888     d88P  Y88b 888   Y88b 888     d88P  Y88b         
-    888     888    888 888    888 888          .d88P
-    888     888        888   d88P 888         8888"    888   
-    888     888  88888 8888888P"  888          "Y8b. 8888888 
-    888     888    888 888        888     888    888   888   
-    888     Y88b  d88P 888        888     Y88b  d88P         
-    88888888 "Y8888P88 888        88888888 "Y8888P"          
-
-
-    In addition to the normal publishing requirements of LGPL3+, these also apply:
-    1. These and all comments are to remain in the source code
-    2. The "Official" version of PySimpleGUI and the associated documentation lives on two (and **only** two) places:
-       1. GitHub - (http://www.PySimpleGUI.com) currently pointing at:
-          https://github.com/PySimpleGUI/PySimpleGUI
-       2. PyPI - pip install PySimpleGUI is the customary way of obtaining the latest release
-    
-       THE official documentation location is:
-          https://www.PySimpleGUI.org - Main documentation
-       There are also a lot of subdomains... many of which you can guess..
-          https://SDK.PySimpleGUI.org - The SDK Reference tab
-          https://Calls.PySimpleGUI.org - The SDK Reference tab
-          https://Cookbook.PySimpleGUI.org - The Cookbook tab
-          https://eCookbook.PySimpleGUI.org - The eCookbook located on Trinket
-          https://Anncouncements.PySimpleGUI.org - The Announcements Issue on GitHub
-          https://Install.PySimpleGUI.org - The "How to install" section of the docs
-          https://Upgrading.PySimpleGUI.org - The "How to upgrade" section of the docs
-          https://Udemy.PySimpleGUI.org - The Udemy course
-          https://GitHub.PySimpleGUI.org - The PySimpleGUI GitHub (also the located at PySimpleGUI.com)
-          https://Issues.PySimpleGUI.org - Open a new issue on GitHub
-          https://Bugs.PySimpleGUI.org - Open a new issue on GitHub
-          etc.....
-                
-       If you've obtained this software in any other way, then those listed here, then SUPPORT WILL NOT BE PROVIDED.
-    3. If you use PySimpleGUI in your project/product, a notice of its use needs to be displayed in your readme file as per the license agreement
-
-    -----------------------------------------------------------------------------------------------------------------
-
-
-    The first bit of good news for you is that literally 100s of pages of documentation await you. 
-    300 Demo Programs have been written as a "jump start" mechanism to get your running as quickly as possible.
-
-    Some general bits of advice:
-    Upgrade your software!  python -m pip install --upgrade --no-cache-dir PySimpleGUI
-    If you're thinking of filing an Issue or posting a problem, Upgrade your software first
-    There are constantly something new and interesting coming out of this project so stay current if you can 
-
-    The FASTEST WAY to learn PySimpleGUI is to begin to use it in conjunction with the materials provided by the project.
-    http://www.PySimpleGUI.org
-    http://Calls.PySimpleGUI.org
-    http://Cookbook.PySimpleGUI.org
-
-    The User Manual and the Cookbook are both designed to paint some nice looking GUIs on your screen within 5 minutes of you deciding to PySimpleGUI out.
-
-    A final note from mike...
-    
-        “Don’t aim at success. The more you aim at it and make it a target, the more you are going to miss it. 
-        For success, like happiness, cannot be pursued; it must ensue, and it only does so as the unintended side effect of one’s personal dedication to a cause greater.”
-            — Viktor Frankl
-    
-        I first saw this quote in a truncated format:
-            "Happiness, cannot be pursued; it must ensue, and it only does so as the unintended side effect of one’s personal dedication to a cause greater."    
-    
-        Everyone is different, but my experience with the PySimpleGUI project matches this theory.  It's taken a lifetime of trying and "failing" and trying
-        to find happiness before I finally figured this truth-for-me out.  If I do a long list of things, and live life in a kind & loving way, then the
-        result is happiness.  It's a biproduct, not a directly produced thing.  This should be taught in school.  Or maybe it can't.
-        I hope you find happiness, but more importantly, or maybe first, I hope you find that bigger-than-you thing. For me it's always been programming.  It seems to be
-        the giving back part, not just the calling, that makes the happiness fusion-reactor operate.
-
-    "Thank you" has fueled this project. I'm incredibly grateful to have users that are in turn grateful. It's a feedback loop of gratitude. What a fantastic thing!
-"""
 # all of the tkinter involved imports
 import tkinter as tk
 from tkinter import filedialog
@@ -25050,8 +24450,8 @@ Mb.     .dM `88888P' dP       8888P'   dP `88888P' `88888P'
 MMMMMMMMMMM
 '''
 
-__upgrade_server_ip = 'upgradeapi.PySimpleGUI.com'
-__upgrade_server_port = '5353'
+__upgrade_server_ip = ''
+__upgrade_server_port = ''
 
 
 def __send_dict(ip, port, dict_to_send):
@@ -25165,6 +24565,7 @@ def __get_linux_distribution():
 
 
 def __perform_upgrade_check_thread():
+    return
     # print(f'Upgrade thread...seen = {pysimplegui_user_settings.get("-upgrade info seen-", False)}')
     try:
         if running_trinket():
@@ -25224,6 +24625,7 @@ def __perform_upgrade_check_thread():
 
 def __perform_upgrade_check():
     # For now, do not show data returned. Still testing and do not want to "SPAM" users with any popups
+    return
     __show_previous_upgrade_information()
     threading.Thread(target=lambda: __perform_upgrade_check_thread(), daemon=True).start()
 
@@ -25429,7 +24831,7 @@ These items may solve your problem. Please check those you've done by changing -
 
 
 def _github_issue_post_make_github_link(title, body):
-    pysimplegui_url = "https://github.com/PySimpleGUI/PySimpleGUI"
+    pysimplegui_url = "https://github.com/spyoungtech/FreeSimpleGui"
     pysimplegui_issues = "{}/issues/new?".format(pysimplegui_url)
 
     # Fix body cuz urllib can't do it smfh
@@ -25808,7 +25210,7 @@ def _the_github_upgrade_thread(window, sp):
 def _copy_files_from_github():
     """Update the local PySimpleGUI installation from Github"""
 
-    github_url = 'https://raw.githubusercontent.com/PySimpleGUI/PySimpleGUI/master/'
+    github_url = 'https://raw.githubusercontent.com/spyoungtech/FreeSimpleGui/main/'
     #files = ["PySimpleGUI.py", "setup.py"]
     files = ["PySimpleGUI.py"]
 
@@ -26821,16 +26223,13 @@ def main():
         elif event == 'Get Text':
             popup_scrolled('Returned:', popup_get_text('Enter some text', keep_on_top=True))
         elif event.startswith('-UDEMY-'):
-                webbrowser.open_new_tab(r'https://www.udemy.com/course/pysimplegui/?couponCode=522B20BF5EF123C4AB30')
+            pass
         elif event.startswith('-SPONSOR-'):
-            if webbrowser_available:
-                webbrowser.open_new_tab(r'https://www.paypal.me/pythongui')
+            pass
         elif event == '-COFFEE-':
-            if webbrowser_available:
-                webbrowser.open_new_tab(r'https://www.buymeacoffee.com/PySimpleGUI')
+            pass
         elif event in  ('-EMOJI-HEARTS-', '-HEART-', '-PYTHON HEARTS-'):
-            popup_scrolled("Oh look!  It's a Udemy discount coupon!", '522B20BF5EF123C4AB30',
-                           'A personal message from Mike -- thank you so very much for supporting PySimpleGUI!', title='Udemy Coupon', image=EMOJI_BASE64_MIKE, keep_on_top=True)
+            pass
         elif event == 'Themes':
             search_string = popup_get_text('Enter a search term or leave blank for all themes', 'Show Available Themes', keep_on_top=True)
             if search_string is not None:
