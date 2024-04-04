@@ -71,7 +71,9 @@ Not all of the programs presented here are limited to the tkinter port of PySimp
 ```python
 from matplotlib import use
 # import PySimpleGUI as sg
-import PySimpleGUIQt as sg; use('qt5agg')
+import FreeSimpleGUIQt as sg;
+
+use('qt5agg')
 ```
 
 This indicates that the code can be run on either the tkinter or the Qt port.  To switch ports, uncomment the one you want to run on and comment out the others.
