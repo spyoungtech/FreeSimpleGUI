@@ -1,15 +1,9 @@
  
-![pysimplegui_logo](https://user-images.githubusercontent.com/13696193/43165867-fe02e3b2-8f62-11e8-9fd0-cc7c86b11772.png)        
-        
-![Downloads](http://pepy.tech/badge/pysimpleguiwx)
-      
- ![Awesome Meter](https://img.shields.io/badge/Awesome_meter-1000-yellow.svg)  
-         
- ![Python Version](https://img.shields.io/badge/Python-3.x-yellow.svg)        
-        
-      
-[![PyPI Version](https://img.shields.io/pypi/v/pysimpleguiwx.svg?style=for-the-badge)](https://pypi.org/project/pysimpleguiwx/)         
-                
+![free_simplegui_logo](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_readme/freesimplegui.png)        
+
+ 
+[![PyPI Version](https://img.shields.io/pypi/v/freesimpleguiwx.svg?style=for-the-badge)](https://pypi.org/project/FreeSimpleGUIWx/) 
+
         
 # PySimpleGUIWx        
 
