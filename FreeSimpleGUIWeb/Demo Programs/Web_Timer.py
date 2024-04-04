@@ -32,21 +32,21 @@ while True:
     if event == 'button':
         event = window[event].GetText()
     # --------- Do Button Operations --------
-    
+
     if event in (None, 'Exit'):        # ALWAYS give a way out of program
         break
-    
+
     if event == 'Reset':
         start_time = int(round(time.time() * 100))
         current_time = 0
         paused_time = start_time
-    
+
     elif event == 'Pause':
         paused = True
         paused_time = int(round(time.time() * 100))
         element = window['button']
         element.update(text='Run')
-    
+
     elif event == 'Run':
         paused = False
         start_time = start_time + int(round(time.time() * 100)) - paused_time

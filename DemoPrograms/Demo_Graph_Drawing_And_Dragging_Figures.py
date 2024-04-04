@@ -5,7 +5,7 @@ import FreeSimpleGUI as sg
 
     This demo shows how to use a Graph Element to (optionally) display an image and then use the
     mouse to "drag" and draw rectangles and circles.
-    
+
     Copyright 2020, 2021, 2022, 2023 PySimpleGUI.org
 """
 

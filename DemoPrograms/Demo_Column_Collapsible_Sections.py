@@ -8,7 +8,7 @@ import FreeSimpleGUI as sg
     To open/close a section, click on the arrow or name of the section.
     Section 2 can also be controlled using the checkbox at the top of the window just to
     show that there are multiple way to trigger events such as these.
-    
+
     Feel free to modify to use the fonts and sizes of your choosing.  It's 1 line of code to make the section.
     It could have been done directly in the layout.
 

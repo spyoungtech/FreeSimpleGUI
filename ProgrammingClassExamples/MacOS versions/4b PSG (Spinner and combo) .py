@@ -7,7 +7,7 @@ import FreeSimpleGUI as sg
 sg.SetOptions(background_color = 'LightGreen',
             element_background_color = 'LightGreen',
             text_element_background_color = 'LightGreen',
-              font= ('Calibri', 12, 'bold'))       
+              font= ('Calibri', 12, 'bold'))
 
 layout = [
     [sg.Text('Spinner and Combo box demo', font = ('Calibri', 14, 'bold'))],
@@ -38,6 +38,6 @@ while True:
                 result = 'NA'
             else:
                 result = round( val[0] / val[1], 3)
-        window.FindElement('_result_').Update(result)              
+        window.FindElement('_result_').Update(result)
     else:
-        break  
+        break

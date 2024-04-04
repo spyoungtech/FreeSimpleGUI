@@ -37,4 +37,3 @@ layout = [[sg.Sizer(0,500), sg.Column([[sg.Sizer(500,0)]] + layout, element_just
 window = sg.Window('Window Title', layout, margins=(0,0))
 
 window.read(close=True)
-

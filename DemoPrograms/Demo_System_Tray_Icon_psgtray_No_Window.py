@@ -7,7 +7,7 @@ from psgtray import SystemTray
     Import the SystemTray object with this line of code:
     from psgtray import SystemTray
 
-    Key for the system tray icon is: 
+    Key for the system tray icon is:
         tray = SystemTray()
         tray.key
 

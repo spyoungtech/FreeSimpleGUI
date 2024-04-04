@@ -15,11 +15,11 @@ from matplotlib.ticker import NullFormatter  # useful for `logit` scale
 
 """
     Demo - Matplotlib Embedded figure in a window TEMPLATE
-    
-    The reason this program is labelled as a "Template" is that it functions on 3 
+
+    The reason this program is labelled as a "Template" is that it functions on 3
     PySimpleGUI ports by only changing the import statement. tk, Qt, Web(Remi) all
     run this same code and produce identical results.
-    
+
     Copyright 2020 PySimpleGUI.org
 """
 

@@ -4,15 +4,15 @@ import FreeSimpleGUI as sg
     Demo - User Settings as a Database
 
     The PySimpleGUI User Settings APIs are implemnted to look like a dictionary to the
-    user and utilize JSON files to store the data.  As a result, one "key" is used to 
+    user and utilize JSON files to store the data.  As a result, one "key" is used to
     store and retrieve each "setting".  This capability cab be used to implement a
     simple database.
-    
+
     In this demo the User Settings file is used to store a user ID and data associated
     with that ID.  Each User ID has a dictionary stored in the User Settings file. This
     dictionary is built from the values dictionary of the window.  There is a map varaible
     called data_map that translates between the two dictionaries.
-    
+
     Copyright 2022 PySimpleGUI
 """
 

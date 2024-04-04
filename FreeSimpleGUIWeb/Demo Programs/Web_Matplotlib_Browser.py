@@ -11,15 +11,15 @@ import matplotlib.pyplot as plt
 
 """
     Demonstrates one way of embedding Matplotlib figures into a PySimpleGUIWeb window.
-    
+
     Basic steps are:
      * Create a window with an Image Element
      * Get a selection from user from list of available figures to be drawn
      * Create figure using Matplotlib
      * Update Image Element with generated plot
-    
+
     Each plotting function was copied directly from Matplot examples page
-    
+
     Copyright 2020 PySimpleGUI.org
 """
 
@@ -255,8 +255,8 @@ def PyplotLineStyles():
     reference_transform = blended_transform_factory(ax.transAxes, ax.transData)
     for i, (name, linestyle) in enumerate(linestyles.items()):
         ax.annotate(str(linestyle), xy=(0.0, i), xycoords=reference_transform,
-                    xytext=(-6, -12), textcoords='offset points', color="blue",
-                    fontsize=8, ha="right", family="monospace")
+                    xytext=(-6, -12), textcoords='offset points', color='blue',
+                    fontsize=8, ha='right', family='monospace')
 
     plt.tight_layout()
     return plt.gcf()
@@ -825,7 +825,7 @@ def AxesGrid():
     ax = RGBAxes(fig, [0.1, 0.1, 0.8, 0.8])
 
     r, g, b = get_rgb()
-    kwargs = dict(origin="lower", interpolation="nearest")
+    kwargs = dict(origin='lower', interpolation='nearest')
     ax.imshow_rgb(r, g, b, **kwargs)
 
     ax.RGB.set_xlim(0., 9.5)

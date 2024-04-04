@@ -3,14 +3,14 @@ import FreeSimpleGUI as sg
 
 """
     Demo - Navigating a window's focus using arrow keys
-    
+
     This Demo Program has 2 features of PySimpleGUI in use:
     1. Binding the arrow keys
     2. Navigating a window's elements using focus
-    
+
     The first step is to bind the left, right and down arrows to an event.
     The call to window.bind will cause events to be generated when these keys are pressed
-    
+
     The next step is to add the focus navigation to your event loop.
     When the right key is pressed, the focus moves to the element that should get focus next
     When the left arrow key is pressed, the focus moves to the previous element

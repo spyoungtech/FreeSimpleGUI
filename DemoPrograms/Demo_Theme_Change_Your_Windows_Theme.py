@@ -4,7 +4,7 @@ import FreeSimpleGUI as sg
     Demo - Changing your window's theme at runtime
     * Create your window using a "window create function"
     * When your window's theme changes, close the window, call the "window create function"
-    
+
     Copyright 2021 PySimpleGUI
 """
 

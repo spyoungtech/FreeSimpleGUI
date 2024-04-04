@@ -11,13 +11,13 @@ import FreeSimpleGUI as sg
     CAUTION:
         Using explicit sizes on Column and Frame elements may not have the same effect on
         all computers.  Hard coding parts of layouts can sometimes not have the same result on all computers.
-    
+
     There are 3 sg.Columns.  Two are side by side at the top and the third is along the bottom
-    
+
     When there are multiple Columns on a row, be aware that the default is for those Columns to be
     aligned along their center.  If you want them to be top-aligned, then you need to use the
     vtop helper function to make that happen.
-    
+
     Copyright 2021 PySimpleGUI
 """
 

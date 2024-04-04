@@ -2,16 +2,16 @@ import FreeSimpleGUI as sg
 
 """
     Demo of Base64 Buttons (that have gradients)
-    
-    These button images are all located at the bottom of the souce file.  
-    
+
+    These button images are all located at the bottom of the souce file.
+
     It's very easy to convert any PNG image into a BASE64 button but running one of these PySimpleGUI Demos:
         Demo_Base64_Image_Encoder.py - Converts an entire folder and writes results to output.py
         Demo_Base64_Single_Image_Encoder.py - Converts a single image and puts result onto the clipboard so you can
             paste into your code
-            
+
     These images are not going to win any awards but they get the point across.
-                
+
     Copyright 2020 PySimpleGUI.org
 """
 

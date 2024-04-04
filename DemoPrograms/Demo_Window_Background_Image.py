@@ -3,9 +3,9 @@ import FreeSimpleGUI as sg
 """
     Highly experimental demo of how the illusion of a window with a background image is possible with PySimpleGUI.
 
-    Requires the latest PySimpleGUI from GitHub.  Your copy of PySimpleGUI should be local to your application so that 
-    the global variable _move_all_windows can be changed.  
-    
+    Requires the latest PySimpleGUI from GitHub.  Your copy of PySimpleGUI should be local to your application so that
+    the global variable _move_all_windows can be changed.
+
     Copyright 2020 PySimpleGUI.org
 """
 

@@ -2,19 +2,19 @@ import FreeSimpleGUI as sg
 
 """
     Demo - Relative Location
-    
+
     How to create a window at a location relative to where it would normally be placed.
-    
-    Normally, by default, windows are centered on the screen. 
+
+    Normally, by default, windows are centered on the screen.
     Other ways initial window position is determined:
     1. You can also specify the location when creating it by using the location parameter
     2. You can use set_options to set the location all windows will be created
-    
+
     This demo shows how to use the paramter to Window called relative_location.
-    
+
     As the name suggests, it is a position relative to where it would normally be created.
-    
-    Both positive and negative values are valid.  
+
+    Both positive and negative values are valid.
         relative_location=(0, -150) will create the window UP 150 pixels from where it would normally be created
 
     Copyright 2021 PySimpleGUI

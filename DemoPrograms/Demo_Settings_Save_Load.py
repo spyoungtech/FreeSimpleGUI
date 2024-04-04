@@ -6,10 +6,10 @@ from os import path
     A simple "settings" implementation.  Load/Edit/Save settings for your programs
     Uses json file format which makes it trivial to integrate into a Python program.  If you can
     put your data into a dictionary, you can save it as a settings file.
-    
-    Note that it attempts to use a lookup dictionary to convert from the settings file to keys used in 
+
+    Note that it attempts to use a lookup dictionary to convert from the settings file to keys used in
     your settings window.  Some element's "update" methods may not work correctly for some elements.
-    
+
     Copyright 2020 PySimpleGUI.com
     Licensed under LGPL-3
 """

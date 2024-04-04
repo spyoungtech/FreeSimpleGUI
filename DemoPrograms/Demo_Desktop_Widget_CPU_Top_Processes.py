@@ -5,13 +5,13 @@ import operator
 
 """
     PSUTIL "Top" CPU Processes - Desktop Widget
-    
+
     Creates a floating CPU utilization window running something similar to a "top" command.
 
     Use the spinner to adjust the number of seconds between readings of the CPU utilizaiton
     Rather than calling the threading module this program uses the PySimpleGUI perform_long_operation method.
         The result is similar.  The function is run as a thread... the call is simply wrapped.
-            
+
     Copyright 2022 PySimpleGUI
 """
 

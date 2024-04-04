@@ -7,10 +7,10 @@ import FreeSimpleGUI as sg
     2. Using vtop layout helper function to align a single element
     3. Using vtop layout helper function to align an entire row
 
-    There is also a funciton provided that will convert an entire layout into 
+    There is also a funciton provided that will convert an entire layout into
     a top aligned layout.
-    
-    Copyright 2020 PySimpleGUI.org    
+
+    Copyright 2020 PySimpleGUI.org
 """
 
 def top_align_layout(layout):

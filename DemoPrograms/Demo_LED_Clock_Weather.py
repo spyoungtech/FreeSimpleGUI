@@ -9,7 +9,7 @@ import forecastio
     - DARKSKY
     - google maps coordinates
     Copright 2020, 2022 PySimpleGUI
-    
+
 '''
 
 

@@ -1531,4 +1531,3 @@
 ![calculator](https://user-images.githubusercontent.com/13696193/45601112-b0316580-b9d5-11e8-9f42-38acdfd5db93.jpg)
 
 -----------
-

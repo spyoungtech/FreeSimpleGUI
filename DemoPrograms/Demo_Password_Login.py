@@ -3,7 +3,7 @@ import FreeSimpleGUI as sg
 import hashlib
 
 """
-    Create a secure login for your scripts without having to include your password 
+    Create a secure login for your scripts without having to include your password
     in the program.  Create an SHA1 hash code for your password using the GUI. Paste into variable in final program
     1. Choose a password
     2. Generate a hash code for your chosen password by running program and entering 'gui' as the password

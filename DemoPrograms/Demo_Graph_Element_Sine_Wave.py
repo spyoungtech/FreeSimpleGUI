@@ -3,23 +3,23 @@ import math
 
 """
     Demo - Graph Element used to plot a mathematical formula
-    
+
     The Graph element has a flexible coordinate system that you define.
     Thie makes is possible for you to work in your coordinates instead of an
     arbitrary system.
-    
+
     For example, in a typical mathematics graph, (0,0) is located at the center
     of the graph / page / diagram.
     This Demo Program shows a graph with (0,0) being at the center of the Graph
     area rather than at one of the corners.
-    
+
     It graphs the formula:
         y = sine(x/x2) * x1
-        
+
     The values of x1 and x2 can be changed using 2 sliders
 
     Copyright 2018, 2019, 2020, 2021, 2022 PySimpleGUI
-    
+
 """
 
 SIZE_X = 200
@@ -63,7 +63,7 @@ while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED:
         break
-        
+
     graph.erase()           # erase entire graph every time there's a change to a slider
     draw_axis()             # redraw the axis
 

@@ -9,14 +9,14 @@ import FreeSimpleGUI as sg
     One method for running multiple threads in a PySimpleGUI environment.
     The PySimpleGUI code, and thus the underlying GUI framework, runs as the primary, main thread
     Other parts of the software are implemented as threads
-    
+
     While users never know the implementation details within PySimpleGUI, the mechanism is that a queue.Queue
     is used to communicate data between a thread and a PySimpleGUI window.
     The PySimpleGUI code is structured just like a typical PySimpleGUI program.  A layout defined,
         a Window is created, and an event loop is executed.
 
     Copyright 2020 PySimpleGUI.org
-    
+
 """
 
 
@@ -141,4 +141,3 @@ def the_gui():
 
 if __name__ == '__main__':
     the_gui()
-

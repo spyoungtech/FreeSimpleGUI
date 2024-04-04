@@ -1,12 +1,12 @@
 import FreeSimpleGUIWeb as sg
 
 """
-  ____                         
- |  _ \ ___  _ __  _   _ _ __  
- | |_) / _ \| '_ \| | | | '_ \ 
+  ____
+ |  _ \ ___  _ __  _   _ _ __
+ | |_) / _ \| '_ \| | | | '_ \
  |  __/ (_) | |_) | |_| | |_) |
- |_|   \___/| .__/ \__,_| .__/ 
-            |_|         |_|  
+ |_|   \___/| .__/ \__,_| .__/
+            |_|         |_|
 
 A Popup demonstration. A "Popup" window is shown over the main
 window.  Clicking OK will close the Popup and you return to main again.

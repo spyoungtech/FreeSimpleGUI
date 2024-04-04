@@ -1,10 +1,10 @@
- 
-![free_simplegui_logo](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_readme/freesimplegui.png)        
+
+![free_simplegui_logo](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_readme/freesimplegui.png)
 
 
-[![PyPI Version](https://img.shields.io/pypi/v/freesimpleguiweb.svg?style=for-the-badge)](https://pypi.org/project/FreeSimpleGUIWeb/) 
+[![PyPI Version](https://img.shields.io/pypi/v/freesimpleguiweb.svg?style=for-the-badge)](https://pypi.org/project/FreeSimpleGUIWeb/)
 
-# PySimpleGUIWeb     
+# PySimpleGUIWeb
 
 PySimpleGUI running in your web browser!
 
@@ -14,7 +14,7 @@ Check out [repl.it](https://repl.it/@PySimpleGUI/PySimpleGUIWeb-Demos), the new 
 
 ## Primary PySimpleGUI Documentation
 
-To get instructions on how use PySimpleGUI's APIs, please reference the [main documentation](http://www.PySimpleGUI.org). 
+To get instructions on how use PySimpleGUI's APIs, please reference the [main documentation](http://www.PySimpleGUI.org).
 This Readme is for information ***specific to*** the Web port of PySimpleGUI.
 
 
@@ -23,17 +23,17 @@ This Readme is for information ***specific to*** the Web port of PySimpleGUI.
 PySimpleGUIWeb enables you to run your PySimpleGUI programs in your web browser.  It utilizes a package called Remi to achieve this amazing package.
 
 
-## Engineering Pre-Release  
+## Engineering Pre-Release
 
 Be aware you are running a "Pre-Rlease" version of PySimpleGUIWeb.  This means sh*t doesn't work in many places.  This also means that you get to have fun with the many things that DO work and that are being added to every week.
 
- [Announcements of Latest Developments](https://github.com/MikeTheWatchGuy/PySimpleGUI/issues/142)        
+ [Announcements of Latest Developments](https://github.com/MikeTheWatchGuy/PySimpleGUI/issues/142)
 
 
 Having trouble? Visit the [GitHub site ](http://www.PySimpleGUI.com) and log an Issue.
 
-        
-        
+
+
 ## Installation
 
 Installation is quite simple:
@@ -51,7 +51,7 @@ To use PySimpleGUIWeb you need to import it:
 
 From there follow the code examples in the Cookbook and the Demo Programs.  The only difference in those programs is the import statement.  The remainder of the code should work without modification.
 
-             
+
 ## Requirements
 
 PySimpleGUIWeb is based on the Remi project.  You will need to install Remi prior to running PySimpleGUIWeb:
@@ -63,8 +63,8 @@ You can learn more about Remi on its homepage.
 https://github.com/dddomodossola/remi
 
 PySimpleGUIWeb runs only on Python 3. Legacy Python (2.7) is not supported.
-  
-   
+
+
 ## What Works
 
 * Text Element
@@ -92,16 +92,16 @@ PySimpleGUIWeb runs only on Python 3. Legacy Python (2.7) is not supported.
 
 # Running online using repl.it
 
-This is something truly unique and amazing.   You can run your PySimpleGUI code in a web browser on a computer, phone, tablet without having Python installed on that computer.  Through the magic of repl.it and Remi you can run PySimpleGUI code anywhere you can run a browser.   Not only that, but you can embed these programs into web pages. In fact, this markdown document has one of these programs embedded in it.  
+This is something truly unique and amazing.   You can run your PySimpleGUI code in a web browser on a computer, phone, tablet without having Python installed on that computer.  Through the magic of repl.it and Remi you can run PySimpleGUI code anywhere you can run a browser.   Not only that, but you can embed these programs into web pages. In fact, this markdown document has one of these programs embedded in it.
 
-Here is where the iframe is inserted.  You may not see the page in some instances (like on GitHub).  
+Here is where the iframe is inserted.  You may not see the page in some instances (like on GitHub).
 
 Here's your sample program:
 
 <iframe height="400px" width="100%" src="https://repl.it/@PySimpleGUI/PySimpleGUIWeb-Demos?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-# Release Notes:  
-  
+# Release Notes:
+
 ## 0.1.0 PySimpleGUIWeb 22-Jan-2019
 
 * Initial release
@@ -139,9 +139,9 @@ Day 2 of development brings fonts, sizes, and colors...
 Functioning Elements
 * Text
 * Single line text input
-* Multiline Input 
-* Multiline Output 
-* Listbox 
+* Multiline Input
+* Multiline Output
+* Listbox
 * Combobox
 * Checkbox
 * Slider
@@ -256,10 +256,10 @@ New features
   * `text_color`
   * Font
   * Can get the value of the item clicked using Table.SelectedItem.  Can be coded as window.Element('_table_').SelectedItem
-  
-  
+
+
 ## 0.18.0 15-Mar-2019
-  
+
 * Hotfix for bug that causes Popups / secondary windows to crash
 * Table gets `starting_row_num` parameter
 
@@ -280,12 +280,12 @@ New features
 * Added support for base64 Images in Image.Update but it's not working! Don't use!
 * Changed web_update_interval=.0000001 from 0 (YIKES I HOPE SOMETHING DIDN'T BREAK!)
 
-  
+
 ## 0.21.0 10-Apr-2019 PySimpleGUIWeb
 
 * If `disable_close` parameter set in Window call, then Remi will not disconnect when browser closed.  Great for reconnecting.
 
-  
+
 ## 0.22.0 11-Apr-2019 PySimpleGUIWeb
 
 * NEW Window parameter layout so can skip calling Layout
@@ -309,7 +309,7 @@ New features
 	* Base64 not yet working
 
 ## 0.23.1 21-Apr-2019
-One-time patch to remove a debug print	
+One-time patch to remove a debug print
 
 # 0.24.0  PySimpleGUIWeb 23-Apr-2019
 
@@ -334,7 +334,7 @@ One-time patch to remove a debug print
 * Combo - converts values into a list of strings
 * Image.Update is working with both filename and base64 (but no size controls yet)
 * Window - new parameter - return_key_down_events. Normally it's key up events that are returned from Read calls
-* Returning keyboard input works!  
+* Returning keyboard input works!
 * Turned off Remi Logging completely (may be a bad idea. can change it back)
 * Rearranged code so that same code is used for first window and following windows
 * Window disable_close parameter controls wether or not server keeps running after user disconnects
@@ -359,7 +359,7 @@ One-time patch to remove a debug print
 	* enable_events works
 	* drag events works
 	* click events works
-	
+
 
 ## 0.28.1 PySimpleGUIWeb 15-May-2019
 
@@ -373,7 +373,7 @@ One-time patch to remove a debug print
 	* Correctly handling Update calls that change the list
 	* Correctly returns a LIST of items (even if only 1)
 * Button Graphics!
-	* Can specify either a filename or image data as the source 
+	* Can specify either a filename or image data as the source
 	* Update parameters image_data and image_filename work!
 * Fix in DrawLine. Wasn't returning the id
 * DrawRectangle fixes - transparent fill color is default. Correctly draws coordinates now
@@ -396,7 +396,7 @@ One-time patch to remove a debug print
 * Removed all delete functions in the classes.  Were poorly done and not consistent
 * Output element - fix for color defaults, CurrentValue contains all of the text currently shown
 * Image Element
-	* Rewrite done by Remi team!!! 
+	* Rewrite done by Remi team!!!
 	* Fixes flicker when using with OpenCV
 * Removed quite a bit of unused code
 * Added prints where items are not yet implemented
@@ -441,7 +441,7 @@ Themes +
 * Allow empty value to be specified when creating Image element
 * Fix for Text element crashing following the Remi 2020.2.5 release
 	* Crash will show trying to use method "set_layout_orientation"
-	
+
 ## 0.37.0 PySimpleGUIWeb 14-Apr-2020
 
 Catching up to latest Remi releases.
@@ -478,17 +478,17 @@ Element justification within Window and Containers!  Finally a unified justifica
 	* Frame
 	* Column
 	* Tab
-* New main() that shows Remi version and more info	
+* New main() that shows Remi version and more info
 
 
-# Design 
+# Design
 
-# Author 
- Mike B.        
-        
-   
-# License        
- GNU Lesser General Public License (LGPL 3) +        
-        
+# Author
+ Mike B.
+
+
+# License
+ GNU Lesser General Public License (LGPL 3) +
+
 # Acknowledgments
 This could not be possible without the Remi project!  Thank you Remi!!!!

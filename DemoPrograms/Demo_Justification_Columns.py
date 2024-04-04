@@ -2,9 +2,9 @@ import FreeSimpleGUI as sg
 
 """"
     Demo Justification Columns
-    
+
     Using Column elements to justify one or more elements within a window
-    
+
     Copyright 2021 PySimpleGUI
 """
 

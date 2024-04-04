@@ -64,5 +64,3 @@ while True:
 
 
 window.close()
-
-

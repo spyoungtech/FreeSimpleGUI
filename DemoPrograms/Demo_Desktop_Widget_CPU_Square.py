@@ -4,8 +4,8 @@ import sys
 
 """
     Another simple Desktop Widget using PySimpleGUI
-    This time a CPU Usage indicator.  The Widget is square.  
-    The bottom section will be shaded to 
+    This time a CPU Usage indicator.  The Widget is square.
+    The bottom section will be shaded to
     represent the total amount CPU currently in use.
     Uses the theme's button color for colors.
 

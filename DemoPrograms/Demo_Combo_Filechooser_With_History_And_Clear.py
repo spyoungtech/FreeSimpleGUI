@@ -2,18 +2,18 @@ import FreeSimpleGUI as sg
 
 """
     Demo Combo File Chooser - with clearable history
-    
+
     This is a design pattern that is very useful for programs that you run often that requires
     a filename be entered.  You've got 4 options to use to get your filename with this pattern:
     1. Copy and paste a filename into the combo element
     2. Use the last used item which will be visible when you create the window
     3. Choose an item from the list of previously used items
     4. Browse for a new name
-    
+
     To clear the list of previous entries, click the "Clear History" button.
-    
+
     The history is stored in a json file using the PySimpleGUI User Settings APIs
-    
+
     The code is as sparse as possible to enable easy integration into your code.
 
     Copyright 2021 PySimpleGUI

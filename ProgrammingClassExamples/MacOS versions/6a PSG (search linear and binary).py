@@ -4,7 +4,7 @@
 
 import FreeSimpleGUI as sg
 
-    
+
 sg.SetOptions(background_color = 'Grey',
             element_background_color = 'Grey',
             text_element_background_color = 'Grey',
@@ -34,7 +34,7 @@ def display_list(list, display):
     for l in list:                #add list elements with new line
         names = names + l + '\n'
     window.FindElement(display).Update(names)
-    
+
 #Linear Search - no need for Ordered list
 def linear_search():
     l = names[:]
@@ -47,38 +47,38 @@ def linear_search():
     if not found:
         window.FindElement('_display1_').Update(value['_linear_'] + ' was \nNot found')
 
-#Binary Search - only works for ordered lists      
+#Binary Search - only works for ordered lists
 def binary_search():
-    l = sorted_names[:]                                 
+    l = sorted_names[:]
     lo = 0
     hi = len(l)-1
     #Start with found is False
-    found = False                  
+    found = False
     while lo <= hi:
         #Start in middle
         mid = (lo + hi) //2
         #get the value from the search box
-        if l[mid] == value['_binary_']:    
+        if l[mid] == value['_binary_']:
             window.FindElement('_display2_').Update('Binary search\n' + l[mid] + ' found.')
             #If found display name and stop
-            found = True           
-            break                   
+            found = True
+            break
         elif l[mid] < value['_binary_']:
             #Search in top half
-            lo = mid + 1            
+            lo = mid + 1
         else:
             #Search in lower half
             hi = mid - 1
     #If we get to end  - display not found
-    if not found:                   
+    if not found:
         window.FindElement('_display2_').Update(value['_binary_'] + ' was \nNot found')
 
 while True:
-    button, value = window.Read() 
+    button, value = window.Read()
 
     if button is not None:
         #show names - unordered and sorted
-        if button == 'Show Names':  
+        if button == 'Show Names':
             display_list(names,'_display1_')
             display_list(sorted_names, '_display2_')
         if button == 'Linear Search':
@@ -86,5 +86,4 @@ while True:
         if button == 'Binary Search':
             binary_search()
     else:
-        break  
-
+        break

@@ -132,7 +132,7 @@ Macs and PySimpleGUI did not play well together up until Nov 2019 and the releas
 
 The problems were the normal tk.Button was not working correctly on the Mac.  You couldn't set the button color.  If you tried it appeared as if the text was missing.
 
-Users have recently reported the ability to install Python 3.7 from the Python.org website and not use the Homebrew version.  This resolved all of the button color problems. 
+Users have recently reported the ability to install Python 3.7 from the Python.org website and not use the Homebrew version.  This resolved all of the button color problems.
 
 Regardless of where you get your Python / tkinter, Macs can now enjoy using all of the look and feel color themes that Windows and Linux users are able to achieve.
 
@@ -159,7 +159,7 @@ This crash has plagued and mystified tkinter users for some time now.  It happen
 
 I'm thrilled to say there's a solution and it's easy to implement.  If you're getting this error, then here is what is causing it.
 
-When you close a window and delete the layout, the tkinter widgets that were in use in the window are no longer needed.  Python marks them to be handled by the "Garbage Collector".  They're deleted but not quite gone from memory.  Then, later, while your thread is running, the Python Garbage Collect algorithm decides it's time to run garbage collect.  When it tells tkinter to free up the memory, the tkinter code looks to see what context it is running under.  It sees that it's a thread, not the main thread, and generates this exception.  
+When you close a window and delete the layout, the tkinter widgets that were in use in the window are no longer needed.  Python marks them to be handled by the "Garbage Collector".  They're deleted but not quite gone from memory.  Then, later, while your thread is running, the Python Garbage Collect algorithm decides it's time to run garbage collect.  When it tells tkinter to free up the memory, the tkinter code looks to see what context it is running under.  It sees that it's a thread, not the main thread, and generates this exception.
 
 The way around this is actually quite easy.
 
@@ -181,7 +181,7 @@ The sequence looks like this in code:
     window = None
     gc.collect()
 ```
-    
+
 This will ensure that the tkinter widgets are all deleted in the context of the main-thread and another thread won't accidentally run the Garbage Collect
 
 
@@ -215,5 +215,4 @@ It's understood that this way of development of a Python package is unorthodox. 
 
 ## GitHub Repos
 
-If you've created a GitHub for your project that uses PySimpleGUI then please post screenshots in in the "User's Screenshots" Issue on the PySimpleGUI GitHub.  Say a little something about it and I'll also add it to the announcements. People *love* success stories and showing your GUI's screen visually communicates your success. 
-
+If you've created a GitHub for your project that uses PySimpleGUI then please post screenshots in in the "User's Screenshots" Issue on the PySimpleGUI GitHub.  Say a little something about it and I'll also add it to the announcements. People *love* success stories and showing your GUI's screen visually communicates your success.

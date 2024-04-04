@@ -3,10 +3,10 @@ import subprocess
 
 """
     Demo PyCharm Launch - Edit this file button
-    
+
     Quick demo to show you how to add a button to your code that when pressed will open the file
     in PyCharm for editing.
-    
+
     Note that this is a Windows version.  You'll need a slightly different path for Linux.
 
     Copyright 2020 PySimpleGUI.org

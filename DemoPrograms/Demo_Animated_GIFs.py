@@ -2,16 +2,16 @@ import FreeSimpleGUI as sg
 
 """
     Demo_Animated_GIFs.py
-    
+
     Shows how to:
     * Use popup_animated
     * Use animated GIF in a custom window layout
     * Store your GIFs in base64 format inside this source file (copy and paste into your source file)
-    
+
     The first image that uses popup_animated will stop after a few seconds on its own.
     The remaining images are shown 1 at a time. To move on to the next image, click the current image.
     If you want to exit before reaching the final image, right click the image and choose 'exit'
-    
+
     Copyright 2022 PySimpleGUI
 """
 

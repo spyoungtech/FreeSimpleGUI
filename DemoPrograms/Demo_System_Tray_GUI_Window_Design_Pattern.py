@@ -5,24 +5,24 @@ import time
 
 """
     Design pattern - System Tray and GUI Window
-    
+
     This design pattern will show you how to run a system tray icon and a GUI window
     simultaneously.  BOTH the system tray and the window will be active at the same time.
-    
+
     The "close window" action is similar to what most windows programs do that have a tray icon.
     When you close the window with an "X", it closes the GUI window and shows a message in the
     tray that the window has been "Minimized".
-    
+
     To make things "easier", a new window is created each time rather than trying to hide and unhide.
     On some systems, the hide method doesn't work very well (Raspberry Pi for example).
-    
+
     You can "Minimize" to the tray in 3 ways in this program:
         1. Click the "X" on the window
         2. Click the button "Minimize to tray"
         3. Right click tray icon and choose "Hide"
-        
+
     To exit the entire program, you will need to do this from the System tray by choosing "Exit"
-    
+
     Copyright 2020 PySimpleGUI.org
 """
 

@@ -8,7 +8,7 @@ sg.Popup('Test'*10, title='My title')
 # sg.Print('Outputting to another line\n')
 sg.PopupNonBlocking('Issues changed on GitHub ', 'First issue # is {}'.format(1), background_color='red',
                     keep_on_top=False)
-file = sg.PopupGetFile('Get file', save_as=False,file_types=(("ALL Files", "*.jpg"),), no_window=False)
+file = sg.PopupGetFile('Get file', save_as=False,file_types=(('ALL Files', '*.jpg'),), no_window=False)
 folder = sg.PopupGetFolder('Getting a folder', no_window=False)
 sg.Popup('Test'*10, title='My title')
 sg.Print('file = ', file)

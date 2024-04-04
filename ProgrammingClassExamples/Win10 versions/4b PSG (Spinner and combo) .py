@@ -3,7 +3,7 @@
 #Sep 2018
 
 import FreeSimpleGUI as sg
-sg.SetOptions(font= ('Calibri', 12, 'bold'))       
+sg.SetOptions(font= ('Calibri', 12, 'bold'))
 
 layout = [
     [sg.Text('Spinner and Combo box demo', font = ('Calibri', 14, 'bold'))],
@@ -34,6 +34,6 @@ while True:
                 result = 'NA'
             else:
                 result = round( val[0] / val[1], 3)
-        window.FindElement('_result_').Update(result)              
+        window.FindElement('_result_').Update(result)
     else:
-        break  
+        break

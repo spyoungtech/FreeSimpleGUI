@@ -3,10 +3,10 @@ import FreeSimpleGUI as sg
 import os
 
 '''
-    Simple Image Browser 
-    
+    Simple Image Browser
+
     This is an early demo program, so perhaps not quite as sophisticated as later ones.
-    
+
     Copyright 2021 PySimpleGUI
 '''
 

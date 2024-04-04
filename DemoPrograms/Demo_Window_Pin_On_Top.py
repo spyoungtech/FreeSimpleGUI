@@ -9,7 +9,7 @@ import FreeSimpleGUI as sg
     4.46.0.7 of PySimpleGUI provides the methods:
         Window.keep_on_top_set
         Window.keep_on_top_clear
-        
+
     A temporary implementation is included in case you don't have that version
 
     Copyright 2021 PySimpleGUI
@@ -76,4 +76,3 @@ if __name__ == '__main__':
         sg.Window.keep_on_top_set = keep_on_top_set
         sg.Window.keep_on_top_clear = keep_on_top_clear
     main()
-

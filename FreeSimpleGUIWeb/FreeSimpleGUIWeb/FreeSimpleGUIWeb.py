@@ -1,6 +1,6 @@
 #usr/bin/python3
 
-version = __version__ = "0.39.0.6  Unreleased\n , VSeparator added (spelling error), added default key for one_line_progress_meter, auto-add keys to tables & trees, Graph.draw_image now uses image_data property instead of calling set_image, added theme_add_new, changed Remi call menu_item.set_on_click_listener to menu_item.onclick.connect so it can run with latest Remi"
+version = __version__ = '0.39.0.6  Unreleased\n , VSeparator added (spelling error), added default key for one_line_progress_meter, auto-add keys to tables & trees, Graph.draw_image now uses image_data property instead of calling set_image, added theme_add_new, changed Remi call menu_item.set_on_click_listener to menu_item.onclick.connect so it can run with latest Remi'
 
 port = 'PySimpleGUIWeb'
 
@@ -40,21 +40,21 @@ except:
 """
     Welcome to the "core" PySimpleGUIWeb code....
 
-    This special port of the PySimpleGUI SDK to the browser is made possible by the magic of Remi 
+    This special port of the PySimpleGUI SDK to the browser is made possible by the magic of Remi
 
-    https://github.com/dddomodossola/remi 
+    https://github.com/dddomodossola/remi
 
     To be clear, PySimpleGUI would not be able to run in a web browser without this important GUI Framework
     It may not be as widely known at tkinter or Qt, but it should be.  Just as those are the best of the desktop
-    GUI frameworks, Remi is THE framework for doing Web Page GUIs in Python.  Nothing else like it exists.                                       
+    GUI frameworks, Remi is THE framework for doing Web Page GUIs in Python.  Nothing else like it exists.
 
-          :::::::::       ::::::::::         :::   :::       ::::::::::: 
-         :+:    :+:      :+:               :+:+: :+:+:          :+:      
-        +:+    +:+      +:+              +:+ +:+:+ +:+         +:+       
-       +#++:++#:       +#++:++#         +#+  +:+  +#+         +#+        
-      +#+    +#+      +#+              +#+       +#+         +#+         
-     #+#    #+#      #+#              #+#       #+#         #+#          
-    ###    ###      ##########       ###       ###     ###########       
+          :::::::::       ::::::::::         :::   :::       :::::::::::
+         :+:    :+:      :+:               :+:+: :+:+:          :+:
+        +:+    +:+      +:+              +:+ +:+:+ +:+         +:+
+       +#++:++#:       +#++:++#         +#+  +:+  +#+         +#+
+      +#+    +#+      +#+              +#+       +#+         +#+
+     #+#    #+#      #+#              #+#       #+#         #+#
+    ###    ###      ##########       ###       ###     ###########
 
 """
 
@@ -90,7 +90,7 @@ DEFAULT_MARGINS = (10, 5)  # Margins for each LEFT/RIGHT margin is first term
 DEFAULT_ELEMENT_PADDING = (5, 3)  # Padding between elements (row, col) in pixels
 DEFAULT_AUTOSIZE_TEXT = True
 DEFAULT_AUTOSIZE_BUTTONS = True
-DEFAULT_FONT = ("Helvetica", 15)
+DEFAULT_FONT = ('Helvetica', 15)
 DEFAULT_TEXT_JUSTIFICATION = 'left'
 DEFAULT_BORDER_WIDTH = 1
 DEFAULT_AUTOCLOSE_TIME = 3  # time in seconds to show an autoclose form
@@ -104,11 +104,11 @@ DEFAULT_PIXELS_TO_CHARS_SCALING = (10,26)      # 1 character represents x by y p
 DEFAULT_PIXEL_TO_CHARS_CUTOFF = 20             # number of chars that triggers using pixels instead of chars
 
 #################### COLOR STUFF ####################
-BLUES = ("#082567", "#0A37A3", "#00345B")
-PURPLES = ("#480656", "#4F2398", "#380474")
-GREENS = ("#01826B", "#40A860", "#96D2AB", "#00A949", "#003532")
-YELLOWS = ("#F3FB62", "#F0F595")
-TANS = ("#FFF9D5", "#F4EFCF", "#DDD8BA")
+BLUES = ('#082567', '#0A37A3', '#00345B')
+PURPLES = ('#480656', '#4F2398', '#380474')
+GREENS = ('#01826B', '#40A860', '#96D2AB', '#00A949', '#003532')
+YELLOWS = ('#F3FB62', '#F0F595')
+TANS = ('#FFF9D5', '#F4EFCF', '#DDD8BA')
 NICE_BUTTON_COLORS = ((GREENS[3], TANS[0]),
                       ('#000000', '#FFFFFF'),
                       ('#FFFFFF', '#000000'),
@@ -124,7 +124,7 @@ OFFICIAL_PYSIMPLEGUI_BUTTON_COLOR = ('white', BLUES[0])  # Colors should never b
 CURRENT_LOOK_AND_FEEL = 'DarkBlue3'
 
 
-DEFAULT_ERROR_BUTTON_COLOR = ("#FFFFFF", "#FF0000")
+DEFAULT_ERROR_BUTTON_COLOR = ('#FFFFFF', '#FF0000')
 DEFAULT_BACKGROUND_COLOR = None
 DEFAULT_ELEMENT_BACKGROUND_COLOR = None
 DEFAULT_ELEMENT_TEXT_COLOR = COLOR_SYSTEM_DEFAULT
@@ -486,7 +486,7 @@ class InputText(Element):
     update = Update
 
     class TextInput_raw_onkeyup(remi.gui.TextInput):
-        @remi.gui.decorate_set_on_listener("(self, emitter, key, keycode, ctrl, shift, alt)")
+        @remi.gui.decorate_set_on_listener('(self, emitter, key, keycode, ctrl, shift, alt)')
         @remi.gui.decorate_event_js("""var params={};params['key']=event.key;
                 params['keycode']=(event.which||event.keyCode);
                 params['ctrl']=event.ctrlKey;
@@ -497,7 +497,7 @@ class InputText(Element):
         def onkeyup(self, key, keycode, ctrl, shift, alt):
             return (key, keycode, ctrl, shift, alt)
 
-        @remi.gui.decorate_set_on_listener("(self, emitter, key, keycode, ctrl, shift, alt)")
+        @remi.gui.decorate_set_on_listener('(self, emitter, key, keycode, ctrl, shift, alt)')
         @remi.gui.decorate_event_js("""var params={};params['key']=event.key;
                 params['keycode']=(event.which||event.keyCode);
                 params['ctrl']=event.ctrlKey;
@@ -1010,10 +1010,10 @@ class MultilineOutput(Element):
         self.Widget._set_updated()
         app = self.ParentForm.App
 
-        if hasattr(app, "websockets"):
+        if hasattr(app, 'websockets'):
             app.execute_javascript(
                 'element=document.getElementById("%(id)s"); element.innerHTML=`%(content)s`; if(%(autoscroll)s){element.scrollTop=999999;} ' % {
-                    "id": self.Widget.identifier, "content": self.Widget.get_value(), "autoscroll": 'true' if autoscroll else 'false'})
+                    'id': self.Widget.identifier, 'content': self.Widget.get_value(), 'autoscroll': 'true' if autoscroll else 'false'})
 
         super().Update(self.Widget, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
@@ -1133,9 +1133,9 @@ class Output(Element):
             self.Widget.set_value(self.CurrentValue)
         self.Widget._set_updated()
         app = self.ParentForm.App
-        if hasattr(app, "websockets"):
+        if hasattr(app, 'websockets'):
             app.execute_javascript('element=document.getElementById("%(id)s"); element.innerHTML=`%(content)s`; element.scrollTop=999999; ' % {
-                "id":self.Widget.identifier, "content":self.Widget.get_value()})
+                'id':self.Widget.identifier, 'content':self.Widget.get_value()})
 
         super().Update(self.Widget, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
@@ -1147,7 +1147,7 @@ class Output(Element):
 # ---------------------------------------------------------------------- #
 class Button(Element):
     def __init__(self, button_text='', button_type=BUTTON_TYPE_READ_FORM, target=(None, None), tooltip=None,
-                 file_types=(("ALL Files", "*"),), initial_folder=None, disabled=False, change_submits=False, enable_events=False,
+                 file_types=(('ALL Files', '*'),), initial_folder=None, disabled=False, change_submits=False, enable_events=False,
                  image_filename=None, image_data=None, image_size=(None, None), image_subsample=None, border_width=None,
                  size=(None, None), auto_size_button=None, button_color=None, font=None, bind_return_key=False,
                  focus=False, pad=None, key=None, visible=True, size_px=(None,None)):
@@ -1241,7 +1241,7 @@ class Button(Element):
                     should_submit_window = True
             except:
                 pass
-        filetypes = (("ALL Files", "*"),) if self.FileTypes is None else self.FileTypes
+        filetypes = (('ALL Files', '*'),) if self.FileTypes is None else self.FileTypes
         if self.BType == BUTTON_TYPE_BROWSE_FOLDER:                     # Browse Folder
             wx_types = convert_tkinter_filetypes_to_wx(self.FileTypes)
             if self.InitialFolder:
@@ -1547,7 +1547,7 @@ class SuperImage(remi.gui.Image):
             try:
                 #here a base64 image is received
                 self.imagedata = base64.b64decode(file_path_name, validate=True)
-                self.attributes['src'] = "/%s/get_image_data?update_index=%s" % (id(self), str(time.time()))
+                self.attributes['src'] = '/%s/get_image_data?update_index=%s' % (id(self), str(time.time()))
             except binascii.Error:
                 #here an image data is received (opencv image)
                 self.imagedata = file_path_name
@@ -1746,14 +1746,14 @@ class Graph(Element):
 
         if type(image_source) is bytes or len(image_source) > 200:
             # rpoint.set_image("data:image/svg;base64,%s"%image_source)
-            rpoint.image_data = "data:image/svg;base64,%s"%image_source
+            rpoint.image_data = 'data:image/svg;base64,%s'%image_source
         else:
             mimetype, encoding = mimetypes.guess_type(image_source)
             with open(image_source, 'rb') as f:
                 data = f.read()
             b64 = base64.b64encode(data)
-            b64_str = b64.decode("utf-8")
-            image_string = "data:image/svg;base64,%s"%b64_str
+            b64_str = b64.decode('utf-8')
+            image_string = 'data:image/svg;base64,%s'%b64_str
             # rpoint.set_image(image_string)
             rpoint.image_data = image_string
         self.SvgGroup.append([rpoint,])
@@ -1767,7 +1767,7 @@ class Graph(Element):
             print('Call Window.Finalize() prior to this operation')
             return None
         self.Widget.empty()
-        self.SvgGroup = remi.gui.SvgSubcontainer(0, 0, "100%", "100%")
+        self.SvgGroup = remi.gui.SvgSubcontainer(0, 0, '100%', '100%')
         self.Widget.append(self.SvgGroup)
 
     def Update(self, background_color):
@@ -1921,9 +1921,9 @@ class Graph(Element):
 class CLASSframe( remi.gui.VBox ):
     def __init__(self, title, *args, **kwargs):
         super( CLASSframe, self ).__init__(*args, **kwargs)
-        self.style.update({"overflow":"visible","border-width":"1px","border-style":"solid","border-color":"#7d7d7d"})
+        self.style.update({'overflow':'visible','border-width':'1px','border-style':'solid','border-color':'#7d7d7d'})
         self.frame_label = remi.gui.Label('frame label')
-        self.frame_label.style.update({"position":"relative","overflow":"auto","background-color":"#ffffff","border-width":"1px","border-style":"solid","top":"-7px","width":"0px","height":"0px","left":"10px"})
+        self.frame_label.style.update({'position':'relative','overflow':'auto','background-color':'#ffffff','border-width':'1px','border-style':'solid','top':'-7px','width':'0px','height':'0px','left':'10px'})
         self.append(self.frame_label,'frame_label')
         self.set_title(title)
 
@@ -2554,8 +2554,8 @@ class TreeData(object):
 
     def __init__(self):
         self.tree_dict = {}
-        self.root_node = self.Node("", "", 'root', [])
-        self.tree_dict[""] = self.root_node
+        self.root_node = self.Node('', '', 'root', [])
+        self.tree_dict[''] = self.root_node
 
     def _AddNode(self, key, node):
         self.tree_dict[key] = node
@@ -3385,7 +3385,7 @@ class Window:
                 # self.window.OutputElementForStdOut.Widget.set_text("".join(lines))
                 # self.window.OutputElementForStdOut.Update("".join(lines))
                 if lines != self.lines_shown:
-                    self.window.OutputElementForStdOut.Update("".join(lines))
+                    self.window.OutputElementForStdOut.Update(''.join(lines))
                 self.lines_shown = lines
 
         def main(self, name='world'):
@@ -3425,12 +3425,12 @@ class Window:
 
         def on_window_close(self):
             # here you can handle the unload
-            print("app closing")
+            print('app closing')
             self.close()
             self.server.server_starter_instance._alive = False
             self.server.server_starter_instance._sserver.shutdown()
             # self.window.MessageQueue.put(None)
-            print("server stopped")
+            print('server stopped')
 
 FlexForm = Window
 
@@ -3531,7 +3531,7 @@ def FolderBrowse(button_text='Browse', target=(ThisRow, -1), initial_folder=None
 
 
 # -------------------------  FILE BROWSE Element lazy function  ------------------------- #
-def FileBrowse(button_text='Browse', target=(ThisRow, -1), file_types=(("ALL Files", "*.*"),), initial_folder=None,
+def FileBrowse(button_text='Browse', target=(ThisRow, -1), file_types=(('ALL Files', '*.*'),), initial_folder=None,
                tooltip=None, size=(None, None), auto_size_button=None, button_color=None, change_submits=False,
                font=None, disabled=False,
                pad=None, key=None):
@@ -3542,7 +3542,7 @@ def FileBrowse(button_text='Browse', target=(ThisRow, -1), file_types=(("ALL Fil
 
 
 # -------------------------  FILES BROWSE Element (Multiple file selection) lazy function  ------------------------- #
-def FilesBrowse(button_text='Browse', target=(ThisRow, -1), file_types=(("ALL Files", "*.*"),), disabled=False,
+def FilesBrowse(button_text='Browse', target=(ThisRow, -1), file_types=(('ALL Files', '*.*'),), disabled=False,
                 initial_folder=None, tooltip=None, size=(None, None), auto_size_button=None, button_color=None,
                 change_submits=False,
                 font=None, pad=None, key=None):
@@ -3553,7 +3553,7 @@ def FilesBrowse(button_text='Browse', target=(ThisRow, -1), file_types=(("ALL Fi
 
 
 # -------------------------  FILE BROWSE Element lazy function  ------------------------- #
-def FileSaveAs(button_text='Save As...', target=(ThisRow, -1), file_types=(("ALL Files", "*.*"),), initial_folder=None,
+def FileSaveAs(button_text='Save As...', target=(ThisRow, -1), file_types=(('ALL Files', '*.*'),), initial_folder=None,
                disabled=False, tooltip=None, size=(None, None), auto_size_button=None, button_color=None,
                change_submits=False, font=None,
                pad=None, key=None):
@@ -3564,7 +3564,7 @@ def FileSaveAs(button_text='Save As...', target=(ThisRow, -1), file_types=(("ALL
 
 
 # -------------------------  SAVE AS Element lazy function  ------------------------- #
-def SaveAs(button_text='Save As...', target=(ThisRow, -1), file_types=(("ALL Files", "*.*"),), initial_folder=None,
+def SaveAs(button_text='Save As...', target=(ThisRow, -1), file_types=(('ALL Files', '*.*'),), initial_folder=None,
            disabled=False, tooltip=None, size=(None, None), auto_size_button=None, button_color=None,
            change_submits=False, font=None,
            pad=None, key=None):
@@ -4116,7 +4116,7 @@ def AddMenuItem(top_menu, sub_menu_info, element, is_sub_menu=False, skip=False)
             # print(f'Adding command {sub_menu_info}')
             pos = sub_menu_info.find('&')
             if pos != -1:
-                if pos == 0 or sub_menu_info[pos - 1] != "\\":
+                if pos == 0 or sub_menu_info[pos - 1] != '\\':
                     sub_menu_info = sub_menu_info[:pos] + sub_menu_info[pos + 1:]
             if sub_menu_info == '---':
                 # top_menu.add('separator')
@@ -4146,7 +4146,7 @@ def AddMenuItem(top_menu, sub_menu_info, element, is_sub_menu=False, skip=False)
                 if type(sub_menu_info[i + 1]) == list:
                     pos = sub_menu_info[i].find('&')
                     if pos != -1:
-                        if pos == 0 or sub_menu_info[i][pos - 1] != "\\":
+                        if pos == 0 or sub_menu_info[i][pos - 1] != '\\':
                             sub_menu_info[i] = sub_menu_info[i][:pos] + sub_menu_info[i][pos + 1:]
                     if sub_menu_info[i][0] == MENU_DISABLED_CHARACTER:
                         new_menu = remi.gui.MenuItem(sub_menu_info[i][len(MENU_DISABLED_CHARACTER):], width=100, height=30)
@@ -4168,13 +4168,13 @@ def AddMenuItem(top_menu, sub_menu_info, element, is_sub_menu=False, skip=False)
     return return_val
 
 """
-          :::::::::       ::::::::::         :::   :::       ::::::::::: 
-         :+:    :+:      :+:               :+:+: :+:+:          :+:      
-        +:+    +:+      +:+              +:+ +:+:+ +:+         +:+       
-       +#++:++#:       +#++:++#         +#+  +:+  +#+         +#+        
-      +#+    +#+      +#+              +#+       +#+         +#+         
-     #+#    #+#      #+#              #+#       #+#         #+#          
-    ###    ###      ##########       ###       ###     ###########    
+          :::::::::       ::::::::::         :::   :::       :::::::::::
+         :+:    :+:      :+:               :+:+: :+:+:          :+:
+        +:+    +:+      +:+              +:+ +:+:+ +:+         +:+
+       +#++:++#:       +#++:++#         +#+  +:+  +#+         +#+
+      +#+    +#+      +#+              +#+       +#+         +#+
+     #+#    #+#      #+#              #+#       #+#         #+#
+    ###    ###      ##########       ###       ###     ###########
 """
 # ------------------------------------------------------------------------------------------------------------ #
 # ===================================== REMI CODE STARTS HERE ================================================ #
@@ -4732,7 +4732,7 @@ def PackFormIntoFrame(form, containing_frame, toplevel_form):
             elif element_type == ELEM_TYPE_GRAPH:
                 element = element  # type: Graph
                 element.Widget = remi.gui.Svg(width=element.CanvasSize[0], height=element.CanvasSize[1])
-                element.SvgGroup = remi.gui.SvgSubcontainer(0,0, "100%", "100%")
+                element.SvgGroup = remi.gui.SvgSubcontainer(0,0, '100%', '100%')
                 element.Widget.append([element.SvgGroup,])
                 do_font_and_color(element.Widget)
                 if element.ChangeSubmits:
@@ -4777,7 +4777,7 @@ def PackFormIntoFrame(form, containing_frame, toplevel_form):
                     pos = menu_entry[0].find('&')
                     # print(pos)
                     if pos != -1:
-                        if pos == 0 or menu_entry[0][pos - 1] != "\\":
+                        if pos == 0 or menu_entry[0][pos - 1] != '\\':
                             menu_entry[0] = menu_entry[0][:pos] + menu_entry[0][pos + 1:]
                     if menu_entry[0][0] == MENU_DISABLED_CHARACTER:
                         item = remi.gui.MenuItem(menu_entry[0][1:], width=100, height=element_size[1])
@@ -5243,9 +5243,9 @@ def setup_remi_window(app:Window.MyApp, window:Window):
     if not window.DisableClose:
         # add the following 3 lines to your app and the on_window_close method to make the console close automatically
         tag = remi.gui.Tag(_type='script')
-        tag.add_child("javascript", """window.onunload=function(e){sendCallback('%s','%s');return "close?";};""" % (
-            str(id(app)), "on_window_close"))
-        master_widget.add_child("onunloadevent", tag)
+        tag.add_child('javascript', """window.onunload=function(e){sendCallback('%s','%s');return "close?";};""" % (
+            str(id(app)), 'on_window_close'))
+        master_widget.add_child('onunloadevent', tag)
 
     if window.ReturnKeyboardEvents:
         app.page.children['body'].onkeyup.connect(window.on_key_up)
@@ -5464,10 +5464,10 @@ class EasyProgressMeterDataClass():
             time_per_item = 1
         seconds_remaining = (self.MaxValue - self.CurrentValue) * time_per_item
         time_remaining = str(datetime.timedelta(seconds=seconds_remaining))
-        time_remaining_short = (time_remaining).split(".")[0]
-        time_delta_short = str(time_delta).split(".")[0]
+        time_remaining_short = (time_remaining).split('.')[0]
+        time_delta_short = str(time_delta).split('.')[0]
         total_time = time_delta + datetime.timedelta(seconds=seconds_remaining)
-        total_time_short = str(total_time).split(".")[0]
+        total_time_short = str(total_time).split('.')[0]
         self.StatMessages = [
             '{} of {}'.format(self.CurrentValue, self.MaxValue),
             '{} %'.format(100 * self.CurrentValue // self.MaxValue),
@@ -5506,13 +5506,13 @@ def EasyProgressMeter(title, current_value, max_value, *args, orientation=None, 
     # if no meter currently running
     if EasyProgressMeter.Data.MeterID is None:  # Starting a new meter
         print(
-            "Please change your call of EasyProgressMeter to use OneLineProgressMeter. EasyProgressMeter will be removed soon")
+            'Please change your call of EasyProgressMeter to use OneLineProgressMeter. EasyProgressMeter will be removed soon')
         if int(current_value) >= int(max_value):
             return False
         del (EasyProgressMeter.Data)
         EasyProgressMeter.Data = EasyProgressMeterDataClass(title, 1, int(max_value), datetime.datetime.utcnow(), [])
         EasyProgressMeter.Data.ComputeProgressStats()
-        message = "\n".join([line for line in EasyProgressMeter.Data.StatMessages])
+        message = '\n'.join([line for line in EasyProgressMeter.Data.StatMessages])
         EasyProgressMeter.Data.MeterID, EasyProgressMeter.Data.MeterText = _ProgressMeter(title, int(max_value),
                                                                                           message, *args,
                                                                                           orientation=orientation,
@@ -5537,7 +5537,7 @@ def EasyProgressMeter(title, current_value, max_value, *args, orientation=None, 
     message = ''
     for line in EasyProgressMeter.Data.StatMessages:
         message = message + str(line) + '\n'
-    message = "\n".join(EasyProgressMeter.Data.StatMessages)
+    message = '\n'.join(EasyProgressMeter.Data.StatMessages)
     args = args + (message,)
     rc = _ProgressMeterUpdate(EasyProgressMeter.Data.MeterID, current_value,
                               EasyProgressMeter.Data.MeterText, *args)
@@ -5580,7 +5580,7 @@ def OneLineProgressMeter(title, current_value, max_value, key='OK for 1 meter', 
         meter_data = EasyProgressMeterDataClass(title, 1, int(max_value), datetime.datetime.utcnow(), [])
         _one_line_progress_meters[key] = meter_data
         meter_data.ComputeProgressStats()
-        message = "\n".join([line for line in meter_data.StatMessages])
+        message = '\n'.join([line for line in meter_data.StatMessages])
         meter_data.MeterID, meter_data.MeterText = _ProgressMeter(title, int(max_value), message, *args,
                                                                   orientation=orientation, bar_color=bar_color,
                                                                   size=size, button_color=button_color,
@@ -5598,7 +5598,7 @@ def OneLineProgressMeter(title, current_value, max_value, key='OK for 1 meter', 
     message = ''
     for line in meter_data.StatMessages:
         message = message + str(line) + '\n'
-    message = "\n".join(meter_data.StatMessages)
+    message = '\n'.join(meter_data.StatMessages)
     args = args + (message,)
     rc = _ProgressMeterUpdate(meter_data.MeterID, current_value,
                               meter_data.MeterText, *args)
@@ -5630,7 +5630,7 @@ def GetComplimentaryHex(color):
     # as good as substracting each of RGB component by 255(FF)
     comp_color = 0xFFFFFF ^ color
     # convert the color back to hex by prefixing a #
-    comp_color = "#%06X" % comp_color
+    comp_color = '#%06X' % comp_color
     return comp_color
 
 
@@ -7941,7 +7941,7 @@ def PopupGetFolder(message, default_path='', no_window=False, size=(None, None),
 
 # --------------------------- PopupGetFile ---------------------------
 
-def PopupGetFile(message, default_path='', default_extension='', save_as=False, file_types=(("ALL Files", "*.*"),),
+def PopupGetFile(message, default_path='', default_extension='', save_as=False, file_types=(('ALL Files', '*.*'),),
                  no_window=False, size=(None, None), button_color=None, background_color=None, text_color=None,
                  icon=DEFAULT_WINDOW_ICON, font=None, no_titlebar=False, grab_anywhere=False, keep_on_top=False,
                  location=(None, None), initial_folder=None):
@@ -8139,7 +8139,7 @@ def main():
         VerLine(ver, 'PySimpleGUI Version'),
         VerLine(os.path.dirname(os.path.abspath(__file__)), 'PySimpleGUI Location'),
         VerLine(sys.version, 'Python Version', size=(60,2)),
-        VerLine(pkg_resources.get_distribution("remi").version, 'Remi Version'),
+        VerLine(pkg_resources.get_distribution('remi').version, 'Remi Version'),
         # [Text('VERSION {}'.format(version), text_color='red', font='Courier 24')],
         [T('Current Time '), Text('Text', key='_TEXT_', font='Arial 18', text_color='black', size=(30,1)), Column(col1, background_color='red')],
         [T('Up Time'), Text('Text', key='_TEXT_UPTIME_', font='Arial 18', text_color='black', size=(30,1))],

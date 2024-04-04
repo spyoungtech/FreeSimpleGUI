@@ -10,9 +10,9 @@ import FreeSimpleGUI as sg
     The PySimpleGUI code, and thus the underlying GUI framework, runs as the primary, main thread
     The "long work" is contained in the thread that is being started. Communicating is done (carefully) using global variables
 
-    There are 2 ways "progress" is being reported to the user. 
+    There are 2 ways "progress" is being reported to the user.
     You can simulate the 2 different scenarios that happen with worker threads.
-    1.  If a the amount of time is known ahead of time or the work can be broken down into countable units, then a progress bar is used.  
+    1.  If a the amount of time is known ahead of time or the work can be broken down into countable units, then a progress bar is used.
     2.  If a task is one long chunk of time that cannot be broken down into smaller units, then an animated GIF is shown that spins as
     long as the task is running.
 """

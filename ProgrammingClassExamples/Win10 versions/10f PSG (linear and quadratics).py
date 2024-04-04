@@ -15,7 +15,7 @@ sg.SetOptions(font = ('Calibri', 14, 'bold'))
 
 def draw_figure(canvas, figure, loc = (0,0)):
 
-    figure_canvas_agg = FigureCanvasAgg(figure) 
+    figure_canvas_agg = FigureCanvasAgg(figure)
     figure_canvas_agg.draw()
     figure_x, figure_y, figure_w, figure_h = figure.bbox.bounds
     figure_w, figure_h = int(figure_w), int(figure_h)
@@ -51,11 +51,11 @@ def set_plot(a,b,c, function):
             b = ''
         if b == -1:
             b = '-'
-        title = str('y = ') + str(a) + 'x**2 + ' + str(b) + 'x + ' + str(c) 
+        title = str('y = ') + str(a) + 'x**2 + ' + str(b) + 'x + ' + str(c)
         ax.set_title(title)
     plt.plot(x,y)
 
-    
+
     #centre bottom and left axes to zero
 
     ax.spines['left'].set_position('zero')
@@ -82,10 +82,10 @@ column1 = [
            sg.Spin([sz for sz in range (-6,6)], initial_value =1, size = (3,2), key = '_b_'),
                 sg.Text('b', size = (3, 1)),
            sg.Spin([sz for sz in range (-6,6)], initial_value =1, size = (3,2), key = '_c_'),
-                sg.Text('c', size = (3, 1))], [sg.Text('', size = (1, 1))],   
+                sg.Text('c', size = (3, 1))], [sg.Text('', size = (1, 1))],
                [sg.ReadButton('Redraw Plot', button_color = ('White', 'Red'))],
                [sg.Text('', size = (1, 14))]]
-               
+
 column2 = [[sg.Text('Plot Test - PySimpleGUI and Matplotlib and options')],
           [sg.Canvas(size = (figure_w, figure_h), key = '_canvas_')],
           [sg.OK(pad=((figure_w / 2, 0), 1), size=(4, 1), button_color = ('White', 'Red'))]]
@@ -104,8 +104,6 @@ while True:
         function = value['_function_']
         set_plot(a,b,c,function)
         fig_photo = draw_figure(window.FindElement('_canvas_').TKCanvas, fig)
-        
-    if button is None:   
+
+    if button is None:
         break
-
-

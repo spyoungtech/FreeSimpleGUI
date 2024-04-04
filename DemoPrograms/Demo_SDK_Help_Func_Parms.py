@@ -4,10 +4,10 @@ import sys
 
 """
     Displays a window showing the parms for the PySimpleGUI functions
-    
+
     The default view is to only show function names that are all lower case.
-    You can change this by right clicking and choosing "Upper Case Too" 
-    
+    You can change this by right clicking and choosing "Upper Case Too"
+
     Copyright 2022 PySimpleGUI Project
 """
 

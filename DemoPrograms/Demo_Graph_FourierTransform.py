@@ -5,11 +5,11 @@ import time
 
 """
     Fourier Transform Animated Graph
-    
+
     A fun demonstration of the Graph Element and the drawing primitive draw_lines
     Written by Jason Yang, by an innovative PySimpleGUI user that has created a number
     of impressive animations using PySimpleGUI.
-    
+
     Copyright 2020 Jason Yang
 """
 

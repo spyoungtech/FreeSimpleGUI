@@ -5,17 +5,17 @@ import FreeSimpleGUI as sg
 
 """
     Threaded Demo - Uses Window.write_event_value communications
-    
+
     Requires PySimpleGUI.py version 4.25.0 and later
-    
+
     This is a really important demo  to understand if you're going to be using multithreading in FreeSimpleGUI.
-    
+
     Older mechanisms for multi-threading in PySimpleGUI relied on polling of a queue. The management of a communications
     queue is now performed internally to PySimpleGUI.
 
     The importance of using the new window.write_event_value call cannot be emphasized enough.  It will hav a HUGE impact, in
     a positive way, on your code to move to this mechanism as your code will simply "pend" waiting for an event rather than polling.
-    
+
     Copyright 2020 PySimpleGUI.org
 """
 

@@ -14,7 +14,7 @@
     ===============
 
     :param *args: Variable number of items to display
-    :type *args: (Any) 
+    :type *args: (Any)
     :param title: Title to display in the window.
     :type title: (str)
     :param button_type: Determines which pre-defined buttons will be shown (Default value = POPUP_BUTTONS_OK).
@@ -50,7 +50,7 @@
     :param location:  Location of upper left corner of the window
     :type location: Tuple[int, int]
 
-    
+
     :return: Returns text of the button that was pressed.  None will be returned if user closed window with X
     :rtype: Union[str, None, TIMEOUT_KEY]
 
@@ -72,7 +72,7 @@
     :param no_window:  if True, no PySimpleGUI window will be shown. Instead just the tkinter dialog is shown
     :type no_window: (bool)
     :param size: (width, height) of the InputText Element
-    :type size: Tuple[int, int] 
+    :type size: Tuple[int, int]
     :param button_color:  button color (foreground, background)
     :type button_color: Tuple[str, str]
     :param background_color: color of background
@@ -110,7 +110,7 @@
     :param multiple_files:  if True, then allows multiple files to be selected that are returned with ';' between each filename
     :type multiple_files: (bool)
     :param file_types: List of extensions to show using wildcards. All files (the default) = (("ALL Files", "*.*"),)
-    :type file_types:  Tuple[Tuple[str,str]] 
+    :type file_types:  Tuple[Tuple[str,str]]
     :param no_window:  if True, no PySimpleGUI window will be shown. Instead just the tkinter dialog is shown
     :type no_window:  (bool)
     :param size: (width, height) of the InputText Element

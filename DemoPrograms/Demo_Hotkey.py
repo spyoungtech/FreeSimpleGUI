@@ -9,7 +9,7 @@ import FreeSimpleGUI as sg
 
     This line binds the F10 keybaord key to the window. It produces a "Go" event:
         window.bind('<F10>', 'Go')
-    
+
     Copyright 2021 PySimpleGUI
 """
 

@@ -5,10 +5,10 @@ import os
 """
     Demo - Using pyglet to get custom fonts into PySimpleGUI
 
-    Original code by @jason990420 
+    Original code by @jason990420
 
     Copyright 2022 PySimpleGUI
-    
+
     Font information:
         Copyright (c) 2020, Walter E Stewart,
         with Reserved Font Name Open Flame.

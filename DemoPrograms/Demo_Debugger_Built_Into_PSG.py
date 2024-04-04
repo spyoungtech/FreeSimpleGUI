@@ -5,7 +5,7 @@ import FreeSimpleGUI as sg
     into your program.
     This particular program is a GUI based program simply to make it easier for you to interact and change
     things.
-    
+
     In this example, the debugger is not started initiallly. You click the "Debug" button to launch it
     There are THREE steps, and they are copy and pastes.
     1. At the top of your app to debug add

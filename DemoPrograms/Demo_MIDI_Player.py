@@ -157,7 +157,7 @@ def main():
     # ------ LOOP THROUGH MULTIPLE FILES --------------------------------------------------------- #
     pback.PlayerPlaybackGUIStart(NumFiles=len(filelist) if len(filelist) <= 10 else 10)
     port = None
-    
+
     # Loop through the files in the filelist
     for now_playing_number, current_midi_filename in enumerate(filelist):
         display_string = 'Playing Local File...\n{} of {}\n{}'.format(

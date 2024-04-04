@@ -10,7 +10,7 @@ Note - this code was written using version 0.8.7 of Chatterbot... to install:
 
 python -m pip install chatterbot==0.8.7
 
-It still runs fine with the old version. 
+It still runs fine with the old version.
 
 A GUI wrapped arouind the Chatterbot package.
 The GUI is used to show progress bars during the training process and

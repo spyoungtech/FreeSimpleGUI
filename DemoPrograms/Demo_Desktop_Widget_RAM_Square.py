@@ -4,7 +4,7 @@ import sys
 
 """
     Another simple Desktop Widget using PySimpleGUI
-    This time a RAM indicator.  The Widget is square.  The bottom section will be shaded to 
+    This time a RAM indicator.  The Widget is square.  The bottom section will be shaded to
     represent the total amount of RAM currently in use.
     The % and number of bytes in use is shown on top in text.
     Uses the theme's button color for colors.

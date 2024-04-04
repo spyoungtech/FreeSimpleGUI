@@ -4,23 +4,23 @@ import threading
 
 """
     Demo - Multi-threaded - Show Windows and perform other PySimpleGUI calls in what appread to be from a thread
-    
+
     Just so that it's clear, you CANNOT make PySimpleGUI calls directly from a thread.  There is ONE exception to this
     rule.  A thread may call  window.write_event_values which enables it to communicate to a window through the window.read calls.
 
-    The main GUI will not be visible on your screen nor on your taskbar despite running in the background.  The calls you 
+    The main GUI will not be visible on your screen nor on your taskbar despite running in the background.  The calls you
     make, such as popup, or even Window.read will create windows that your user will see.
-    
+
     The basic function that you'll use in your thread has this format:
         make_delegate_call(lambda: sg.popup('This is a popup', i, auto_close=True, auto_close_duration=2, keep_on_top=True, non_blocking=True))
 
     Everything after the "lambda" looks exactly like a PySimpleGUI call.
     If you want to display an entire window, then the suggestion is to put it into a function and pass the function to make_delegate_call
-    
+
     Note - the behavior of variables may be a bit of a surprise as they are not evaluated until the mainthread processes the event.  This means
     in the example below that the counter variable being passed to the popup will not appear to be counting correctly.  This is because the
-    value shown will be the value at the time the popup is DISPLAYED, not the value when the make_delegate_call was made. 
-    
+    value shown will be the value at the time the popup is DISPLAYED, not the value when the make_delegate_call was made.
+
     Copyright 2022 PySimpleGUI
 """
 

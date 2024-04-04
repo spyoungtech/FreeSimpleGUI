@@ -7,7 +7,7 @@ import textwrap
 
     Displays a small informational window with an Icon and a message in the lower right corner of the display
     Option to fade in/out or immediatealy display.
-    
+
     You can click on the notification window to speed things along.  The idea is that if you click while fading in, you should immediately see the info. If
     you click while info is displaying or while fading out, the window closes immediately.
 '''

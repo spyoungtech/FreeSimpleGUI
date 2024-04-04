@@ -18,7 +18,7 @@ import queue
     The parameters passed to the local popup are passed through a queue to the main thread.
     When a messages is received from the queue, sg.popup is called using the parms passed
     through the queue
-    
+
     Copyright 2021 PySimpleGUI.org
 """
 

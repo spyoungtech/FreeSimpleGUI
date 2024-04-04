@@ -21,7 +21,7 @@ column2 = [
     [sg.ReadButton('Submit', font = ('Calibri', 16, 'bold'), size = (8, 1))],
     [sg.Text('Result:', font = ('Calibri', 16, 'bold'))],[sg.InputText(size = (12,1), key = '_result_')]
     ]
-            
+
 
 layout = [
     [sg.Text('Slider and Combo box demo', font = ('Calibri', 16,'bold'))],
@@ -50,6 +50,6 @@ while True:
                 result = 'NA'
             else:
                 result = value[0] / value[1]
-        window.FindElement('_result_').Update(result)              
+        window.FindElement('_result_').Update(result)
     else:
-        break  
+        break

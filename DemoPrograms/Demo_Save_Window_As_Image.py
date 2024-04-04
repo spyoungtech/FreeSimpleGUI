@@ -3,13 +3,13 @@ from PIL import ImageGrab
 
 """
     Demo - Saving the contents of a window as an image file
-    
+
     This demo will teach you how to save any portion of your window to an image file.
     You can save in JPG, GIF, or PNG format.
-    
+
     In this example the entire window's layout is placed into a single Column Element.  This allows
     us to save an image of the Column which saves the entire window layout
-    
+
     Portions of windows can be saved, such as a Graph Element, by specifying the Graph Element instead of the Column
 """
 

@@ -3,13 +3,13 @@ import inspect
 
 """
     Displays a window showing the Init and Update parms for the PySimpleGUI Elements
-    
+
     The Function based elements (e.g. Push) can be found using the Demo Program Demo_SDK_Help_Func_Parms.py
-    
+
     If you've seen the Udemy course, then you saw this tool used in the element lessons
-    
+
     The Pink parameter signify the "Common" paramters that are shared among many of the elements
-    
+
     Copyright 2022 PySimpleGUI Project
 """
 

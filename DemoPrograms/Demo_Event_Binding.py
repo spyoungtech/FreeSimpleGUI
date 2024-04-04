@@ -11,7 +11,7 @@ import FreeSimpleGUI as sg
     First parameter is the tkinter event string.  These are things like <FocusIn> <Button-1> <Button-3> <Enter>
     Second parameter for windows is an entire key, for elements is something added onto a key.  This key or modified key is what is returned when you read the window.
     If the key modifier is text and the key is text, then the key returned from the read will be the 2 concatenated together.  Otherwise your event will be a tuple containing the key_modifier value you pass in and the key belonging to the element the event happened to.
-    
+
     Copyright 2021 PySimpleGUI
 """
 sg.theme('Dark Blue 3')

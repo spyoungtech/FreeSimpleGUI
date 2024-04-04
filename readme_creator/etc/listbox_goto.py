@@ -1,6 +1,6 @@
 import FreeSimpleGUIQt as sg
 print(sg)
-      
+
 
 dicta1 = {
     "a": "hellgdfgo world",
@@ -26,15 +26,15 @@ class ParsingError(object):
 
     def __str__(self):
         return self.__repr__()
-        
+
     def __repr__(self):
-        return f'{self.num} {self.psg_object}' 
+        return f'{self.num} {self.psg_object}'
 
     @staticmethod
     def headers():
         return 'num,psg_object'.split(',')
-    
-      
+
+
 items = [
     ParsingError(dicta1, 45),
     ParsingError(dicta2, 42),

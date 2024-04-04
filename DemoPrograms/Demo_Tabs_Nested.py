@@ -5,10 +5,10 @@ import FreeSimpleGUI as sg
 
     These are simple tabs and tab groups.  This example simply shows groups within groups.
     Be careful with tabs to make sure you don't re-use a layout.  If you used a layout in one tab
-        you cannot use it again in another tab.  
-        
-        There was an error in this demo for quite some time that makes for a great example of this error.  
-        
+        you cannot use it again in another tab.
+
+        There was an error in this demo for quite some time that makes for a great example of this error.
+
         See how tab_layout is in both Tab elements?  That's a no-go and you'll get an error poup
 
         tab_group = sg.TabGroup([[sg.Tab('Tab 7', tab_layout), sg.Tab('Tab 8', tab_layout)]])

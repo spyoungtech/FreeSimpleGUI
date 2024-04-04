@@ -10,7 +10,7 @@ from PIL import ImageGrab
 
 """
     Demo - Save Windows as Images
-    
+
     Works on WINDOWS only.
     Saves a window as an image file.  Tested saving as PNG and JPG.
     saved in the format indicated by the filename.

@@ -2,13 +2,13 @@ import FreeSimpleGUI as sg
 
 """
     Demo Status Bar
-    
+
     This demo shows you how to create your statusbar in a way that will keep it at the bottom of
-    a resizeable window.  The key is the correct setting of the Expand settings for both the 
+    a resizeable window.  The key is the correct setting of the Expand settings for both the
     StatusBar (done for you) and for a line above it that will keep it pushed to the bottom of the window.
     It's possible to also "simulate" a statusbar (i.e. use a text element or something else) by also
     configuring that element with the correct expand setting (X direction = True, expand row=True)
-    
+
     Copyright 2020 PySimpleGUI.org
 """
 
@@ -37,4 +37,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

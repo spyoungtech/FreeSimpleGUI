@@ -18,7 +18,7 @@ import base64
 
     Input: a single image file
     Output: clipboard will contain the Base64 Byte String of the source image
-    
+
     Copyright 2021 PySimpleGUI
 """
 

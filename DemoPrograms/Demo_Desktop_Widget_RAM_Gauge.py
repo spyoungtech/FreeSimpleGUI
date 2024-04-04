@@ -6,13 +6,13 @@ import math
 """
     Another simple Desktop Widget using PySimpleGUI
     This time a RAM Usage indicator using a custom Gauge element
-    
-    The Gauge class was developed by the brilliant PySimpleGUI user and support-helper @jason990420 
+
+    The Gauge class was developed by the brilliant PySimpleGUI user and support-helper @jason990420
     It has been hacked on a bit, had classes and functions moved around.  It could be cleaned up some
     but it's "good enough" at this point to release as a demo.
-    
+
     This is a good example of how you can use Graph Elements to create your own custom elements.
-    This Gauge element is created from a Graph element. 
+    This Gauge element is created from a Graph element.
 
     Copyright 2020 PySimpleGUI.org
 """

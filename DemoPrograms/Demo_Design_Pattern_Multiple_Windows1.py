@@ -3,13 +3,13 @@ import FreeSimpleGUI as sg
 """
     Design pattern multiple windows
     Using read_all_windows()
-    
+
     Only 1 window at a time is visible/active on the screen.
-    
+
     Window1 opens Window2
     When Window2 closes, Window1 reappears
     Program exits when Window1 is closed
-    
+
     Copyright 2020 PySimpleGUI.org
 """
 

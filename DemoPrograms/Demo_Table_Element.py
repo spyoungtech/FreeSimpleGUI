@@ -5,7 +5,7 @@ import string
 
 """
     Basic use of the Table Element
-    
+
     Copyright 2022 PySimpleGUI
 """
 
@@ -69,4 +69,3 @@ while True:
         window['-TABLE-'].update(row_colors=((8, 'white', 'red'), (9, 'green')))
 
 window.close()
-

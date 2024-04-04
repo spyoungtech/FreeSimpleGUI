@@ -120,4 +120,3 @@ if __name__ == '__main__':
     else:
         location = sg.user_settings_get_entry('-location-', (None, None))
     main(location)
-

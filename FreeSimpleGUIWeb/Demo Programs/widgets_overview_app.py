@@ -93,7 +93,7 @@ class MyApp(App):
             items, width=300, height=120, margin='10px')
         self.listView.onselection.connect(self.list_view_on_selected)
 
-        self.link = gui.Link("http://localhost:8081", "A link to here",
+        self.link = gui.Link('http://localhost:8081', 'A link to here',
                              width=200, height=30, margin='10px')
 
         self.dropDown = gui.DropDown.new_from_list(
@@ -114,23 +114,23 @@ class MyApp(App):
 
         self.video = gui.Widget(_type='iframe', width=290,
                                 height=200, margin='10px')
-        self.video.attributes['src'] = "https://drive.google.com/file/d/0B0J9Lq_MRyn4UFRsblR3UTBZRHc/preview"
+        self.video.attributes['src'] = 'https://drive.google.com/file/d/0B0J9Lq_MRyn4UFRsblR3UTBZRHc/preview'
         self.video.attributes['width'] = '100%'
         self.video.attributes['height'] = '100%'
         self.video.attributes['controls'] = 'true'
         self.video.style['border'] = 'none'
 
         self.tree = gui.TreeView(width='100%', height=300)
-        ti1 = gui.TreeItem("Item1")
-        ti2 = gui.TreeItem("Item2")
-        ti3 = gui.TreeItem("Item3")
-        subti1 = gui.TreeItem("Sub Item1")
-        subti2 = gui.TreeItem("Sub Item2")
-        subti3 = gui.TreeItem("Sub Item3")
-        subti4 = gui.TreeItem("Sub Item4")
-        subsubti1 = gui.TreeItem("Sub Sub Item1")
-        subsubti2 = gui.TreeItem("Sub Sub Item2")
-        subsubti3 = gui.TreeItem("Sub Sub Item3")
+        ti1 = gui.TreeItem('Item1')
+        ti2 = gui.TreeItem('Item2')
+        ti3 = gui.TreeItem('Item3')
+        subti1 = gui.TreeItem('Sub Item1')
+        subti2 = gui.TreeItem('Sub Item2')
+        subti3 = gui.TreeItem('Sub Item3')
+        subti4 = gui.TreeItem('Sub Item4')
+        subsubti1 = gui.TreeItem('Sub Sub Item1')
+        subsubti2 = gui.TreeItem('Sub Sub Item2')
+        subsubti3 = gui.TreeItem('Sub Sub Item3')
         self.tree.append([ti1, ti2, ti3])
         ti2.append([subti1, subti2, subti3, subti4])
         subti4.append([subsubti1, subsubti2, subsubti3])
@@ -305,7 +305,7 @@ class MyApp(App):
             f = filelist[0]
             # replace the last download link
             fdownloader = gui.FileDownloader(
-                "download selected", f, width=200, height=30)
+                'download selected', f, width=200, height=30)
             self.subContainerRight.append(fdownloader, key='file_downloader')
 
     def list_view_on_selected(self, widget, selected_item_key):
@@ -352,7 +352,7 @@ class MyApp(App):
         super(MyApp, self).on_close()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     # starts the webserver
     # optional parameters
     # start(MyApp,address='127.0.0.1', port=8081, multiple_instance=False,enable_file_cache=True, update_interval=0.1, start_browser=True)

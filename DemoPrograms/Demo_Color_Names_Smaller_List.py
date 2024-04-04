@@ -4,9 +4,9 @@ import FreeSimpleGUI as sg
 """
     Color names courtesy of Big Daddy's Wiki-Python
     http://www.wikipython.com/tkinter-ttk-tix/summary-information/colors/
-    
+
     Shows a big chart of colors... give it a few seconds to create it
-    Once large window is shown, you can click on any color and another window will popup 
+    Once large window is shown, you can click on any color and another window will popup
     showing both white and black text on that color
 """
 

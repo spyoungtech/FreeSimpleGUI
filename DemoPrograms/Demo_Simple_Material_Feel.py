@@ -2,7 +2,7 @@ import FreeSimpleGUI as sg
 
 """
     Demo - A simple minimal window with a material design feel
-    
+
     Contains base64 images for:
     * The PSG Yellow Graphic
     * The 2 toggle buttons

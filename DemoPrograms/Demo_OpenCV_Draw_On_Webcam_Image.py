@@ -7,10 +7,10 @@ import cv2
     webcam stream, as it's being displayed.  To "Draw" simply move your mouse over the image, left click and hold, and
     then drag your mouse.  You'll see a series of red circles on top of your image.
     CURRENTLY ONLY WORKS WITH PySimpleGUI, NOT any of the other ports at this time.
-    
-    Note also that this demo is using ppm as the image format.  This worked fine on all PySimpleGUI ports except 
+
+    Note also that this demo is using ppm as the image format.  This worked fine on all PySimpleGUI ports except
     the web port.  If you have trouble with the imencode statement, change "ppm" to "png"
-    
+
     Copyright 2021 PySimpleGUI
 """
 

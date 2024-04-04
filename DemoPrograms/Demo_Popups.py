@@ -3,12 +3,12 @@ import FreeSimpleGUI as sg
 import sys
 '''
     Usage of  Popups in PSG
-    
+
     While this is an older demo, it is a good instroduction to a FEW of the popups available to you.
     Check out the System Call Reference for the full list: http://www.PySimpleGUI.org
-    
+
     Copyright 2022 PySimpleGUI
-    
+
 '''
 # Here, have some windows on me....
 [sg.popup_no_wait('No-wait Popup', relative_location=(-500+100*x, -500)) for x in range(10)]

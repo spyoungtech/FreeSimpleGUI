@@ -3,7 +3,7 @@ import FreeSimpleGUI as sg
 """
     Creates a grid of buttons include of a column for scrolling
     This window looks much like a control panel
-    
+
     NOTE - The SCROLLING using the mousewheel is known to have a bug in the tkinter port.  You will need to have your mouse over the scrollbar to scroll with the mousewheel
 """
 

@@ -27,7 +27,7 @@ Basic steps are:
 #No exactly sure how all this works, but taken from example given as a template.
 def draw_figure(canvas, figure, loc = (0,0)):
 
-    figure_canvas_agg = FigureCanvasAgg(figure) 
+    figure_canvas_agg = FigureCanvasAgg(figure)
     figure_canvas_agg.draw()
     figure_x, figure_y, figure_w, figure_h = figure.bbox.bounds
     figure_w, figure_h = int(figure_w), int(figure_h)
@@ -61,5 +61,3 @@ window = sg.Window('Matplot in PySimpleGUI', force_toplevel = True).Layout(layou
 fig_photo = draw_figure(window.FindElement('_canvas_').TKCanvas, fig)
 
 button, value = window.Read()
-
-

@@ -6,14 +6,14 @@ sg.theme('Dark Blue 3')
 
 """
     Demonstration of simple and multiple one_line_progress_meter's as well as the Progress Meter Element
-    
+
     There are 4 demos
     1. Manually updated progress bar
     2. Custom progress bar built into your window, updated in a loop
     3. one_line_progress_meters, nested meters showing how 2 can be run at the same time.
     4. An "iterable" style progress meter - a wrapper for one_line_progress_meters
-    
-    If the software determined that a meter should be cancelled early, 
+
+    If the software determined that a meter should be cancelled early,
         calling OneLineProgresMeterCancel(key) will cancel the meter with the matching key
 """
 
@@ -23,7 +23,7 @@ sg.theme('Dark Blue 3')
     This demo function shows 3 different one_line_progress_meter tests
         1. A horizontal with red and white bar colors
         2. A vertical bar with default colors
-        3. A test showing 2 running at the same time 
+        3. A test showing 2 running at the same time
 """
 
 
@@ -161,7 +161,7 @@ def custom_meter_example():
 
 
 '''
-    A Wrapper for one_line_progress_meter that combines your iterable with a progress meter into a single interface.  Two functions are provided  
+    A Wrapper for one_line_progress_meter that combines your iterable with a progress meter into a single interface.  Two functions are provided
     progess_bar - The basic wrapper
     progress_bar_range - A "convienence function" if you wanted to specify like a range
 '''

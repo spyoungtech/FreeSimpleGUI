@@ -4,34 +4,34 @@ import time
 import FreeSimpleGUI as sg
 
 """
-    You want to look for 3 points in this code, marked with comment "LOCATION X". 
+    You want to look for 3 points in this code, marked with comment "LOCATION X".
     1. Where you put your call that takes a long time
     2. Where the trigger to make the call takes place in the event loop
     3. Where the completion of the call is indicated in the event loop
 
     Demo on how to add a long-running item to your PySimpleGUI Event Loop
-    If you want to do something that takes a long time, and you do it in the 
+    If you want to do something that takes a long time, and you do it in the
     main event loop, you'll quickly begin to see messages from windows that your
     program has hung, asking if you want to kill it.
-    
-    The problem is not that your problem is hung, the problem is that you are 
+
+    The problem is not that your problem is hung, the problem is that you are
     not calling Read or Refresh often enough.
-    
+
     One way through this, shown here, is to put your long work into a thread that
     is spun off, allowed to work, and then gets back to the GUI when it's done working
     on that task.
-    
+
     Every time you start up one of these long-running functions, you'll give it an "ID".
-    When the function completes, it will send to the GUI Event Loop a message with 
+    When the function completes, it will send to the GUI Event Loop a message with
     the format:
         work_id ::: done
     This makes it easy to parse out your original work ID
-    
+
     You can hard code these IDs to make your code more readable.  For example, maybe
     you have a function named "update_user_list()".  You can call the work ID "user list".
     Then check for the message coming back later from the work task to see if it starts
-    with "user list".  If so, then that long-running task is over. 
-    
+    with "user list".  If so, then that long-running task is over.
+
 """
 
 # ############################# User callable CPU intensive code #############################

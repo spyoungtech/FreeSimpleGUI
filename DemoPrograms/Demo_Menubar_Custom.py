@@ -2,13 +2,13 @@
 import FreeSimpleGUI as sg
 """
     Demo - The MenubarCustom element
-    
-    With the addition of the Custom Titlebar came the addition of a problem with the 
+
+    With the addition of the Custom Titlebar came the addition of a problem with the
     os provided menubar.  It's not possible to use the custom titlebar with the
     normal menubar.  The menubar ends up being placed above the titlebar.
-    
+
     Enter the MenubarCustom!
-    
+
     This "Compound Element" is not really an element but rather a combination of
     ButtonMenu elements and Column elements.  It's possible for users to create a similar
     construct. In fact, this element started as a Demo Program and then migrated into PySimpleGUI.
@@ -16,15 +16,15 @@ import FreeSimpleGUI as sg
     At the moment, you cannot perform all of the same operations using this custom menubar
     that you can with a traditional menubar.  Modifying the menu isn't possible yet.  In
     other words, it's a great start, but more work is needed such as adding an update method, etc.
-    
+
     For statically defined menus, it works great.  Shortuts are possible within the menus, but not
     for the initial selection.
-    
+
     You can use the same menu defition as the standard Menu element.
 
     The Menubar will tbe themed according to your current theme's colors.  The theme's button
     colors are used.  All of the colors can be changed from the menubar to the menu's text an background.
-    
+
     The disabled color has a problem.  The default tkinter gray is used even though PySimpleGUI sets the value.
     The color choice for the menubar background and text use the theme's button colors.
     You can change these color choices by changing the Menubar in the layout.

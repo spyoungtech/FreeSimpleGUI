@@ -1,17 +1,17 @@
- 
-![free_simplegui_logo](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_readme/freesimplegui.png)        
 
- 
-[![PyPI Version](https://img.shields.io/pypi/v/freesimpleguiwx.svg?style=for-the-badge)](https://pypi.org/project/FreeSimpleGUIWx/) 
+![free_simplegui_logo](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_readme/freesimplegui.png)
 
-        
-# PySimpleGUIWx        
+
+[![PyPI Version](https://img.shields.io/pypi/v/freesimpleguiwx.svg?style=for-the-badge)](https://pypi.org/project/FreeSimpleGUIWx/)
+
+
+# PySimpleGUIWx
 
 The WxPython port of PySimpleGUI
 
 ## Primary PySimpleGUI Documentation
 
-To get instructions on how use PySimpleGUI's APIs, please reference the [main documentation](http://www.PySimpleGUI.org). 
+To get instructions on how use PySimpleGUI's APIs, please reference the [main documentation](http://www.PySimpleGUI.org).
 This Readme is for information ***specific to*** the WxPython port of PySimpleGUI.
 
 
@@ -19,9 +19,9 @@ This Readme is for information ***specific to*** the WxPython port of PySimpleGU
 
 PySimpleGUIWx brings the number of PySimpleGUI ports to 3.
 
-Why use PySimpleGUIWx over PySimpleGUIQt PySimpleGUI (tkinter version)?  
+Why use PySimpleGUIWx over PySimpleGUIQt PySimpleGUI (tkinter version)?
 
-There are a couple of easy reasons to use PySimpleGUIWx over PySimpleGUIQt. One is footprint.  PyInstaller EXE for PySimpleGUIWx is 9 MB, on Qt it's 240 MB.  Another is cool widgets.  
+There are a couple of easy reasons to use PySimpleGUIWx over PySimpleGUIQt. One is footprint.  PyInstaller EXE for PySimpleGUIWx is 9 MB, on Qt it's 240 MB.  Another is cool widgets.
 
 WxPython has some nice advanced widgets that will be offered though PySimpleGUIWx, hopefully sooner than later.
 
@@ -36,12 +36,12 @@ This simple list is another way of looking at the question....
 
 
  ## Engineering Pre-Release   Version 0.13.0
- 
- [Announcements of Latest Developments](https://github.com/MikeTheWatchGuy/PySimpleGUI/issues/142)        
+
+ [Announcements of Latest Developments](https://github.com/MikeTheWatchGuy/PySimpleGUI/issues/142)
 
 Having trouble? Visit the [GitHub site ](http://www.PySimpleGUI.com) and log an Issue.
-              
-  
+
+
 ## What Works
 
 Remember, these are Engineering Releases.  Not all features are complete, but generally speaking those that are marked as completed and working are working quite well.  It's not an "Engineering Quality".  The completed features are at about a Beta level.
@@ -102,28 +102,28 @@ Remember, these are Engineering Releases.  Not all features are complete, but ge
 * PEP8 bindings for all element methods and functions
 
 
-It won't take long to poke at these and hit errors.  For example, the code to do Button Updates is not complete.  Most of the time you won't be doing this. 
+It won't take long to poke at these and hit errors.  For example, the code to do Button Updates is not complete.  Most of the time you won't be doing this.
 
-Due to the small size of the development team, features may feel a little "thin" for a while.  The idea is to implement with enough depth that 80% of the uses are covered.  It's a multi-pass, iterative approach.  
+Due to the small size of the development team, features may feel a little "thin" for a while.  The idea is to implement with enough depth that 80% of the uses are covered.  It's a multi-pass, iterative approach.
 
 If you, the reader, are having problems or have hit a spot where something is not yet implemented, then open an Issue.  They are often completed in a day.  This process of users pushing the boundaries is what drives the priorities for development.  It's "real world" kinds of problems that have made PySimpleGUI what it is today.
 
-  
-        
+
+
 ## SystemTray
 
 This was the first fully functioning feature of PySimpleGUIWx.  Previously only the Qt port supported the System Tray.  Why use Wx?  The footprint is much much smaller.  An EXE file created using PyInstaller is 9 MB for PySimpleGUIWx, when using Qt it's 240 MB.
 
-Now it's possible to "tack on" the System Tray to your PySimpleGUI application. 
+Now it's possible to "tack on" the System Tray to your PySimpleGUI application.
 
-If you're unable to upgrade to Qt but want the System Tray feature, then adding PySimpleGUIWx to your project may be the way to go.  
+If you're unable to upgrade to Qt but want the System Tray feature, then adding PySimpleGUIWx to your project may be the way to go.
 
 You can mix your System Tray's event loop with your normal Window event loop by adding a timeout to both your Window.Read call and your SystemTray.Read call.
 
 ### Source code compatibility
 
-PySimpleGUIWx's System Tray feature has been tested against the same PySimpleGUIQt feature.  As long as you don't use features that are not yet supported you'll find your source code will run on either PySimpleGUIQt or PySimpleGUIWx by changing the import statement.  
- 
+PySimpleGUIWx's System Tray feature has been tested against the same PySimpleGUIQt feature.  As long as you don't use features that are not yet supported you'll find your source code will run on either PySimpleGUIQt or PySimpleGUIWx by changing the import statement.
+
 
 ## System Tray Design Pattern
 
@@ -147,7 +147,7 @@ while True:
 
 ## Menu Definitions
 
-See the original, full documentation for PySimpleGUI to get an understanding of how menus are defined.  
+See the original, full documentation for PySimpleGUI to get an understanding of how menus are defined.
 
 
 ## SystemTray Methods
@@ -156,10 +156,10 @@ See the original, full documentation for PySimpleGUI to get an understanding of 
 
 ```python
 def Read(timeout=None)
-    '''  
- Reads the context menu  
+    '''
+ Reads the context menu
  :param timeout: Optional.  Any value other than None indicates a non-blocking read
- :return:   String representing meny item chosen. None if nothing read.  
+ :return:   String representing meny item chosen. None if nothing read.
     '''
 ```
 The `timeout` parameter specifies how long to wait for an event to take place.  If nothing happens within the timeout period, then a "timeout event" is returned.  These types of reads make it possible to run asynchronously.  To run non-blocked, specify `timeout=0`on the Read call (not yet supported).
@@ -182,21 +182,21 @@ Just like Qt, you can create a pop-up message.  Unlike Qt, you cannot set your o
 
 The preset `messageicon` values are:
 
-    SYSTEM_TRAY_MESSAGE_ICON_INFORMATION 
+    SYSTEM_TRAY_MESSAGE_ICON_INFORMATION
     SYSTEM_TRAY_MESSAGE_ICON_WARNING
-    SYSTEM_TRAY_MESSAGE_ICON_CRITICAL 
+    SYSTEM_TRAY_MESSAGE_ICON_CRITICAL
     SYSTEM_TRAY_MESSAGE_ICON_NOICON
 
 ```python
-ShowMessage(title, message, filename=None, data=None, data_base64=None, messageicon=None, time=10000):  
-    '''  
- Shows a balloon above icon in system tray  
- :param title:  Title shown in balloon  
- :param message: Message to be displayed  
- :param filename: Optional icon filename  
- :param data: Optional in-ram icon  
- :param data_base64: Optional base64 icon  
- :param time: How long to display message in milliseconds  :return:  
+ShowMessage(title, message, filename=None, data=None, data_base64=None, messageicon=None, time=10000):
+    '''
+ Shows a balloon above icon in system tray
+ :param title:  Title shown in balloon
+ :param message: Message to be displayed
+ :param filename: Optional icon filename
+ :param data: Optional in-ram icon
+ :param data_base64: Optional base64 icon
+ :param time: How long to display message in milliseconds  :return:
  '''
 ```
 
@@ -211,19 +211,19 @@ You can update any of these items within a SystemTray object
 
 ```python
 Update(menu=None, tooltip=None,filename=None, data=None, data_base64=None,)
-    '''  
- Updates the menu, tooltip or icon  
- :param menu: menu defintion  
- :param tooltip: string representing tooltip  
- :param filename:  icon filename  
- :param data:  icon raw image  
- :param data_base64: icon base 64 image  
- :return:  
+    '''
+ Updates the menu, tooltip or icon
+ :param menu: menu defintion
+ :param tooltip: string representing tooltip
+ :param filename:  icon filename
+ :param data:  icon raw image
+ :param data_base64: icon base 64 image
+ :return:
  '''
 ```
 ## Menus with Keys
 
-You can add a key to your menu items.  To do so, you add :: and the key value to the end of your menu definition. 
+You can add a key to your menu items.  To do so, you add :: and the key value to the end of your menu definition.
 
 `menu_def = ['File', ['Hide::key', '&Open::key', '&Save',['1', '2', ['a','b']], '&Properties', 'E&xit']]`
 
@@ -239,8 +239,8 @@ When a menu item has a key and it is chosen, then entire string is returned.  If
 Starting with release 0.4.0, most of the Popup functions work.  This means you can do things like show information in a window when there's a choice made in a System Tray menu.  Or if your program finds some event it wishes to inform the user about.  For example, when new Issues are posted on a GitHub project.
 
 
-# Release Notes:  
-  
+# Release Notes:
+
 ### 0.1.0   -   25-Dec-2018
 
 * Support for SystemTray
@@ -355,7 +355,7 @@ Starting with release 0.4.0, most of the Popup functions work.  This means you c
 
 * `do_not_clear` is now TRUE by default on Input and Multiline elements!!
 
-  
+
 ## 0.11.0 11-Apr-2019 PySimpleGUIWx
 
 * NEW Window parameter layout so can skip calling Layout
@@ -369,7 +369,7 @@ Starting with release 0.4.0, most of the Popup functions work.  This means you c
 * Renamed element callback functions to start with _
 * Removed __del__ methods everywhere except Output Element
 * Can "Call" an element which will call its Update method
-* InputText element - convert default text and password char to string 
+* InputText element - convert default text and password char to string
 * Removed old code such as tkinter's tooltip and drag and drop from Qt
 * Shortcut I for InputText
 * Listbox added size_px parm
@@ -439,14 +439,14 @@ Element justification within Window and Containers!  Finally a unified justifica
 * Quick patch of Multiline.update so that newlines are recognized correctly
 
 
-# Design        
-# Author 
- Mike B.        
-        
-   
-# License        
- GNU Lesser General Public License (LGPL 3) +        
-        
+# Design
+# Author
+ Mike B.
+
+
+# License
+ GNU Lesser General Public License (LGPL 3) +
+
 # Acknowledgments
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTIxNDIwNTI0ODQsODg2MzA1Mjk2XX0=

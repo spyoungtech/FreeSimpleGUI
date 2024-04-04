@@ -5,7 +5,7 @@ import subprocess
 # Destinations
 VIEW_ISSUES_URL = r'https://github.com/MikeTheWatchGuy/PySimpleGUI/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc'
 PULL_REQUEST_URL = r'https://github.com/MikeTheWatchGuy/PySimpleGUI/compare/master...Dev-latest'
-DISCORD = r"C:\Users\mike\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord.lnk"
+DISCORD = r'C:\Users\mike\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord.lnk'
 
 def system_tray():
 

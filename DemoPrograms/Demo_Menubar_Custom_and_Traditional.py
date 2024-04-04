@@ -99,7 +99,7 @@ def main():
             sg.execute_editor(__file__)
         elif event == 'Version':
             sg.popup_scrolled(__file__, sg.get_versions(), keep_on_top=True, non_blocking=True)
-            
+
         sg.cprint(f'event = {event}', c='white on red')
         sg.cprint(f'values = {values}', c='white on green')
 

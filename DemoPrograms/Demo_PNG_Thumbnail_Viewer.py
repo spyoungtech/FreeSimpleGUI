@@ -11,7 +11,7 @@ import base64
     Demo PNG Thumbnail Viewer
 
     Displays PNG files from a folder.
-    
+
     OK, so... this isn't the best Demo Program, that's for sure.  It's one of the older
     demos in the repo.  There are likely better ones to use.  The convert_to_bytes function is
     the best thing in this demo.
@@ -125,7 +125,7 @@ window = sg.Window('Image Browser', layout,
 # -------========= Event Loop =========--------
 display_index = 0
 while True:
-    
+
     for x in range(ROWS):               # update thumbnails
         for y in range(COLUMNS):
             cur_index = display_index + (x * COLUMNS) + y

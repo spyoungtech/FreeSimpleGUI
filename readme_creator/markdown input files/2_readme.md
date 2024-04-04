@@ -762,7 +762,7 @@ Regardless of how the close is performed on the window, PySimpleGUI returns an e
 
 Typically, the check for a closed window happens right after the `window.read()` call returns.  The reason for this is that operating on a closed window can result in errors.  The check for closure is an "if" statement.
 
-**ALWAYS** include a check for a closed window in your event loop.  
+**ALWAYS** include a check for a closed window in your event loop.
 
 ### The Window Closed If Statement
 
@@ -807,7 +807,7 @@ while True:
 window.close()
 ```
 
-Notice that the line after the while loop is a call to `window.close()`.  The reason for this is that exiting the loop can be in 2 ways. 
+Notice that the line after the while loop is a call to `window.close()`.  The reason for this is that exiting the loop can be in 2 ways.
 * The "X" is clicked
 * The Exit button is clicked
 
@@ -827,7 +827,7 @@ To enable this feature, the `Window` is created with something like this:
 window = sg.Window('Window Title', layout, enable_close_attempted_event=True)
 ```
 
-When the close attempted feature is enabled, when the user clicks the "X" or types ALT+F4, you will not get a WIN_CLOSED event like previously, you will instead get an event `WINDOW_CLOSE_ATTEMPTED_EVENT` and the window will remain open.  
+When the close attempted feature is enabled, when the user clicks the "X" or types ALT+F4, you will not get a WIN_CLOSED event like previously, you will instead get an event `WINDOW_CLOSE_ATTEMPTED_EVENT` and the window will remain open.
 
 Usually this feature is used to add a "close confirmation" popup.  The flow goes something like this:
 
@@ -838,7 +838,7 @@ Usually this feature is used to add a "close confirmation" popup.  The flow goes
 
 ### A Complete Example - Window Closed Confirmation (`enable_close_attempted_event=True`)
 
-Returning to the example used above, there has been only 2 modifications. 
+Returning to the example used above, there has been only 2 modifications.
 
 1. Added the parameter `enable_close_attempted_event=True` to the call to `Window`
 2. The if statement in the event loop has changed to add a confirmation
@@ -1108,19 +1108,19 @@ On Windows, using straight Python, this is the non-GUI alternative.
 
 ![image](https://user-images.githubusercontent.com/46163555/152658061-fb6bbbb4-b298-41a2-a725-4352719906a4.png)
 
-The 1970s and 1980s were a great era for computing, but I wouldn't call the user interfaces "attractive".  Borland made some great tools in the 90's for doing TUIs.  There are some excellent Python packages available for you if you're after a TUI!  If that's the look you're after, give them a try.  You may like the results.  But, it's not what PySimpleGUI is about.  
+The 1970s and 1980s were a great era for computing, but I wouldn't call the user interfaces "attractive".  Borland made some great tools in the 90's for doing TUIs.  There are some excellent Python packages available for you if you're after a TUI!  If that's the look you're after, give them a try.  You may like the results.  But, it's not what PySimpleGUI is about.
 
 We're making GUIs for the masses, something you can give to anyone and they'll understand how to use it.  If you asked a Windows user (i.e. a normal person, not a programmer) to open a command window in the past decade then you likely got a worried look back.  Normal people aren't going to use your Python program that's command line based and be thrilled about it.  Your programming pals will love your TUI, Mary, who works in accounting, will not.
 
-The example window may look "ugly" or dated to you.  ***It's fair to say that it looks dated***.  While PySimpleGUI Themes instantly give you a color scheme that matches, it doesn't go much further in making tkinter more attractive/"modern".  
+The example window may look "ugly" or dated to you.  ***It's fair to say that it looks dated***.  While PySimpleGUI Themes instantly give you a color scheme that matches, it doesn't go much further in making tkinter more attractive/"modern".
 
 ***However***, you are far from being out of options to improve the look of your GUI.  This bare-bones program is your **starting point**.  This is where you begin the process of making an attractive user interface.  You've not yet ***started*** to make your interface look better.
 
-No effort has been made to make it look nice. It's purely functional. There are 34 Elements in the window.  34 Elements. Considering what it does, it's miraculous or in the least incredibly impressive.  Why? Because in 65 lines of Python code that window was created, shown, and collected the results.  
+No effort has been made to make it look nice. It's purely functional. There are 34 Elements in the window.  34 Elements. Considering what it does, it's miraculous or in the least incredibly impressive.  Why? Because in 65 lines of Python code that window was created, shown, and collected the results.
 
-Let's be clear here... this window will take a massive amount of code using the conventional Python GUI packages.  If you manage to write a tkinter, Qt or WxPython program that shows all of these Widgets in under 65 lines of Python code, then by all means send the code over.  
+Let's be clear here... this window will take a massive amount of code using the conventional Python GUI packages.  If you manage to write a tkinter, Qt or WxPython program that shows all of these Widgets in under 65 lines of Python code, then by all means send the code over.
 
-Fair, side by side tests, recreating the exact same application, have shown numerous times that PySimpleGUI code is at least 1/2 to 1/10th the amount of code than tkinter requires.  
+Fair, side by side tests, recreating the exact same application, have shown numerous times that PySimpleGUI code is at least 1/2 to 1/10th the amount of code than tkinter requires.
 
 There is no magic behind why it's so much shorter.  PySimpleGUI is writing all the boilerplate code on your behalf.  The same tkinter code is being executed that you would write by hand.  The difference is that the code is contained in the PySimpleGUI source code instead of in your application code.  That's all that's going on with "wrappers" like PySimpleGUI.  Code is being generated and executed for you in order to simplify your code.
 
@@ -1154,16 +1154,16 @@ If, on the other hand, your operation is not under your control or you are unabl
 You've been at Python for a couple weeks, bravely ventured into GUI world, and the function you called when a button click is detected takes 20 seconds to complete.  Your window displays the "Not Responding" message.  If you ask what to do on StackOverflow, you'll be told that "all you have to do is use threads".
 
 ![image](https://user-images.githubusercontent.com/46163555/152658001-3e270768-0636-48f4-90b7-1fa4bb901ab2.png)
-Two weeks into programming, and you've just been told you need to learn Threading?  
+Two weeks into programming, and you've just been told you need to learn Threading?
 
 This exact scenario is why the window method `perform_long_operation` was created.  It's a way for you to "ease into" threading without learning about threading.  Forget that thread was even mentioned.  Let's just talk about "long operations" instead.
 
-There are 2 ways you can use this call.  If your function does not take any parameters, then you can enter the name of the function (**without the parentheses!**) as the first parameter to `perform_long_operation`.    
+There are 2 ways you can use this call.  If your function does not take any parameters, then you can enter the name of the function (**without the parentheses!**) as the first parameter to `perform_long_operation`.
 
 ```python
 window.perform_long_operation(my_function, '-FUNCTION COMPLETED-')
 ```
-  
+
 If your function has parameters, then you'll need to use a lambda.  Don't freak out at hearing "lambda" (yet).  Just add it as in this example code...
 
 ```python
@@ -1226,7 +1226,7 @@ Now, threads can directly inject events into a Window so that it will show up in
 
 You can see this new capability in action in this demo:  `Demo_Multithreaded_Write_Event_Value.py`
 
-Just use the Demo Browser to search for `write_event_value` to get more examples.  
+Just use the Demo Browser to search for `write_event_value` to get more examples.
 
 Here is that program for your inspection and education.  It's SO nice to no longer poll for threaded events.
 
@@ -1540,7 +1540,7 @@ tkinter has a number of "Themes" that can be used with ttk widgets.  In PySimple
 
 If a system-wide setting is desired, then the default can be set using `set_options`. This will affect all windows such as popups and the debug window.
 
-The ttk theme choices depend on the platform. Linux has a shorter number of selections than Windows.  
+The ttk theme choices depend on the platform. Linux has a shorter number of selections than Windows.
 
 The minimum list of TTK themes is:
 - default
@@ -1557,7 +1557,7 @@ Most Windows systems have some additional themes that come standard with tkinter
 - vista
 - xpnative
 
-The list of available themes is populated automatically when you open the Global PySimpleGUI Settings window.  Previously the list of themes was hard-coded by the PySimpleGUI code.  Now the list is retrieved from tkinter. 
+The list of available themes is populated automatically when you open the Global PySimpleGUI Settings window.  Previously the list of themes was hard-coded by the PySimpleGUI code.  Now the list is retrieved from tkinter.
 
 There are constants defined to help you with code completion to determine what your choices are.  Theme constants start with `THEME_`.  For example, the "clam" theme is `THEME_CLAM`
 
@@ -2343,7 +2343,7 @@ The conversion simply takes your `size[0]` and multiplies by 10 and your `size[1
 
 ##### Specifying Size as an INT
 
-Beginning in version 4.47.0 you can specify a single int as the size.  This will set the size to be a single row in height (1).  Writing `size=10` is now the same as writing `size=(10,1)`. A tuple is created on your behalf when you specify a size and an int.  This will save a considerable amount of typing, especially for the elements where you typically have only 1 row or can only have 1 row.  
+Beginning in version 4.47.0 you can specify a single int as the size.  This will set the size to be a single row in height (1).  Writing `size=10` is now the same as writing `size=(10,1)`. A tuple is created on your behalf when you specify a size and an int.  This will save a considerable amount of typing, especially for the elements where you typically have only 1 row or can only have 1 row.
 
 #### Colors
 
@@ -3879,7 +3879,7 @@ There are multiple ways to customize PySimpleGUI.  You can think of customizatio
  - Window
  - Element
 
-The function `set_options` is used to change settings that will apply globally.  If it's a setting that applies to Windows, then that setting will apply not only to Windows that you create, but also to popup Windows. 
+The function `set_options` is used to change settings that will apply globally.  If it's a setting that applies to Windows, then that setting will apply not only to Windows that you create, but also to popup Windows.
 
 Each lower level overrides the settings of the higher level.  Once settings have been changed, they remain changed for the duration of the program (unless changed again).
 
@@ -4568,9 +4568,9 @@ A new third way to set the TTK theme was added in the 4.60.0 release, the PySimp
 
 ## TTK Scrollbars
 
-TTK Scrollbars are quite flexible in how they can be styled.  PySimpleGUI provides many options for these scrollbars.  Like much of PySimpleGUI, TTK Scrollbars have been simplified for you so that you are not required to set each and every option.  There is a trade-off, a payment, for the trivialization of features.  The simplification removes a few settings that are instead done on your behalf.  
+TTK Scrollbars are quite flexible in how they can be styled.  PySimpleGUI provides many options for these scrollbars.  Like much of PySimpleGUI, TTK Scrollbars have been simplified for you so that you are not required to set each and every option.  There is a trade-off, a payment, for the trivialization of features.  The simplification removes a few settings that are instead done on your behalf.
 
-All scrollbars in all elements of PySimpleGUI have been gray for 4 years and now you get not only that sweet sweet dull system-default-gray, but 1,000s of other colors ***and*** they match your PySimpleGUI theme's colors automagically.  
+All scrollbars in all elements of PySimpleGUI have been gray for 4 years and now you get not only that sweet sweet dull system-default-gray, but 1,000s of other colors ***and*** they match your PySimpleGUI theme's colors automagically.
 
 ### "Test Scrollbar Settings"
 
@@ -4607,7 +4607,7 @@ This diagram shows the parts of a scrollbar that are discussed in the documentat
 
 That bar in the middle that you grab in order to manually scroll quickly is sometimes called the "thumb".... so that's what I'll call it.
 
-The question I'm sure many want to know is "how do I set just the color of the Thumb?"  I wanted to know that too!  The answer is... you can't.  It will be the same color as the background color of the buttons with the arrows. 
+The question I'm sure many want to know is "how do I set just the color of the Thumb?"  I wanted to know that too!  The answer is... you can't.  It will be the same color as the background color of the buttons with the arrows.
 
 #### Background
 
@@ -4615,7 +4615,7 @@ The reason you see 2 lines coming out of the word "Background" in the diagram is
 
 #### Trough
 
-The trough is the "ditch" of the scrollbar.  The Thumb slides in the Trough. 
+The trough is the "ditch" of the scrollbar.  The Thumb slides in the Trough.
 
 #### Button Arrow
 
@@ -4637,7 +4637,7 @@ The TTK Scrollbars in PySimpleGUI have a consistent mouse-over behavior.  When t
 
 "Swap" in this context means switching foreground and background colors.  The "Arrow Button Arrow Color" is the "foreground" and the "Background Color" is the "background".
 
-These 2 examples show the effect 
+These 2 examples show the effect
 
 The first example shows the mouse is over the top button of the scrollbar.  This button's colors have swapped the arrow color for the background color and vice versa.  See how the button at the top of the scrollbar is the "opposite" of the bottom button?
 
@@ -5055,7 +5055,7 @@ Exception module 'tkinter' has no attribute '__version__'
 
 # User Settings API
 
-In release 4.30.0 there is a new set of API calls available to help with "user settings".  Think of user settings as a dictionary that is automatically written to your hard drive.  That's basically what it is.  
+In release 4.30.0 there is a new set of API calls available to help with "user settings".  Think of user settings as a dictionary that is automatically written to your hard drive.  That's basically what it is.
 
 In release 4.50.0 support for INI files was added in addition to the existing JSON file format.
 
@@ -5597,11 +5597,11 @@ Instead of sleeping, you can request that an event be generated after some perio
 These are the API calls that you'll use to manage timers:
 
 
-`window.timer_start` starts a timer  
+`window.timer_start` starts a timer
 
-`window.timer_stop` stops a single timer  
+`window.timer_stop` stops a single timer
 
-`window.timer_stop_all` stops all timers  
+`window.timer_stop_all` stops all timers
 
 `window.timer_get_active_timers` returns a list of active timer IDs
 
@@ -5839,15 +5839,15 @@ window.close()
 
 # Troubleshooting
 
-![](https://raw.githubusercontent.com/PySimpleGUI/PySimpleGUI/master/images/emojis/frust_112.png)  
+![](https://raw.githubusercontent.com/PySimpleGUI/PySimpleGUI/master/images/emojis/frust_112.png)
 
 
-This section was added in early 2022, so it's a bit late in arriving, but it's a start.  This section meant to be found when searching for common errors.  
-  
-Some errors are too broad to cover here like module not found.  That one has a huge number of possible root causes.  
-  
-Instead, we're covering errors that are likely problems in your source code and they cannot be found by the PySimpleGUI code.  
-  
+This section was added in early 2022, so it's a bit late in arriving, but it's a start.  This section meant to be found when searching for common errors.
+
+Some errors are too broad to cover here like module not found.  That one has a huge number of possible root causes.
+
+Instead, we're covering errors that are likely problems in your source code and they cannot be found by the PySimpleGUI code.
+
 If it's any consolation, I run into these same errors frequently!  We're programmers and mistakes happen.
 
 
@@ -5893,4 +5893,3 @@ TypeError: list indices must be integers or slices, not Text
 
 Process finished with exit code 1
 ```
-

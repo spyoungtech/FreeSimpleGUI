@@ -3,10 +3,10 @@ import FreeSimpleGUI as sg
 """
     Demo - User Setting API to automatically save and load Input Elements
 
-    This Demo Program shows an easy way to add saving and loading of Input elements.  
-    
+    This Demo Program shows an easy way to add saving and loading of Input elements.
+
     The variable keys_to_save is used to determine which elements will be saved to the user settings file.
-    
+
     The function make_key returns a dictionary that's used as keyword parameters that are passed to the Input elements. Using this technique allows the Input elements in the layout to benefit from the docstrings provided by PySimpleGUI.  Another approach could be to use a function that returns an Input element, but that limits the flexibility for configuring Input elements.
 
     Copyright 2023 PySimpleGUI

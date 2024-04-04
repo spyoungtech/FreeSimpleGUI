@@ -9,7 +9,7 @@ import forecastio
 MY_LOCATION_LAT = 35.000000
 MY_LOCATION_LON = -79.000000
 ##### You need a free dark-sky key. You get 1000 calls a month for free #####
-DARKSKY_KEY =  ""     # *** INSERT YOUR DARKSKY KEY HERE **
+DARKSKY_KEY =  ''     # *** INSERT YOUR DARKSKY KEY HERE **
 
 NUM_COLS = 5                    # Changes number of days in forecast
 

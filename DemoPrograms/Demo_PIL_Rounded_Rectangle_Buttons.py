@@ -4,18 +4,18 @@ import FreeSimpleGUI as sg
 
 """
     Demo Rounded Rectangle Buttons created using PIL
-    
+
     A BIG thank you to @jason990420 for his talented work creating this demo.
-    
+
     Demonstrates how you can draw buttons rather than using the built-in buttons
     with the help of the PIL module.
-    
+
     One advantage is that the buttons will match your window's theme.
-    
-    You'll find more PySimpleGUI programs featured in 
+
+    You'll find more PySimpleGUI programs featured in
     Mike Driscoll's PIL book - "Pillow: Image Processing with Python"
-    
-    Copyright 2021 PySimpleGUI, @jason990420 
+
+    Copyright 2021 PySimpleGUI, @jason990420
 """
 
 

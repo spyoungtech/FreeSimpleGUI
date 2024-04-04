@@ -4,7 +4,7 @@ import FreeSimpleGUI as sg
     Simple field validation
     Input field should only accept digits 0-9.
     If non-digit entered, it is deleted from the field
-    
+
     Copyright 2022 PySimpleGUI
 """
 

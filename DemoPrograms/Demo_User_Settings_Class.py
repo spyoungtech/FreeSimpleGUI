@@ -3,15 +3,15 @@ import FreeSimpleGUI as sg
 """
     Demo - User Settings Using Class
 
-    There are 2 interfaces for the User Settings APIs in PySimpleGUI. 
+    There are 2 interfaces for the User Settings APIs in PySimpleGUI.
     1. Function calls
     2. The UserSettings class
-    
-    This demo focuses on using the class interface.  The advantage of using the class is that 
+
+    This demo focuses on using the class interface.  The advantage of using the class is that
     lookups resemble the syntax used for Python dictionaries
 
     This demo is very basic. The user_settings functions are used directly without a lookup table
-    or some other mechanism to map between PySimpleGUI keys and user settings keys. 
+    or some other mechanism to map between PySimpleGUI keys and user settings keys.
 
     Note that there are 2 coding conventions being used.  The PySimpleGUI Demo Programs all use
     keys on the elements that are strings with the format '-KEY-'.  They are upper case.  The
@@ -19,7 +19,7 @@ import FreeSimpleGUI as sg
     the same format, but are lower case.  A User Settings key is '-key-'.  The reason for this
     convention is so that you will immediately know what the string you are looking at is.
     By following this convention, someone reading the code that encounters '-filename-' will
-    immediately recognize that this is a User Setting.  
+    immediately recognize that this is a User Setting.
 
     Two windows are shown.  One is a super-simple "save previously entered filename"
     The other is a larger "settings window" where multiple settings are saved/loaded

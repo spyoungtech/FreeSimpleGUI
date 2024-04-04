@@ -4,7 +4,7 @@ import FreeSimpleGUI as sg
     Read all windows example
     The input elements are shown as output on the other window when "Go" is pressed
     The checkboxes on window 1 are mirrored on window 2 if "mirror" checkbox is set
-    
+
     Copyright 2022 PySimpleGUI
 """
 layout1 = [  [sg.Text('My Window')],

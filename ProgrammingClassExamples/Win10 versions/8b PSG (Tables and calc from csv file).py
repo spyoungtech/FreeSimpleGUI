@@ -64,4 +64,4 @@ while True:
             calc_ladder()
     else:
         break
-    
+

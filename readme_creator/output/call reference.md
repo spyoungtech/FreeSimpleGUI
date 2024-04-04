@@ -7,7 +7,7 @@
         <div>
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"> 
+            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
         </div>
         <div style="font-family: 'Roboto', sans-serif; background-color: #43ACE9; color: white; height: 400px; width: 250px; border-radius: 20px;">
             <div style="display: flex; padding-top: 10px; justify-content: center;">
@@ -23,7 +23,7 @@
                 </div>
                 <div style="text-align: center; margin-bottom: 10px; margin-top: 30px; padding: 0px 20px; font-weight: 700; font-size: 16px;">
                     <span style="font-weight: normal;">
-                        apply coupon for discount: 
+                        apply coupon for discount:
                     </span>
                     522B20BF5EF123C4AB30.
                 </div>
@@ -41,7 +41,7 @@ Here you will find the details for all Elements, Objects, and Functions that are
 
 ## This call reference document covers the tkinter port
 
-This documentation is created using the PySimpleGUI.py file which means it's based on the tkinter code. Some of the calls are different, might not exist at all, or there may be more methods/functions for the other PySimpleGUI ports (Qt, Wx, Web).  
+This documentation is created using the PySimpleGUI.py file which means it's based on the tkinter code. Some of the calls are different, might not exist at all, or there may be more methods/functions for the other PySimpleGUI ports (Qt, Wx, Web).
 
 The PySimpleGUIQt call reference is located in another location.
 
@@ -52,7 +52,7 @@ This section of the documentation is generated directly from the source code.  A
 # The Elements
 ---------
 
-## Button Element 
+## Button Element
 
     Button Element - Defines all possible buttons. The shortcuts such as Submit, FileBrowse, ... each create a Button
 
@@ -544,7 +544,7 @@ Parameter Descriptions:
 
 ---------
 
-## ButtonMenu Element 
+## ButtonMenu Element
 
     The Button Menu Element.  Creates a button that when clicked will show a menu similar to right click menu
 
@@ -968,7 +968,7 @@ Parameter Descriptions:
 
 ---------
 
-## Canvas Element 
+## Canvas Element
 
 ```
 Canvas(canvas = None,
@@ -1291,7 +1291,7 @@ Returns the underlying tkiner Canvas widget
 
 ---------
 
-## Checkbox Element 
+## Checkbox Element
 
     Checkbox Element - Displays a checkbox and text next to it
 
@@ -1707,7 +1707,7 @@ Parameter Descriptions:
 
 ---------
 
-## Column Element 
+## Column Element
 
     A container element that is used to create a layout within your window's layout
 
@@ -2171,7 +2171,7 @@ Parameter Descriptions:
 
 ---------
 
-## Combo Element 
+## Combo Element
 
     ComboBox Element - A combination of a single-line input and a drop-down menu. User can type in their own value or choose from list.
 
@@ -2615,7 +2615,7 @@ Parameter Descriptions:
 
 ---------
 
-## Frame Element 
+## Frame Element
 
     A Frame Element that contains other Elements. Encloses with a line around elements and a text label.
 
@@ -3047,7 +3047,7 @@ Parameter Descriptions:
 
 ---------
 
-## Graph Element 
+## Graph Element
 
     Creates an area for you to draw on.  The MAGICAL property this Element has is that you interact
     with the element using your own coordinate system.  This is an important point!!  YOU define where the location
@@ -4127,7 +4127,7 @@ Returns the underlying tkiner Canvas widget
 
 ---------
 
-## HorizontalSeparator Element 
+## HorizontalSeparator Element
 
     Horizontal Separator Element draws a Horizontal line at the given location.
 
@@ -4423,7 +4423,7 @@ Parameter Descriptions:
 
 ---------
 
-## Image Element 
+## Image Element
 
     Image Element - show an image in the window. Should be a GIF or a PNG only
 
@@ -4863,7 +4863,7 @@ Parameter Descriptions:
 
 ---------
 
-## Input Element 
+## Input Element
 
     Display a single text input field.  Based on the tkinter Widget `Entry`
 
@@ -5337,7 +5337,7 @@ Parameter Descriptions:
 
 ---------
 
-## Listbox Element 
+## Listbox Element
 
     A List Box.  Provide a list of values for the user to choose one or more of.   Returns a list of selected rows
     when a window.read() is executed.
@@ -5885,7 +5885,7 @@ Parameter Descriptions:
 
 ---------
 
-## Menu Element 
+## Menu Element
 
     Menu Element is the Element that provides a Menu Bar that goes across the top of the window, just below titlebar.
     Here is an example layout.  The "&" are shortcut keys ALT+key.
@@ -6303,7 +6303,7 @@ Parameter Descriptions:
 
 ---------
 
-## Multiline Element 
+## Multiline Element
 
     Multiline Element - Display and/or read multiple lines of text.  This is both an input and output element.
     Other PySimpleGUI ports have a separate MultilineInput and MultilineOutput elements.  May want to split this
@@ -6899,7 +6899,7 @@ Parameter Descriptions:
 
 ---------
 
-## OptionMenu Element 
+## OptionMenu Element
 
     Option Menu is an Element available ONLY on the tkinter port of PySimpleGUI.  It's is a widget that is unique
     to tkinter.  However, it looks much like a ComboBox.  Instead of an arrow to click to pull down the list of
@@ -7756,7 +7756,7 @@ Parameter Descriptions:
 
 ---------
 
-## Pane Element 
+## Pane Element
 
     A sliding Pane that is unique to tkinter.  Uses Columns to create individual panes
 
@@ -8116,7 +8116,7 @@ Parameter Descriptions:
 
 ---------
 
-## ProgressBar Element 
+## ProgressBar Element
 
     Progress Bar Element - Displays a colored bar that is shaded as progress of some operation is made
 
@@ -8545,7 +8545,7 @@ Parameter Descriptions:
 
 ---------
 
-## Radio Element 
+## Radio Element
 
     Radio Button Element - Used in a group of other Radio Elements to provide user with ability to select only
     1 choice in a list of choices.
@@ -9000,7 +9000,7 @@ Parameter Descriptions:
 
 -------
 
-## Sizegrip Element 
+## Sizegrip Element
 
         Sizegrip element will be added to the bottom right corner of your window.
         It should be placed on the last row of your window along with any other elements on that row.
@@ -9276,7 +9276,7 @@ The implementation is that the Widget member variable is returned. This is a bac
 
 ---------
 
-## Slider Element 
+## Slider Element
 
     A slider, horizontal or vertical
 
@@ -9666,7 +9666,7 @@ Parameter Descriptions:
 
 ---------
 
-## Spin Element 
+## Spin Element
 
     A spinner with up/down buttons and a single line of text. Choose 1 values from list
 
@@ -10102,7 +10102,7 @@ Parameter Descriptions:
 
 ---------
 
-## StatusBar Element 
+## StatusBar Element
 
     A StatusBar Element creates the sunken text-filled strip at the bottom. Many Windows programs have this line
 
@@ -10486,7 +10486,7 @@ Parameter Descriptions:
 
 ---------
 
-## Tab Element 
+## Tab Element
 
     Tab Element is another "Container" element that holds a layout and displays a tab with text. Used with TabGroup only
     Tabs are never placed directly into a layout.  They are always "Contained" in a TabGroup layout
@@ -10937,7 +10937,7 @@ Parameter Descriptions:
 
 ---------
 
-## TabGroup Element 
+## TabGroup Element
 
     TabGroup Element groups together your tabs into the group of tabs you see displayed in your window
 
@@ -11361,7 +11361,7 @@ Parameter Descriptions:
 
 ---------
 
-## Table Element 
+## Table Element
 
 ```
 Table(values,
@@ -11828,7 +11828,7 @@ Parameter Descriptions:
 
 ---------
 
-## Text Element 
+## Text Element
 
     Text - Display some text in the window.  Usually this means a single line of text.  However, the text can also be multiple lines.  If multi-lined there are no scroll bars.
 
@@ -12281,7 +12281,7 @@ Parameter Descriptions:
 
 ---------
 
-## Tree Element 
+## Tree Element
 
     Tree Element - Presents data in a tree-like manner, much like a file/folder browser.  Uses the TreeData class
     to hold the user's data and pass to the element for display.
@@ -12748,7 +12748,7 @@ Parameter Descriptions:
 
 ---------
 
-## TreeData (for Tree Element) 
+## TreeData (for Tree Element)
 
     Class that user fills in to represent their tree data. It's a very simple tree representation with a root "Node"
     with possibly one or more children "Nodes".  Each Node contains a key, text to display, list of values to display
@@ -12820,7 +12820,7 @@ Parameter Descriptions:
 
 ---------
 
-## VerticalSeparator Element 
+## VerticalSeparator Element
 
     Vertical Separator Element draws a vertical line at the given location. It will span 1 "row". Usually paired with
     Column Element if extra height is needed
@@ -16078,7 +16078,7 @@ Parameter Descriptions:
 
 ## Button Functions No Longer Used (DO NOT USE)
 
-Note - These are no longer recommended! 
+Note - These are no longer recommended!
 They are shown here in case you run into them in some old code.
 
 ```
@@ -17903,7 +17903,7 @@ Parameter Descriptions:
 
 ## Popup Not PEP8 Compliant names
 
-*** You should not use these function names! *** 
+*** You should not use these function names! ***
 
 These versions of the popup functions are here only for backwards compatibility. Instead use the popup functions that have snake_case rather than CamelCase.
 

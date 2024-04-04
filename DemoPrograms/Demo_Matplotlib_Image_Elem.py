@@ -6,15 +6,15 @@ import io
 
 """
     Demo_Matplotlib_Image_Elem Demo
-    
+
     Demo to show
         * How to use an Image element to show a Matplotlib figure
         * How to draw a Spectrogram
         * Hide the Image when a figure isn't present (shrinks the window automatically)
-        
+
     The example graph can be found in the matplotlib gallery:
-    https://matplotlib.org/stable/gallery/images_contours_and_fields/specgram_demo.html        
-    
+    https://matplotlib.org/stable/gallery/images_contours_and_fields/specgram_demo.html
+
     Copyright 2021 PySimpleGUI
 """
 

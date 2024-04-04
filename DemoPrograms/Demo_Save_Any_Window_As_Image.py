@@ -48,4 +48,3 @@ def save_win(filename=None, title=None):
 
 if __name__ == '__main__':
     save_win()
-

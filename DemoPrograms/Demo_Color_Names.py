@@ -2,14 +2,14 @@
 import FreeSimpleGUI as sg
 
 """
-   
+
     Shows a big chart of colors... give it a few seconds to create it
-    Once large window is shown, you can click on any color and another window will popup 
+    Once large window is shown, you can click on any color and another window will popup
     showing both white and black text on that color
     Uses TOOLTIPS to show the hex values for the colors.  Hover over a color and a tooltip will show you the RGB
     You will find the list of tkinter colors here:
          http://www.tcl.tk/man/tcl8.5/TkCmd/colors.htm
-    
+
     Copyright 2021 PySimpleGUI
 """
 

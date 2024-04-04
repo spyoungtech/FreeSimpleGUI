@@ -97,7 +97,7 @@ while True:  # Event Loop
     # print(event, values)
     if event in (sg.WIN_CLOSED, 'Exit'):
         break
-    
+
     area.space.step(0.01)
 
     if event == 'Player 2 Shoot':

@@ -6,10 +6,10 @@ import datetime
     Another simple Desktop Widget using PySimpleGUI
     The "Days UNTIL _______" Desktop Widget (Like Rainmeter)
 
-    This widget counts the number of days UNTIL some date of your choosing.  
+    This widget counts the number of days UNTIL some date of your choosing.
     Maybe you want to track the number of days until an anniversary?
-    
-    Unlike other demos, this one is being released as a .pyw file.  If launched on Windows, open with Pythonw.exe so 
+
+    Unlike other demos, this one is being released as a .pyw file.  If launched on Windows, open with Pythonw.exe so
         that you don't get a console Window.  That's how these desktop widgets are supposed to be launched, with no
         console.  I usually launch them from another Python program that starts them all at once using the Exec APIs
         built into PySimpleGUI.

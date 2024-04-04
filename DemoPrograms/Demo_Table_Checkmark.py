@@ -82,4 +82,3 @@ while True:
         window['-TABLE-'].update(values=data[1:][:], select_rows=list(selected))    # Update the table and the selected rows
 
 window.close()
-

@@ -12,14 +12,14 @@ __version__ = '1.12.2'
 
     Originaly written for PySimpleGUI Demo Programs, but expanded to
     be a general purpose tool. Enable Advanced Mode in settings for more fun
-    
+
     Use to filter and search your source code tree.
         Then run or edit your files
 
     Filter the list of :
         * Search using filename
         * Searching within the programs' source code (like grep)
-    
+
     The basic file operations are
         * Edit a file in your editor
         * Run a file
@@ -27,16 +27,16 @@ __version__ = '1.12.2'
         * Search in files
         * Run a regular expression search on all files
         * Display the matching line in a file
-    
+
     Additional operations
         * Edit this file in editor
-        
+
     Keeps a "history" of the previously chosen folders to easy switching between projects
-                
+
     Versions:
         1.8.0 - Addition of option to show ALL file types, not just Python files
-        1.12.0 - Fix for problem with spaces in filename and using an editor specified in the demo program settings  
-        1.12.2 - Better error handling for no editor configured                   
+        1.12.0 - Fix for problem with spaces in filename and using an editor specified in the demo program settings
+        1.12.2 - Better error handling for no editor configured
     Copyright 2021, 2022 PySimpleGUI.org
 """
 
@@ -187,7 +187,7 @@ def get_line_number(file_path, string, dupe_lines):
             if string.strip() == line.strip() and num not in dupe_lines:
                 lmn = num
     return lmn
-    
+
 def kill_ascii(s):
     return "".join([x if ord(x) < 128 else '?' for x in s])
 
@@ -327,7 +327,7 @@ def find_in_file(string, demo_files_dict, regex=False, verbose=False, window=Non
                     list_of_matches.append(_match.strip())
                 file_array_old.append(file_array_new)
                 file_array_old.append(file_match_list)
-                
+
                 if tail in file_lines_dict:
                     for i in range(1, 100):
                         new_tail = f'{tail}_{i}'
@@ -557,7 +557,7 @@ def main():
     while True:
         event, values = window.read()
         # print(event, values)
-        
+
         counter += 1
         if event in (sg.WINDOW_CLOSED, 'Exit'):
             break

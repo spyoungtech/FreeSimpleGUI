@@ -1,6 +1,6 @@
 #PySimple examples (v 3.9)
 #Tony Crewe
-#Oct 2018 MacOs 
+#Oct 2018 MacOs
 
 import FreeSimpleGUI as sg
 

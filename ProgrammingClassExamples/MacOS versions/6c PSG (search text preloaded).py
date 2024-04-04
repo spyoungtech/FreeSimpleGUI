@@ -17,7 +17,7 @@ names = ['Roberta', 'Kylie', 'Jenny', 'Helen',
 name = ''
 for l in names:
     name = name + l + '\n'
-    
+
 sorted_names = ['Andrea','Belinda','Deborah','Helen',
                'Jenny','Kylie','Meredith','Pauline',
             'Roberta','Wendy']
@@ -25,7 +25,7 @@ sorted_names = ['Andrea','Belinda','Deborah','Helen',
 sortname = ''
 for l in sorted_names:
     sortname = sortname + l +'\n'
-    
+
 layout =[[sg.Text('Search Demo', font =('Calibri', 18, 'bold'))],
 [sg.Text(name,size = (14, 11),relief=sg.RELIEF_SOLID,font = ('Calibri', 12), background_color ='White',key = '_display1_'),
  sg.Text(sortname,size = (14, 11),relief=sg.RELIEF_SOLID,font = ('Calibri', 12), background_color ='White',key = '_display2_')],
@@ -34,46 +34,45 @@ layout =[[sg.Text('Search Demo', font =('Calibri', 18, 'bold'))],
           [sg.ReadButton('Linear Search', size = (11,1)), sg.ReadButton('Binary Search', size = (11,1))],
          ]
 window = sg.Window('Search Demo').Layout(layout)
-   
+
 #Linear Search - no need for Ordered list
 def linear_search():
     l = names[:]
     found = False
     for l in l:
-        if l == value['_linear_']:            
+        if l == value['_linear_']:
             found = True
             sg.Popup('Linear search\n' + l + ' found.')
             break
     if not found:
         sg.Popup('Linear search\n' +(value['_linear_'] + ' was not found'))
 
-#Binary Search - only works for ordered lists      
+#Binary Search - only works for ordered lists
 def binary_search():
-    l = sorted_names[:]                                 
+    l = sorted_names[:]
     lo = 0
     hi = len(l)-1
-    found = False           
+    found = False
     while lo <= hi:
-        mid = (lo + hi) //2     
-        if l[mid] == value['_binary_']:    
+        mid = (lo + hi) //2
+        if l[mid] == value['_binary_']:
             sg.Popup('Binary search\n' + l[mid] + ' found.')
-            found = True            
-            break                   
+            found = True
+            break
         elif l[mid] < value['_binary_']:
-            lo = mid + 1            
+            lo = mid + 1
         else:
-            hi = mid - 1            
-    if not found:           
+            hi = mid - 1
+    if not found:
         sg.Popup('Binary search\n' +(value['_binary_'] + ' was not found'))
 
 while True:
-    button, value = window.Read() 
+    button, value = window.Read()
 
-    if button is not None:  
+    if button is not None:
         if button == 'Linear Search':
             linear_search()
         if button == 'Binary Search':
             binary_search()
     else:
-        break  
-
+        break

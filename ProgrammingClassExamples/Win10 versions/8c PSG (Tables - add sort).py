@@ -11,7 +11,7 @@ import csv
 import operator
 
 sg.ChangeLookAndFeel('Dark')
-                     
+
 def table_example():
 
     filename = sg.PopupGetFile('Get required file', no_window = True,file_types=(("CSV Files","*.csv"),))
@@ -26,23 +26,23 @@ def table_example():
     #initialise variables
     data = []
     header_list = []
-    with open(filename, "r") as infile:    
+    with open(filename, "r") as infile:
         reader = csv.reader(infile)
-        for i in range (1):               
+        for i in range (1):
             header = next(reader)
-            data = list(reader)             
-    header = header + ['%', 'Pts']      
+            data = list(reader)
+    header = header + ['%', 'Pts']
     for i in range (len(data)):
-    #calculate % 
+    #calculate %
         percent = int(data[i][5])/int(data[i][6])*100
-        data[i] = data[i] + [percent]       
+        data[i] = data[i] + [percent]
         pts = int(data[i][2])*4 + int(data[i][4])*2
-        data[i] = data[i] + [pts]          
+        data[i] = data[i] + [pts]
     #sort data
     #first by %
     data.sort(key = operator.itemgetter(7), reverse = True)
     #then by pts
-    data.sort(key = operator.itemgetter(8), reverse = True)    
+    data.sort(key = operator.itemgetter(8), reverse = True)
     #and format string to 2 decimal places
     for i in range(len(data)):
         data[i][7] = str('{:.2f}'.format(data[i][7]))

@@ -4,9 +4,9 @@ import FreeSimpleGUI as sg
 """
     Demo of Menu element, ButtonMenu element and right-click menus
 
-    The same basic structure is used for all menus in PySimpleGUI. 
+    The same basic structure is used for all menus in PySimpleGUI.
     Each entry is a list of items to display.  If any of those items is a list, then a cancade menu is added.
-    
+
     Copyright 2018, 2019, 2020, 2021, 2022 PySimpleGUI
 """
 

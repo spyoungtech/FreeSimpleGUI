@@ -8,7 +8,7 @@ import FreeSimpleGUI as sg
     The "trick" here is:
         * the first row of the layout has a Text element that expands vertically
         * the row with the Column has a text element that expands horizontally
-    
+
     This expanding Text element is what will cause the Column element to be centered
 
     Copyright 2020 PySimpleGUI.org

@@ -2,25 +2,25 @@ import FreeSimpleGUI as sg
 
 """
     Demo - User Settings - Config.ini format
-    
+
     There are now 2 types of settings files available through the UserSettings APIs
         1. JSON - .json files
         2. INI - Config.ini files
 
     The default is JSON files.
-    
+
     If you wish to use .ini files, then you can do so using the UserSettings object.  The function interface
     for the UserSettings API does not support .ini files, only the object interface at this time.  You'll see
     why by looking at this demo.
-    
+
     JSON settings:
         settings['key']
-        
+
     CONFIG.INI settings:
         settings['section']['key']
-    
+
     NOTE - There is a setting (default is ON) that converts True", "False, "None" into Python values of True, False, None
-     
+
     Copyright 2021 PySimpleGUI
 """
 

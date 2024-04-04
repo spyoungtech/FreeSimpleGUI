@@ -6,7 +6,7 @@ import base64
 import os
 
 """
-    Using PIL with PySimpleGUI 
+    Using PIL with PySimpleGUI
 
     This image viewer uses both a thumbnail creation function and an image resizing function that
     you may find handy to include in your code.

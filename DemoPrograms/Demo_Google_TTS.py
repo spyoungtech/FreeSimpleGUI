@@ -10,7 +10,7 @@ import os
     Get a multi-line string
     Convert to speech
     Play back the speech
-    
+
     Note that there are 2 temp files created. The program tries to delete them but will fail on one of them
 '''
 

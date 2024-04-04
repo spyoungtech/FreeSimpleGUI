@@ -4,12 +4,12 @@ import urllib.parse
 
 """
     Beta of the GitHub Issue Post Code
-    
+
     This program is going to be inside of PySimpleGUI itself.
-    
-    It produces Markdown code that 
-    
-    
+
+    It produces Markdown code that
+
+
 """
 
 def _github_issue_post_make_markdown(issue_type, operating_system, os_ver, psg_port, psg_ver, gui_ver, python_ver,

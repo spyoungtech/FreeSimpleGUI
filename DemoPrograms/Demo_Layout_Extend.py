@@ -6,10 +6,10 @@ import FreeSimpleGUI as sg
     This demo shows how to extend both.
     Note that while you can extend, add to, a layout, you cannot delete items from a layout.  Of course you
     can make them invisible after adding them.
-    
+
     When using scrollable Columns be sure and call Column.visibility_changed so that the scrollbars will
         be correctly reposititioned
-        
+
     Copyright 2020, 2022 PySimpleGUI
 """
 

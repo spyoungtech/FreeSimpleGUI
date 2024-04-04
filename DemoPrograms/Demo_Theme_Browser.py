@@ -1,7 +1,7 @@
 import FreeSimpleGUI as sg
 
 """
-    Allows you to "browse" through the theme settings.  Click on one and you'll see a 
+    Allows you to "browse" through the theme settings.  Click on one and you'll see a
     Popup window using the color scheme you chose.  It's a simply little program that demonstrates
     how snappy a GUI can feel if you enable an element's events rather than waiting on a button click.
     In this program, as soon as a listbox entry is clicked, the read returns.

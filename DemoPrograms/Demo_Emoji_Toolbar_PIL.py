@@ -22,7 +22,7 @@ import sys
 
     You can replace the emojis with your own version of emojis.  Use one of the many PySimpleGUI Base64 encoder demos
         to create your Base64 strings based on PNG files.  PNG is what enables a transparent background.
-    
+
     6-Feb-2022
         The design took a turn and is kinda weird now... sorry about that but wanted to work in more emojis
         and the pre-rendering approach from before got replaced with a resizing of a single starting image.
@@ -34,13 +34,13 @@ EMOJI_SIZES = (28, 56, 112)
 NUM_ROWS = 3                # Number of rows of Emojis. Note, may be 1 more than this if there is an incomplete row
 
 '''
-MM"""""""`YM M""M M""MMMMMMMM    M""MMMMM""MM          dP                                     
-MM  mmmmm  M M  M M  MMMMMMMM    M  MMMMM  MM          88                                     
-M'        .M M  M M  MMMMMMMM    M         `M .d8888b. 88 88d888b. .d8888b. 88d888b. .d8888b. 
-MM  MMMMMMMM M  M M  MMMMMMMM    M  MMMMM  MM 88ooood8 88 88'  `88 88ooood8 88'  `88 Y8ooooo. 
-MM  MMMMMMMM M  M M  MMMMMMMM    M  MMMMM  MM 88.  ... 88 88.  .88 88.  ... 88             88 
-MM  MMMMMMMM M  M M         M    M  MMMMM  MM `88888P' dP 88Y888P' `88888P' dP       `88888P' 
-MMMMMMMMMMMM MMMM MMMMMMMMMMM    MMMMMMMMMMMM             88                                  
+MM"""""""`YM M""M M""MMMMMMMM    M""MMMMM""MM          dP
+MM  mmmmm  M M  M M  MMMMMMMM    M  MMMMM  MM          88
+M'        .M M  M M  MMMMMMMM    M         `M .d8888b. 88 88d888b. .d8888b. 88d888b. .d8888b.
+MM  MMMMMMMM M  M M  MMMMMMMM    M  MMMMM  MM 88ooood8 88 88'  `88 88ooood8 88'  `88 Y8ooooo.
+MM  MMMMMMMM M  M M  MMMMMMMM    M  MMMMM  MM 88.  ... 88 88.  .88 88.  ... 88             88
+MM  MMMMMMMM M  M M         M    M  MMMMM  MM `88888P' dP 88Y888P' `88888P' dP       `88888P'
+MMMMMMMMMMMM MMMM MMMMMMMMMMM    MMMMMMMMMMMM             88
                                                           dP
 '''
 
@@ -103,20 +103,20 @@ def convert_to_bytes(file_or_bytes, resize=None, fill=False):
 
 
 '''
-M"""""`'"""`YM          dP                
-M  mm.  mm.  M          88                
-M  MMM  MMM  M .d8888b. 88  .dP  .d8888b. 
-M  MMM  MMM  M 88'  `88 88888"   88ooood8 
-M  MMM  MMM  M 88.  .88 88  `8b. 88.  ... 
-M  MMM  MMM  M `88888P8 dP   `YP `88888P' 
-MMMMMMMMMMMMMM                            
+M"""""`'"""`YM          dP
+M  mm.  mm.  M          88
+M  MMM  MMM  M .d8888b. 88  .dP  .d8888b.
+M  MMM  MMM  M 88'  `88 88888"   88ooood8
+M  MMM  MMM  M 88.  .88 88  `8b. 88.  ...
+M  MMM  MMM  M `88888P8 dP   `YP `88888P'
+MMMMMMMMMMMMMM
 
-M""MMM""MMM""M oo                dP                     
-M  MMM  MMM  M                   88                     
-M  MMP  MMP  M dP 88d888b. .d888b88 .d8888b. dP  dP  dP 
-M  MM'  MM' .M 88 88'  `88 88'  `88 88'  `88 88  88  88 
-M  `' . '' .MM 88 88    88 88.  .88 88.  .88 88.88b.88' 
-M    .d  .dMMM dP dP    dP `88888P8 `88888P' 8888P Y8P  
+M""MMM""MMM""M oo                dP
+M  MMM  MMM  M                   88
+M  MMP  MMP  M dP 88d888b. .d888b88 .d8888b. dP  dP  dP
+M  MM'  MM' .M 88 88'  `88 88'  `88 88'  `88 88  88  88
+M  `' . '' .MM 88 88    88 88.  .88 88.  .88 88.88b.88'
+M    .d  .dMMM dP dP    dP `88888P8 `88888P' 8888P Y8P
 MMMMMMMMMMMMMM
 '''
 
@@ -146,12 +146,12 @@ def make_toolbar(location=(None, None)):
 
 
 '''
-M"""""`'"""`YM          oo          
-M  mm.  mm.  M                      
-M  MMM  MMM  M .d8888b. dP 88d888b. 
-M  MMM  MMM  M 88'  `88 88 88'  `88 
-M  MMM  MMM  M 88.  .88 88 88    88 
-M  MMM  MMM  M `88888P8 dP dP    dP 
+M"""""`'"""`YM          oo
+M  mm.  mm.  M
+M  MMM  MMM  M .d8888b. dP 88d888b.
+M  MMM  MMM  M 88'  `88 88 88'  `88
+M  MMM  MMM  M 88.  .88 88 88    88
+M  MMM  MMM  M `88888P8 dP dP    dP
 MMMMMMMMMMMMMM
 '''
 
@@ -209,13 +209,13 @@ def main(location=(None, None)):
 
 if __name__ == '__main__':
     '''
-    MM""""""""`M                     oo oo          
-    MM  mmmmmmmM                                    
-    M`      MMMM 88d8b.d8b. .d8888b. dP dP .d8888b. 
-    MM  MMMMMMMM 88'`88'`88 88'  `88 88 88 Y8ooooo. 
-    MM  MMMMMMMM 88  88  88 88.  .88 88 88       88 
-    MM        .M dP  dP  dP `88888P' 88 dP `88888P' 
-    MMMMMMMMMMMM                     88             
+    MM""""""""`M                     oo oo
+    MM  mmmmmmmM
+    M`      MMMM 88d8b.d8b. .d8888b. dP dP .d8888b.
+    MM  MMMMMMMM 88'`88'`88 88'  `88 88 88 Y8ooooo.
+    MM  MMMMMMMM 88  88  88 88.  .88 88 88       88
+    MM        .M dP  dP  dP `88888P' 88 dP `88888P'
+    MMMMMMMMMMMM                     88
                                      dP
     '''
     # This is where the emoji images are defined
@@ -408,4 +408,3 @@ if __name__ == '__main__':
     else:
         location = (None, None)
     main(location)
-

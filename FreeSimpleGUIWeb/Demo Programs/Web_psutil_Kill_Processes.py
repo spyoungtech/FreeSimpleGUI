@@ -20,7 +20,7 @@ def kill_proc_tree(pid, sig=signal.SIGTERM, include_parent=True,
     called as soon as a child terminates.
     """
     if pid == os.getpid():
-        raise RuntimeError("I refuse to kill myself")
+        raise RuntimeError('I refuse to kill myself')
     parent = psutil.Process(pid)
     children = parent.children(recursive=True)
     if include_parent:
@@ -110,5 +110,5 @@ def main():
                 window['_processes_'].update(new_output)
     window.close()
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

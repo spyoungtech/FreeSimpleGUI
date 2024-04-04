@@ -4,10 +4,10 @@ import FreeSimpleGUI as sg
     Unlike previous demos that lacked a titlebar, this one provides a way for you
     to "minimize" your window that does not have a titlebar.  This is done by faking
     the window using a hidden window that is minimized.
-   
+
     The DarkGrey8 is already a theme in PySimpleGUI.  It's here to show you how to add your own and have it them
-    be used by your Custom Titlebar. 
-   
+    be used by your Custom Titlebar.
+
     Copyright 2020, 2022 PySimpleGUI.org
 """
 

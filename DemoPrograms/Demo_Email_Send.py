@@ -2,12 +2,12 @@ import FreeSimpleGUI as sg
 
 '''
     Learn how to send emails from PySimpleGUI using the smtplib and email modules
-    
+
     The GUI portion is simple
 
     Based on a send-email script originally written by by Israel Dryer
     (Thank you Israel for figuring out the hard part of the stmp and email module calls!)
-    
+
     Copyright 2019, 2022 PySimpleGUI
 
 '''
@@ -53,15 +53,15 @@ def send_an_email(from_address, to_address, subject, message_text, user, passwor
 '''
     important notes about using gmail
 
-    - Gmail has locked things down pretty good with what it considers less secure apps. That 
-        would include access your Gmail account from the smtplib library in Python. However, there 
-        is a work around. You can enable access from "Less Secure Apps" by going to your Gmail 
-        account and enabling that feature. However, you should do this at your own peril, and after 
+    - Gmail has locked things down pretty good with what it considers less secure apps. That
+        would include access your Gmail account from the smtplib library in Python. However, there
+        is a work around. You can enable access from "Less Secure Apps" by going to your Gmail
+        account and enabling that feature. However, you should do this at your own peril, and after
         carefully reading the warnings: https://support.google.com/accounts/answer/6010255.
 
-    smtplib | https://docs.python.org/3/library/smtplib.html?#module-smtplib   
-    email.message | https://docs.python.org/3/library/email.message.html?#module-email.message   
-    email examples in Python | https://docs.python.org/3.7/library/email.examples.html  
+    smtplib | https://docs.python.org/3/library/smtplib.html?#module-smtplib
+    email.message | https://docs.python.org/3/library/email.message.html?#module-email.message
+    email examples in Python | https://docs.python.org/3.7/library/email.examples.html
 '''
 
 def main():

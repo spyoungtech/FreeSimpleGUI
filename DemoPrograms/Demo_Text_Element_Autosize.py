@@ -7,7 +7,7 @@ import FreeSimpleGUI as sg
         * auto_size_text is True (default)
         * No size is supplied or (None, None) is supplied
 
-    "Fully autosize" means that both the element and the window will grow/shrink 
+    "Fully autosize" means that both the element and the window will grow/shrink
         as the contents of the Text element changes.
 
     Prior versions autosized in 1 direction, either horizontally or vertically
@@ -16,7 +16,7 @@ import FreeSimpleGUI as sg
 
     By default autosize is enabled, but setting a size parameter will disable unless None is specified
         in one of the directions.
-        
+
     Copyright 2021 PySimpleGUI
 """
 

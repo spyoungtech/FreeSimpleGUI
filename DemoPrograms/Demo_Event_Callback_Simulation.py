@@ -2,8 +2,8 @@ import FreeSimpleGUI as sg
 
 '''
     Event Callback Simulation
-    
-    This design pattern simulates callbacks for events.  
+
+    This design pattern simulates callbacks for events.
     This is NOT the "normal" way things work in PySimpleGUI and is an architecture that is actively discouraged
     Unlike tkinter, Qt, etc, PySimpleGUI does not utilize callback
     functions as a mechanism for communicating when button presses or other events happen.

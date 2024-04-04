@@ -6,24 +6,24 @@ import os
 
 """
     Demo of Notification integration with PySimpleGUI
-    
+
     You will need to install the py-notifypy package (note spelling!):
         pip install notify-py
 
     Displays an OS created notification
-    
+
     There are more options than those in this Demo... like all PySimpleGUI Demo Programs
         the demo is meant to give you a starting point
-    
+
     For more info about the notifypy package, visit the project's GitHub
     https://github.com/ms7m/notify-py
-    
+
     To show a notification, call the function provided: notify_popout
-    
+
     If you use a base64 icon, then a temp file will be created. If you wish to cleanup these
     temp files (an optional step), then include this line of code when you close the window:
     [os.remove(file) for file in notify_popout.temp_files] if hasattr(notify_popout, 'temp_files') else None
-    
+
     Copyright 2021 PySimpleGUI
 """
 

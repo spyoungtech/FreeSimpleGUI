@@ -13,7 +13,7 @@ column1 = [
     [sg.ReadButton('Delete selected entry')]]
 
 #initial listbox entries
-List = ['Austalia', 'Canada', 'Greece']         
+List = ['Austalia', 'Canada', 'Greece']
 
 #add initial List  to listbox
 layout = [
@@ -29,16 +29,16 @@ while True:
         #using value[listbox][0] gives the string
         if button == 'Delete selected entry':
             #ensure something is selected
-            if value['_listbox_'] == []:               
+            if value['_listbox_'] == []:
                 sg.Popup('Error','You must select a Country')
             else:
                 #find and remove this
-                List.remove(value['_listbox_'][0])  
+                List.remove(value['_listbox_'][0])
         if button == 'Add':
             #add string in add box to list
-            List.append(value['add'])          
-        List.sort()                         
+            List.append(value['add'])
+        List.sort()
         #update listbox
         window.FindElement('_listbox_').Update(List)
     else:
-        break  
+        break

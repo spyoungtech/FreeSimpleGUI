@@ -4,17 +4,17 @@ import psutil
 
 """
     Demo Program - Display CPI Usage as a VU Meter
-    
+
     Artwork and algorithm for handling of needle positioning generously provided by GitHub user neovich.
-    
+
     A long-time PySimpleGUI user and brilliant programmer posted a screenshot of an incredibly
     complex audio recording mixing application with features like custom sliders and VU meters made
     entirely of Graph elements.  I asked him to draw us some special artwork for this demo.  An ENORMOUS
-    thank you to him for the encouragement, support, and hard work! 
-    
+    thank you to him for the encouragement, support, and hard work!
+
     This demo uses the psutil library to get the CPI utilization.  It is then shown on a nicely rendered
     VU meter.
-    
+
     Copyright 2023 PySimpleGUI
 """
 

@@ -7,7 +7,7 @@
         <div>
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"> 
+            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
         </div>
         <div style="font-family: 'Roboto', sans-serif; background-color: #43ACE9; color: white; height: 400px; width: 250px; border-radius: 20px;">
             <div style="display: flex; padding-top: 10px; justify-content: center;">
@@ -23,7 +23,7 @@
                 </div>
                 <div style="text-align: center; margin-bottom: 10px; margin-top: 30px; padding: 0px 20px; font-weight: 700; font-size: 16px;">
                     <span style="font-weight: normal;">
-                        apply coupon for discount: 
+                        apply coupon for discount:
                     </span>
                     522B20BF5EF123C4AB30.
                 </div>
@@ -43,7 +43,7 @@ Here you will find the details for all Elements, Objects, and Functions that are
 
 ## This call reference document covers the tkinter port
 
-This documentation is created using the PySimpleGUI.py file which means it's based on the tkinter code. Some of the calls are different, might not exist at all, or there may be more methods/functions for the other PySimpleGUI ports (Qt, Wx, Web).  
+This documentation is created using the PySimpleGUI.py file which means it's based on the tkinter code. Some of the calls are different, might not exist at all, or there may be more methods/functions for the other PySimpleGUI ports (Qt, Wx, Web).
 
 The PySimpleGUIQt call reference is located in another location.
 
@@ -54,7 +54,7 @@ This section of the documentation is generated directly from the source code.  A
 # The Elements
 ---------
 
-## Button Element 
+## Button Element
 <!-- <+Button.doc+> -->
 <!-- <+Button.__init__+> -->
 
@@ -150,7 +150,7 @@ The following methods are here for backwards compatibility reference.  You will 
 
 ---------
 
-## ButtonMenu Element 
+## ButtonMenu Element
 <!-- <+ButtonMenu.doc+> -->
 <!-- <+ButtonMenu.__init__+> -->
 
@@ -237,7 +237,7 @@ The following methods are here for backwards compatibility reference.  You will 
 
 ---------
 
-## Canvas Element 
+## Canvas Element
 <!-- <+Canvas.doc+> -->
 <!-- <+Canvas.__init__+> -->
 
@@ -316,7 +316,7 @@ The following methods are here for backwards compatibility reference.  You will 
 
 ---------
 
-## Checkbox Element 
+## Checkbox Element
 <!-- <+Checkbox.doc+> -->
 <!-- <+Checkbox.__init__+> -->
 
@@ -405,7 +405,7 @@ The following methods are here for backwards compatibility reference.  You will 
 ---------
 
 
-## Column Element 
+## Column Element
 <!-- <+Column.doc+> -->
 <!-- <+Column.__init__+> -->
 
@@ -508,7 +508,7 @@ The following methods are here for backwards compatibility reference.  You will 
 ---------
 
 
-## Combo Element 
+## Combo Element
 <!-- <+Combo.doc+> -->
 <!-- <+Combo.__init__+> -->
 
@@ -598,7 +598,7 @@ The following methods are here for backwards compatibility reference.  You will 
 ---------
 
 
-## Frame Element 
+## Frame Element
 <!-- <+Frame.doc+> -->
 <!-- <+Frame.__init__+> -->
 
@@ -693,7 +693,7 @@ The following methods are here for backwards compatibility reference.  You will 
 ---------
 
 
-## Graph Element 
+## Graph Element
 <!-- <+Graph.doc+> -->
 <!-- <+Graph.__init__+> -->
 
@@ -894,7 +894,7 @@ The following methods are here for backwards compatibility reference.  You will 
 ---------
 
 
-## HorizontalSeparator Element 
+## HorizontalSeparator Element
 <!-- <+HorizontalSeparator.doc+> -->
 <!-- <+HorizontalSeparator.__init__+> -->
 
@@ -972,7 +972,7 @@ The following methods are here for backwards compatibility reference.  You will 
 ---------
 
 
-## Image Element 
+## Image Element
 <!-- <+Image.doc+> -->
 <!-- <+Image.__init__+> -->
 
@@ -1065,7 +1065,7 @@ The following methods are here for backwards compatibility reference.  You will 
 ---------
 
 
-## Input Element 
+## Input Element
 <!-- <+Input.doc+> -->
 <!-- <+Input.__init__+> -->
 
@@ -1161,7 +1161,7 @@ The following methods are here for backwards compatibility reference.  You will 
 ---------
 
 
-## Listbox Element 
+## Listbox Element
 <!-- <+Listbox.doc+> -->
 <!-- <+Listbox.__init__+> -->
 
@@ -1274,7 +1274,7 @@ The following methods are here for backwards compatibility reference.  You will 
 ---------
 
 
-## Menu Element 
+## Menu Element
 <!-- <+Menu.doc+> -->
 <!-- <+Menu.__init__+> -->
 
@@ -1369,7 +1369,7 @@ See the Column element to get a list of method calls available.  The function re
 
 ---------
 
-## Multiline Element 
+## Multiline Element
 <!-- <+Multiline.doc+> -->
 <!-- <+Multiline.__init__+> -->
 
@@ -1480,7 +1480,7 @@ The following methods are here for backwards compatibility reference.  You will 
 ---------
 
 
-## OptionMenu Element 
+## OptionMenu Element
 <!-- <+OptionMenu.doc+> -->
 <!-- <+OptionMenu.__init__+> -->
 
@@ -1668,7 +1668,7 @@ The following methods are here for backwards compatibility reference.  You will 
 ---------
 
 
-## Pane Element 
+## Pane Element
 <!-- <+Pane.doc+> -->
 <!-- <+Pane.__init__+> -->
 
@@ -1753,7 +1753,7 @@ The following methods are here for backwards compatibility reference.  You will 
 ---------
 
 
-## ProgressBar Element 
+## ProgressBar Element
 <!-- <+ProgressBar.doc+> -->
 <!-- <+ProgressBar.__init__+> -->
 
@@ -1869,7 +1869,7 @@ A `Push` element will "push" elements on the row away from it.  If you have 1 `P
 
 
 
-## Radio Element 
+## Radio Element
 <!-- <+Radio.doc+> -->
 <!-- <+Radio.__init__+> -->
 
@@ -1976,7 +1976,7 @@ This element is used to add more space.... more size...to a Container Element or
 
 -------
 
-## Sizegrip Element 
+## Sizegrip Element
 <!-- <+Sizegrip.doc+> -->
 <!-- <+Sizegrip.__init__+> -->
 
@@ -2044,7 +2044,7 @@ This element is used to add more space.... more size...to a Container Element or
 ---------
 
 
-## Slider Element 
+## Slider Element
 <!-- <+Slider.doc+> -->
 <!-- <+Slider.__init__+> -->
 
@@ -2127,7 +2127,7 @@ The following methods are here for backwards compatibility reference.  You will 
 ---------
 
 
-## Spin Element 
+## Spin Element
 <!-- <+Spin.doc+> -->
 <!-- <+Spin.__init__+> -->
 
@@ -2219,7 +2219,7 @@ The following methods are here for backwards compatibility reference.  You will 
 ---------
 
 
-## StatusBar Element 
+## StatusBar Element
 <!-- <+StatusBar.doc+> -->
 <!-- <+StatusBar.__init__+> -->
 
@@ -2302,7 +2302,7 @@ The following methods are here for backwards compatibility reference.  You will 
 
 ---------
 
-## Tab Element 
+## Tab Element
 <!-- <+Tab.doc+> -->
 <!-- <+Tab.__init__+> -->
 
@@ -2406,7 +2406,7 @@ The following methods are here for backwards compatibility reference.  You will 
 ---------
 
 
-## TabGroup Element 
+## TabGroup Element
 <!-- <+TabGroup.doc+> -->
 <!-- <+TabGroup.__init__+> -->
 
@@ -2502,7 +2502,7 @@ The following methods are here for backwards compatibility reference.  You will 
 ---------
 
 
-## Table Element 
+## Table Element
 <!-- <+Table.doc+> -->
 <!-- <+Table.__init__+> -->
 
@@ -2592,7 +2592,7 @@ The following methods are here for backwards compatibility reference.  You will 
 ---------
 
 
-## Text Element 
+## Text Element
 <!-- <+Text.doc+> -->
 <!-- <+Text.__init__+> -->
 
@@ -2693,7 +2693,7 @@ See the Column element to get a list of method calls available.  The function re
 
 ---------
 
-## Tree Element 
+## Tree Element
 <!-- <+Tree.doc+> -->
 <!-- <+Tree.__init__+> -->
 
@@ -2784,7 +2784,7 @@ The following methods are here for backwards compatibility reference.  You will 
 
 
 
-## TreeData (for Tree Element) 
+## TreeData (for Tree Element)
 <!-- <+TreeData.doc+> -->
 <!-- <+TreeData.__init__+> -->
 
@@ -2801,7 +2801,7 @@ The following methods are here for backwards compatibility reference.  You will 
 
 
 
-## VerticalSeparator Element 
+## VerticalSeparator Element
 <!-- <+VerticalSeparator.doc+> -->
 <!-- <+VerticalSeparator.__init__+> -->
 
@@ -3316,7 +3316,7 @@ The following methods are here for backwards compatibility reference.  You will 
 
 ## Button Functions No Longer Used (DO NOT USE)
 
-Note - These are no longer recommended! 
+Note - These are no longer recommended!
 They are shown here in case you run into them in some old code.
 
 <!-- <+func.RButton+> -->
@@ -3394,7 +3394,7 @@ Don't use these.  They are here in case you're searching for them.  Instead use 
 
 ## Popup Not PEP8 Compliant names
 
-*** You should not use these function names! *** 
+*** You should not use these function names! ***
 
 These versions of the popup functions are here only for backwards compatibility. Instead use the popup functions that have snake_case rather than CamelCase.
 

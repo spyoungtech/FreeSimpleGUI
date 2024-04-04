@@ -3,10 +3,10 @@ import FreeSimpleGUI as sg
 
 """
     Demo_Animated_GIFs_Using_PIL.py
-    
+
     You'll find other animated GIF playback demos for PySimpleGUI that use the tkinter built-in GIF parser.
     That is how the built-in PySimpleGUI Image.update_animation is used.
-    
+
     If you want to do the GIF file parsing yourself using PIL and update your Image element yourself, then
     this is one possible technique.
 

@@ -3,14 +3,14 @@ import FreeSimpleGUI as sg
 """
     Demo - Layout "Reuse" (but NOT reusing the layout)
     As cautioned in the PySimpleGUI documentation, layouts cannot be "reused".
-    
+
     That said, there is a very simple design pattern that you'll find in many many
     Demo Programs.  Any program that is capable of changing the theme uses this
     same kind of pattern.
-    
+
     Goal - write the layout code once and then use it multiple times
-        The layout is reused 
-    
+        The layout is reused
+
     Solution - create the layout and window in a function and return it
 
     Copyright 2021 PySimpleGUI

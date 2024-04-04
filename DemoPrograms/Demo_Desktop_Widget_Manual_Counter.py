@@ -5,7 +5,7 @@ import winsound
     Another simple Desktop Widget using PySimpleGUI
     This one is a manual counter.  Click +/- to add and subtract to the counter
     Dedicated to @SuperScienceGirl for having the original analog clicker that spawned this digital one.
-    
+
     Copyright 2021 PySimpleGUI
 """
 

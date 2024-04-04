@@ -3,9 +3,9 @@ import FreeSimpleGUI as sg
 
 '''
     Usage of Column Element
-    
+
     How to embed a layout in a layout
-    
+
     Copyright 2022 PySimpleGUI
 '''
 

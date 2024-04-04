@@ -6,11 +6,11 @@ import FreeSimpleGUI as sg
     Use the "user_settings" API calls to make a "settings window"
 
     This demo is very basic. The user_settings functions are used directly without a lookup table
-    or some other mechanism to map between PySimpleGUI keys and user settings keys. 
-    
+    or some other mechanism to map between PySimpleGUI keys and user settings keys.
+
     Two windows are shown.  One is a super-simple "save previously entered filename"
     The other is a larger "settings window" where multiple settings are saved/loaded
-    
+
     Copyright 2020 PySimpleGUI.org
 """
 

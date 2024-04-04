@@ -16,7 +16,7 @@ Basic steps are:
  * Display form (NON BLOCKING)
  * Draw plots onto convas
  * Display form (BLOCKING)
- 
+
  Based on information from: https://matplotlib.org/3.1.0/gallery/user_interfaces/embedding_in_tk_sgskip.html
  (Thank you Em-Bo & dirck)
 """

@@ -94,7 +94,7 @@ def get_return_part(code: str, line_break=None):
         return '', ''
 
 
-        
+
     only_return = code[code.index(':return:')+len(':return:'):].strip().replace('\n', line_break)
     if ':rtype' in only_return:
         only_return = only_return.split(':rtype')[0].strip()
@@ -134,12 +134,12 @@ def special_cases(function_name, function_obj, sig, doc_string, line_break=None)
             '''
     # TEMPLATE3  +return -param
         def Get(self):
-            ''' 
+            '''
             blah blah blah
             :return: blah-blah
             '''
     """
-    
+
     if is_propery(function_obj):
         # TEMPLATE1
         if only_self and not doca:
@@ -184,13 +184,13 @@ def special_cases(function_name, function_obj, sig, doc_string, line_break=None)
                 '''
         # TEMPLATE3  +return -param
             def Get(self):
-                ''' 
+                '''
                 blah blah blah
                 :return: blah-blah
                 '''
         # TEMPLATE4  -return +param
             def SetFocus(self, elem):
-                ''' 
+                '''
                 blah blah blah
                 :param elem: qwerty
                 '''
@@ -206,7 +206,7 @@ def special_cases(function_name, function_obj, sig, doc_string, line_break=None)
     elif only_self and doca and ':param' not in doca and ':return:' in doca:
         return_part, return_part_type = get_return_part(doca, line_break=line_break)
         desc = get_doc_desc(doca, function_obj)
-        
+
         a_table = TABLE_Only_table_RETURN_TEMPLATE.replace('$', return_part) + '\n\n'
         if return_part_type:
             a_table = a_table.replace('<type>', return_part_type)
@@ -222,11 +222,11 @@ def special_cases(function_name, function_obj, sig, doc_string, line_break=None)
 
 def get_doc_desc(doc, original_obj):
 
-    
-    
+
+
     return_in = ':return' in doc
     param_in = ':param' in doc
-    
+
     if return_in and param_in and doc.index(':return') < doc.index(':param'):
         logging.error(f'BS. You need to FIX IT. PROBLEM ":return:" BEFORE ":param:" in "{original_obj.__name__}"')
 
@@ -263,7 +263,7 @@ def get_sig_table_parts(function_obj, function_name, doc_string,
         if logger: logger.error(f'PROBLEM WITH "{function_obj}" "{function_name}":\nit\'s signature is BS. Ok, I will just return \'\' for \'signature\' and \'param_table\'\nOR BETTER - delete it from the 2_readme.md.\n======')
         return '', ''
 
-    # if 'The text currently displayed on the butto' in 
+    # if 'The text currently displayed on the butto' in
 
     if not is_propery(function_obj):
         for key in sig:
@@ -284,10 +284,10 @@ def get_sig_table_parts(function_obj, function_name, doc_string,
     # if 'update' in function_name.lower(): breakpoint();
 
     sig_content = f',\n{TAB_char}'.join(rows) if len(rows) > 2 else f', '.join(rows) if rows else ''
-    
+
     sign = "\n\n{0}\n\n```\n{1}({2})\n```".format(get_doc_desc(doc_string, function_obj), function_name, sig_content)
 
-    
+
     if is_method:
         if insert_md_section_for__class_methods:
             sign = "\n\n{0}\n\n```\n{1}({2})\n```".format(get_doc_desc(doc_string, function_obj), function_name, sig_content)
@@ -313,7 +313,7 @@ def get_sig_table_parts(function_obj, function_name, doc_string,
     else:
         md_return = TABLE_RETURN_TEMPLATE.format(return_guy.strip())
 
-    
+
     # 2
     def make_md_table_from_docstring(docstring, a_original_obj):
         row_n_type_regex = re.compile(r':param ([\s\S]*?):([\s\S]*?):type [\s\S]*?:([\d\D]*?)\n', flags=re.M|re.DOTALL)
@@ -336,7 +336,7 @@ def get_sig_table_parts(function_obj, function_name, doc_string,
                 final_txt = txt.rstrip(')').lstrip('(')
             else:
                 final_txt = txt
-            
+
             if ') or (' in final_txt:
                 final_txt = final_txt.replace(') or (', ' OR ')
 
@@ -368,7 +368,7 @@ def get_sig_table_parts(function_obj, function_name, doc_string,
 
             # print(f"ALERT ------ bug with max_type_width, max_name_width variables")
             # import pdb; pdb.set_trace();
-            
+
         row_template = f'| {{: ^{max_type_width}}} | {{: ^{max_name_width}}} | {{}} |'
 
         # rows, and finally table.
@@ -385,7 +385,7 @@ def get_sig_table_parts(function_obj, function_name, doc_string,
         row_n_type_regex = re.compile(r':param ([\d\w\*\s]+):([\d\D]*?):type [\w\d]+:([\d\D].*?)\n', flags=re.M|re.DOTALL)
 
         try: # try to get return value
-            
+
             # return_regex = re.compile(r':return:\s*(.*?):rtype:\s*(.*?)\n', flags=re.M|re.DOTALL)
             regex_pattern = re.compile(r':return:\s*(.*?)\n\s*:rtype:\s*(.*?)\n', flags=re.M|re.DOTALL)
             a_doc = docstring + ' \n'
@@ -400,12 +400,12 @@ def get_sig_table_parts(function_obj, function_name, doc_string,
         except Exception as e:
             # print(a_original_obj)
             # import pdb; pdb.set_trace();
-            
+
             pass
             # func_or_method_name = a_original_obj.__name__.lower()
             # if True or func_or_method_name not in ['__init__', 'setfocus', 'settooltip', 'update', 'unbind', 'setfocus', 'bind', 'unbind', 'set_size', 'expand', 'set_cursor']:
             #     padded_name = "{: <25}".format(f"'{a_original_obj.__name__}'")
-            #     logger.warning(f"ALERT ------  Warning=== Please, fix ':return:' in {padded_name}" + 
+            #     logger.warning(f"ALERT ------  Warning=== Please, fix ':return:' in {padded_name}" +
             #             " \tIF you want to see 'return' row in 'signature table'", metadata={'lineno' : get_line_number(a_original_obj)})
 
         header = '\nParameter Descriptions:\n\n|Type|Name|Meaning|\n|--|--|--|\n'
@@ -421,7 +421,7 @@ def get_sig_table_parts(function_obj, function_name, doc_string,
     try:
         # if 'list of valid string' in doc_string:
         #     import pdb; pdb.set_trace();
-            
+
         params_TABLE = md_table = make_md_table_from_docstring(doc_string, function_obj)
     except Exception as e:
         func_name_ = function_obj.__name__
@@ -432,10 +432,10 @@ def get_sig_table_parts(function_obj, function_name, doc_string,
 
     if not md_table.strip():
         params_TABLE = ''
-        
+
         if return_guy:
             # import pdb; pdb.set_trace();
-            
+
             sign = sign[:-4] + f' -> {return_guy}\n```\n'
     return sign, params_TABLE
 
@@ -445,7 +445,7 @@ def pad_n(text):
 
 
 def render(injection, logger=None, line_break=None, insert_md_section_for__class_methods=False, replace_pipe_bar_in_TYPE_TEXT_char=''):
-    
+
     try:
         if 'skip readme' in injection['function_object'].__doc__:
             return ''
@@ -540,7 +540,7 @@ def main(do_full_readme=False,
             return False
         return True
 
-        
+
     if verbose: timee(''' psg_members ''')
     psg_members  = [i for i in getmembers(PySimpleGUI) if valid_field(i)] # variables, functions, classes
     # psg_members  = getmembers(PySimpleGUI) # variables, functions, classes
@@ -549,7 +549,7 @@ def main(do_full_readme=False,
     psg_classes_ = list(set([i[1] for i in psg_classes]))    # boildown B,Btn,Butt -into-> Button
     psg_classes = list(zip([i.__name__ for i in psg_classes_], psg_classes_))
     # psg_props    = [o for o in psg_members if type(o[1]).__name__ == 'property']
- 
+
     # 8888888888888888888888888888888888888888888888888888888
     # ===========  3 find all tags in 2_readme  =========== #
     # 8888888888888888888888888888888888888888888888888888888
@@ -560,9 +560,9 @@ def main(do_full_readme=False,
 
     # (3) (optional) find '_' tags e.g.
     #     '_' tag - is a tag, that has '_' after '.'
-    #                                               
+    #
     #     Example:  <!-- <+func._PopupScrolled+> -->
-    #                          /\                   
+    #                          /\
     #                          |---that's sign of a bad tags
 
     # (4) (optional) log repeated tags.
@@ -611,12 +611,12 @@ def main(do_full_readme=False,
 
     injection_points = []
     classes_method_tags = [j for j in mark_points if 'func.' not in j]
-    
+
     func_tags = [j for j in mark_points if 'func.' in j]
 
 
 
-    
+
     if verbose: timee('''# 0===0 functions 0===0''')
     # 0===0 functions 0===0
     for tag in func_tags:
@@ -727,7 +727,7 @@ def main(do_full_readme=False,
         if injection == 'now, classes.':
             logger.info(bar_it('STARTING TO INSERT markdown text into main_md_file'))
             continue
-        
+
         # SPECIAL CASE: X.doc tag
         if injection['part2'] == 'doc':
             a_tag = injection['tag']
@@ -736,7 +736,7 @@ def main(do_full_readme=False,
             doc_ = '' if not injection['parent_class'].__doc__ else injection['parent_class'].__doc__
             # if doc_ == None or a_tag == None:
             readme = readme.replace(a_tag, doc_)
-        
+
         else:
 
             if verbose: timee('''content = render''')
@@ -744,7 +744,7 @@ def main(do_full_readme=False,
                 insert_md_section_for__class_methods=insert_md_section_for__class_methods,
                 replace_pipe_bar_in_TYPE_TEXT_char=replace_pipe_bar_in_TYPE_TEXT_char)
             if verbose: timee('''content = render end''')
-        
+
             tag = injection["tag"]
             if content:
                 success_tags.append(f'{tag} - COMPLETE')
@@ -762,7 +762,7 @@ def main(do_full_readme=False,
     if logger:
         success_tags_str    = '\n'.join(success_tags).strip()
         bad_tags_str        = '\n'.join(bad_tags).strip()
-        
+
         # good message
         good_message        = f'DONE {len(success_tags)} TAGS:\n' + '\n'.join(success_tags) if success_tags_str else 'All tags are wrong//'
         # bad  message
@@ -770,7 +770,7 @@ def main(do_full_readme=False,
 
         logger.info(good_message)
         logger.info(bad_message)
-        
+
         bad_part = '''\n\nParameter Descriptions:\n\n|Type|Name|Meaning|\n|--|--|--|\n\n'''
         readme = readme.replace(bad_part, '\n')
 

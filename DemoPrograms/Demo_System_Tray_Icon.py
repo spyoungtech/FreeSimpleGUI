@@ -13,11 +13,11 @@ import FreeSimpleGUI as sg
     Note from the imports that this code works on all FreeSimpleGUI ports (except Web).
     For the tkinter port, however, the icon isn't located in the system tray. Instead it's located just above
     the system tray in the form of what looks like an "icon" on your desktop.  It's actually a very small window.
-    
+
     In June 2021 a new package was added to the PySimpleGUI family - psgtray
     With this package, you can get a real system tray icon while using tkinter rather than a desktop-icon that this
-        demo is demonstrating.  The Demo Program - Demo_psgtray_Tray_Icon_Tkinter - shows how to integrate it with PySimpleGUI 
-    
+        demo is demonstrating.  The Demo Program - Demo_psgtray_Tray_Icon_Tkinter - shows how to integrate it with PySimpleGUI
+
     Copyright 2022 PySimpleGUI
 """
 

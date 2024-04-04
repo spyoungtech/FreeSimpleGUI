@@ -47,22 +47,22 @@ def ChatBotWithHistory():
             # manually clear input because keyboard events blocks clear
             window['query'].update('')
             window['history'].update('\n'.join(command_history[-3:]))
-        
+
         elif event in (sg.WIN_CLOSED, 'EXIT'):            # quit if exit event or X
             break
-        
+
         elif 'Up' in event and len(command_history):
             command = command_history[history_offset]
             # decrement is not zero
             history_offset -= 1 * (history_offset > 0)
             window['query'].update(command)
-        
+
         elif 'Down' in event and len(command_history):
             # increment up to end of list
             history_offset += 1 * (history_offset < len(command_history)-1)
             command = command_history[history_offset]
             window['query'].update(command)
-        
+
         elif 'Escape' in event:
             window['query'].update('')
 

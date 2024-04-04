@@ -5,11 +5,11 @@ import itertools
 
 """
     Demo_Date_Chooser
-    
+
     This is the same code that is now used internally in PySimpleGUI as the 'date chooser'
     It is shown here in a demo program form to demonstrate to you that PySimpleGUI is being used
     to implement user features.  The underlying GUI framework is no longer being used like it was previously
-    
+
     Copyright 2020 PySimpleGUI
 """
 

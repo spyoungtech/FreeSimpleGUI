@@ -1,7 +1,7 @@
 import inspect
 import FreeSimpleGUI
 
-""" 
+"""
     Create All Possible Tags
     Will output to STDOUT all of the different tags for classes, members and functions for a given PySimpleGUI.py
     file.  Functions that begin with _ are filtered out from the list.

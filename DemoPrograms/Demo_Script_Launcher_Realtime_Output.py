@@ -4,8 +4,8 @@ import FreeSimpleGUI as sg
 	Demo Program - Realtime output of a shell command in the window
 		Shows how you can run a long-running subprocess and have the output
 		be displayed in realtime in the window.
-    
-    Copyright 2022 PySimpleGUI		
+
+    Copyright 2022 PySimpleGUI
 """
 
 

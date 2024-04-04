@@ -10,14 +10,14 @@ column1 = [[sg.Text('Column 1', background_color='lightblue',text_color='black',
            [sg.Spin((1,10), size=(100,22))],]
 
 layout = [
-    [sg.Text('(Almost) All widgets in one Window!',click_submits=True, key='TEXT', justification='c', font=("Helvetica", 25), relief=sg.RELIEF_RAISED, tooltip='Text Element')],
+    [sg.Text('(Almost) All widgets in one Window!',click_submits=True, key='TEXT', justification='c', font=('Helvetica', 25), relief=sg.RELIEF_RAISED, tooltip='Text Element')],
     [sg.Text('Here is some text.... and a place to enter text')],
     [sg.InputText('This is my text', size=(400,25))],
     [sg.Frame(layout=[
         [sg.Checkbox('Checkbox', size=(185,22)),  sg.Checkbox('My second checkbox!', default=True)],
-        [sg.Radio('My first Radio!', "RADIO1", default=True, size=(180,22), ),sg.Radio('My second Radio!', "RADIO1")],
-        [sg.Radio('Third Radio!', "RADIO2", default=True, size=(180,22), ),
-         sg.Radio('Fourth Radio!', "RADIO2")]], title='Options',title_color='red', relief=sg.RELIEF_SUNKEN,
+        [sg.Radio('My first Radio!', 'RADIO1', default=True, size=(180,22), ),sg.Radio('My second Radio!', 'RADIO1')],
+        [sg.Radio('Third Radio!', 'RADIO2', default=True, size=(180,22), ),
+         sg.Radio('Fourth Radio!', 'RADIO2')]], title='Options',title_color='red', relief=sg.RELIEF_SUNKEN,
         tooltip='Use these to set flags', ), sg.Stretch()],
     [sg.Multiline(default_text='This is the default Text should you decide not to type anything',focus=True, size=(220, 80)),
      sg.Multiline(default_text='A second multi-line', size=(220, 80))],
@@ -55,5 +55,3 @@ sg.Popup('Title',
          'The results of the window.',
          'The button clicked was "{}"'.format(event),
          'The values are', values,)
-
-

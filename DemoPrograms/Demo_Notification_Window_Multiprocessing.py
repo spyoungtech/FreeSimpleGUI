@@ -4,18 +4,18 @@ from multiprocessing import Process
 
 '''
     Multiprocessing based Notification Window Demo Program
-    
+
     The PySimpleGUI code for showing the windows themselves ovolved from code supplied by PySimpleGUI user ncotrb
 
     Displays a small informational window with an Icon and a message in the lower right corner of the display
     Option to fade in/out or immediatealy display.
-    
+
     You can click on the notification window to speed things along.  The idea is that if you click while fading in, you should immediately see the info. If you click while info is displaying or while fading out, the window closes immediately.
-    
+
     Note - In order to import and use these calls, you must make the call from a "main program".
-    
+
     Copyright 2020 PySimpleGUI
-    
+
 '''
 
 

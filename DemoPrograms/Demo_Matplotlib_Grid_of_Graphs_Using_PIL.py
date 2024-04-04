@@ -26,7 +26,7 @@ Basic steps are:
  * Draw plots onto convas
  * Display form (BLOCKING)
 
-Each plotting function, complete with imports, was copied directly from Matplot examples page 
+Each plotting function, complete with imports, was copied directly from Matplot examples page
 """
 
 import numpy as np

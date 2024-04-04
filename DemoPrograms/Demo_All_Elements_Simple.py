@@ -103,5 +103,3 @@ while True:
     elif event == 'Version':
         sg.popup_scrolled(__file__, sg.get_versions(), keep_on_top=True, non_blocking=True)
 window.close()
-
-

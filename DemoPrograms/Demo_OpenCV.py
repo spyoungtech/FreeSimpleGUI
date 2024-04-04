@@ -9,9 +9,9 @@ import cv2 as cv
     It's main purpose is to show you:
     1. How to get a frame at a time from a video file using OpenCV
     2. How to display an image in a PySimpleGUI Window
-    
+
     For added fun, you can reposition the video using the slider.
-    
+
     Copyright 2022 PySimpleGUI
 """
 
@@ -41,7 +41,7 @@ def main():
     image_elem = window['-IMAGE-']
     slider_elem = window['-SLIDER-']
     timeout = 1000//fps                 # time in ms to use for window reads
-    
+
     # ---===--- LOOP through video file by frame --- #
     cur_frame = 0
     while vidFile.isOpened():

@@ -11,7 +11,7 @@ from webbrowser import open_new_tab
     Once completed, a listbox is populared with he responses.  Click on the titles and a brower tab
     is opened to the topic.
 
-    NOTE - you must register with Reddit as a developer. https://www.reddit.com/prefs/apps/ 
+    NOTE - you must register with Reddit as a developer. https://www.reddit.com/prefs/apps/
     You can set these credentials using the "Settings Window".
 
     Copyright 2020 PySimpleGUI

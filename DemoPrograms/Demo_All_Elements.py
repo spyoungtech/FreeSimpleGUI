@@ -30,7 +30,7 @@ def make_window(theme):
     input_layout =  [
 
                 # [sg.Menu(menu_def, key='-MENU-')],
-                [sg.Text('Anything that requires user-input is in this tab!')], 
+                [sg.Text('Anything that requires user-input is in this tab!')],
                 [sg.Input(key='-INPUT-')],
                 [sg.Slider(orientation='h', key='-SKIDER-'),
                  sg.Image(data=sg.DEFAULT_BASE64_LOADING_GIF, enable_events=True, key='-GIF-IMAGE-'),],
@@ -51,7 +51,7 @@ def make_window(theme):
                                     reroute_stdout=True, reroute_stderr=True, echo_stdout_stderr=True, autoscroll=True, auto_refresh=True)]
                       # [sg.Output(size=(60,15), font='Courier 8', expand_x=True, expand_y=True)]
                       ]
-    
+
     graphing_layout = [[sg.Text("Anything you would use to graph will display here!")],
                       [sg.Graph((200,200), (0,0),(200,200),background_color="black", key='-GRAPH-', enable_events=True,
                                 right_click_menu=graph_right_click_menu_def)],
@@ -69,14 +69,14 @@ def make_window(theme):
     popup_layout = [[sg.Text("Popup Testing")],
                     [sg.Button("Open Folder")],
                     [sg.Button("Open File")]]
-    
+
     theme_layout = [[sg.Text("See how elements look under different themes by choosing a different theme here!")],
-                    [sg.Listbox(values = sg.theme_list(), 
-                      size =(20, 12), 
+                    [sg.Listbox(values = sg.theme_list(),
+                      size =(20, 12),
                       key ='-THEME LISTBOX-',
                       enable_events = True)],
                       [sg.Button("Set Theme")]]
-    
+
     layout = [ [sg.MenubarCustom(menu_def, key='-MENU-', font='Courier 15', tearoff=True)],
                 [sg.Text('Demo Of (Almost) All Elements', size=(38, 1), justification='center', font=("Helvetica", 16), relief=sg.RELIEF_RIDGE, k='-TEXT HEADING-', enable_events=True)]]
     layout +=[[sg.TabGroup([[  sg.Tab('Input Elements', input_layout),
@@ -95,7 +95,7 @@ def make_window(theme):
 def main():
     window = make_window(sg.theme())
 
-    # This is an Event Loop 
+    # This is an Event Loop
     while True:
         event, values = window.read(timeout=100)
         # keep an animation running so show things are happening

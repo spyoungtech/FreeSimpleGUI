@@ -13,13 +13,13 @@ import base64
 
     This one shows images from a folder of your choosing.
     You can change the new "Standard Desktop Widget Settings"
-        * Theme, location, alpha channel, refresh info, 
+        * Theme, location, alpha channel, refresh info,
 
     Specific to this Widget are
         * Image size
         * How long to show the image and if you wnt this time to vary semi-randomly
         * Folder containing your images
-        
+
     Copyright 2021, 2023 PySimpleGUI
 """
 

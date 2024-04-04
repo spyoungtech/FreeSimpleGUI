@@ -5,18 +5,18 @@ import FreeSimpleGUI as sg
 
 """
     Demo Program - Multithreaded Long Tasks GUI
-    
+
     Presents one method for running long-running operations in a PySimpleGUI environment.
-    
+
     The PySimpleGUI code, and thus the underlying GUI framework, runs as the primary, main thread
     The "long work" is contained in the thread that is being started.
 
     So that you don't have to import and understand the threading module, this program uses window.start_thread to run a thread.
-    
+
     The thread is using TUPLES for its keys.  This enables you to easily find the thread events by looking at event[0].
         The Thread Keys look something like this:  ('-THREAD-', message)
         If event [0] == '-THREAD-' then you know it's one of these tuple keys.
-         
+
     Copyright 2022 PySimpleGUI
 """
 

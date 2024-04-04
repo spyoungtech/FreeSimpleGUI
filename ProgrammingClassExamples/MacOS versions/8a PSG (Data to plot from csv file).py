@@ -14,12 +14,12 @@ with open('weight 2018.csv', 'r', encoding = 'utf-8-sig') as csvfile:
     plots = csv.reader(csvfile)
     for data in plots:
         #get heading for x and y axes
-        var1 = (data[0])    
+        var1 = (data[0])
         var2 = (data[1])
         break
     for data in plots:
         #get values - add to x list and y list
-        x.append(data[0])   
+        x.append(data[0])
         y.append(float(data[1]))
 
 

@@ -3,16 +3,16 @@ import FreeSimpleGUI as sg
     tkinter and Qt do not "activate" buttons by pressing the ENTER key with the button highlighted / in focus
     This demo will enable the application to click on a button if the button has focus (is highlighted) and the
     user presses the ENTER key.
-    NOTE that the SPACE BAR works correctly out of the box with both tkinter and Qt.  If a button has focus and 
+    NOTE that the SPACE BAR works correctly out of the box with both tkinter and Qt.  If a button has focus and
     you press the space bar, then tkinter and Qt will both consider that a button click.  But not so with the ENTER
     key.
-    
+
     The solution is for your program to read the keyboard presses and act upon those directly.  It's trivial logic
     in the end:
     1. Get a key press
     2. See if the key is the ENTER key
     3. Find the Element that currently has focus
-    4. Click the Button if the Element with focus is a button 
+    4. Click the Button if the Element with focus is a button
 
 """
 

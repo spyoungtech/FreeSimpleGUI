@@ -20,9 +20,9 @@ To migrate from PySimpleGUI:
 
 
 
-Transforms the tkinter, Qt, WxPython, and Remi (browser-based) GUI frameworks into a simpler interface.  The window definition is simplified by using Python core data types understood by beginners (lists and dictionaries). Further simplification happens by changing event handling from a callback-based model to a message passing one.  
+Transforms the tkinter, Qt, WxPython, and Remi (browser-based) GUI frameworks into a simpler interface.  The window definition is simplified by using Python core data types understood by beginners (lists and dictionaries). Further simplification happens by changing event handling from a callback-based model to a message passing one.
 
-Your code is not _required_ to have an object oriented architecture which makes the package usable by a larger audience. While the architecture is simple to understand, it does not *necessarily* limit you to only simple problems.  
+Your code is not _required_ to have an object oriented architecture which makes the package usable by a larger audience. While the architecture is simple to understand, it does not *necessarily* limit you to only simple problems.
 
 Some programs are not well-suited for FreeSimpleGUI however.  By definition, FreeSimpleGUI implements a subset of the underlying GUI frameworks' capabilities.  It's difficult to define exactly which programs are well suited for FreeSimpleGUI and which are not.  It depends on the details of your program.  Duplicating Excel in every detail is an example of something not well suited for FreeSimpleGUI.
 
@@ -56,7 +56,7 @@ layout = [  [sg.Text("What's your name?")],     # Part 2 - The Layout
 
 # Create the window
 window = sg.Window('Window Title', layout)      # Part 3 - Window Defintion
-                                                
+
 # Display and interact with the Window
 event, values = window.read()                   # Part 4 - Event loop or Window.read call
 
@@ -131,7 +131,7 @@ There are 2 parameters, the `key` we already covered.  The `size` parameter defi
 
 We also added a button,  "Quit".
 
-The Event Loop has our familiar `window.read()` call. 
+The Event Loop has our familiar `window.read()` call.
 
 Following the read is this if statement:
 ```python
@@ -147,7 +147,7 @@ If the window wasn't closed nor the Quit button clicked, then execution continue
     window['-OUTPUT-'].update('Hello ' + values['-INPUT-'] + "! Thanks for trying FreeSimpleGUI")
 ```
 
-This statement updates the `Text` element that has the key `-OUTPUT-` with a string.  `window['-OUTPUT-']` finds the element with the key `-OUTPUT-`.  That key belongs to our blank `Text` element.  Once that element is returned from the lookup, then its `update` method is called.  Nearly all elements have an `update` method.  This method is used to change the value of the element or to change some configuration of the element. 
+This statement updates the `Text` element that has the key `-OUTPUT-` with a string.  `window['-OUTPUT-']` finds the element with the key `-OUTPUT-`.  That key belongs to our blank `Text` element.  Once that element is returned from the lookup, then its `update` method is called.  Nearly all elements have an `update` method.  This method is used to change the value of the element or to change some configuration of the element.
 
 If we wanted the text to be yellow, then that can be accomplished by adding a `text_color` parameter to the `update` method so that it reads:
 ```python
@@ -177,21 +177,21 @@ As you can see several things can be changed for a `Text` element.  The call ref
 
 ## Jump Start! Get the Demo Programs & Demo Browser 🔎
 
-The over 300 Demo Programs will give you a jump-start and provide many design patterns for you to learn how to use FreeSimpleGUI and how to integrate FreeSimpleGUI with other packages.  By far the best way to experience these demos is using the Demo Browser.  This tool enables you to search, edit and run the Demo Programs.  
+The over 300 Demo Programs will give you a jump-start and provide many design patterns for you to learn how to use FreeSimpleGUI and how to integrate FreeSimpleGUI with other packages.  By far the best way to experience these demos is using the Demo Browser.  This tool enables you to search, edit and run the Demo Programs.
 
-To get them installed quickly along with the Demo Browser, use `pip` to install `psgdemos`:  
-  
-`python -m pip install psgdemos`  
+To get them installed quickly along with the Demo Browser, use `pip` to install `psgdemos`:
+
+`python -m pip install psgdemos`
 
 
 or if you're in Linux, Mac, etc, that uses `python3` instead of `python` to launch Python:
 
-`python3 -m pip install psgdemos`  
+`python3 -m pip install psgdemos`
 
 
-Once installed, launch the demo browser by typing `psgdemos` from the command line"  
+Once installed, launch the demo browser by typing `psgdemos` from the command line"
 
-`psgdemos`  
+`psgdemos`
 
 ![SNAG-1543](https://user-images.githubusercontent.com/46163555/151877440-85ad9239-3219-4711-8cdf-9abc1501f05a.jpg)
 
@@ -276,7 +276,7 @@ FreeSimpleGUI is currently capable of running on 4 Python GUI Frameworks.  The f
 
 
 
-Porting GUI code from one framework to another (e.g. moving your code from tkinter to Qt) usually requires a rewrite of your code.  FreeSimpleGUI is designed to enable you to have easy movement between the frameworks.  Sometimes some changes are required of you, but the goal is to have highly portable code with minimal changes.  
+Porting GUI code from one framework to another (e.g. moving your code from tkinter to Qt) usually requires a rewrite of your code.  FreeSimpleGUI is designed to enable you to have easy movement between the frameworks.  Sometimes some changes are required of you, but the goal is to have highly portable code with minimal changes.
 
 Some features, like a System Tray Icon, are not available on all of the ports.  The System Tray Icon feature is available on the Qt and WxPython ports.  A simulated version is available on tkinter.  There is no support for a System Tray icon in the FreeSimpleGUIWeb port.
 
@@ -295,7 +295,7 @@ Some features, like a System Tray Icon, are not available on all of the ports.  
 
 Among the more than 200 "Demo Programs", you'll find examples of how to integrate many popular Python packages into your GUI.
 
-Want to embed a Matplotlib drawing into your window?  No problem, copy the demo code and instantly have a Matplotlib drawing of your dreams into your GUI.  
+Want to embed a Matplotlib drawing into your window?  No problem, copy the demo code and instantly have a Matplotlib drawing of your dreams into your GUI.
 
 These packages and more are ready for you to put into your GUI as there are demo programs or a demo repo available for each:
 
@@ -323,7 +323,7 @@ Two common ways of installing FreeSimpleGUI:
 
 ### Pip Installing & Upgrading
 
-The current suggested way of invoking the `pip` command is by running it as a module using Python.  Previously the command `pip` or `pip3` was directly onto a command-line / shell.  The suggested way 
+The current suggested way of invoking the `pip` command is by running it as a module using Python.  Previously the command `pip` or `pip3` was directly onto a command-line / shell.  The suggested way
 
 Initial install for Windows:
 
@@ -333,7 +333,7 @@ Initial install for Linux and MacOS:
 
 `python3 -m pip install FreeSimpleGUI`
 
-To upgrade using `pip`, you simply add 2 parameters to the line `--upgrade --no-cache-dir`.  
+To upgrade using `pip`, you simply add 2 parameters to the line `--upgrade --no-cache-dir`.
 
 Upgrade installation on Windows:
 
@@ -401,7 +401,7 @@ sg.popup('You entered', filename)
 ```
 
 
-This code will display 2 popup windows.  One to get the filename, which can be browsed to or pasted into the input box.  
+This code will display 2 popup windows.  One to get the filename, which can be browsed to or pasted into the input box.
 
 <p align="center">
 <a href="https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_readme/First_GUI1.jpg"><img src="https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_readme/First_GUI1.jpg"  alt="img" width="400px"></a>
@@ -488,7 +488,7 @@ Media playback, audio and video, can also be achieved using the VLC player.  A d
 
 AI and Python have long been a recognized superpower when the two are paired together. What's often missing however is a way for users to interact with these AI algorithms familiarly, using a GUI.
 
-These YOLO demos are a great example of how a GUI can make a tremendous difference in interacting with AI algorithms.  Notice two sliders at the bottom of these windows.  These 2 sliders change a couple of the parameters used by the YOLO algorithm.  
+These YOLO demos are a great example of how a GUI can make a tremendous difference in interacting with AI algorithms.  Notice two sliders at the bottom of these windows.  These 2 sliders change a couple of the parameters used by the YOLO algorithm.
 
 If you were tuning your YOLO demo using only the command line, you would need to set the parameters, once, when you launch the application, see how they perform, stop the application, change the parameters, and finally restart the application with the new parameters.
 <br><br><br><br>
@@ -507,7 +507,7 @@ Contrast those steps against what can be done using a GUI.  A GUI enables you to
 There are SO many AI programs that have been published that are command-line driven.  This in itself isn't a huge hurdle, but it's enough of a "pain in the ass" to type/paste the filename you want to colorize on the command line, run the program, then open the resulting output file in a file viewer.
 
 
-GUIs have the power to **change the user experience**, to fill the "GUI Gap".  With this colorizer example, the user only needs to supply a folder full of images, and then click on an image to both colorize and display the result.  
+GUIs have the power to **change the user experience**, to fill the "GUI Gap".  With this colorizer example, the user only needs to supply a folder full of images, and then click on an image to both colorize and display the result.
 
 The program/algorithm to do the colorization was freely available, ready to use.  What was missing is the ease of use that a GUI could bring.
 
@@ -518,7 +518,7 @@ The program/algorithm to do the colorization was freely available, ready to use.
 
 <a href="https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_readme/CPU%20Cores%20Dashboard%202.gif"><img src="https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_readme/CPU%20Cores%20Dashboard%202.gif"  alt="img" align="right" width="500px"></a>
 
-Displaying and interacting with data in a GUI is simple with FreeSimpleGUI.  You have several options.  
+Displaying and interacting with data in a GUI is simple with FreeSimpleGUI.  You have several options.
 
 You can use the built-in drawing/graphing capabilities to produce custom graphs.  This CPU usage monitor uses the `Graph` element
 <br><br>
@@ -554,7 +554,7 @@ Using FreeSimpleGUI's color themes, you can produce graphs that are a notch abov
 
 <a href="https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_readme/JumpCutter.png"><img src="https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_readme/JumpCutter.png"  alt="img" align="right" width="500px"></a>
 
-The "GUI Gap" mentioned earlier can be easily solved using FreeSimpleGUI.  You don't even need to have the source code to the program you wish to add a GUI onto.  A "front-end" GUI is one that collects information that is then passed to a command-line application.  
+The "GUI Gap" mentioned earlier can be easily solved using FreeSimpleGUI.  You don't even need to have the source code to the program you wish to add a GUI onto.  A "front-end" GUI is one that collects information that is then passed to a command-line application.
 
 Front-end GUIs are a fantastic way for a programmer to distribute an application that users were reluctant to use previously because they didn't feel comfortable using a command-line interface.  These GUIs are your only choice for command-line programs that you don't have access to the source code for.
 
@@ -637,13 +637,13 @@ Want to share your FreeSimpleGUI program with friends and family that don't have
 
 # Support 💪
 
-Your first stop should be the [documentation](http://www.FreeSimpleGUI.org) and [demo programs](http://Demos.FreeSimpleGUI.org).   
+Your first stop should be the [documentation](http://www.FreeSimpleGUI.org) and [demo programs](http://Demos.FreeSimpleGUI.org).
 
 Be sure and install the Demo Browser (instructions in the Cookbook) so that you can search and run the 100s of demo programs.
 
 ![](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_cookbook/Project_Browser_Main_Window_Explained.jpg)
 
-If you still have a question or need help...  no problem... help is available to you, at no cost. Simply [file an Issue](http://Issues.FreeSimpleGUI.org) on the FreeSimpleGUI GitHub repo and you'll get help.  
+If you still have a question or need help...  no problem... help is available to you, at no cost. Simply [file an Issue](http://Issues.FreeSimpleGUI.org) on the FreeSimpleGUI GitHub repo and you'll get help.
 
 Nearly all software companies have a form that accompanies bug reports.  It's not a bad trade... fill in the form, get free software support.  This information helps get you an answer efficiently.
 
@@ -656,5 +656,3 @@ In addition to requesting information such as the version numbers of FreeSimpleG
 
 © Copyright 2024, FreeSimpleGUI authors
 © Copyright 2021, 2022 PySimpleGui
-
-

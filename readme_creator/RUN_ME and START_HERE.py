@@ -161,7 +161,7 @@ class BESTLOG(object):
 		# sort messages on time
 		all_messages_list = sorted(all_messages_list,
 							key=lambda x: x['message_time'])
-		
+
 		# convert time
 		# for i in all_messages_list: i['message_time'] = i['message_time'].strftime('%Y-%m-%d %H:%M:%S.%f')
 
@@ -170,7 +170,7 @@ class BESTLOG(object):
 	def load(self, **kw):
 		'''
 			return dict with messages
-			
+
 			kw = {
 				use_psg_color : bool
 				show_time : bool
@@ -187,7 +187,7 @@ class BESTLOG(object):
 
 		def format_message(message):
 			if kw['show_time']:
-				return str(message['message_time']) + ':' + message['message_text'] 
+				return str(message['message_time']) + ':' + message['message_text']
 			else:
 				return message['message_text']
 
@@ -233,7 +233,7 @@ def compile_call_ref(output_filename='LoG_call_ref', **kw):
 	''' Compile a "5_call_reference.md" file'''
 
 	log_obj = BESTLOG(os.path.join(cd, output_filename))
-	
+
 	main(logger=log_obj,
 		 main_md_file='markdown input files/5_call_reference.md',
 		 insert_md_section_for__class_methods=insert_md_section_for__class_methods,
@@ -296,7 +296,7 @@ def md2psg(target_text):
 		  *ib*a**           italic bold
 		  *ib red*a**       italic bold red
 		  *b green*a**      bold green
-		
+
 		'This was *I*special** message from *B*him**. And from *Igreen*this** to *Ired*this**'
 	'''
 
@@ -311,7 +311,7 @@ def md2psg(target_text):
 	for index, text in enumerate(parts):
 		if index % 2 == 0:
 			# Normal text
-			
+
 			T_text = text
 			T = sg.T(T_text, size=(len(T_text), 1), pad=(0,0), font=font_norm)
 		else:
@@ -349,7 +349,7 @@ def mini_GUI():
 	def make_tab(word):
 
 		def tabs(*layouts):
-			return sg.TabGroup( 
+			return sg.TabGroup(
 				[[ sg.Tab(title, lay, key=f'-tab-{word_}-{index}-')
 					for index, (title, word_, lay) in enumerate(layouts)
 				]]
@@ -455,7 +455,7 @@ def mini_GUI():
 							,sg.B('open in explorer', key='open in explorer_readme')
 							,sg.B('open in text editor', key='open file - readme')
 						]
-						
+
 						,[*md2psg('markdown outputFileName *I*FOR** *B*call ref**: ')
 							,sg.I(CALL_REFERENCE_OFILENAME, key='CALL_REF_OFILE', size=(25, 1))
 							,sg.B('open in explorer', key='open in explorer_calref')
@@ -466,7 +466,7 @@ def mini_GUI():
 		]
 		,*layout
 	], resizable=True, finalize=True, location=(0,0), return_keyboard_events = True)
-	
+
 	def update_time_in_GUI():
 		window['-compile-time-'](datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S.%f'))
 
@@ -480,7 +480,7 @@ def mini_GUI():
 												show_time=values['show_time'])
 		result_readme_txt,   result_readme_listbox_items   = result_readme__for_txt_n_listbox
 		result_call_ref_txt, result_call_ref_listbox_items = result_call_ref__for_txt_n_listbox
-		
+
 		#
 		# ░▒▒▓▓▓▓▓◘ define FILTER functions ◘▓▓▓▓▓▒▒░
 		#
@@ -499,12 +499,12 @@ def mini_GUI():
 			error1_found = False
 			if values['checkbox_enable_filter_tkinter_class_methods'] and ':return:' in msg:
 				error1_found = bool(re.search(regex_str1, msg, flags=re.M|re.DOTALL))
-			
+
 			# test 2 - filter "special empty tables"
 			error2_found = False
 			if values['checkbox_enable_empty_tables_filter'] and 'empty md_table for' in msg:
 				error2_found = bool(re.search(regex_str2, msg, flags=re.M|re.DOTALL))
-			
+
 			return not error1_found and not error2_found
 		def filter_log_messages(messages):
 			if type(messages) is str:
@@ -536,7 +536,7 @@ def mini_GUI():
 				if 'lineno' in metadata.keys(): lineno = "(line:" + str(metadata['lineno']) + ') '
 
 				return f'{lineno} {text}'
-				
+
 		items1 = [i for i in result_readme_listbox_items if is_valid_regex_LogMessage(i['message_text']) ]
 		items2 = [i for i in result_call_ref_listbox_items if is_valid_regex_LogMessage(i['message_text']) ]
 		window['-README-listbox-']([ ParsingError(i) for i in items1])
@@ -567,7 +567,7 @@ def mini_GUI():
 					window[f'-{prefix}-warning_info-'].print(text, text_color=color)
 			else:
 				window[f'-{prefix}-warning_info-'](t_warning_info_obj)
-		
+
 		# two calls
 		set_it('README', result_readme_txt)
 		set_it('CALL_REF', result_call_ref_txt)
@@ -594,7 +594,7 @@ def mini_GUI():
 
 	window['show_time'](APP_CONFIGS['show_time'])
 	window['use_psg_color'](APP_CONFIGS['use_psg_color'])
-	
+
 	window['README_OFILE'](APP_CONFIGS['README_OFILE'])
 	window['CALL_REF_OFILE'](APP_CONFIGS['CALL_REF_OFILE'])
 
@@ -605,7 +605,7 @@ def mini_GUI():
 		event, values = window(timeout=my_timeout)
 		if event in ('Exit', None):
 			# save to disk
-			
+
 			# APP_CONFIGS['_PyCharm_path_']  								= p_values['_PyCharm_path_']
 			APP_CONFIGS['_text_editor_combo_']  						= 1 if window['_text_editor_combo_'].get() == 'subl' else 0
 
@@ -619,7 +619,7 @@ def mini_GUI():
 
 			APP_CONFIGS['show_time']  									= p_values['show_time']
 			APP_CONFIGS['use_psg_color']  								= p_values['use_psg_color']
-			
+
 			APP_CONFIGS['README_OFILE'] 								= p_values['README_OFILE']
 			APP_CONFIGS['CALL_REF_OFILE'] 								= p_values['CALL_REF_OFILE']
 
@@ -627,7 +627,7 @@ def mini_GUI():
 			break
 		p_values = values
 
-		
+
 		if '__TIMEOUT__' in event:
 			if values['toggle_progressbar']:
 				window['_star_bar1_'].UpdateBar(next(next_val_gen))
@@ -672,7 +672,7 @@ def mini_GUI():
 		# file
 		if event == 'open_init_file': openfile(psg_module_path)
 		if event == 'open_psg_file':  openfile(psg_module_path.replace('__init__.py', 'PySimpleGUI.py'))
-		
+
 
 
 
@@ -686,7 +686,3 @@ def mini_GUI():
 
 if __name__ == '__main__':
 	mini_GUI()
-
-
-
-

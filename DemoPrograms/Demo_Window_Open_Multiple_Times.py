@@ -2,13 +2,13 @@ import FreeSimpleGUI as sg
 
 """
     Demo Restart Window (sorta reopen)
-    
+
     Once a window is closed, you can't do anything with it.  You can't read it.  You can't "re-open" it.
     The only choice is to recreate the window.  It's important that you use a "Fresh Layout" every time.
     You can't pass the same layout from one indow to another.  You will get a popup error infomrning you
     that you've attempted to resuse a layout.
 
-    The purpose of this demo is to show you the simple "make window" design pattern.  It simply makes a 
+    The purpose of this demo is to show you the simple "make window" design pattern.  It simply makes a
     window using a layout that's defined in that function and returns the Window object.  It's not a bad
     way to encapsulate windows if your application is getting a little larger than the typical small data
     entry window.

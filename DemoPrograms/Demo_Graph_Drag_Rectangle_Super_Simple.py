@@ -6,7 +6,7 @@ import FreeSimpleGUI as sg
     This demo shows how to use a Graph Element to draw a square and move it with the mouse.
     It's a very simple, single element program.  Like many Demo Programs, it started as
         a "Test Harness" that demonstrated a bug that happened with a timeout of 0
-        was added to the window.read()    
+        was added to the window.read()
 
     Original code comes courtesy of user @davesmivers .... Thanks Dave!!
 

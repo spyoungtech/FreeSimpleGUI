@@ -7,12 +7,12 @@ import random
 
 """
     Using PIL with PySimpleGUI - for Images and Buttons
-    
+
     The reason for this demo is to give you this nice PIL based function - convert_to_bytes
-    
-    This function is your gateway to using any format of image (not just PNG & GIF) and to 
+
+    This function is your gateway to using any format of image (not just PNG & GIF) and to
     resize / convert it so that it can be used with the Button and Image elements.
-    
+
     Copyright 2020, 2022 PySimpleGUI.org
 """
 

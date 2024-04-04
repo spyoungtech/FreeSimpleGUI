@@ -1,6 +1,6 @@
 # PySimpleGUI Demo Programs
 
-## One Stop Shopping For Templates and Techniques 
+## One Stop Shopping For Templates and Techniques
 
 This folder of over 320 programs is your jump-start to getting you to a solution as quickly as possible.  You can think of them as Recipes from a large PySimpleGUI Cookbook.
 
@@ -37,14 +37,14 @@ Or if on Linux / Mac (that uses `pip3`
 This will install `psgdemos` from PyPI which includes the Demo Browser and all of these Demo Program source files.
 
 To invoke the demo browser after installing using pip, type:
-`psgdemos` 
+`psgdemos`
 
 from the command line and you'll be shown the Demo Browser
 
 
 ## Coding Conventions
 
-Special attention is given to the programs in this folder to ensure they conform to the latest "preferred" technique or naming convention.  In the past, when technique changed, so did all of these demo programs.  For example, the use of the `FindElement` method was replaced by using `[ ]`.  All of these Demo Programs were updated to use the new convention.  
+Special attention is given to the programs in this folder to ensure they conform to the latest "preferred" technique or naming convention.  In the past, when technique changed, so did all of these demo programs.  For example, the use of the `FindElement` method was replaced by using `[ ]`.  All of these Demo Programs were updated to use the new convention.
 
 For example, this line of code:
 
@@ -88,7 +88,7 @@ Some of the Demo Programs are included in the online eCookbook (http://eCookbook
 
 ### Trinket
 
-If a demo does not require another package be installed and it's not specific to a particular platform then there's a possibility that it can be run online using Trinket.  You'll find a number of these Demo Programs have been added to the PySimpleGUI Trinket pages.  
+If a demo does not require another package be installed and it's not specific to a particular platform then there's a possibility that it can be run online using Trinket.  You'll find a number of these Demo Programs have been added to the PySimpleGUI Trinket pages.
 
 The benefits of using Trinket include
 
@@ -110,23 +110,23 @@ These programs are not "officially" part of the PySimpleGUI code.  They are not 
 
 They are demonstrations, examples, and as a result may not be fully built-out, completed programs.  In order to keep the code simple, they may not have all of the error checking that your program should have.
 
-If you encounter a problem where a demo no longer functions, you are of course encouraged to open an Issue on the GitHub.  
+If you encounter a problem where a demo no longer functions, you are of course encouraged to open an Issue on the GitHub.
 
 If you encounter more subtle problems, you should take into account that these programs are demonstrations, not end-user products.  For example, if an image viewer application doesn't display all types of image files like JPGs, then that's more than likely a limitation that the underlying GUI Framework has rather than a bug.  In this example, it's your responsibility to figure out how to convert your images into a format that's understood by the framework rather than an improvement needed in the demo program that will show you how to do that.
 
 
-# Author 
+# Author
 
 The PySimpleGUI Organization and a few rare examples were provided by PySimpleGUI users.
 
 If the code has been provide by a PySimpleGUI user, then the comments at the top of the program will indicate the author.
 
-Because the PySimpleGUI project does not accept pull requests, it's unusual for Demo Progams to originate outside the project.  The eCookbook is a better place to find user created examples.  
+Because the PySimpleGUI project does not accept pull requests, it's unusual for Demo Progams to originate outside the project.  The eCookbook is a better place to find user created examples.
 
 Of cource, GitHub is where you'll find many 1,000's of user created PySimpleGUI programs, so go take a look!  Issue #10 here on the PySimpleGUI GitHub has screenshots submitted by users and is another location you can go for examples and inspiration.
-   
-# License        
+
+# License
 
 Copyright 2019, 2020, 2021, 2022 PySimpleGUI
 
-GNU Lesser General Public License (LGPL 3) +  
+GNU Lesser General Public License (LGPL 3) +

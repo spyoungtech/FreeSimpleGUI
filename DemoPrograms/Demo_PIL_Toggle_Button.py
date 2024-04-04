@@ -12,10 +12,10 @@ import FreeSimpleGUI as sg
 
     One advantage is that the buttons will match your window's theme.
 
-    You'll find more PySimpleGUI programs featured in 
+    You'll find more PySimpleGUI programs featured in
     Mike Driscoll's PIL book - "Pillow: Image Processing with Python"
 
-    Copyright 2021 PySimpleGUI, @jason990420 
+    Copyright 2021 PySimpleGUI, @jason990420
 """
 
 

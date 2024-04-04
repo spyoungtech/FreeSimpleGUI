@@ -13,7 +13,7 @@ import tkinter as tk
 
 def draw_figure(canvas, figure, loc = (0,0)):
 
-    figure_canvas_agg = FigureCanvasAgg(figure) 
+    figure_canvas_agg = FigureCanvasAgg(figure)
     figure_canvas_agg.draw()
     figure_x, figure_y, figure_w, figure_h = figure.bbox.bounds
     figure_w, figure_h = int(figure_w), int(figure_h)
@@ -38,7 +38,7 @@ def set_plot(amp, function):
         ax.set_title('cos(x)')
     plt.plot(x/np.pi,y)
 
-    
+
     #centre bottom and left axes to zero
 
     ax.spines['left'].set_position('zero')
@@ -66,7 +66,7 @@ tab1_layout = [[sg.Text('Select Amplitude and trig function type', font = ('Cali
                 sg.Text('Function', size = (10, 1),font = ('Calibri', 12, 'bold'))],
                [sg.ReadButton('Redraw Plot')],
                [sg.Text('', size = (2, 25))]]
-               
+
 tab2_layout = [[sg.Text('Plot Test - PySimpleGUI and Matplotlib and options', font = ('Calibri', 18, 'bold'))],
           [sg.Canvas(size = (figure_w, figure_h), key = '_canvas_')],
           [sg.OK(pad=((figure_w / 2, 0), 3), size=(6, 2))]]
@@ -83,8 +83,6 @@ while True:
         function = value['_function_']
         set_plot(amp,function)
         fig_photo = draw_figure(window.FindElement('_canvas_').TKCanvas, fig)
-        
-    if button is None:   
+
+    if button is None:
         break
-
-

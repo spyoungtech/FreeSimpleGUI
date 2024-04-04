@@ -10,7 +10,7 @@ Demonstrates one way of embedding Matplotlib figures into a PySimpleGUI window.
 
 Paste your Pyplot code into the section marked below.
 
-Do all of your plotting as you normally would, but do NOT call plt.show(). 
+Do all of your plotting as you normally would, but do NOT call plt.show().
 Stop just short of calling plt.show() and let the GUI do the rest.
 
 The remainder of the program will convert your plot and display it in the GUI.

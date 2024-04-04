@@ -4,19 +4,19 @@ from psgtray import SystemTray
 
 """
     A System Tray Icon courtesy of pystray and your friends at PySimpleGUI
-    
+
     Import the SystemTray object with this line of code:
     from psgtray import SystemTray
 
-    Key for the system tray icon is: 
+    Key for the system tray icon is:
         tray = SystemTray()
         tray.key
-        
+
     values[key] contains the menu item chosen.
-    
+
     One trick employed here is to change the window's event to be the event from the System Tray.
-    
-    
+
+
     Copyright PySimpleGUI 2021
 """
 

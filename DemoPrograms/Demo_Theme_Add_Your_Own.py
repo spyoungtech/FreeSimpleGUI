@@ -2,9 +2,9 @@ import FreeSimpleGUI as sg
 
 """
     Demo showing how to add your own theme.
-    
+
     There are functions to make the job quick and easy.
-    
+
     Copyright 2021 PySimpleGUI.org
 """
 

@@ -4,7 +4,7 @@ import FreeSimpleGUI as sg
 
     This is perhaps the easiest, quickest, and safest way to use buttons with images in PySimpleGUI.
     By putting the button into your code, then you only have to distribute a single file.
-    
+
     Copyright 2022 PySimpleGUI
 """
 

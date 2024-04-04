@@ -46,7 +46,7 @@ def create_axis_grid():
     ax = RGBAxes(fig, [0.1, 0.1, 0.8, 0.8])
 
     r, g, b = get_rgb()
-    kwargs = dict(origin="lower", interpolation="nearest")
+    kwargs = dict(origin='lower', interpolation='nearest')
     ax.imshow_rgb(r, g, b, **kwargs)
 
     ax.RGB.set_xlim(0., 9.5)
@@ -191,5 +191,5 @@ def main():
     window.close()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

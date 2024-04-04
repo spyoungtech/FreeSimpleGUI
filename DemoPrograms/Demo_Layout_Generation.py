@@ -4,11 +4,11 @@ import FreeSimpleGUI as sg
     PySimpleGUI is designed & authored in Python to take full advantage the awesome Python constructs & capabilities.
     Layouts are represented as lists to PySimpleGUI. Lists are fundamental in Python and have a number of powerful
     capabilities that PySimpleGUI exploits.
-       
+
     Many times PySimpleGUI programs can benefit from using CODE to GENERATE your layouts.  This Demo illustrates
     a number of ways of "building" a layout. Some work on 3.5 and up.  Some are basic and show concatenation of rows
     to build up a layout.  Some utilize generators.
-    
+
     These 8 "Constructs" or Design Patterns demonstrate numerous ways of "generating" or building your layouts
     0 - A simple list comprehension to build a row of buttons
     1 - A simple list comprehension to build a column of buttons
@@ -17,7 +17,7 @@ import FreeSimpleGUI as sg
     4 - Concatenation of elements to form a single row [ [] + [] + [] ] = [[ ]]
     5 - Questionnaire - Using a double list comprehension to build both rows and columns in a single line of code
     6 - Questionnaire - Unwinding the comprehensions into 2 for loops instead
-    7 - Using the * operator to unpack generated items onto a single row 
+    7 - Using the * operator to unpack generated items onto a single row
     8 - Multiple Choice Test - a practical use showing list comprehension and concatenated layout
 """
 
@@ -67,7 +67,7 @@ def layout1():
     are all on the same row, just like the previous example.
     However, here, we want to not just have a row of buttons, we want have an OK button at the bottom.
     To do this, you "add" the rest of the GUI layout onto the end of the generated part.
-    
+
     Note - you can't end the layout line after the +. If you wanted to put the OK button on the next line, you need
     to add a \ at the end of the first line.
     See next Construct on how to not use a \ that also results in a VISUALLY similar to a norma layout
@@ -88,13 +88,13 @@ def layout2():
 
 """
     Construct # 3 - Adding together what appears to be 2 layouts
-    
+
     Same as layout2, except that the OK button is put on another line without using a \ so that the layout appears to
     look like a normal, multiline layout without a \ at the end
-    
+
     Also shown is the OLD tried and true way, using layout.append.  You will see the append technique in many of the
     Demo programs and probably elsewhere.  Hoping to remove these and instead use this more explicit method of +=.
-    
+
     Using the + operator, as you've already seen, can be used in the middle of the layout.  A call to append you cannot
     use this way because it modifies the layout list directly.
 """
@@ -118,7 +118,7 @@ def layout3():
 
 """
     Construct 4 - Using + to place Elements on the same row
-    
+
     If you want to put elements on the same row, you can simply add them together.  All that is happening is that the
     items in one list are added to the items in another.  That's true for all these contructs using +
 """
@@ -142,17 +142,17 @@ def layout4():
     find it.
     This layout uses list comprehensions heavily, and even uses 2 of them. So, if you find them confusing, skip down
     to the next Construct and you'll see the same layout built except for loops are used rather than comprehensions
-    
+
     The next 3 examples all use this same window that is layed out like this:
         Each row is:
     Text1, Text2, Radio1, Radio2, Radio3, Radio4, Radio5
     Text1, Text2, Radio1, Radio2, Radio3, Radio4, Radio5
     ...
-    
+
     It shows, in particular, this handy bit of layout building, a += to add on additional rows.
     layout =  [[stuff on row 1], [stuff on row 2]]
     layout += [[stuff on row 3]]
-    
+
     Works as long as the things you are adding together look like this [[ ]]  (the famous double bracket layouts of PSG)
 """
 
@@ -217,27 +217,27 @@ def layout6():
 
 
 """
-    Construct #7 - * operator and list comprehensions 
+    Construct #7 - * operator and list comprehensions
         Using the * operator from inside the layout
         List comprehension inside the layout
         Addition of rows to layouts
         All in a single variable assignment
-        
+
     NOTE - this particular code, using the * operator, will not work on Python 2 and think it was added in Python 3.5
-    
+
     This code shows a bunch of questions with Radio Button choices
-    
+
     There is a double-loop comprehension used.  One that loops through the questions (rows) and the other loops through
     the Radio Button choices.
     Thus each row is:
     Text1, Text2, Radio1, Radio2, Radio3, Radio4, Radio5
     Text1, Text2, Radio1, Radio2, Radio3, Radio4, Radio5
     Text1, Text2, Radio1, Radio2, Radio3, Radio4, Radio5
-    
+
     What the * operator is doing in these cases is expanding the list they are in front of into a SERIES of items
     from the list... one after another, as if they are separated with comma.  It's a way of "unpacking" from within
     a statement.
-    
+
     The result is a beautifully compact way to make a layout, still using a layout variable, that consists of a
     variable number of rows and a variable number of columns in each row.
 """

@@ -11,7 +11,7 @@ import FreeSimpleGUI as sg
     Some video recorders that record a portion of the screen do not show you, at all times, what portion of the screen
     is being recorded.  This can make it difficult for you to stay within the bounds being recorded.
     This demo program is meant to help the situation by showing a thin line that is 20 pixels larger than the area
-    being recorded.  
+    being recorded.
 
     The top edge of the window has the controls.  There's an exit button, a solid "bar" for you to grab with your mouse to move
     the frame around your window, and 2 inputs with a "resize" button that enables you to set the frame to the size you want to stay

@@ -1,4 +1,4 @@
-### Button Element 
+### Button Element
 <!-- <+Button.doc+> -->
 <!-- <+Button.__init__+> -->
 
@@ -71,7 +71,7 @@
 #### update
 <!-- <+Button.update+> -->
 
-### ButtonMenu Element 
+### ButtonMenu Element
 <!-- <+ButtonMenu.doc+> -->
 <!-- <+ButtonMenu.__init__+> -->
 
@@ -126,7 +126,7 @@
 #### update
 <!-- <+ButtonMenu.update+> -->
 
-### Canvas Element 
+### Canvas Element
 <!-- <+Canvas.doc+> -->
 <!-- <+Canvas.__init__+> -->
 
@@ -178,7 +178,7 @@
 #### unhide_row
 <!-- <+Canvas.unhide_row+> -->
 
-### Checkbox Element 
+### Checkbox Element
 <!-- <+Checkbox.doc+> -->
 <!-- <+Checkbox.__init__+> -->
 
@@ -236,7 +236,7 @@
 #### update
 <!-- <+Checkbox.update+> -->
 
-### Column Element 
+### Column Element
 <!-- <+Column.doc+> -->
 <!-- <+Column.__init__+> -->
 
@@ -300,7 +300,7 @@
 #### update
 <!-- <+Column.update+> -->
 
-### Combo Element 
+### Combo Element
 <!-- <+Combo.doc+> -->
 <!-- <+Combo.__init__+> -->
 
@@ -358,7 +358,7 @@
 #### update
 <!-- <+Combo.update+> -->
 
-### Dict Element 
+### Dict Element
 <!-- <+Dict.doc+> -->
 <!-- <+Dict.__init__+> -->
 
@@ -395,7 +395,7 @@
 #### values
 <!-- <+Dict.values+> -->
 
-### ErrorElement Element 
+### ErrorElement Element
 <!-- <+ErrorElement.doc+> -->
 <!-- <+ErrorElement.__init__+> -->
 
@@ -453,7 +453,7 @@
 #### update
 <!-- <+ErrorElement.update+> -->
 
-### Frame Element 
+### Frame Element
 <!-- <+Frame.doc+> -->
 <!-- <+Frame.__init__+> -->
 
@@ -517,7 +517,7 @@
 #### update
 <!-- <+Frame.update+> -->
 
-### Graph Element 
+### Graph Element
 <!-- <+Graph.doc+> -->
 <!-- <+Graph.__init__+> -->
 
@@ -710,7 +710,7 @@
 #### update
 <!-- <+Graph.update+> -->
 
-### Image Element 
+### Image Element
 <!-- <+Image.doc+> -->
 <!-- <+Image.__init__+> -->
 
@@ -771,7 +771,7 @@
 #### update_animation_no_buffering
 <!-- <+Image.update_animation_no_buffering+> -->
 
-### InputText Element 
+### InputText Element
 <!-- <+InputText.doc+> -->
 <!-- <+InputText.__init__+> -->
 
@@ -829,7 +829,7 @@
 #### update
 <!-- <+InputText.update+> -->
 
-### List Element 
+### List Element
 <!-- <+List.doc+> -->
 <!-- <+List.__init__+> -->
 
@@ -866,7 +866,7 @@
 #### sort
 <!-- <+List.sort+> -->
 
-### Listbox Element 
+### Listbox Element
 <!-- <+Listbox.doc+> -->
 <!-- <+Listbox.__init__+> -->
 
@@ -939,7 +939,7 @@
 #### update
 <!-- <+Listbox.update+> -->
 
-### Menu Element 
+### Menu Element
 <!-- <+Menu.doc+> -->
 <!-- <+Menu.__init__+> -->
 
@@ -991,7 +991,7 @@
 #### update
 <!-- <+Menu.update+> -->
 
-### Multiline Element 
+### Multiline Element
 <!-- <+Multiline.doc+> -->
 <!-- <+Multiline.__init__+> -->
 
@@ -1055,7 +1055,7 @@
 #### update
 <!-- <+Multiline.update+> -->
 
-### OptionMenu Element 
+### OptionMenu Element
 <!-- <+OptionMenu.doc+> -->
 <!-- <+OptionMenu.__init__+> -->
 
@@ -1107,7 +1107,7 @@
 #### update
 <!-- <+OptionMenu.update+> -->
 
-### Output Element 
+### Output Element
 <!-- <+Output.doc+> -->
 <!-- <+Output.__init__+> -->
 
@@ -1168,7 +1168,7 @@
 #### update
 <!-- <+Output.update+> -->
 
-### Pane Element 
+### Pane Element
 <!-- <+Pane.doc+> -->
 <!-- <+Pane.__init__+> -->
 
@@ -1220,7 +1220,7 @@
 #### update
 <!-- <+Pane.update+> -->
 
-### Path Element 
+### Path Element
 <!-- <+Path.doc+> -->
 <!-- <+Path.__init__+> -->
 
@@ -1386,7 +1386,7 @@
 #### write_text
 <!-- <+Path.write_text+> -->
 
-### ProgressBar Element 
+### ProgressBar Element
 <!-- <+ProgressBar.doc+> -->
 <!-- <+ProgressBar.__init__+> -->
 
@@ -1444,7 +1444,7 @@
 #### update_bar
 <!-- <+ProgressBar.update_bar+> -->
 
-### QuickMeter Element 
+### QuickMeter Element
 <!-- <+QuickMeter.doc+> -->
 <!-- <+QuickMeter.__init__+> -->
 
@@ -1463,7 +1463,7 @@
 #### exit_reasons
 <!-- <+QuickMeter.exit_reasons+> -->
 
-### Radio Element 
+### Radio Element
 <!-- <+Radio.doc+> -->
 <!-- <+Radio.__init__+> -->
 
@@ -1527,7 +1527,7 @@
 #### update
 <!-- <+Radio.update+> -->
 
-### Slider Element 
+### Slider Element
 <!-- <+Slider.doc+> -->
 <!-- <+Slider.__init__+> -->
 
@@ -1579,7 +1579,7 @@
 #### update
 <!-- <+Slider.update+> -->
 
-### Spin Element 
+### Spin Element
 <!-- <+Spin.doc+> -->
 <!-- <+Spin.__init__+> -->
 
@@ -1637,7 +1637,7 @@
 #### update
 <!-- <+Spin.update+> -->
 
-### StatusBar Element 
+### StatusBar Element
 <!-- <+StatusBar.doc+> -->
 <!-- <+StatusBar.__init__+> -->
 
@@ -1689,7 +1689,7 @@
 #### update
 <!-- <+StatusBar.update+> -->
 
-### SystemTray Element 
+### SystemTray Element
 <!-- <+SystemTray.doc+> -->
 <!-- <+SystemTray.__init__+> -->
 
@@ -1732,7 +1732,7 @@
 #### update
 <!-- <+SystemTray.update+> -->
 
-### Tab Element 
+### Tab Element
 <!-- <+Tab.doc+> -->
 <!-- <+Tab.__init__+> -->
 
@@ -1802,7 +1802,7 @@
 #### update
 <!-- <+Tab.update+> -->
 
-### TabGroup Element 
+### TabGroup Element
 <!-- <+TabGroup.doc+> -->
 <!-- <+TabGroup.__init__+> -->
 
@@ -1872,7 +1872,7 @@
 #### unhide_row
 <!-- <+TabGroup.unhide_row+> -->
 
-### Table Element 
+### Table Element
 <!-- <+Table.doc+> -->
 <!-- <+Table.__init__+> -->
 
@@ -1930,7 +1930,7 @@
 #### update
 <!-- <+Table.update+> -->
 
-### Text Element 
+### Text Element
 <!-- <+Text.doc+> -->
 <!-- <+Text.__init__+> -->
 
@@ -1988,7 +1988,7 @@
 #### update
 <!-- <+Text.update+> -->
 
-### Thread Element 
+### Thread Element
 <!-- <+Thread.doc+> -->
 <!-- <+Thread.__init__+> -->
 
@@ -2028,7 +2028,7 @@
 #### start
 <!-- <+Thread.start+> -->
 
-### ToolTip Element 
+### ToolTip Element
 <!-- <+ToolTip.doc+> -->
 <!-- <+ToolTip.__init__+> -->
 
@@ -2050,7 +2050,7 @@
 #### unschedule
 <!-- <+ToolTip.unschedule+> -->
 
-### Tree Element 
+### Tree Element
 <!-- <+Tree.doc+> -->
 <!-- <+Tree.__init__+> -->
 
@@ -2105,7 +2105,7 @@
 #### update
 <!-- <+Tree.update+> -->
 
-### TreeData Element 
+### TreeData Element
 <!-- <+TreeData.doc+> -->
 <!-- <+TreeData.__init__+> -->
 
@@ -2118,7 +2118,7 @@
 #### insert
 <!-- <+TreeData.insert+> -->
 
-### Tuple Element 
+### Tuple Element
 <!-- <+Tuple.doc+> -->
 <!-- <+Tuple.__init__+> -->
 
@@ -2128,14 +2128,14 @@
 #### index
 <!-- <+Tuple.index+> -->
 
-### VarHolder Element 
+### VarHolder Element
 <!-- <+VarHolder.doc+> -->
 <!-- <+VarHolder.__init__+> -->
 
 #### canvas_holder
 <!-- <+VarHolder.canvas_holder+> -->
 
-### VerticalSeparator Element 
+### VerticalSeparator Element
 <!-- <+VerticalSeparator.doc+> -->
 <!-- <+VerticalSeparator.__init__+> -->
 
@@ -2181,7 +2181,7 @@
 #### unhide_row
 <!-- <+VerticalSeparator.unhide_row+> -->
 
-### Window Element 
+### Window Element
 <!-- <+Window.doc+> -->
 <!-- <+Window.__init__+> -->
 
@@ -2449,7 +2449,7 @@
 #### visibility_changed
 <!-- <+Window.visibility_changed+> -->
 
-### _DebugWin Element 
+### _DebugWin Element
 <!-- <+_DebugWin.doc+> -->
 <!-- <+_DebugWin.__init__+> -->
 
@@ -2462,7 +2462,7 @@
 #### debug_window
 <!-- <+_DebugWin.debug_window+> -->
 
-### _Debugger Element 
+### _Debugger Element
 <!-- <+_Debugger.doc+> -->
 <!-- <+_Debugger.__init__+> -->
 

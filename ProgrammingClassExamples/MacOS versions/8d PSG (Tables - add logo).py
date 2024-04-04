@@ -16,10 +16,10 @@ sg.SetOptions(background_color = 'Black',
               font = ('Calibri', 16, 'bold'),
               text_color = 'White')
 
-#get pathname to current file and add  file name for image 
+#get pathname to current file and add  file name for image
 dirname, filename = os.path.split(os.path.abspath(__file__))
 
-pathname = os.path.join(dirname , 'AFL.png' )                                         
+pathname = os.path.join(dirname , 'AFL.png' )
 
 def table_example():
 
@@ -29,22 +29,22 @@ def table_example():
     data = []
     header_list = []
 
-    with open(filename, "r") as infile:    
+    with open(filename, "r") as infile:
         reader = csv.reader(infile)
-        for i in range (1):                
+        for i in range (1):
             header = next(reader)
-            data = list(reader)          
-    header = header + ['%', 'Pts']         
+            data = list(reader)
+    header = header + ['%', 'Pts']
     for i in range (len(data)):
- 
+
         percent = int(data[i][5])/int(data[i][6])*100
         data[i] = data[i] + [percent]
-        
-        pts = int(data[i][2])*4 + int(data[i][4])*2
-        data[i] = data[i] + [pts]        
 
-    data.sort(key = operator.itemgetter(7), reverse = True)    
-    data.sort(key = operator.itemgetter(8), reverse = True)     
+        pts = int(data[i][2])*4 + int(data[i][4])*2
+        data[i] = data[i] + [pts]
+
+    data.sort(key = operator.itemgetter(7), reverse = True)
+    data.sort(key = operator.itemgetter(8), reverse = True)
 
     for i in range(len(data)):
         data[i][7] = str('{:.2f}'.format(data[i][7]))
@@ -68,4 +68,3 @@ while True:
             table_example()
     else:
         break
-

@@ -19,19 +19,19 @@ import sys
 """
 
 '''
-MM""""""""`M                                        
-MM  mmmmmmmM                                        
-M'      MMMM .d8888b. 88d888b.    88d888b. dP    dP 
-MM  MMMMMMMM 88'  `88 88'  `88    88'  `88 88    88 
-MM  MMMMMMMM 88.  .88 88          88.  .88 88.  .88 
-MM  MMMMMMMM `88888P' dP          88Y888P' `8888P88 
-MMMMMMMMMMMM                      88            .88 
-                                  dP        d8888P  
-.8888b oo dP                   
-88   "    88                   
-88aaa  dP 88 .d8888b. .d8888b. 
-88     88 88 88ooood8 Y8ooooo. 
-88     88 88 88.  ...       88 
+MM""""""""`M
+MM  mmmmmmmM
+M'      MMMM .d8888b. 88d888b.    88d888b. dP    dP
+MM  MMMMMMMM 88'  `88 88'  `88    88'  `88 88    88
+MM  MMMMMMMM 88.  .88 88          88.  .88 88.  .88
+MM  MMMMMMMM `88888P' dP          88Y888P' `8888P88
+MMMMMMMMMMMM                      88            .88
+                                  dP        d8888P
+.8888b oo dP
+88   "    88
+88aaa  dP 88 .d8888b. .d8888b.
+88     88 88 88ooood8 Y8ooooo.
+88     88 88 88.  ...       88
 dP     dP dP `88888P' `88888P'
 '''
 
@@ -66,19 +66,19 @@ def create_shortcut_for_python_file(arguments='', target='', icon='', new_name='
 
 
 '''
-MM""""""""`M                                 dP   dP                         
-MM  mmmmmmmM                                 88   88                         
-M'      MMMM .d8888b. 88d888b.    .d8888b. d8888P 88d888b. .d8888b. 88d888b. 
-MM  MMMMMMMM 88'  `88 88'  `88    88'  `88   88   88'  `88 88ooood8 88'  `88 
-MM  MMMMMMMM 88.  .88 88          88.  .88   88   88    88 88.  ... 88       
-MM  MMMMMMMM `88888P' dP          `88888P'   dP   dP    dP `88888P' dP       
-MMMMMMMMMMMM                                                                 
+MM""""""""`M                                 dP   dP
+MM  mmmmmmmM                                 88   88
+M'      MMMM .d8888b. 88d888b.    .d8888b. d8888P 88d888b. .d8888b. 88d888b.
+MM  MMMMMMMM 88'  `88 88'  `88    88'  `88   88   88'  `88 88ooood8 88'  `88
+MM  MMMMMMMM 88.  .88 88          88.  .88   88   88    88 88.  ... 88
+MM  MMMMMMMM `88888P' dP          `88888P'   dP   dP    dP `88888P' dP
+MMMMMMMMMMMM
 
-.8888b oo dP                   
-88   "    88                   
-88aaa  dP 88 .d8888b. .d8888b. 
-88     88 88 88ooood8 Y8ooooo. 
-88     88 88 88.  ...       88 
+.8888b oo dP
+88   "    88
+88aaa  dP 88 .d8888b. .d8888b.
+88     88 88 88ooood8 Y8ooooo.
+88     88 88 88.  ...       88
 dP     dP dP `88888P' `88888P'
 '''
 
@@ -130,11 +130,11 @@ def shortcut_delete(target, new_name=''):
 
 
 '''
-                    oo          
+                    oo
 
-88d8b.d8b. .d8888b. dP 88d888b. 
-88'`88'`88 88'  `88 88 88'  `88 
-88  88  88 88.  .88 88 88    88 
+88d8b.d8b. .d8888b. dP 88d888b.
+88'`88'`88 88'  `88 88 88'  `88
+88  88  88 88.  .88 88 88    88
 dP  dP  dP `88888P8 dP dP    dP
 '''
 

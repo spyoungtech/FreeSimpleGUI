@@ -10,11 +10,11 @@ CONFIRM_KILLS = False
 
 """
     Task killer program focused on Python only programs
-    
+
     While there is another demo program that handles all running processes, this specific
     demo is for Python oriented processes only.  It is based on the original, more general
     purpose task killer demo.
-    
+
     In addition to filtering out all but Python programs, it also displays the command line used
     to launch the program.  This is particularly good for programs that have no titlebar or
     are running in the background or system tray.

@@ -5,9 +5,9 @@ import FreeSimpleGUI as sg
 """
     If you're using the PySimpleGUI color themes, then your code will a line that looks something like this:
         sg.theme('Light Green 1') or sg.theme('LightGreen1')
-        
+
     This demo shows how to access the list of all "dark themes" as an example of how you can build your own previewer
-    
+
     Copyright 2020 PySimpleGUI.org
 """
 

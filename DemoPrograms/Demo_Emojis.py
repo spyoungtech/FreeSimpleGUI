@@ -4,7 +4,7 @@
     The list of characters available to you to use in your messages.
     They are used internally when you get an error or as the icon for windows like
     the SDK help window.
-    
+
     Copyright 2021 PySimpleGUI
 """
 

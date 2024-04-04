@@ -7,7 +7,7 @@
         <div>
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"> 
+            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
         </div>
         <div style="font-family: 'Roboto', sans-serif; background-color: #43ACE9; color: white; height: 400px; width: 250px; border-radius: 20px;">
             <div style="display: flex; padding-top: 10px; justify-content: center;">
@@ -23,7 +23,7 @@
                 </div>
                 <div style="text-align: center; margin-bottom: 10px; margin-top: 30px; padding: 0px 20px; font-weight: 700; font-size: 16px;">
                     <span style="font-weight: normal;">
-                        apply coupon for discount: 
+                        apply coupon for discount:
                     </span>
                     522B20BF5EF123C4AB30
                 </div>
@@ -37,25 +37,25 @@
 
 
 
-# The PySimpleGUI Cookbook      
-      
-Welcome to the PySimpleGUI Cookbook!  It's provided as but one component of a larger documentation effort for the PySimpleGUI package.  Its purpose is to give you a jump start.      
+# The PySimpleGUI Cookbook
+
+Welcome to the PySimpleGUI Cookbook!  It's provided as but one component of a larger documentation effort for the PySimpleGUI package.  Its purpose is to give you a jump start.
 
 You'll find that starting with a Recipe will give you a big jump-start on creating your custom GUI.  Copy and paste one of these Recipes and modify it to match your requirements.  Study them to get an idea of some design patterns to follow.
 
 This document is not a replacement for the main documentation at http://www.PySimpleGUI.org.  If you're looking for answers, they're most likely there in the detailed explanations and the detailed call reference.  That document is updated much more frequently than this one.
-  
+
 See the main doc on installation.  Typically it's `pip install pysimplegui` to install.
-  
+
 # Constantly Being Updated
 
-Because PySimpleGUI is an active project, new capabilities are being added frequently, and the recommended method for doing operations evolves over time, that means this Cookbook also changes over time.  However, the speed the Cookbook gets updated will, by definition, lag behind the code changes.  
+Because PySimpleGUI is an active project, new capabilities are being added frequently, and the recommended method for doing operations evolves over time, that means this Cookbook also changes over time.  However, the speed the Cookbook gets updated will, by definition, lag behind the code changes.
 
 ****The Demo Programs are going to be the most up to date examples**** for you, but even those get out of date.  It's an imperfect world, but let's make the most of what we've got.
 
 # The "Demo Programs" Are Also "Recipes"
 
-If you like this Cookbook, then you'll LOVE the 300 sample programs that are just like these.  You'll find them in the GitHub at http://Demos.PySimpleGUI.com.  They are located in the folder `DemoPrograms` and there is also a `Demo Programs` folder for each of the PySimpleGUI ports. 
+If you like this Cookbook, then you'll LOVE the 300 sample programs that are just like these.  You'll find them in the GitHub at http://Demos.PySimpleGUI.com.  They are located in the folder `DemoPrograms` and there is also a `Demo Programs` folder for each of the PySimpleGUI ports.
 
 These programs are updated frequently, much more so than this Cookbook document.  It's there that you'll find the largest potential for a big jump-start on your project.
 
@@ -76,18 +76,18 @@ More and more the recipes are moving online, away from this document and onto Tr
 
 You'll find a number of "recipes" running on Trinket.  The PySimpleGUI [Trinket Demo Programs](https://pysimplegui.trinket.io/demo-programs) are often accompanied by explanatory text.  Because it's an actively used educational capability, you'll find newer PySimpleGUI features demonstrated there.
 
-The advantage to "live", online PySimpleGUI demos is that you can examine the source code, run it, and see the GUI in your browser window, without installing *anything* on your local machine.  No Python, no PySimpleGUI, only your browser is needed to get going.  
+The advantage to "live", online PySimpleGUI demos is that you can examine the source code, run it, and see the GUI in your browser window, without installing *anything* on your local machine.  No Python, no PySimpleGUI, only your browser is needed to get going.
 
 # [Repl.it](https://repl.it/@PySimpleGUI)... another online resource
 
 The [PySimpleGUI repl.it repository](https://repl.it/@PySimpleGUI) is also used, but it doesn't provide the same kind of capability to provide some explanatory text and screenshots with the examples.  It does, however, automatically install the latest version of PySimpleGUI for many of the examples.  It also enables the demo programs to access any package that can be pip installed.  Trinket does not have this more expansive capability.  Some older demos are located there.  You can run PySimpleGUIWeb demos using Repl.it.
-      
+
 
 # Cookbook Purpose
 
 A quick explanation about this document. The PySimpleGUI Cookbook is meant to get you started quickly.  But that's only part of the purpose.  The other, probably most important one, is *coding conventions*.  The more of these examples and the programs you see in the [Demo Programs](http://Demos.FreeSimpleGUI.org) section on the GitHub, the more familiar certain patterns will emerge.
 
-It's through the Cookbook and the Demo Programs that new PySimpleGUI constructs and naming conventions are "rolled out" to the user community.  If you are brand new to PySimpleGUI, then you're getting your foundation here.  That foundation changes over time as the package improves.  The old code still runs, but as more features are developed and better practices are discovered, you'll want to be using newer examples and coding conventions. 
+It's through the Cookbook and the Demo Programs that new PySimpleGUI constructs and naming conventions are "rolled out" to the user community.  If you are brand new to PySimpleGUI, then you're getting your foundation here.  That foundation changes over time as the package improves.  The old code still runs, but as more features are developed and better practices are discovered, you'll want to be using newer examples and coding conventions.
 
 PEP8 names are a really good example.  Previously many of the method names for the Elements were done with CamelCase which is not a PEP8 compliant way of naming those functions.  They should have been snake_case.  Now that a complete set of PEP8 bindings is available, the method names are being changed here, in the primary documentation and in the demo programs.  `window.Read()` became `window.read()`.  It's better that you see examples using the newer `windows.read()` names.
 
@@ -97,7 +97,7 @@ In short, it's brainwashing you to program PySimpleGUI a certain way.  The effec
 
 # Keys
 
-Keys are an extremely important concept for you to understand.  They are the labels/tags/names/identifiers you give Elements.  They are a way for you to communicate about a specific element with the FreeSimpleGUI API calls.  
+Keys are an extremely important concept for you to understand.  They are the labels/tags/names/identifiers you give Elements.  They are a way for you to communicate about a specific element with the FreeSimpleGUI API calls.
 
 Keys are used to:
 
@@ -110,12 +110,12 @@ Keys are used to:
 Keys are specified when you create an element using the `key` keyword parameter.  They are used to "find elements" so that you can perform actions on them.
 
 
-# GETTING STARTED - Copy these design patterns!      
-      
+# GETTING STARTED - Copy these design patterns!
+
 All of your PySimpleGUI programs will utilize one of these 2 design patterns depending on the type of window you're implementing.  The two types of windows are:
 
-1. One-shot 
-2. Persistent 
+1. One-shot
+2. Persistent
 
 The **One-shot window** is one that pops up, collects some data, and then disappears.  It is more or less a 'form' meant to quickly grab some information and then be closed.
 
@@ -123,8 +123,8 @@ The **Persistent window** is one that sticks around.  With these programs, you l
 
 If you are writing a "typical Windows program" where the window stays open while you collect multiple button clicks and input values, then you'll want Recipe Pattern 2B.
 
-      
-# Recipe -  Pattern 1A - "One-shot Window" - (The Simplest Pattern)    
+
+# Recipe -  Pattern 1A - "One-shot Window" - (The Simplest Pattern)
 
 
 
@@ -135,51 +135,51 @@ If you are writing a "typical Windows program" where the window stays open while
 
 
 This will be the most common pattern you'll follow if you are not using an "event loop" (not reading the window multiple times).  The window is read and then closed.
-    
-When you "read" a window, you are returned a tuple consisting of an `event` and a dictionary of `values`.  
+
+When you "read" a window, you are returned a tuple consisting of an `event` and a dictionary of `values`.
 
 The `event` is what caused the read to return. It could be a button press, some text clicked, a list item chosen, etc, or `WIN_CLOSED` if the user closes the window using the X.
 
 The `values` is a dictionary of values of all the input-style elements.  Dictionaries use keys to define entries. If your elements do not specificy a key, one is provided for you. These auto-numbered keys are ints starting at zero.
 
 This design pattern does not specify a `key` for the `InputText` element, so its key will be auto-numbered and is zero in this case.  Thus the design pattern can get the value of whatever was input by referencing `values[0]`
-   
-```python    
-import FreeSimpleGUI as sg      
 
-layout = [[sg.Text('My one-shot window.')],      
-                 [sg.InputText()],      
-                 [sg.Submit(), sg.Cancel()]]      
-      
-window = sg.Window('Window Title', layout)    
-    
-event, values = window.read()    
+```python
+import FreeSimpleGUI as sg
+
+layout = [[sg.Text('My one-shot window.')],
+                 [sg.InputText()],
+                 [sg.Submit(), sg.Cancel()]]
+
+window = sg.Window('Window Title', layout)
+
+event, values = window.read()
 window.close()
-    
-text_input = values[0]    
+
+text_input = values[0]
 sg.popup('You entered', text_input)
-```    
+```
 
 If you want to use a key instead of an auto-generated key:
 
-```python    
-import FreeSimpleGUI as sg      
+```python
+import FreeSimpleGUI as sg
 
-layout = [[sg.Text('My one-shot window.')],      
-                 [sg.InputText(key='-IN-')],      
-                 [sg.Submit(), sg.Cancel()]]      
-      
-window = sg.Window('Window Title', layout)    
-    
-event, values = window.read()    
+layout = [[sg.Text('My one-shot window.')],
+                 [sg.InputText(key='-IN-')],
+                 [sg.Submit(), sg.Cancel()]]
+
+window = sg.Window('Window Title', layout)
+
+event, values = window.read()
 window.close()
-    
-text_input = values['-IN-']    
+
+text_input = values['-IN-']
 sg.popup('You entered', text_input)
-``` 
+```
 
 
-# Recipe -  Pattern 1B - "One-shot Window" - (Self-closing, single line)    
+# Recipe -  Pattern 1B - "One-shot Window" - (Self-closing, single line)
 
 For a much more compact window, it's possible to create, display, read, and close a window in a single line of code.
 
@@ -195,44 +195,44 @@ login_id = values['-ID-']
 
 The important part of this bit of code is `close=True`.  This is the parameter that instructs FreeSimpleGUI to close the window just before the read returns.
 
-This is a single line of code, broken up to make reading the window layout easier.  It will display a window, let the user enter a value, click a button and then the window will close and execution will be returned to you with the variables `event` and `values` being returned.  
+This is a single line of code, broken up to make reading the window layout easier.  It will display a window, let the user enter a value, click a button and then the window will close and execution will be returned to you with the variables `event` and `values` being returned.
 
 Notice use of Element name "Shortcuts" (uses `B` rather than `Button`, `T` instead of `Text`, `In` rather than `InputText`, etc.).  These shortcuts are fantastic to use when you have complex layouts.  Being able to "see" your entire window's definition on a single screen of code has huge benefits.  It's another tool to help you achieve simple code.
 
 
 
-# Recipe - Pattern 2A - Persistent window (multiple reads using an event loop)      
+# Recipe - Pattern 2A - Persistent window (multiple reads using an event loop)
 
 
 ![image](https://user-images.githubusercontent.com/46163555/68600333-5361fb80-0470-11ea-91cb-691e32832b60.png)
 
 
-The more advanced/typical GUI programs operate with the window remaining visible on the screen.  Input values are collected, but rather than closing the window, it is kept visible acting as a way to both input and output information.  In other words, a typical Window, Mac or Linux window.  
+The more advanced/typical GUI programs operate with the window remaining visible on the screen.  Input values are collected, but rather than closing the window, it is kept visible acting as a way to both input and output information.  In other words, a typical Window, Mac or Linux window.
 
 *Let this sink in for a moment....* in 10 lines of Python code, you can display and interact with your own custom GUI window.  You are writing "*real GUI code*" (as one user put it) that will look and act like other windows you're used to using daily.
-    
-This code will present a window and will print values until the user clicks the exit button or closes window using an X.    
 
-      
-```python    
-import FreeSimpleGUI as sg      
+This code will present a window and will print values until the user clicks the exit button or closes window using an X.
+
+
+```python
+import FreeSimpleGUI as sg
 
 sg.theme('DarkAmber')    # Keep things interesting for your users
 
-layout = [[sg.Text('Persistent window')],      
-          [sg.Input(key='-IN-')],      
-          [sg.Button('Read'), sg.Exit()]]      
-      
-window = sg.Window('Window that stays open', layout)      
-      
+layout = [[sg.Text('Persistent window')],
+          [sg.Input(key='-IN-')],
+          [sg.Button('Read'), sg.Exit()]]
+
+window = sg.Window('Window that stays open', layout)
+
 while True:                             # The Event Loop
-    event, values = window.read() 
-    print(event, values)       
+    event, values = window.read()
+    print(event, values)
     if event == sg.WIN_CLOSED or event == 'Exit':
-        break      
+        break
 
 window.close()
-```    
+```
 
 
 Here is some sample output from this code:
@@ -245,7 +245,7 @@ Exit {'-IN-': 'clicking the exit button this time'}
 
 The first thing printed is the "event" which in this program is the buttons.  The next thing printed is the `values` variable that holds the dictionary of return values from the read.  This dictionary has only 1 entry.  The "key" for the entry is `'-IN-'` and matches the key passed into the `Input` element creation on this line of code:
 ```python
-          [sg.Input(key='-IN-')],      
+          [sg.Input(key='-IN-')],
 ```
 
 If the window was close using the X, then the output of the code will be:
@@ -258,7 +258,7 @@ The `event` returned from the read is set to `None` (the variable `WIN_CLOSED`) 
 In some cirsumstances when a window is closed with an X, both of the return values from `window.read()` will be `None`.  This is why it's important to check for `event is None` before attempting to access anything in the `values` variable.
 
 
-# Recipe - Pattern 2B - Persistent window (multiple reads using an event loop + updates data in window)   
+# Recipe - Pattern 2B - Persistent window (multiple reads using an event loop + updates data in window)
 
 ![image](https://user-images.githubusercontent.com/46163555/68633697-df9c0f00-04c0-11ea-9fb3-121a72a87a59.png)
 
@@ -298,14 +298,14 @@ The way we're achieving output here is by changing a Text Element with this stat
 window['-OUTPUT-'].update(values['-IN-'])
 ```
 
-`window['-OUTPUT-']` returns the element that has the key `'-OUTPUT-'`.  Then the `update` method for that element is called so that the value of the Text Element is modified.  Be sure you have supplied a `size` that is large enough to display your output. If the size is too small, the output will be truncated. 
+`window['-OUTPUT-']` returns the element that has the key `'-OUTPUT-'`.  Then the `update` method for that element is called so that the value of the Text Element is modified.  Be sure you have supplied a `size` that is large enough to display your output. If the size is too small, the output will be truncated.
 
 There are **two important concepts when updating elements!**
 
 1. If you need to interact with elements prior to calling `window.read()` you will need to "finalize" your window first using the `finalize` parameter when you create your `Window`. "Interacting" means calling that element's methods such as `update`, `expand`, `draw_line`, etc.
-2. Your change ***will not be visible in the window until*** you either:  
-	A. Call `window.read()` again  
-	B. Call `window.refresh()`  
+2. Your change ***will not be visible in the window until*** you either:
+	A. Call `window.read()` again
+	B. Call `window.refresh()`
 
 ------------
 
@@ -394,7 +394,7 @@ The reason is that for some ports, like PySimpleGUIWeb, you cannot exit the prog
 # Coding Conventions
 
 By following some simple coding conventions you'll be able to copy / paste demo program code into your code with minimal or no modifications.  Your code will be understandable by other PySimpleGUI programmers as well.
- 
+
 The primary *suggested* conventions are:
 
 * `import FreeSimpleGUI as sg`
@@ -429,7 +429,7 @@ A little more detail on a few of them that aren't obvious.
 
 ### Write compact layouts
 
-Try to keep your layout definitions to a single screen of code.  Don't put every parameter on a new line.  Don't add tons of whitespace.  
+Try to keep your layout definitions to a single screen of code.  Don't put every parameter on a new line.  Don't add tons of whitespace.
 
 If you've got a lot of elements, use the shortcut names (e.g. using `sg.B` rather than `sg.Button` saves 5 characters per button in your layout).
 
@@ -439,7 +439,7 @@ The idea here to be able to see your entire window in your code without having t
 
 PySimpleGUI programs were not designed using the same OOP design as the other Python GUI frameworks.  Trying to force fit them into an OOP design doesn't buy anything other then lots of `self.` scattered in your code, more complexity, and possibly more confusion
 
-Of course your overall design can be OOP.  
+Of course your overall design can be OOP.
 
 The point is that there is no concept of an "App" or a never-ending event loop or callback functions.  PySimpleGUI is different than tkinter and Qt.  Trying to code in that style is likely to not result in success.  If you're writing a subclass for `Window` as a starting point, it's highly likely you're doing something wrong.
 
@@ -466,23 +466,23 @@ Some of the features this program provides are:
 ## Downloading the PySimpleGUI Demo Programs
 
 
-### Jump Start! Get the Demo Programs & Demo Browser 
+### Jump Start! Get the Demo Programs & Demo Browser
 
-The over 300 Demo Programs will give you a jump-start and provide many design patterns for you to learn how to use PySimpleGUI and how to integrate PySimpleGUI with other packages.  By far the best way to experience these demos is using the Demo Browser.  This tool enables you to search, edit and run the Demo Programs.  
+The over 300 Demo Programs will give you a jump-start and provide many design patterns for you to learn how to use PySimpleGUI and how to integrate PySimpleGUI with other packages.  By far the best way to experience these demos is using the Demo Browser.  This tool enables you to search, edit and run the Demo Programs.
 
-To get them installed quickly along with the Demo Browser, use `pip` to install `psgdemos`:  
-  
-`python -m pip install psgdemos`  
+To get them installed quickly along with the Demo Browser, use `pip` to install `psgdemos`:
+
+`python -m pip install psgdemos`
 
 
 or if you're in Linux, Mac, etc, that uses `python3` instead of `python` to launch Python:
 
-`python3 -m pip install psgdemos`  
+`python3 -m pip install psgdemos`
 
 
-Once installed, launch the demo browser by typing `psgdemos` from the command line"  
+Once installed, launch the demo browser by typing `psgdemos` from the command line"
 
-`psgdemos`  
+`psgdemos`
 
 ![SNAG-1543](https://user-images.githubusercontent.com/46163555/151877440-85ad9239-3219-4711-8cdf-9abc1501f05a.jpg)
 ### Download the Repo and Demos
@@ -542,12 +542,12 @@ After clicking OK the window changes to:
         * Linux - `/usr/bin/notepad`
     * Custom
         * Assuming your editor is invoked using "editor filename" when you can use any editor you wish by filling in the "Editor Program" field with a path to the editor executable
-    
+
 NOTE - if you want to be able to use the Edit button to open to a specific line number, then you will need to setup the editor in the PySimpleGUI Global Settings.  You can access the PySimpleGUI Global Settings from Test Harness by calling `sg.main()`.  There is a button labelled "Global Settings".  There is already a lot of duplication of settings happening between this browser and the PySimpleGUI global settings.  Once you've got the global settings made, then you don't need to make any chnages to the seettings in the browser program.  You can leave them all blank and the settings will come from the PySimpleGUI global settings.
 
 
 
-## Window Sections 
+## Window Sections
 
 These are some of the important part of the window that are not as obvious as other parts.
 
@@ -594,7 +594,7 @@ You'll find that many/most of the PySimpleGUI Demo Programs that are newer have 
 ## Adding the Menu
 
 There are several pre-defined right-click menus included with PySimpleGUI.  To get the one that includes these 3 options, add this parameter to your `Window` creation call.
-  
+
 ```python
 right_click_menu=sg.MENU_RIGHT_CLICK_EDITME_VER_EXIT
 ```
@@ -614,7 +614,7 @@ MENU_RIGHT_CLICK_EDITME_VER_EXIT = ['', ['Edit Me', 'Version', 'Exit']]
 
 When you're developing your code and even after it's done, sometimes you'll see something while the code is running that triggers you to want to make a change.  Maybe it's a bug fix, a mispelling (sic), or a new feature idea.
 
-The problem you face now is.... where's the source code?  
+The problem you face now is.... where's the source code?
 
 The Edit Me item launches the editor you've specified in the PySimpleGUI Global Settings and opens the file in that editor.
 
@@ -729,13 +729,13 @@ One complaint about tkinter that is often heard is how "ugly" it looks.  You can
 sg.theme('Dark Green 5')
 ```
 
-A call to `theme` will set the colors to be used when creating windows.  It sets text color, background color, input field colors, button color,.... 13 different settings are changed.  
+A call to `theme` will set the colors to be used when creating windows.  It sets text color, background color, input field colors, button color,.... 13 different settings are changed.
 
 The default theme is "Dark Blue 3"
 
 ## Look and Feel Theme Explosion
 
-There are currently 140 themes to choose from (in April 2020, maybe more by the time you read this) 
+There are currently 140 themes to choose from (in April 2020, maybe more by the time you read this)
 
 ![SNAG-0620](https://user-images.githubusercontent.com/46163555/71361827-2a01b880-2562-11ea-9af8-2c264c02c3e8.jpg)
 
@@ -747,7 +747,7 @@ sg.theme_previewer()
 
 Even windows that are created for you, such as popups, will use the color settings you specify.  And, you can change them at any point, even mid-way through defining a window layout.
 
-This one line of code helps, but it's not the only thing that is going to make your window attractive. 
+This one line of code helps, but it's not the only thing that is going to make your window attractive.
 
 
 ### Theme Name Format
@@ -779,7 +779,7 @@ In addition to getting all of these new themes, the format of the string used to
 
 For example the theme `"DarkBrown2"` can be specified also as `"Dark Brown 2"`.
 
-If you can't remember the names and get it wrong, you'll get a text list of the available choices printed on your console.  
+If you can't remember the names and get it wrong, you'll get a text list of the available choices printed on your console.
 
 You can also get the list of theme names by calling `theme_list`
 
@@ -802,7 +802,7 @@ In case you've not noticed, you, the now fancy Python GUI programmer that you ar
 ## People / visitors **love pictures**
 They don't have to be what you consider to be "pretty pictures" or of a "compex GUI".  GUIs from beginners should be shown as proudly developed creations you've completed or are in the process of completion.
 
-Your GitHub visitors may never have made a GUI and need to see a beginner GUI just as much as they need to see more complex GUIs.  It gives them a target. It shows them someone they may be able to achieve.  
+Your GitHub visitors may never have made a GUI and need to see a beginner GUI just as much as they need to see more complex GUIs.  It gives them a target. It shows them someone they may be able to achieve.
 
 ## The GitHub Issue Technique
 
@@ -810,7 +810,7 @@ This is one of the easiest / laziest / quickest ways of adding a screenshot to y
 
 Here'show you do it:
 
-1. Open a "Screenshots" Issue somehwere in GitHub.  It sdoesn't matter which project you open it under.  
+1. Open a "Screenshots" Issue somehwere in GitHub.  It sdoesn't matter which project you open it under.
 2. Copy and paste your image into the Issue's comment section.  OR Drag and drop your image info the comment section.  OR click the upload diaload box by clickin at the bottom on the words "Attach files by dragging & dropping, selecting or pasting them.
 3. A line of code will be inserted when you add a the image to your GitHub Issue's comment.  The line of code will resemble this:
 ```
@@ -912,7 +912,7 @@ Let's say you like the `LightGreeen3` Theme, except you would like for the butto
 
 Normal use of `theme` calls is to retrieve a theme's setting such as the background color.  The functions used to retrieve a theme setting can also be used to modify the setting by passing in the new setting as a parameter.
 
-Calling `theme_background_color()` returns the background color currently in use.  Passing in the color `'blue'` as the parameter, `theme_background_color('blue')`, will change the background color for future windows you create to blue. 
+Calling `theme_background_color()` returns the background color currently in use.  Passing in the color `'blue'` as the parameter, `theme_background_color('blue')`, will change the background color for future windows you create to blue.
 
 
 ```python
@@ -921,7 +921,7 @@ import FreeSimpleGUI as sg
 sg.theme('LightGreen3')
 sg.popup_no_wait('This is the standard LightGreen3 Theme', 'It has white button text')
 
-# Modify the theme 
+# Modify the theme
 sg.theme_button(('black', '#6D9F85'))
 
 sg.popup('This is the modified LightGreen3 Theme', 'It has black button text')
@@ -961,7 +961,7 @@ sg.theme_add_new('MyNewTheme', my_new_theme)
 sg.theme('My New Theme')
 
 # Call a popup to show what the theme looks like
-sg.popup_get_text('This how the MyNewTheme custom theme looks') 
+sg.popup_get_text('This how the MyNewTheme custom theme looks')
 ```
 
 
@@ -1026,7 +1026,7 @@ You can download your image or get a copy of the link to it.
 
 One of the demo programs provided on the PySimpleGUI GitHub is called "Demo_Base64_Image_Encoder.py".  This program will convert all of the images in a folder and write the encoded data to a file named `output.py`.
 
-Another demo program, "Demo_Base64_Single_Image_Encoder.py" will convert the input file to a base64 string and place the string onto the clipboard. Paste the result into your code and assign it to a variable. 
+Another demo program, "Demo_Base64_Single_Image_Encoder.py" will convert the input file to a base64 string and place the string onto the clipboard. Paste the result into your code and assign it to a variable.
 
 Both are in the Demos folder (Demos.PySimpleGUI.org)
 
@@ -1069,7 +1069,7 @@ red_x_base64 = b'paste the base64 encoded string here'
 red_x_base64 = sg.red_x     # Using this built-in little red X for this demo
 
 layout = [  [sg.Text('My borderless window with a button graphic')],
-            [sg.Button('', image_data=red_x_base64, 
+            [sg.Button('', image_data=red_x_base64,
             button_color=(sg.theme_background_color(),sg.theme_background_color()),border_width=0, key='Exit')]  ]
 
 window = sg.Window('Window Title', layout, no_titlebar=True)
@@ -1088,7 +1088,7 @@ When working with PNG/GIF files as button images the background you choose for t
 ----
 
 
-# Recipe - 1 Shot Window - Simple Data Entry - Return Values - Auto Numbered   
+# Recipe - 1 Shot Window - Simple Data Entry - Return Values - Auto Numbered
 
 Remember how keys are **key** to understanding PySimpleGUI elements?  Well, they are, so now you know.
 
@@ -1097,8 +1097,8 @@ If you do not specify a key and the element is an input element, a key will be p
 This example has no keys specified.  The 3 input fields will have keys 0, 1, 2.  Your first input element will be accessed as `values[0]`, just like a list would look.
 
 
-![SNAG-0550](https://user-images.githubusercontent.com/46163555/68547201-cace5700-03ac-11ea-81d6-cb171629e81b.jpg)    
-      
+![SNAG-0550](https://user-images.githubusercontent.com/46163555/68547201-cace5700-03ac-11ea-81d6-cb171629e81b.jpg)
+
 ```python
 import FreeSimpleGUI as sg
 
@@ -1118,12 +1118,12 @@ window = sg.Window('Simple data entry window', layout)
 event, values = window.read()
 window.close()
 print(event, values[0], values[1], values[2])    # the input data looks like a simple list when auto numbered
-```    
+```
 
 
---------------------------      
+--------------------------
 
-# Recipe - Add GUI to Front-End of Script 
+# Recipe - Add GUI to Front-End of Script
 
 
 ![image](https://user-images.githubusercontent.com/46163555/75084200-83e41780-54ec-11ea-9dc1-b38d382d5f50.png)
@@ -1209,7 +1209,7 @@ else:
 ```
 
 
-How about a GUI **_and_** traditional CLI argument in 1 line of code?  
+How about a GUI **_and_** traditional CLI argument in 1 line of code?
 
 ```python
 import FreeSimpleGUI as sg
@@ -1347,7 +1347,7 @@ This second example code could be used with the OK button.  It doesn't matter wh
 
 # Recipe - Input Validation
 
-Sometimes you want to restrict what a use can input into a field.  Maybe you have a zipcode field and want to make sure only numbers are entered and it's no longer than 5 digits.  
+Sometimes you want to restrict what a use can input into a field.  Maybe you have a zipcode field and want to make sure only numbers are entered and it's no longer than 5 digits.
 
 Perhaps you need a floating point number and only want to allow `0`-`9`, `.`, and `-`.  One way restrict the user's input to only those characters is to get an event any time the user inputs a character and if the character isn't a valid one, remove it.
 
@@ -1431,12 +1431,12 @@ Experimenting is the best way to get a handle on how your system responds.
 It would be great to know if this works on Linux and the Mac.
 
 This code is from a Demo Program named `Demo_Window_Location_Finder.py` and will help you located the x,y position on your monitors.  Grab the yellow square with your mouse to move the tool around your screen.  The 4 arrows point to the direction indicated
-  
-
-![image](https://user-images.githubusercontent.com/46163555/149558096-826b5e19-e549-41ed-87cc-614ab20a0913.png)  
 
 
-  
+![image](https://user-images.githubusercontent.com/46163555/149558096-826b5e19-e549-41ed-87cc-614ab20a0913.png)
+
+
+
 ```python
 import FreeSimpleGUI as sg
 
@@ -1484,7 +1484,7 @@ There are 2 terms used in PySimpleGUI regarding positioning:
 
 ## Justification
 
-Justification of elements can be accomplished using 2 methods.  
+Justification of elements can be accomplished using 2 methods.
 1. Use a Column Element with the `element_justification` parameter
 2. Use the `Push` element
 
@@ -1494,7 +1494,7 @@ The `Push` was added in 2021 to the tkinter port.  The PySimpleGUIQt port alread
 
 The way to think about `Push` elements is to think of them a an element that "repels" or pushes around other elements.  The `Push` works on a row by row basis.  Each row that you want the `Push` to impact will need to have one or more `Push` elements on that row.
 
-Normally, each row is left justified in PySimpleGUI (unless you've set a parameter in the Window object or the row is in a Column element that has a setting that impacts justification.  
+Normally, each row is left justified in PySimpleGUI (unless you've set a parameter in the Window object or the row is in a Column element that has a setting that impacts justification.
 
 Think of the sides of a window as a wall that cannot move.  Elements can move, but the side-walls cannot.  If you place a `Push` element on the left side of another element, then it will "push" the element to the right.  If you place a `Push` on the right side, then it will "push" the element to the left.  If you use TWO `Push` elements and place one on each side of an element, then the element will be centered.
 
@@ -1559,10 +1559,10 @@ window.close()
 
 ## Alignment - single rows
 
-"Alignment" is the term used to describe the vertical positioning of elements.  Within a single row, alignment is performed by using a container element or by using a one of the alignment "layout helper functions".  You'll find the layout helper functions in the call reference documentation here:   
+"Alignment" is the term used to describe the vertical positioning of elements.  Within a single row, alignment is performed by using a container element or by using a one of the alignment "layout helper functions".  You'll find the layout helper functions in the call reference documentation here:
 https://pysimplegui.readthedocs.io/en/latest/call%20reference/#layout-helper-funcs
 
-There are 3 functions in particular that affect vertical positioning:  
+There are 3 functions in particular that affect vertical positioning:
 * vtop - Align an element or an entire row to the "top" of the row
 * vbottom - Align an element or an entire row to the "bottom" of the row
 * vcenter - Align an element or an entire row to the "center" of the row
@@ -1664,13 +1664,13 @@ Just like the `Push` element will "push" elements around in a horizontal fashion
 
 If you have a single `VPush` in your layout, then the layout will be pushed to the top or to the bottom.  Normally layouts are top-aligned by default so there's no need to have a single `VPush` at the bottom.  If you have two `VPush` elements, then it will center the elements between them.
 
-One of the best examples of using `VPush` is when a window's size has been hard coded.  Hard coding a window's size is **not recommended** in PySimpleGUI.  The reason is that the contents inside may not fit inside your hard coded size on some computers.  It's usually better to allow the window's size to "float" and be automatically sized to fit the contents. 
+One of the best examples of using `VPush` is when a window's size has been hard coded.  Hard coding a window's size is **not recommended** in PySimpleGUI.  The reason is that the contents inside may not fit inside your hard coded size on some computers.  It's usually better to allow the window's size to "float" and be automatically sized to fit the contents.
 
 Perhaps a better example would be if you wanted to allow your window to be resized and have the contents vertically aligned after resizing.
 
 But, if you're determined to hard code a size and want to vertically center your elements in that window, then the `VPush` is a good way to go.
 
-This example window is 300 pixels by 300 pixels.  The layout is both center justified and center aligned.  This is accomplished using a combination of `Push` and `VPush` elements.  
+This example window is 300 pixels by 300 pixels.  The layout is both center justified and center aligned.  This is accomplished using a combination of `Push` and `VPush` elements.
 
 ![image](https://user-images.githubusercontent.com/46163555/149555894-c56c7b40-d06a-4391-b261-bbede2e9b191.png)
 
@@ -1786,9 +1786,9 @@ Outputting text is a very common operation in programming.  Your first Python pr
 print('Hello World')
 ```
 
-But in the world of GUIs where do "prints" fit in?  Well, lots of places!  Of course you can still use the normal `print` statement.  It will output to StdOut (standard out) which is normally the shell where the program was launched from.  
+But in the world of GUIs where do "prints" fit in?  Well, lots of places!  Of course you can still use the normal `print` statement.  It will output to StdOut (standard out) which is normally the shell where the program was launched from.
 
-Printing to the console becomes a problem however when you launch using `pythonw` on Windows or if you launch your program in some other way that doesn't have a console.  With PySimpleGUI you have many options available to you so fear not.  
+Printing to the console becomes a problem however when you launch using `pythonw` on Windows or if you launch your program in some other way that doesn't have a console.  With PySimpleGUI you have many options available to you so fear not.
 
 These Recipes explore how to retain *prints already in your code*.  Let's say your code was written for a console and you want to migrate over to a GUI.  Maybe there are so many print statements that you don't want to modify every one of them individually.
 
@@ -1808,7 +1808,7 @@ The debug window acts like a virtual console.  There are 2 operating modes for t
 
 The functions `Print`, `eprint`, `EasyPrint` all refer to the same funtion.   There is no difference whic hyou use as they point to identical code.  The one you'll see used in Demo Programs is `Print`.
 
-One method for routing your print statements to the debuyg window is to reassign the `print` keyword to be the PySimpleGUI function `Print`.  This can be done through simple assignment.  
+One method for routing your print statements to the debuyg window is to reassign the `print` keyword to be the PySimpleGUI function `Print`.  This can be done through simple assignment.
 
 `print = sg.Print`
 
@@ -1823,11 +1823,11 @@ print('This is a normal print that has been re-routed.')
 
 ![SNAG-0744](https://user-images.githubusercontent.com/46163555/78322296-4f786800-753c-11ea-94eb-6321bc046e28.jpg)
 
-While both `print` and `sg.Print` will output text to your Debug Window.  
+While both `print` and `sg.Print` will output text to your Debug Window.
 
 ***Printing in color is only operational if you do not reroute stdout to the debug window.***
 
-If color printing is important, then don't reroute your stdout to the debug window.  Only use calls to `Print` without any change to the stdout settings and you'll be able to print in color.  
+If color printing is important, then don't reroute your stdout to the debug window.  Only use calls to `Print` without any change to the stdout settings and you'll be able to print in color.
 
 ```python
 import FreeSimpleGUI as sg
@@ -1852,7 +1852,7 @@ If you want to re-route your standard out to your window, then placing an `Outpu
 
 Of all of the "print" techniques, this is the best to use if you cannot change your print statements.  The `Output` element is the best choice if your prints are in another module that you don't have control over such that "redefining / reassigning" what `print` does isn't a possibility.
 
-This layout with an `Output` element shows the results of a few clicks of the Go Button. 
+This layout with an `Output` element shows the results of a few clicks of the Go Button.
 
 ```python
 import FreeSimpleGUI as sg
@@ -2026,7 +2026,7 @@ The eaiest way to make this happen is using parmaters when creating the `Multlin
 * reroute_stdout
 * reroute_stderr
 
-If you wish to reroute stdout / stderr after you've already created (and finalized) the Multline, then you can call `reroute_stdout_to_here` to reroute stdeout and `reroute_stderr_to_here` to reroute stderr.  
+If you wish to reroute stdout / stderr after you've already created (and finalized) the Multline, then you can call `reroute_stdout_to_here` to reroute stdeout and `reroute_stderr_to_here` to reroute stderr.
 
 To restore the old values back, be sure and call `restore_stdout` and `restore_stderr`
 
@@ -2037,7 +2037,7 @@ This has a risky component to this.
 
 If programs outside of your control are running threads and they happen to call print, then the stdout will be routed to the window.  This MAY cause tkinter to crash.
 
-Your thread, by calling print, will trigger code inside of PySimpleGUI itself to be executed.  This code can be significant if the stdout has been re-rerouted to a multiline element that has auto-refresh turned on for example.  It is unclean how many operations or queued or if the calls from the threads will directly impact tkinter.  
+Your thread, by calling print, will trigger code inside of PySimpleGUI itself to be executed.  This code can be significant if the stdout has been re-rerouted to a multiline element that has auto-refresh turned on for example.  It is unclean how many operations or queued or if the calls from the threads will directly impact tkinter.
 
 **The point here it to simple be on the looking for the dreaded "tkinter not in the mainloop" error**
 
@@ -2045,9 +2045,9 @@ Your thread, by calling print, will trigger code inside of PySimpleGUI itself to
 ## Recipe Printing - #4A/4 using `cprint` function (color printing) to print to Multiline
 
 
-This method was added to PySimpleGUI tkinter port in June 2020 and needs to be ported to the other ports still. 
+This method was added to PySimpleGUI tkinter port in June 2020 and needs to be ported to the other ports still.
 
-The idea is have a function, `cprint` that looks and acts like a normal print.... except, you can "route" it to any multiline element.  There are 2 ways to do routing.  
+The idea is have a function, `cprint` that looks and acts like a normal print.... except, you can "route" it to any multiline element.  There are 2 ways to do routing.
 
 1. Call `cprint_set_output_destination(window, multiline_key)` to tell PySimpleGUI where the output should go
 2. Indicate the output location directly in the `cprint` call itself
@@ -2170,7 +2170,7 @@ The new parameters you'll be interested in are:
 * auto_refresh
 * reroute_cprint
 
-This will cut out the call previously required to set up the routing.  You will be setting up the routing through the Multiline creation ifself.  
+This will cut out the call previously required to set up the routing.  You will be setting up the routing through the Multiline creation ifself.
 
 You will continue to be able to manually route stdout and stderr to the Multline uning the `reroute_stdout_to_here` call.  Sorry about the wordiness of the call, but you're probably only going to have one in your code.  So it didn't seem so bad to have something descriptive enough that you won't need a comment.
 
@@ -2189,17 +2189,17 @@ import FreeSimpleGUI as sg
 
 """
     Threaded Demo - Uses Window.write_event_value communications
-    
+
     Requires PySimpleGUI.py version 4.25.0 and later
-    
+
     This is a really important demo  to understand if you're going to be using multithreading in FreeSimpleGUI.
-    
+
     Older mechanisms for multi-threading in PySimpleGUI relied on polling of a queue. The management of a communications
     queue is now performed internally to PySimpleGUI.
 
     The importance of using the new window.write_event_value call cannot be emphasized enough.  It will hav a HUGE impact, in
     a positive way, on your code to move to this mechanism as your code will simply "pend" waiting for an event rather than polling.
-    
+
     Copyright 2020 PySimpleGUI.org
 """
 
@@ -2255,7 +2255,7 @@ if __name__ == '__main__':
 ```
 
 
---------------      
+--------------
 
 # Recipe - Save and Load Program Settings
 
@@ -2270,7 +2270,7 @@ The basics are that in your layout or before your layout, you'll read your setti
 
 If you do not set a filename, then the name of your .py or .pyw file will be used.  Beware, however, that turning your program into an EXE can impact the settings file as your filename won't look the same to the Python code.  If you're going to turn your code into an EXE, then it's best to explicitly set the filename.
 
-This statement sets the filename.  Note that the path is not indicated in this example.  PySimpleGUI will store all the settings in the default settings folder if you don't specify one.  
+This statement sets the filename.  Note that the path is not indicated in this example.  PySimpleGUI will store all the settings in the default settings folder if you don't specify one.
 
 ```python
 sg.user_settings_filename(filename='DaysUntil.json')
@@ -2333,12 +2333,12 @@ if __name__ == '__main__':
 ----------
 
 
-# Recipe - Get 2 Files By Browsing 
-      
-Sometimes you just need to get a couple of filenames.  Browse to get 2 file names that can be then compared.  By using `Input` elements the user can either use the Browse button to browse to select a file or they can paste the filename into the input element directly.    
-      
-![image](https://user-images.githubusercontent.com/46163555/69107788-9445ab80-0a40-11ea-87e2-3c5efe893ea0.png)   
-      
+# Recipe - Get 2 Files By Browsing
+
+Sometimes you just need to get a couple of filenames.  Browse to get 2 file names that can be then compared.  By using `Input` elements the user can either use the Browse button to browse to select a file or they can paste the filename into the input element directly.
+
+![image](https://user-images.githubusercontent.com/46163555/69107788-9445ab80-0a40-11ea-87e2-3c5efe893ea0.png)
+
 ```python
 import FreeSimpleGUI as sg
 
@@ -2355,7 +2355,7 @@ event, values = window.read()
 window.close()
 print(f'You clicked {event}')
 print(f'You chose filenames {values[0]} and {values[1]}')
-```      
+```
 
 This pattern is really good any time you've got a file or folder to get from the user.  By pairing an `Input` element with a browse button, you give the user the ability to do a quick paste if they've already got the path on the clipboard or they can click "Browse" and browse to get the filename/foldername.
 
@@ -2403,7 +2403,7 @@ Threads can "inject" events and data into a `window.read()` call.  This allows y
 
 A classic problem of GUI programming is when you try to perform some operation that requires a lot of time.  The problem is simple enough.... you have a GUI and when you press a button, you want a 10 second operation to take place while you're GUI patiently waits.
 
-What happens to most people that give this a try gets the dreaded Windows/Linux/Mac "Your program has stopped 
+What happens to most people that give this a try gets the dreaded Windows/Linux/Mac "Your program has stopped
 responding do you wish to close it"
 
 If you add a sleep(30) to your code, it's not very many seconds before your window does this:
@@ -2509,7 +2509,7 @@ Take a moment to get to know the code.  You'll find the typical event loop. If y
 
 ![SNAG-0867](https://user-images.githubusercontent.com/46163555/87882466-25a15f00-c9ce-11ea-98fe-0907dc915540.jpg)
 
-If you attempted to interact with the window by pressing the "Nothing" button, then you will likely get a message about your window stopped responding.  
+If you attempted to interact with the window by pressing the "Nothing" button, then you will likely get a message about your window stopped responding.
 
 
 
@@ -2578,7 +2578,7 @@ The result is a GUI that continues to operate and be responsive to user's reques
 
 ### Long operations with feedback
 
-The power of the `Window.write_event_value` is that it can be used at any time, not just at the beginning and end of operations.  If a long operation can be broken into smaller parts, then progress can be shown to the user.  Rather than calling `Window.write_event_value` one time, it can be called a number of times too. 
+The power of the `Window.write_event_value` is that it can be used at any time, not just at the beginning and end of operations.  If a long operation can be broken into smaller parts, then progress can be shown to the user.  Rather than calling `Window.write_event_value` one time, it can be called a number of times too.
 
 
 If we modify the code so that instead of sleeping for 10 seconds, we sleep for 1 second 10 times, then it's possible to show information about progress.
@@ -2672,7 +2672,7 @@ def convert_to_bytes(file_or_bytes, resize=None):
 
 ```
 
-It requires 3 packages - PIL, io, and base64.  PIL is the only one you'll need to pip install.  
+It requires 3 packages - PIL, io, and base64.  PIL is the only one you'll need to pip install.
 
 PySimpleGUI does not directly use the PIL package so that PySimpleGUI can remain highly portable.  Requiring users to install PIL was simply not acceptable for the package, but it's fine for demo programs and helper functions like this one.
 
@@ -2709,15 +2709,15 @@ import base64
 
 """
     Demo for displaying any format of image file.
-    
+
     Normally tkinter only wants PNG and GIF files.  This program uses PIL to convert files
     such as jpg files into a PNG format so that tkinter can use it.
-    
-    The key to the program is the function "convert_to_bytes" which takes a filename or a 
+
+    The key to the program is the function "convert_to_bytes" which takes a filename or a
     bytes object and converts (with optional resize) into a PNG formatted bytes object that
     can then be passed to an Image Element's update method.  This function can also optionally
     resize the image.
-    
+
     Copyright 2020 PySimpleGUI.org
 """
 
@@ -2954,7 +2954,7 @@ import FreeSimpleGUI as sg
     Demo - 2 simultaneous windows using read_all_window
 
     Both windows are immediately visible.  Each window updates the other.
-        
+
     Copyright 2020 PySimpleGUI.org
 """
 
@@ -3011,7 +3011,7 @@ if __name__ == '__main__':
 
 
 
---------------- 
+---------------
 
 # Recipe - All Elements  (The Everything Bagel... 2022-Style)
 
@@ -3020,11 +3020,11 @@ As of June 2022, this window represents all 33 of the PySimpleGUI elements in a 
 The code isn't as practical as what you'll find in the Demo Programs.  This use of the elements is shortened and doesn't show how each is used in a typical way.
 
 
-      
+
 ![image](https://user-images.githubusercontent.com/46163555/172018343-37331967-ff65-4588-a101-1a43b2348d2d.png)
 
-      
-      
+
+
 ```python
 import FreeSimpleGUI as sg
 
@@ -3171,12 +3171,12 @@ One advantage that the Debug Print has over popups is that you can output the in
 
 ## Use the `wait`/ `blocking` parameter!
 
-Be sure and set the `wait` parameter to `True` in the last call you make to `sg.Print`.  The reason for this is that if you do not, the call will output to the window and then immediately return and your program will likely continue on and exit.  Adding `wait=True` will output to the Debug Window and then wait for you to click the `Continue` button in the window before the call will return.  
+Be sure and set the `wait` parameter to `True` in the last call you make to `sg.Print`.  The reason for this is that if you do not, the call will output to the window and then immediately return and your program will likely continue on and exit.  Adding `wait=True` will output to the Debug Window and then wait for you to click the `Continue` button in the window before the call will return.
 
 
 ## Example Program With Exception
 
-This example will crash when you click the "Go" button. 
+This example will crash when you click the "Go" button.
 
 ```python
 import FreeSimpleGUI as sg
@@ -3203,14 +3203,14 @@ if __name__ == '__main__':
 
 
  If this program was launched by double clicking a .pyw file or some other technique that doesn't involve a debugger or command line, then what you would see is this:
- 
+
 ![CrashNoHandler](https://user-images.githubusercontent.com/46163555/172020151-f0843b5a-c20e-47e4-876e-69f20ec1556e.gif)
 
 Your window would disappear and you would have nothing to help you understand why.  This is why PySimpleGUI uses a popup window for errors that are encountered internally instead of raising an exception.
 
 ## Example With Exception Handling Added
 
-Here is the same program, but we've added a `try` block around the entire event loop.  A total of 3 line of code were added.  
+Here is the same program, but we've added a `try` block around the entire event loop.  A total of 3 line of code were added.
 1. The `try` statement
 2. The `except` statement
 3. The `sg.Print` call to output to the Debug Window
@@ -3249,7 +3249,7 @@ This time the experience enables you to understand why and where your program cr
 
 ## Adding Traceback and Editing Capabilities
 
-With the Debug Print, you're able to output information about the exception which certainly helps.  Because PySimpleGUI was written for you, a Python developer, there's a popup call that you can add to make your life even *easier*! 
+With the Debug Print, you're able to output information about the exception which certainly helps.  Because PySimpleGUI was written for you, a Python developer, there's a popup call that you can add to make your life even *easier*!
 
 We'll change the exception handling portion this time to be these 2 lines of code:
 ```python
@@ -3257,7 +3257,7 @@ We'll change the exception handling portion this time to be these 2 lines of cod
         sg.popup_error_with_traceback('Problem in my event loop!', e)
 ```
 
-We're still print to the Debug Window, but we've removed the `wait` parameter because the `popup` call immediately after it will stop the program from exiting.  The popup we've added is `popup_error_with_traceback`.  This call will show you more detailed information about where the problem happened, and more conveniently, enable you to open your editor to the line of code that caused the problem.  You will need to add your editor's information in the PySimpleGUI globals settings for this feature to work, so be sure and fill in this information. 
+We're still print to the Debug Window, but we've removed the `wait` parameter because the `popup` call immediately after it will stop the program from exiting.  The popup we've added is `popup_error_with_traceback`.  This call will show you more detailed information about where the problem happened, and more conveniently, enable you to open your editor to the line of code that caused the problem.  You will need to add your editor's information in the PySimpleGUI globals settings for this feature to work, so be sure and fill in this information.
 
 Now our experience changes considerably.  We get the Debug Window as before, but we also get a popup that has a "Take me to error" button that will open your editor to the line of code where you called the popup.  The exception information is included in the popup because we added it when calling the popup.
 
@@ -3267,24 +3267,24 @@ This popup saves you the time of locating where on your computer the .py or .pyw
 
 
 
--------------      
+-------------
 
 
-## Asynchronous Window With Periodic Update    
+## Asynchronous Window With Periodic Update
 
 ### Sync Versus Async Mode
 
-It's possible, and even easy, to run your PySimpleGUI program in an "asynchronous" way.  
+It's possible, and even easy, to run your PySimpleGUI program in an "asynchronous" way.
 
-What does that even mean? 
+What does that even mean?
 
 There are 2 modes sync and async.  When running normally (synchronous), calls are made into the GUI ***stay*** in the GUI until something happens.  You call `window.read()` and wait for a button or some event that causes the `read` to return.
 
-With async calls, you wait for an event for a certain amount of time and then you return after that amount of time if there's no event.  You don't wait forever for a new event. 
+With async calls, you wait for an event for a certain amount of time and then you return after that amount of time if there's no event.  You don't wait forever for a new event.
 
 When running asynchronously, you are giving the illusion that multiple things are happening at the same time when in fact they are interwoven.
 
-It means your program doesn't "block" or stop running while the user is interacting with the window.  Your program continues to run and does things while the user is fiddling around.  
+It means your program doesn't "block" or stop running while the user is interacting with the window.  Your program continues to run and does things while the user is fiddling around.
 
 The critical part of these async windows is to ensure that you are calling either `read` or `refresh` often enough.  Just because your code is running doesn't mean you can ignore the GUI.  We've all experienced what happens when a GUI program "locks up".  We're shown this lovely window.
 
@@ -3300,14 +3300,14 @@ Use this design pattern for projects that need to poll or output something on a 
 
 Use caution when using windows with a timeout.  You should **rarely** need to use a `timeout=0`.  A zero value is a truly non-blocking call, so try not to abuse this design pattern.  You shouldn't use a timeout of zero unless you're a realtime application and you know what you're doing.  A zero value will consume 100% of the CPU core your code is running on. Abuse it an bad things ***will*** happen.
 
-A note about timers... this is not a good design for a stopwatch as it can very easily drift. This would never pass for a good solution in a bit of commercial code.  For better accuracy always get the actual time from a reputable source, like the operating system.  Use that as what you use to measure and display the time.  
+A note about timers... this is not a good design for a stopwatch as it can very easily drift. This would never pass for a good solution in a bit of commercial code.  For better accuracy always get the actual time from a reputable source, like the operating system.  Use that as what you use to measure and display the time.
 
-      
+
 ![image](https://user-images.githubusercontent.com/46163555/68599926-82c43880-046f-11ea-9901-84fae885ec8d.png)
 
- 
-      
-```python      
+
+
+```python
 import FreeSimpleGUI as sg
 
 sg.theme('DarkBrown1')
@@ -3330,18 +3330,18 @@ while True:                                 # Event Loop
         window['-OUTPUT-'].update('{:02d}:{:02d}.{:02d}'.format((counter // 100) // 60, (counter // 100) % 60, counter % 100))
         counter += 1
 window.close()
-```          
+```
 
 The `focus` parameter for the Button causes the window to start with that button having focus.  This will allow you to press the return key or spacebar to control the button.
-      
---------      
-      
-# Recipe - Callback Function Simulation      
-The architecture of some programs works better with button callbacks instead of handling in-line.  While button callbacks are part of the PySimpleGUI implementation, they are not directly exposed to the caller.  The way to get the same result as callbacks is to simulate them with a recipe like this one.      
-      
+
+--------
+
+# Recipe - Callback Function Simulation
+The architecture of some programs works better with button callbacks instead of handling in-line.  While button callbacks are part of the PySimpleGUI implementation, they are not directly exposed to the caller.  The way to get the same result as callbacks is to simulate them with a recipe like this one.
+
 ![image](https://user-images.githubusercontent.com/46163555/69109891-0ae5a780-0a47-11ea-8cc4-9442f46c7fa7.png)
 
-```python      
+```python
 import FreeSimpleGUI as sg
 
 sg.theme('Light Blue 3')
@@ -3382,24 +3382,24 @@ window.close()
 
     # All done!
 sg.popup_ok('Done')
-```  
+```
 
-      
-# Recipe - one_line_progress_meter      
-      
-This recipe shows just how easy it is to add a progress meter to your code.      
-      
+
+# Recipe - one_line_progress_meter
+
+This recipe shows just how easy it is to add a progress meter to your code.
+
 ![image](https://user-images.githubusercontent.com/46163555/69110052-80517800-0a47-11ea-8c59-9d86aa3e851d.png)
- 
-      
-```python      
+
+
+```python
 import FreeSimpleGUI as sg
 
 sg.theme('Dark Blue 8')
 
 for i in range(1000):   # this is your "work loop" that you want to monitor
     sg.one_line_progress_meter('One Line Meter Example', i + 1, 1000)
-```      
+```
 
 Unlike other progress meter Python packages, PySimpleGUI's one-line-progress-meter is 1 line of code, not 2.  Historicly you would setup the meter outside your work loop and then update that meter inside of your loop.  With PySimpleGUI you do not need to setup the meter outside the loop.  You only need to add the line of code to update the meter insdie of your loop.
 
@@ -3508,7 +3508,7 @@ window.close()
 ```
 
 
-The **most important** thing for you to learn from this recipe is that keys and events can be **any type**, not just strings.  
+The **most important** thing for you to learn from this recipe is that keys and events can be **any type**, not just strings.
 
 Thinking about this grid of buttons, doesn't it make the most sense for you to get row, column information when a button is pressed.  Well, that's exactly what setting your keys for these buttons to be tuples does for you.  It gives you the abilty to read events and finding the button row and column, and it makes updating text or color of buttons using a row, column designation.
 
@@ -3520,11 +3520,11 @@ This program also runs on PySimpleGUIWeb really well.  Change the import to PySi
 
 
 
-# Recipe - Button Graphics (Media Player)      
-Buttons can have PNG of GIF images on them.  This Media Player recipe requires 4 images in order to function correctly.  The background is set to the same color as the button background so that they blend together.      
-      
-![media player](https://raw.githubusercontent.com/PySimpleGUI/PySimpleGUI/master/images/for_cookbook/media_player.jpg)      
-      
+# Recipe - Button Graphics (Media Player)
+Buttons can have PNG of GIF images on them.  This Media Player recipe requires 4 images in order to function correctly.  The background is set to the same color as the button background so that they blend together.
+
+![media player](https://raw.githubusercontent.com/PySimpleGUI/PySimpleGUI/master/images/for_cookbook/media_player.jpg)
+
 
 ```python
 #!/usr/bin/env python
@@ -3588,11 +3588,11 @@ MediaPlayerGUI()
 # Recipe - Script Launcher - Exec APIs
 
 This program will run commands and display the output in an Output Element.  There are numerous Demo Programs that show how to lauch subprocesses manually rather than using the newer Exec APIs.
-      
-![script_launcher](https://raw.githubusercontent.com/PySimpleGUI/PySimpleGUI/master/images/for_cookbook/script_launcher.jpg)     
+
+![script_launcher](https://raw.githubusercontent.com/PySimpleGUI/PySimpleGUI/master/images/for_cookbook/script_launcher.jpg)
 
 
-```python   
+```python
 import FreeSimpleGUI as sg
 
 sg.theme('DarkGrey14')
@@ -3631,8 +3631,8 @@ while True:
         print(f'Running {values["-IN-"]} args={args}', 'Results will not be shown')
         sp = sg.execute_command_subprocess(args[0], *args[1:])
 
-```    
-     
+```
+
 
 # Recipe- Launch a Program With a Button
 
@@ -3665,54 +3665,54 @@ window.close()
 ```
 
 
-# Recipe - Machine Learning GUI      
-A standard non-blocking GUI with lots of inputs.      
-      
-![machine learning green](https://user-images.githubusercontent.com/13696193/43979000-408b77ba-9cb7-11e8-9ffd-24c156767532.jpg)      
-```python     
-    import FreeSimpleGUI as sg      
-      
-    # Green & tan color scheme      
-    sg.theme('GreenTan')      
-      
-    sg.set_options(text_justification='right')      
-      
-    layout = [[sg.Text('Machine Learning Command Line Parameters', font=('Helvetica', 16))],      
-              [sg.Text('Passes', size=(15, 1)), sg.Spin(values=[i for i in range(1, 1000)], initial_value=20, size=(6, 1)),      
-               sg.Text('Steps', size=(18, 1)), sg.Spin(values=[i for i in range(1, 1000)], initial_value=20, size=(6, 1))],      
-              [sg.Text('ooa', size=(15, 1)), sg.In(default_text='6', size=(10, 1)), sg.Text('nn', size=(15, 1)),      
-               sg.In(default_text='10', size=(10, 1))],      
-              [sg.Text('q', size=(15, 1)), sg.In(default_text='ff', size=(10, 1)), sg.Text('ngram', size=(15, 1)),      
-               sg.In(default_text='5', size=(10, 1))],      
-              [sg.Text('l', size=(15, 1)), sg.In(default_text='0.4', size=(10, 1)), sg.Text('Layers', size=(15, 1)),      
-               sg.Drop(values=('BatchNorm', 'other'), auto_size_text=True)],      
-              [sg.Text('_'  * 100, size=(65, 1))],      
-              [sg.Text('Flags', font=('Helvetica', 15), justification='left')],      
-              [sg.Checkbox('Normalize', size=(12, 1), default=True), sg.Checkbox('Verbose', size=(20, 1))],      
-              [sg.Checkbox('Cluster', size=(12, 1)), sg.Checkbox('Flush Output', size=(20, 1), default=True)],      
-              [sg.Checkbox('Write Results', size=(12, 1)), sg.Checkbox('Keep Intermediate Data', size=(20, 1))],      
-              [sg.Text('_'  * 100, size=(65, 1))],      
-              [sg.Text('Loss Functions', font=('Helvetica', 15), justification='left')],      
-              [sg.Radio('Cross-Entropy', 'loss', size=(12, 1)), sg.Radio('Logistic', 'loss', default=True, size=(12, 1))],      
-              [sg.Radio('Hinge', 'loss', size=(12, 1)), sg.Radio('Huber', 'loss', size=(12, 1))],      
-              [sg.Radio('Kullerback', 'loss', size=(12, 1)), sg.Radio('MAE(L1)', 'loss', size=(12, 1))],      
-              [sg.Radio('MSE(L2)', 'loss', size=(12, 1)), sg.Radio('MB(L0)', 'loss', size=(12, 1))],      
-              [sg.Submit(), sg.Cancel()]]      
-      
-    window = sg.Window('Machine Learning Front End', layout, font=("Helvetica", 12))      
-      
-    event, values = window.read()      
+# Recipe - Machine Learning GUI
+A standard non-blocking GUI with lots of inputs.
+
+![machine learning green](https://user-images.githubusercontent.com/13696193/43979000-408b77ba-9cb7-11e8-9ffd-24c156767532.jpg)
+```python
+    import FreeSimpleGUI as sg
+
+    # Green & tan color scheme
+    sg.theme('GreenTan')
+
+    sg.set_options(text_justification='right')
+
+    layout = [[sg.Text('Machine Learning Command Line Parameters', font=('Helvetica', 16))],
+              [sg.Text('Passes', size=(15, 1)), sg.Spin(values=[i for i in range(1, 1000)], initial_value=20, size=(6, 1)),
+               sg.Text('Steps', size=(18, 1)), sg.Spin(values=[i for i in range(1, 1000)], initial_value=20, size=(6, 1))],
+              [sg.Text('ooa', size=(15, 1)), sg.In(default_text='6', size=(10, 1)), sg.Text('nn', size=(15, 1)),
+               sg.In(default_text='10', size=(10, 1))],
+              [sg.Text('q', size=(15, 1)), sg.In(default_text='ff', size=(10, 1)), sg.Text('ngram', size=(15, 1)),
+               sg.In(default_text='5', size=(10, 1))],
+              [sg.Text('l', size=(15, 1)), sg.In(default_text='0.4', size=(10, 1)), sg.Text('Layers', size=(15, 1)),
+               sg.Drop(values=('BatchNorm', 'other'), auto_size_text=True)],
+              [sg.Text('_'  * 100, size=(65, 1))],
+              [sg.Text('Flags', font=('Helvetica', 15), justification='left')],
+              [sg.Checkbox('Normalize', size=(12, 1), default=True), sg.Checkbox('Verbose', size=(20, 1))],
+              [sg.Checkbox('Cluster', size=(12, 1)), sg.Checkbox('Flush Output', size=(20, 1), default=True)],
+              [sg.Checkbox('Write Results', size=(12, 1)), sg.Checkbox('Keep Intermediate Data', size=(20, 1))],
+              [sg.Text('_'  * 100, size=(65, 1))],
+              [sg.Text('Loss Functions', font=('Helvetica', 15), justification='left')],
+              [sg.Radio('Cross-Entropy', 'loss', size=(12, 1)), sg.Radio('Logistic', 'loss', default=True, size=(12, 1))],
+              [sg.Radio('Hinge', 'loss', size=(12, 1)), sg.Radio('Huber', 'loss', size=(12, 1))],
+              [sg.Radio('Kullerback', 'loss', size=(12, 1)), sg.Radio('MAE(L1)', 'loss', size=(12, 1))],
+              [sg.Radio('MSE(L2)', 'loss', size=(12, 1)), sg.Radio('MB(L0)', 'loss', size=(12, 1))],
+              [sg.Submit(), sg.Cancel()]]
+
+    window = sg.Window('Machine Learning Front End', layout, font=("Helvetica", 12))
+
+    event, values = window.read()
 ```
-      
--------      
-# Recipe - Custom Progress Meter / Progress Bar      
-Perhaps you don't want all the statistics that the EasyProgressMeter provides and want to create your own progress bar. Use this recipe to do just that.      
-      
-      
-![script_launcher](https://raw.githubusercontent.com/PySimpleGUI/PySimpleGUI/master/images/for_cookbook/prog_bar.jpg)     
- 
-      
-      
+
+-------
+# Recipe - Custom Progress Meter / Progress Bar
+Perhaps you don't want all the statistics that the EasyProgressMeter provides and want to create your own progress bar. Use this recipe to do just that.
+
+
+![script_launcher](https://raw.githubusercontent.com/PySimpleGUI/PySimpleGUI/master/images/for_cookbook/prog_bar.jpg)
+
+
+
 ```python
 import FreeSimpleGUI as sg
 
@@ -3737,71 +3737,71 @@ for i in range(1000):
     window['-PROG-'].update(i+1)
 # done with loop... need to destroy the window as it's still open
 window.close()
-``` 
-      
-      
-----      
+```
 
-
-   
-# Recipe - Multiple Columns      
-  
-A Column is required when you have a tall element to the left of smaller elements.      
-      
-In this example, there is a Listbox on the left that is 3 rows high.  To the right of it are 3 single rows of text and input. These 3 rows are in a Column Element.      
-      
-To make it easier to see the Column in the window, the Column background has been shaded blue.  The code is wordier than normal due to the blue shading.  Each element in the column needs to have the color set to match blue background.      
-      
-![cookbook columns](https://user-images.githubusercontent.com/13696193/45309948-f6c52280-b4f2-11e8-8691-a45fa0e06c50.jpg)      
-      
-      
-```python      
-    import FreeSimpleGUI as sg      
-      
-    # Demo of how columns work      
-    # GUI has on row 1 a vertical slider followed by a COLUMN with 7 rows    
-    # Prior to the Column element, this layout was not possible      
-    # Columns layouts look identical to GUI layouts, they are a list of lists of elements.    
-      
-    sg.theme('BlueMono')      
-      
-    # Column layout      
-    col = [[sg.Text('col Row 1', text_color='white', background_color='blue')],      
-           [sg.Text('col Row 2', text_color='white', background_color='blue'), sg.Input('col input 1')],      
-           [sg.Text('col Row 3', text_color='white', background_color='blue'), sg.Input('col input 2')]]      
-      
-    layout = [[sg.Listbox(values=('Listbox Item 1', 'Listbox Item 2', 'Listbox Item 3'), select_mode=sg.LISTBOX_SELECT_MODE_MULTIPLE, size=(20,3)), sg.Column(col, background_color='blue')],      
-              [sg.Input('Last input')],      
-              [sg.OK()]]      
-      
-    # Display the Window and get values    
-      
-    event, values = sg.Window('Compact 1-line Window with column', layout).Read()  
-      
-    sg.popup(event, values, line_width=200)      
-```      
 
 ----
 
-      
-# Recipe - Persistent Window With Text Element Updates    
-      
-This simple program keep a window open, taking input values until the user terminates the program using the "X" button.    
+
+
+# Recipe - Multiple Columns
+
+A Column is required when you have a tall element to the left of smaller elements.
+
+In this example, there is a Listbox on the left that is 3 rows high.  To the right of it are 3 single rows of text and input. These 3 rows are in a Column Element.
+
+To make it easier to see the Column in the window, the Column background has been shaded blue.  The code is wordier than normal due to the blue shading.  Each element in the column needs to have the color set to match blue background.
+
+![cookbook columns](https://user-images.githubusercontent.com/13696193/45309948-f6c52280-b4f2-11e8-8691-a45fa0e06c50.jpg)
+
+
+```python
+    import FreeSimpleGUI as sg
+
+    # Demo of how columns work
+    # GUI has on row 1 a vertical slider followed by a COLUMN with 7 rows
+    # Prior to the Column element, this layout was not possible
+    # Columns layouts look identical to GUI layouts, they are a list of lists of elements.
+
+    sg.theme('BlueMono')
+
+    # Column layout
+    col = [[sg.Text('col Row 1', text_color='white', background_color='blue')],
+           [sg.Text('col Row 2', text_color='white', background_color='blue'), sg.Input('col input 1')],
+           [sg.Text('col Row 3', text_color='white', background_color='blue'), sg.Input('col input 2')]]
+
+    layout = [[sg.Listbox(values=('Listbox Item 1', 'Listbox Item 2', 'Listbox Item 3'), select_mode=sg.LISTBOX_SELECT_MODE_MULTIPLE, size=(20,3)), sg.Column(col, background_color='blue')],
+              [sg.Input('Last input')],
+              [sg.OK()]]
+
+    # Display the Window and get values
+
+    event, values = sg.Window('Compact 1-line Window with column', layout).Read()
+
+    sg.popup(event, values, line_width=200)
+```
+
+----
+
+
+# Recipe - Persistent Window With Text Element Updates
+
+This simple program keep a window open, taking input values until the user terminates the program using the "X" button.
 
 This Recipe has a number of concepts.
 * Element name aliases - `Txt` and `In` are used in the layout
 * Bind return key so that rather than clicking "Calculate" button, the user presses return key
 * No exit/close button. The window is closed using the "X"
 * Dark Green 7 theme - there are some nice themes, try some out for yourself
-* try/except for cathing errors with the floating point 
+* try/except for cathing errors with the floating point
     * These should be used sparingly
     * Don't place a try/except around your whole event loop to try and fix your coding errors
 * Displaying results using a Text element - Note: be sure and set the size to a large enough value
-      
-      
-![math_game](https://raw.githubusercontent.com/PySimpleGUI/PySimpleGUI/master/images/for_cookbook/math_game.jpg)   
-      
-```python     
+
+
+![math_game](https://raw.githubusercontent.com/PySimpleGUI/PySimpleGUI/master/images/for_cookbook/math_game.jpg)
+
+```python
 import FreeSimpleGUI as sg
 
 sg.theme('Dark Green 7')
@@ -3829,12 +3829,12 @@ while True:
         window['-OUTPUT-'].update(calc)
     else:
         break
-```      
-      
+```
+
 # Recipe - One Element Updating Another - Compound Elements
 
-      
-![compound](https://raw.githubusercontent.com/PySimpleGUI/PySimpleGUI/master/images/for_cookbook/compound_element.jpg)   
+
+![compound](https://raw.githubusercontent.com/PySimpleGUI/PySimpleGUI/master/images/for_cookbook/compound_element.jpg)
 
 You can easily build "compound elements" in a single like of code.  This recipe shows you how to add a numeric value onto a slider.
 
@@ -3908,97 +3908,97 @@ while True:
                 win1.UnHide()
                 break
 ```
-   
-## tkinter Canvas Widget      
-      
-The Canvas Element is one of the few tkinter objects that are directly accessible.  The tkinter Canvas widget itself can be retrieved from a Canvas Element like this:      
-```python      
-    can = sg.Canvas(size=(100,100))      
-    tkcanvas = can.TKCanvas      
-    tkcanvas.create_oval(50, 50, 100, 100)      
+
+## tkinter Canvas Widget
+
+The Canvas Element is one of the few tkinter objects that are directly accessible.  The tkinter Canvas widget itself can be retrieved from a Canvas Element like this:
+```python
+    can = sg.Canvas(size=(100,100))
+    tkcanvas = can.TKCanvas
+    tkcanvas.create_oval(50, 50, 100, 100)
 ```
-      
-While it's fun to scribble on a Canvas Widget, try Graph Element makes it a downright pleasant experience.  You do not have to worry about the tkinter coordinate system and can instead work in your own coordinate system.      
-      
-      
-![canvas](https://user-images.githubusercontent.com/13696193/44632429-5266ac00-a948-11e8-9ee0-664103c40178.jpg)      
-      
-```python    
-    import FreeSimpleGUI as sg      
-      
-    layout = [      
-        [sg.Canvas(size=(100, 100), background_color='red', key= 'canvas')],      
-        [sg.T('Change circle color to:'), sg.Button('Red'), sg.Button('Blue')]      
-        ]      
-      
-    window = sg.Window('Canvas test', layout, finalize=True)      
-      
-    canvas = window['canvas')      
-    cir = canvas.TKCanvas.create_oval(50, 50, 100, 100)      
-      
-    while True:      
-        event, values = window.read()      
-        if event == sg.WIN_CLOSED:      
-            break      
-        if event == 'Blue':      
-            canvas.TKCanvas.itemconfig(cir, fill="Blue")      
-        elif event == 'Red':      
-            canvas.TKCanvas.itemconfig(cir, fill="Red")      
-```            
-      
-## Graph Element - drawing circle, rectangle, etc, objects      
-      
-Just like you can draw on a tkinter widget, you can also draw on a Graph Element.  Graph Elements are easier on the programmer as you get to work in your own coordinate system.      
-      
-![graph recipe](https://user-images.githubusercontent.com/13696193/45920640-751bb000-be75-11e8-9530-45b71cbae07d.jpg)      
-      
-```python      
-    import FreeSimpleGUI as sg      
-      
-    layout = [      
-               [sg.Graph(canvas_size=(400, 400), graph_bottom_left=(0,0), graph_top_right=(400, 400), background_color='red', key='graph')],      
-               [sg.T('Change circle color to:'), sg.Button('Red'), sg.Button('Blue'), sg.Button('Move')]      
-               ]      
-      
-    window = sg.Window('Graph test', layout, finalize=True)       
-      
-    graph = window['graph')      
-    circle = graph.DrawCircle((75,75), 25, fill_color='black',line_color='white')      
-    point = graph.DrawPoint((75,75), 10, color='green')      
-    oval = graph.DrawOval((25,300), (100,280), fill_color='purple', line_color='purple'  )      
-    rectangle = graph.DrawRectangle((25,300), (100,280), line_color='purple'  )      
-    line = graph.DrawLine((0,0), (100,100))      
-      
-    while True:      
-        event, values = window.read()      
-        if event == sg.WIN_CLOSED:      
-            break      
-        if event is 'Blue':      
-            graph.TKCanvas.itemconfig(circle, fill = "Blue")      
-        elif event is 'Red':      
-            graph.TKCanvas.itemconfig(circle, fill = "Red")      
-        elif event is 'Move':      
-            graph.MoveFigure(point, 10,10)      
-            graph.MoveFigure(circle, 10,10)      
-            graph.MoveFigure(oval, 10,10)      
-            graph.MoveFigure(rectangle, 10,10)      
-```      
-      
-## Keypad Touchscreen Entry - Input Element Update      
-      
-This Recipe implements a Raspberry Pi touchscreen based keypad entry.  As the digits are entered using the buttons, the Input Element above it is updated with the input digits.      
-There are a number of features used in this Recipe including:      
-* Default Element Size      
-* auto_size_buttons      
-* Button      
-* Dictionary Return values      
-* Update of Elements in window (Input, Text)     
-      
-      
+
+While it's fun to scribble on a Canvas Widget, try Graph Element makes it a downright pleasant experience.  You do not have to worry about the tkinter coordinate system and can instead work in your own coordinate system.
+
+
+![canvas](https://user-images.githubusercontent.com/13696193/44632429-5266ac00-a948-11e8-9ee0-664103c40178.jpg)
+
+```python
+    import FreeSimpleGUI as sg
+
+    layout = [
+        [sg.Canvas(size=(100, 100), background_color='red', key= 'canvas')],
+        [sg.T('Change circle color to:'), sg.Button('Red'), sg.Button('Blue')]
+        ]
+
+    window = sg.Window('Canvas test', layout, finalize=True)
+
+    canvas = window['canvas')
+    cir = canvas.TKCanvas.create_oval(50, 50, 100, 100)
+
+    while True:
+        event, values = window.read()
+        if event == sg.WIN_CLOSED:
+            break
+        if event == 'Blue':
+            canvas.TKCanvas.itemconfig(cir, fill="Blue")
+        elif event == 'Red':
+            canvas.TKCanvas.itemconfig(cir, fill="Red")
+```
+
+## Graph Element - drawing circle, rectangle, etc, objects
+
+Just like you can draw on a tkinter widget, you can also draw on a Graph Element.  Graph Elements are easier on the programmer as you get to work in your own coordinate system.
+
+![graph recipe](https://user-images.githubusercontent.com/13696193/45920640-751bb000-be75-11e8-9530-45b71cbae07d.jpg)
+
+```python
+    import FreeSimpleGUI as sg
+
+    layout = [
+               [sg.Graph(canvas_size=(400, 400), graph_bottom_left=(0,0), graph_top_right=(400, 400), background_color='red', key='graph')],
+               [sg.T('Change circle color to:'), sg.Button('Red'), sg.Button('Blue'), sg.Button('Move')]
+               ]
+
+    window = sg.Window('Graph test', layout, finalize=True)
+
+    graph = window['graph')
+    circle = graph.DrawCircle((75,75), 25, fill_color='black',line_color='white')
+    point = graph.DrawPoint((75,75), 10, color='green')
+    oval = graph.DrawOval((25,300), (100,280), fill_color='purple', line_color='purple'  )
+    rectangle = graph.DrawRectangle((25,300), (100,280), line_color='purple'  )
+    line = graph.DrawLine((0,0), (100,100))
+
+    while True:
+        event, values = window.read()
+        if event == sg.WIN_CLOSED:
+            break
+        if event is 'Blue':
+            graph.TKCanvas.itemconfig(circle, fill = "Blue")
+        elif event is 'Red':
+            graph.TKCanvas.itemconfig(circle, fill = "Red")
+        elif event is 'Move':
+            graph.MoveFigure(point, 10,10)
+            graph.MoveFigure(circle, 10,10)
+            graph.MoveFigure(oval, 10,10)
+            graph.MoveFigure(rectangle, 10,10)
+```
+
+## Keypad Touchscreen Entry - Input Element Update
+
+This Recipe implements a Raspberry Pi touchscreen based keypad entry.  As the digits are entered using the buttons, the Input Element above it is updated with the input digits.
+There are a number of features used in this Recipe including:
+* Default Element Size
+* auto_size_buttons
+* Button
+* Dictionary Return values
+* Update of Elements in window (Input, Text)
+
+
 ![image](https://user-images.githubusercontent.com/46163555/68538641-ece0be80-0345-11ea-86b2-35c6208e2840.png)
 
-      
-```python    
+
+```python
 import FreeSimpleGUI as sg
 
 layout = [[sg.Text('Enter Your Passcode')],
@@ -4026,7 +4026,7 @@ while True:
         keys_entered = values['input']
         window['out'].update(keys_entered)  # output the final string
 
-    window['input'].update(keys_entered)  # change the window to reflect current key string   
+    window['input'].update(keys_entered)  # change the window to reflect current key string
 ```
 
 ----
@@ -4035,7 +4035,7 @@ while True:
 
 There are 2 ways to use PySimpleGUI with Matplotlib.  Both use the standard tkinter based Matplotlib.
 
-The simplest is when both the interactive Matplotlib window and a PySimpleGUI window are running at the same time.  
+The simplest is when both the interactive Matplotlib window and a PySimpleGUI window are running at the same time.
 
 First the PySimpleGUI window appears giving you 3 options.
 
@@ -4082,14 +4082,14 @@ window.close()
 
 ----
 
-      
-## Animated Matplotlib Graph      
-      
-Use the Canvas Element to create an animated graph.  The code is a bit tricky to follow, but if you know Matplotlib then this recipe shouldn't be too difficult to copy and modify.      
-      
-![animated matplotlib](https://user-images.githubusercontent.com/13696193/44640937-91b9ea80-a992-11e8-9c1c-85ae74013679.jpg)      
-      
-      
+
+## Animated Matplotlib Graph
+
+Use the Canvas Element to create an animated graph.  The code is a bit tricky to follow, but if you know Matplotlib then this recipe shouldn't be too difficult to copy and modify.
+
+![animated matplotlib](https://user-images.githubusercontent.com/13696193/44640937-91b9ea80-a992-11e8-9c1c-85ae74013679.jpg)
+
+
 ```python
 from tkinter import *
 from random import randint
@@ -4110,7 +4110,7 @@ layout = [[sg.Text('Animated Matplotlib', size=(40, 1), justification='center', 
           [sg.Canvas(size=(640, 480), key='canvas')],
           [sg.Button('Exit', size=(10, 2), pad=((280, 0), 3), font='Helvetica 14')]]
 
-# create the window and show it without the plot    
+# create the window and show it without the plot
 
 
 window = sg.Window('Demo Application - Embedding Matplotlib In PySimpleGUI', layout, finalize=True)
@@ -4122,7 +4122,7 @@ graph = FigureCanvasTkAgg(fig, master=canvas_elem.TKCanvas)
 canvas = canvas_elem.TKCanvas
 
 dpts = [randint(0, 10) for x in range(10000)]
-# Our event loop      
+# Our event loop
 for i in range(len(dpts)):
     event, values = window.read(timeout=20)
     if event == 'Exit' or event == sg.WIN_CLOSED:
@@ -4142,92 +4142,92 @@ for i in range(len(dpts)):
     figure_canvas_agg = FigureCanvasAgg(fig)
     figure_canvas_agg.draw()
 
-    tkagg.blit(photo, figure_canvas_agg.get_renderer()._renderer, colormode=2)      
+    tkagg.blit(photo, figure_canvas_agg.get_renderer()._renderer, colormode=2)
 
 ```
- 
+
  ---------
 
 
 
-## Tight Layout with Button States      
-      
-Saw this example layout written in tkinter and liked it so much I duplicated the interface.  It's "tight", clean, and has a nice dark look and feel.      
-      
-This Recipe also contains code that implements the button interactions so that you'll have a template to build from.      
-      
-In other GUI frameworks this program would be most likely "event driven" with callback functions being used to communicate button events.  The "event loop" would be handled by the GUI engine.  If code already existed that used a call-back mechanism, the loop in the example code below could simply call these callback functions directly based on the button text it receives in the window.read call.      
-      
-![timemanagement](https://user-images.githubusercontent.com/13696193/44996818-0f27c100-af78-11e8-8836-9ef6164efe3b.jpg)      
-      
-```python      
-    import FreeSimpleGUI as sg      
-    """      
-    Demonstrates using a "tight" layout with a Dark theme.      
-    Shows how button states can be controlled by a user application.  The program manages the disabled/enabled      
-    states for buttons and changes the text color to show greyed-out (disabled) buttons      
-    """      
-      
-    sg.theme('Dark')      
-    sg.set_options(element_padding=(0,0))      
-      
-    layout = [[sg.T('User:', pad=((3,0),0)), sg.OptionMenu(values = ('User 1', 'User 2'), size=(20,1)), sg.T('0', size=(8,1))],      
-              [sg.T('Customer:', pad=((3,0),0)), sg.OptionMenu(values=('Customer 1', 'Customer 2'), size=(20,1)), sg.T('1', size=(8,1))],      
-              [sg.T('Notes:', pad=((3,0),0)), sg.In(size=(44,1), background_color='white', text_color='black')],      
-              [sg.Button('Start', button_color=('white', 'black'), key='Start'),      
-               sg.Button('Stop', button_color=('white', 'black'), key='Stop'),      
-               sg.Button('Reset', button_color=('white', 'firebrick3'), key='Reset'),      
-               sg.Button('Submit', button_color=('white', 'springgreen4'), key='Submit')]      
-              ]      
-      
-    window = sg.Window("Time Tracker", layout, default_element_size=(12,1), text_justification='r', auto_size_text=False, auto_size_buttons=False, default_button_element_size=(12,1), finalize=True)      
-    
-    window['Stop'].update(disabled=True)      
-    window['Reset'].update(disabled=True)      
-    window['Submit'].update(disabled=True)      
-    recording = have_data = False      
-    while True:      
-        event, values = window.read()      
-        print(event)      
+## Tight Layout with Button States
+
+Saw this example layout written in tkinter and liked it so much I duplicated the interface.  It's "tight", clean, and has a nice dark look and feel.
+
+This Recipe also contains code that implements the button interactions so that you'll have a template to build from.
+
+In other GUI frameworks this program would be most likely "event driven" with callback functions being used to communicate button events.  The "event loop" would be handled by the GUI engine.  If code already existed that used a call-back mechanism, the loop in the example code below could simply call these callback functions directly based on the button text it receives in the window.read call.
+
+![timemanagement](https://user-images.githubusercontent.com/13696193/44996818-0f27c100-af78-11e8-8836-9ef6164efe3b.jpg)
+
+```python
+    import FreeSimpleGUI as sg
+    """
+    Demonstrates using a "tight" layout with a Dark theme.
+    Shows how button states can be controlled by a user application.  The program manages the disabled/enabled
+    states for buttons and changes the text color to show greyed-out (disabled) buttons
+    """
+
+    sg.theme('Dark')
+    sg.set_options(element_padding=(0,0))
+
+    layout = [[sg.T('User:', pad=((3,0),0)), sg.OptionMenu(values = ('User 1', 'User 2'), size=(20,1)), sg.T('0', size=(8,1))],
+              [sg.T('Customer:', pad=((3,0),0)), sg.OptionMenu(values=('Customer 1', 'Customer 2'), size=(20,1)), sg.T('1', size=(8,1))],
+              [sg.T('Notes:', pad=((3,0),0)), sg.In(size=(44,1), background_color='white', text_color='black')],
+              [sg.Button('Start', button_color=('white', 'black'), key='Start'),
+               sg.Button('Stop', button_color=('white', 'black'), key='Stop'),
+               sg.Button('Reset', button_color=('white', 'firebrick3'), key='Reset'),
+               sg.Button('Submit', button_color=('white', 'springgreen4'), key='Submit')]
+              ]
+
+    window = sg.Window("Time Tracker", layout, default_element_size=(12,1), text_justification='r', auto_size_text=False, auto_size_buttons=False, default_button_element_size=(12,1), finalize=True)
+
+    window['Stop'].update(disabled=True)
+    window['Reset'].update(disabled=True)
+    window['Submit'].update(disabled=True)
+    recording = have_data = False
+    while True:
+        event, values = window.read()
+        print(event)
         if event == sg.WIN_CLOSED:
-            exit(69)      
-        if event is 'Start':      
-            window['Start'].update(disabled=True)      
-            window['Stop'].update(disabled=False)      
-            window['Reset'].update(disabled=False)      
-            window['Submit'].update(disabled=True)      
-            recording = True      
-         elif event is 'Stop'  and recording:      
-            window['Stop'].update(disabled=True)      
-            window['Start'].update(disabled=False)      
-            window['Submit'].update(disabled=False)      
-            recording = False      
-            have_data = True      
-         elif event is 'Reset':      
-            window['Stop'].update(disabled=True)      
-            window['Start'].update(disabled=False)      
-            window['Submit'].update(disabled=True)      
-            window['Reset'].update(disabled=False)      
-            recording = False      
-            have_data = False      
-         elif event is 'Submit'  and have_data:      
-            window['Stop'].update(disabled=True)      
-            window['Start'].update(disabled=False)      
-            window['Submit'].update(disabled=True)      
-            window['Reset'].update(disabled=False)      
-            recording = False      
-```      
-      
-## Password Protection For Scripts      
-      
-You get 2 scripts in one.      
-      
-Use the upper half to generate your hash code.  Then paste it into the code in the lower half.  Copy and paste lower 1/2 into your code to get password protection for your script without putting the password into your source code.      
-      
-![password entry](https://user-images.githubusercontent.com/13696193/45129440-ab58f000-b151-11e8-8ebe-e519a50b3ead.jpg)      
-      
-![password hash](https://user-images.githubusercontent.com/13696193/45129441-ab58f000-b151-11e8-8a46-c2789bb7824e.jpg)      
-      
+            exit(69)
+        if event is 'Start':
+            window['Start'].update(disabled=True)
+            window['Stop'].update(disabled=False)
+            window['Reset'].update(disabled=False)
+            window['Submit'].update(disabled=True)
+            recording = True
+         elif event is 'Stop'  and recording:
+            window['Stop'].update(disabled=True)
+            window['Start'].update(disabled=False)
+            window['Submit'].update(disabled=False)
+            recording = False
+            have_data = True
+         elif event is 'Reset':
+            window['Stop'].update(disabled=True)
+            window['Start'].update(disabled=False)
+            window['Submit'].update(disabled=True)
+            window['Reset'].update(disabled=False)
+            recording = False
+            have_data = False
+         elif event is 'Submit'  and have_data:
+            window['Stop'].update(disabled=True)
+            window['Start'].update(disabled=False)
+            window['Submit'].update(disabled=True)
+            window['Reset'].update(disabled=False)
+            recording = False
+```
+
+## Password Protection For Scripts
+
+You get 2 scripts in one.
+
+Use the upper half to generate your hash code.  Then paste it into the code in the lower half.  Copy and paste lower 1/2 into your code to get password protection for your script without putting the password into your source code.
+
+![password entry](https://user-images.githubusercontent.com/13696193/45129440-ab58f000-b151-11e8-8ebe-e519a50b3ead.jpg)
+
+![password hash](https://user-images.githubusercontent.com/13696193/45129441-ab58f000-b151-11e8-8a46-c2789bb7824e.jpg)
+
 ```python
 import FreeSimpleGUI as sg
 import hashlib
@@ -4288,112 +4288,112 @@ if PasswordMatches(password, login_password_hash):
     print('Login SUCCESSFUL')
 else:
     print('Login FAILED!!')
-```      
-      
-## Desktop Floating Toolbar      
-      
-#### Hiding your windows commmand window      
+```
+
+## Desktop Floating Toolbar
+
+#### Hiding your windows commmand window
 
 If you would like your python program to run without showing a console window, then you can name your file with a `.pyw` extension and open the file using `pythonw` instead of `python`.  This is the preferred way to launch a final version of a PySimpleGUI program as there is no need for a Console window and it will be a much more "Windows-like" experience.
-      
-      
-### Floating toolbar      
+
+
+### Floating toolbar
 
 NOTE - Please look in the Demo Programs that use the newer Exec APIs.  This Recipe uses an older technique to launch subprocesses.  You'll find the Exec APIs documented in the main documentation and the Call Reference.
 
 "Launchers" have come a long long ways since the early days of PySimpleGUI.  This recipe directly calls `subprocess.Popen`.  In 2020 a new set of APIs, the Exec APIs, were added to PySimpleGUI.  These calls simplify the subprocess calls thus making them more approachable for newcomers to Python.
 
 
-      
-      
-![toolbar gray](https://user-images.githubusercontent.com/13696193/45324308-bfb73700-b51b-11e8-90e7-ab24f3d6e61d.jpg)      
-      
-You can easily change colors to match your background by changing a couple of parameters in the code.      
-      
-![toolbar black](https://user-images.githubusercontent.com/13696193/45324307-bfb73700-b51b-11e8-8709-6c3c23f737c4.jpg)      
-      
-```python      
-    import FreeSimpleGUI as sg      
-    import subprocess      
-    import os      
-    import sys      
-      
-    """      
-     Demo_Toolbar - A floating toolbar with quick launcher     One cool PySimpleGUI demo. Shows borderless windows, grab_anywhere, tight button layout      
-     You can setup a specific program to launch when a button is clicked, or use the Combobox to select a .py file found in the root folder, and run that file.  """      
-      
-    ROOT_PATH = './'      
-      
-    def Launcher():      
-      
-        def print(line):      
-            window['output'].update(line)      
-      
-        sg.theme('Dark')      
-      
-        namesonly = [f for f in os.listdir(ROOT_PATH) if f.endswith('.py') ]      
-      
-        sg.set_options(element_padding=(0,0), button_element_size=(12,1), auto_size_buttons=False)      
-        layout =  [[sg.Combo(values=namesonly, size=(35,30), key='demofile'),      
-                    sg.Button('Run', button_color=('white', '#00168B')),      
-                    sg.Button('Program 1'),      
-                    sg.Button('Program 2'),      
-                    sg.Button('Program 3', button_color=('white', '#35008B')),      
-                    sg.Button('EXIT', button_color=('white','firebrick3'))],      
-                    [sg.T('', text_color='white', size=(50,1), key='output')]]      
-      
+
+
+![toolbar gray](https://user-images.githubusercontent.com/13696193/45324308-bfb73700-b51b-11e8-90e7-ab24f3d6e61d.jpg)
+
+You can easily change colors to match your background by changing a couple of parameters in the code.
+
+![toolbar black](https://user-images.githubusercontent.com/13696193/45324307-bfb73700-b51b-11e8-8709-6c3c23f737c4.jpg)
+
+```python
+    import FreeSimpleGUI as sg
+    import subprocess
+    import os
+    import sys
+
+    """
+     Demo_Toolbar - A floating toolbar with quick launcher     One cool PySimpleGUI demo. Shows borderless windows, grab_anywhere, tight button layout
+     You can setup a specific program to launch when a button is clicked, or use the Combobox to select a .py file found in the root folder, and run that file.  """
+
+    ROOT_PATH = './'
+
+    def Launcher():
+
+        def print(line):
+            window['output'].update(line)
+
+        sg.theme('Dark')
+
+        namesonly = [f for f in os.listdir(ROOT_PATH) if f.endswith('.py') ]
+
+        sg.set_options(element_padding=(0,0), button_element_size=(12,1), auto_size_buttons=False)
+        layout =  [[sg.Combo(values=namesonly, size=(35,30), key='demofile'),
+                    sg.Button('Run', button_color=('white', '#00168B')),
+                    sg.Button('Program 1'),
+                    sg.Button('Program 2'),
+                    sg.Button('Program 3', button_color=('white', '#35008B')),
+                    sg.Button('EXIT', button_color=('white','firebrick3'))],
+                    [sg.T('', text_color='white', size=(50,1), key='output')]]
+
         window = sg.Window('Floating Toolbar', layout, no_titlebar=True, keep_on_top=True)
-      
-        # ---===--- Loop taking in user input (events) --- #      
-        while True:      
-            (event, value) = window.read()      
-            if event ==  'EXIT'  or event == sg.WIN_CLOSED:      
-                break # exit button clicked      
-            if event ==  'Program 1':      
-                print('Run your program 1 here!')      
-            elif event ==  'Program 2':      
-                print('Run your program 2 here!')      
-            elif event ==  'Run':      
-                file = value['demofile']      
-                print('Launching %s'%file)      
-                ExecuteCommandSubprocess('python', os.path.join(ROOT_PATH, file))      
-            else:      
-                print(event)      
-      
-    def ExecuteCommandSubprocess(command, *args, wait=False):      
-        try:      
-            if sys.platwindow == 'linux':      
-                arg_string = ''      
-                for arg in args:      
-                     arg_string += ' '  + str(arg)      
-                sp = subprocess.Popen(['python3'  + arg_string, ], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)      
-            else:      
-                sp = subprocess.Popen([command, list(args)], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)      
-      
-            if wait:      
-                out, err = sp.communicate()      
-                if out:      
-                    print(out.decode("utf-8"))      
-                if err:      
-                    print(err.decode("utf-8"))      
-        except: pass      
-      
-      
-      
-    if __name__ == '__main__':      
-        Launcher()      
-```      
-      
-      
-      
-## Desktop Floating Widget - Timer      
-      
-This is a little widget you can leave running on your desktop.  Will hopefully see more of these for things like checking email, checking server pings, displaying system information, dashboards, etc      
-.      
-Much of the code is handling the button states in a fancy way.  It could be much simpler if you don't change the button text based on state.      
-      
-![timer](https://user-images.githubusercontent.com/13696193/45336349-26a31300-b551-11e8-8b06-d1232ff8ca10.jpg)      
-      
+
+        # ---===--- Loop taking in user input (events) --- #
+        while True:
+            (event, value) = window.read()
+            if event ==  'EXIT'  or event == sg.WIN_CLOSED:
+                break # exit button clicked
+            if event ==  'Program 1':
+                print('Run your program 1 here!')
+            elif event ==  'Program 2':
+                print('Run your program 2 here!')
+            elif event ==  'Run':
+                file = value['demofile']
+                print('Launching %s'%file)
+                ExecuteCommandSubprocess('python', os.path.join(ROOT_PATH, file))
+            else:
+                print(event)
+
+    def ExecuteCommandSubprocess(command, *args, wait=False):
+        try:
+            if sys.platwindow == 'linux':
+                arg_string = ''
+                for arg in args:
+                     arg_string += ' '  + str(arg)
+                sp = subprocess.Popen(['python3'  + arg_string, ], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            else:
+                sp = subprocess.Popen([command, list(args)], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+            if wait:
+                out, err = sp.communicate()
+                if out:
+                    print(out.decode("utf-8"))
+                if err:
+                    print(err.decode("utf-8"))
+        except: pass
+
+
+
+    if __name__ == '__main__':
+        Launcher()
+```
+
+
+
+## Desktop Floating Widget - Timer
+
+This is a little widget you can leave running on your desktop.  Will hopefully see more of these for things like checking email, checking server pings, displaying system information, dashboards, etc
+.
+Much of the code is handling the button states in a fancy way.  It could be much simpler if you don't change the button text based on state.
+
+![timer](https://user-images.githubusercontent.com/13696193/45336349-26a31300-b551-11e8-8b06-d1232ff8ca10.jpg)
+
 ```python
 import sys
 if sys.version_info[0] >= 3:
@@ -4404,13 +4404,13 @@ import time
 
 """
  Timer Desktop Widget Creates a floating timer that is always on top of other windows You move it by grabbing anywhere on the window Good example of how to do a non-blocking, polling program using SimpleGUI Can be used to poll hardware when running on a Pi
- 
+
  While the timer ticks are being generated by PySimpleGUI's "timeout" mechanism, the actual value
   of the timer that is displayed comes from the system timer, time.time().  This guarantees an
   accurate time value is displayed regardless of the accuracy of the PySimpleGUI timer tick. If
   this design were not used, then the time value displayed would slowly drift by the amount of time
-  it takes to execute the PySimpleGUI read and update calls (not good!)     
- 
+  it takes to execute the PySimpleGUI read and update calls (not good!)
+
  NOTE - you will get a warning message printed when you exit using exit button.
  It will look something like: invalid command name \"1616802625480StopMove\"
 """
@@ -4465,18 +4465,18 @@ while (True):
                                                                   current_time % 100))
 ```
 
-      
-## Desktop Floating Widget - CPU Utilization      
-      
-Like the Timer widget above, this script can be kept running.  You will need the package psutil installed in order to run this Recipe.    
-  
-The spinner changes the number of seconds between reads.  Note that you will get an error message printed when exiting because the window does not have have a titlebar.  It's a known problem.      
-      
-      
-![cpu widget 2](https://user-images.githubusercontent.com/13696193/45456096-77348080-b6b7-11e8-8906-6663c31ad0eb.jpg)      
-      
-      
-      
+
+## Desktop Floating Widget - CPU Utilization
+
+Like the Timer widget above, this script can be kept running.  You will need the package psutil installed in order to run this Recipe.
+
+The spinner changes the number of seconds between reads.  Note that you will get an error message printed when exiting because the window does not have have a titlebar.  It's a known problem.
+
+
+![cpu widget 2](https://user-images.githubusercontent.com/13696193/45456096-77348080-b6b7-11e8-8906-6663c31ad0eb.jpg)
+
+
+
 ```python
 import FreeSimpleGUI as sg
 import psutil
@@ -4512,157 +4512,157 @@ while (True):
 
 # Broke out of main loop. Close the window.
 window.close()
-``` 
-      
-## Menus      
-      
-Menus are nothing more than buttons that live in a menu-bar.  When you click on a menu item, you get back a "button" with that menu item's text, just as you would had that text been on a button.      
-      
-Menu's are defined separately from the GUI window.  To add one to your window, simply insert sg.Menu(menu_layout).  The menu definition is a list of menu choices and submenus.  They are a list of lists.  Copy the Recipe and play with it.  You'll eventually get when you're looking for.    
-      
-If you double click the dashed line at the top of the list of choices, that menu will tear off and become a floating toolbar.  How cool!  To enable this feature, set the parameter `tearoff=True` in your call to `sg.Menu()`  
-      
-      
-![tear off](https://user-images.githubusercontent.com/13696193/45307668-9aabcf80-b4ed-11e8-9b2b-8564d4bf82a8.jpg)      
-      
-      
-```python      
-    import FreeSimpleGUI as sg      
-      
-    sg.theme('LightGreen')      
-    sg.set_options(element_padding=(0, 0))      
-      
-    # ------ Menu Definition ------ #      
-    menu_def = [['File', ['Open', 'Save', 'Exit'  ]],      
-                ['Edit', ['Paste', ['Special', 'Normal', ], 'Undo'], ],      
-                ['Help', 'About...'], ]      
-      
-    # ------ GUI Defintion ------ #      
-    layout = [      
-        [sg.Menu(menu_def, )],      
-        [sg.Output(size=(60, 20))]      
-             ]      
-      
-    window = sg.Window("Windows-like program", layout, default_element_size=(12, 1), auto_size_text=False, auto_size_buttons=False,      
-                       default_button_element_size=(12, 1))      
-      
-    # ------ Loop & Process button menu choices ------ #      
-    while True:      
-        event, values = window.read()      
-        if event == sg.WIN_CLOSED or event == 'Exit':      
-            break      
-        print('Button = ', event)      
-        # ------ Process menu choices ------ #      
-        if event == 'About...':      
-            sg.popup('About this program', 'Version 1.0', 'PySimpleGUI rocks...')      
-        elif event == 'Open':      
-            filename = sg.popup_get_file('file to open', no_window=True)      
-            print(filename)      
 ```
-      
-## Graphing with Graph Element      
-      
-Use the Graph Element to draw points, lines, circles, rectangles using ***your***  coordinate systems rather than the underlying graphics coordinates.      
-      
-In this example we're defining our graph to be from -100, -100 to +100,+100.  That means that zero is in the middle of the drawing.  You define this graph description in your call to Graph.      
-  
-      
-![graph markers](https://user-images.githubusercontent.com/13696193/46113087-01eaa480-c1bb-11e8-9784-0dbb4ce728b0.jpg)  
-      
-      
-```python  
-import math    
-import FreeSimpleGUI as sg    
-    
-layout = [[sg.Graph(canvas_size=(400, 400), graph_bottom_left=(-105,-105), graph_top_right=(105,105), background_color='white', key='graph', tooltip='This is a cool graph!')],]    
-    
-window = sg.Window('Graph of Sine Function', layout, grab_anywhere=True, finalize=True)  
-graph = window['graph']
-    
-# Draw axis    
-graph.DrawLine((-100,0), (100,0))    
-graph.DrawLine((0,-100), (0,100))    
-    
-for x in range(-100, 101, 20):    
-    graph.DrawLine((x,-3), (x,3))    
-    if x != 0:    
-        graph.DrawText( x, (x,-10), color='green')    
-    
-for y in range(-100, 101, 20):    
-    graph.DrawLine((-3,y), (3,y))    
-    if y != 0:    
-        graph.DrawText( y, (-10,y), color='blue')    
-    
-# Draw Graph    
-for x in range(-100,100):    
-    y = math.sin(x/20)*50    
-    graph.DrawCircle((x,y), 1, line_color='red', fill_color='red')    
-    
-event, values = window.read()  
-```
-  
-    
-      
-## Tabs      
-  
-Tabs bring not only an extra level of sophistication to your window layout, they give you extra room to add more elements.  Tabs are one of the 3 container Elements, Elements that hold or contain other Elements.  The other two are the Column and Frame Elements.  
-  
-  
-![tabs](https://user-images.githubusercontent.com/13696193/46049479-97732f00-c0fc-11e8-8015-5bbed8bd88bb.jpg)  
-  
-  
-  
+
+## Menus
+
+Menus are nothing more than buttons that live in a menu-bar.  When you click on a menu item, you get back a "button" with that menu item's text, just as you would had that text been on a button.
+
+Menu's are defined separately from the GUI window.  To add one to your window, simply insert sg.Menu(menu_layout).  The menu definition is a list of menu choices and submenus.  They are a list of lists.  Copy the Recipe and play with it.  You'll eventually get when you're looking for.
+
+If you double click the dashed line at the top of the list of choices, that menu will tear off and become a floating toolbar.  How cool!  To enable this feature, set the parameter `tearoff=True` in your call to `sg.Menu()`
+
+
+![tear off](https://user-images.githubusercontent.com/13696193/45307668-9aabcf80-b4ed-11e8-9b2b-8564d4bf82a8.jpg)
+
+
 ```python
-import FreeSimpleGUI as sg    
-    
-tab1_layout =  [[sg.T('This is inside tab 1')]]    
-    
-tab2_layout = [[sg.T('This is inside tab 2')],    
-               [sg.In(key='in')]]    
-    
-layout = [[sg.TabGroup([[sg.Tab('Tab 1', tab1_layout, tooltip='tip'), sg.Tab('Tab 2', tab2_layout)]], tooltip='TIP2')],    
-          [sg.Button('Read')]]    
-    
-window = sg.Window('My window with tabs', layout, default_element_size=(12,1))    
-    
-while True:    
-    event, values = window.read()    
-    print(event,values)    
-    if event == sg.WIN_CLOSED:           # always,  always give a way out!    
-        break  
+    import FreeSimpleGUI as sg
+
+    sg.theme('LightGreen')
+    sg.set_options(element_padding=(0, 0))
+
+    # ------ Menu Definition ------ #
+    menu_def = [['File', ['Open', 'Save', 'Exit'  ]],
+                ['Edit', ['Paste', ['Special', 'Normal', ], 'Undo'], ],
+                ['Help', 'About...'], ]
+
+    # ------ GUI Defintion ------ #
+    layout = [
+        [sg.Menu(menu_def, )],
+        [sg.Output(size=(60, 20))]
+             ]
+
+    window = sg.Window("Windows-like program", layout, default_element_size=(12, 1), auto_size_text=False, auto_size_buttons=False,
+                       default_button_element_size=(12, 1))
+
+    # ------ Loop & Process button menu choices ------ #
+    while True:
+        event, values = window.read()
+        if event == sg.WIN_CLOSED or event == 'Exit':
+            break
+        print('Button = ', event)
+        # ------ Process menu choices ------ #
+        if event == 'About...':
+            sg.popup('About this program', 'Version 1.0', 'PySimpleGUI rocks...')
+        elif event == 'Open':
+            filename = sg.popup_get_file('file to open', no_window=True)
+            print(filename)
 ```
-  
-  
-  
-## Creating a Windows .EXE File      
-      
+
+## Graphing with Graph Element
+
+Use the Graph Element to draw points, lines, circles, rectangles using ***your***  coordinate systems rather than the underlying graphics coordinates.
+
+In this example we're defining our graph to be from -100, -100 to +100,+100.  That means that zero is in the middle of the drawing.  You define this graph description in your call to Graph.
+
+
+![graph markers](https://user-images.githubusercontent.com/13696193/46113087-01eaa480-c1bb-11e8-9784-0dbb4ce728b0.jpg)
+
+
+```python
+import math
+import FreeSimpleGUI as sg
+
+layout = [[sg.Graph(canvas_size=(400, 400), graph_bottom_left=(-105,-105), graph_top_right=(105,105), background_color='white', key='graph', tooltip='This is a cool graph!')],]
+
+window = sg.Window('Graph of Sine Function', layout, grab_anywhere=True, finalize=True)
+graph = window['graph']
+
+# Draw axis
+graph.DrawLine((-100,0), (100,0))
+graph.DrawLine((0,-100), (0,100))
+
+for x in range(-100, 101, 20):
+    graph.DrawLine((x,-3), (x,3))
+    if x != 0:
+        graph.DrawText( x, (x,-10), color='green')
+
+for y in range(-100, 101, 20):
+    graph.DrawLine((-3,y), (3,y))
+    if y != 0:
+        graph.DrawText( y, (-10,y), color='blue')
+
+# Draw Graph
+for x in range(-100,100):
+    y = math.sin(x/20)*50
+    graph.DrawCircle((x,y), 1, line_color='red', fill_color='red')
+
+event, values = window.read()
+```
+
+
+
+## Tabs
+
+Tabs bring not only an extra level of sophistication to your window layout, they give you extra room to add more elements.  Tabs are one of the 3 container Elements, Elements that hold or contain other Elements.  The other two are the Column and Frame Elements.
+
+
+![tabs](https://user-images.githubusercontent.com/13696193/46049479-97732f00-c0fc-11e8-8015-5bbed8bd88bb.jpg)
+
+
+
+```python
+import FreeSimpleGUI as sg
+
+tab1_layout =  [[sg.T('This is inside tab 1')]]
+
+tab2_layout = [[sg.T('This is inside tab 2')],
+               [sg.In(key='in')]]
+
+layout = [[sg.TabGroup([[sg.Tab('Tab 1', tab1_layout, tooltip='tip'), sg.Tab('Tab 2', tab2_layout)]], tooltip='TIP2')],
+          [sg.Button('Read')]]
+
+window = sg.Window('My window with tabs', layout, default_element_size=(12,1))
+
+while True:
+    event, values = window.read()
+    print(event,values)
+    if event == sg.WIN_CLOSED:           # always,  always give a way out!
+        break
+```
+
+
+
+## Creating a Windows .EXE File
+
 NEW in 2021 was the release of the [`psgcompiler`](https://github.com/PySimpleGUI/psgcompiler) project.  This is a front-end to the popular PyInstaller package.  `psgcompiler` adds a PySimpleGUI GUI front-end to PyInstaller, making it easier for you to create binary versions of your code for distributing to people that do not have  Python stalled on their system.
 
 The `psgcompiler` will eventually support multiple back-ends. At the moment, only PyInstaller is supported.  A HUGE "THANK YOU" to the PyInstaller project for making a brilliant program that enables Python programmers to share their work with non-Python users.
 
-`psgcompiler` makes it possible to create a single .EXE file that can be distributed to Windows users.  There is no requirement to install the Python interpreter on the PC you wish to run it on.  Everything it needs is in the one EXE file, assuming you're running a somewhat up to date version of Windows.  
+`psgcompiler` makes it possible to create a single .EXE file that can be distributed to Windows users.  There is no requirement to install the Python interpreter on the PC you wish to run it on.  Everything it needs is in the one EXE file, assuming you're running a somewhat up to date version of Windows.
 
 You can also make APP files for the Mac and binary distributable for Linux as well. However, in order to do so, you must run the program on the OS you are targeting. In other words it is not a cross-compiler.  You cannot run `psgcompiler`/`PyInstaller` on Windows and produce a Mac executable.
 
 If you want to directly user PyInstaller instead of psgcompiler, then you can install the packages separately and use PyInstaller directly.
 
 ```
-pip install PySimpleGUI      
-pip install PyInstaller      
+pip install PySimpleGUI
+pip install PyInstaller
 ```
 
-To create your EXE file from your program that uses PySimpleGUI, `my_program.py`,  enter this command in your  Windows command prompt:      
-      
-pyinstaller -wF my_program.py      
-      
-You will be left with a single file, `my_program.exe`, located in a folder named `dist` under the folder where you executed the `pyinstaller` command.      
-      
-That's all... Run your `my_program.exe` file on the Windows machine of your choosing.      
-      
-> "It's just that easy."      
->      
-(famous last words that screw up just about anything being referenced)      
-      
+To create your EXE file from your program that uses PySimpleGUI, `my_program.py`,  enter this command in your  Windows command prompt:
+
+pyinstaller -wF my_program.py
+
+You will be left with a single file, `my_program.exe`, located in a folder named `dist` under the folder where you executed the `pyinstaller` command.
+
+That's all... Run your `my_program.exe` file on the Windows machine of your choosing.
+
+> "It's just that easy."
+>
+(famous last words that screw up just about anything being referenced)
+
 Your EXE file should run without creating a "shell window".  Only the GUI window should show up on your taskbar.
 
 

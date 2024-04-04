@@ -4,14 +4,14 @@ import FreeSimpleGUI as sg
 
 """
     Threaded Demo - Uses Window.write_event_value to communicate from thread to GUI
-    
+
     A demo specifically to show how to use write_event_value to
         "show a popup from a thread"
-        
+
     You cannot make any direct calls into PySimpleGUI from a thread
     except for Window.write_event_value()
     Cuation - This method still has a risk of tkinter crashing
-    
+
     Copyright 2021 PySimpleGUI
 """
 

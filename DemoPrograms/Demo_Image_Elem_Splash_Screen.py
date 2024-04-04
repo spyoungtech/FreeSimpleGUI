@@ -2,10 +2,10 @@ import FreeSimpleGUI as sg
 
 """
     Demo - Splash Screen
-    
+
     Displays a PNG image with transparent areas as see-through on the center
     of the screen for a set amount of time.
-    
+
     Copyright 2020 PySimpleGUI.org
 """
 

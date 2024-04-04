@@ -2,7 +2,7 @@ import FreeSimpleGUI as sg
 
 """
     Demo Titlebar Multiple Combintions - how to make a custom titlebar with different color options
-    
+
     Demo showing how to remove the titlebar and replace with your own
     Unlike previous demos that lacked a titlebar, this one provides a way for you
     to "minimize" your window that does not have a titlebar.  This is done by faking

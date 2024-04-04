@@ -2,12 +2,12 @@ import FreeSimpleGUI as sg
 
 """
     Multiple Window Design Pattern
-    
+
     Two windows - both remain active and visible
     Window 1 launches Window 2
     Window 1 remains visible and active while Window 2 is active
     Closing Window 1 exits application
-    
+
     Copyright 2020 PySimpleGUI.org
 """
 

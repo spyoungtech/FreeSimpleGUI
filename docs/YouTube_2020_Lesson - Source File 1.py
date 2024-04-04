@@ -331,7 +331,7 @@ column1 = [[sg.Text('Column 1', justification='center', size=(10, 1))],
                     initial_value='Spin Box 1')],
            [sg.Spin(values=['Spin Box 1', 'Spin Box 2', 'Spin Box 3'],
                     initial_value='Spin Box 2')],
-           [sg.Spin(values=('Spin Box 1', 'Spin Box 2', 'Spin Box 3'), 
+           [sg.Spin(values=('Spin Box 1', 'Spin Box 2', 'Spin Box 3'),
                     initial_value='Spin Box 3')]]
 
 layout = [
@@ -521,14 +521,14 @@ window.close()
 exit()
 
 
-#   .d8888b.                888          888               
-#  d88P  Y88b               888          888               
-#  Y88b.                    888          888               
-#   "Y888b.   888  888  .d88888  .d88b.  888  888 888  888 
-#      "Y88b. 888  888 d88" 888 d88""88b 888 .88P 888  888 
-#        "888 888  888 888  888 888  888 888888K  888  888 
-#  Y88b  d88P Y88b 888 Y88b 888 Y88..88P 888 "88b Y88b 888 
-#   "Y8888P"   "Y88888  "Y88888  "Y88P"  888  888  "Y88888 
+#   .d8888b.                888          888
+#  d88P  Y88b               888          888
+#  Y88b.                    888          888
+#   "Y888b.   888  888  .d88888  .d88b.  888  888 888  888
+#      "Y88b. 888  888 d88" 888 d88""88b 888 .88P 888  888
+#        "888 888  888 888  888 888  888 888888K  888  888
+#  Y88b  d88P Y88b 888 Y88b 888 Y88..88P 888 "88b Y88b 888
+#   "Y8888P"   "Y88888  "Y88888  "Y88P"  888  888  "Y88888
 
 sg.Window('Sudoku',[[sg.Frame('',[[sg.I(random.randint(1,9), justification='r', size=(3,1),key=(frow*3+row,fcol*3+col)) for col in range(3)] for row in range(3)]) for fcol in range(3)] for frow in range(3)]+ [[sg.B('Exit')]]).read()
 
@@ -603,7 +603,7 @@ while True:
     if event == 'Exit':
         tray.show_message('Exiting', 'Exiting the program', messageicon=sg.SYSTEM_TRAY_MESSAGE_ICON_INFORMATION)
         break
-      
+
 exit()
 
 

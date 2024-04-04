@@ -644,7 +644,7 @@ A combination of user requests, and needs of new `imwatchingyou` debugger
 	* The Readme and ReadTheDocs will be generated going forward using the CODE
 	* HUGE Thanks for @nngogol for both copying & adding all those strings, but also for making an entire document creation system.
 * New __version__ string for PySimpleGUI.py
-* New parameter to ALL `SetFocus` calls. 	
+* New parameter to ALL `SetFocus` calls.
 	* def SetFocus(self, force=False)
 	* If force is True, then a call to `focus_force` is made instead of `focus_set`
 * Get - New Radio Button Method.  Returns True is the Radio Button is set
@@ -759,7 +759,7 @@ Let's hope it doesn't all blow up in our faces!
 	* Default = 'left'
 	* Result is that all Elements INSIDE of this container will be justified as specified
 	* Works well with new Sizer Elements
-* NEW justification parameter for Column elements.  
+* NEW justification parameter for Column elements.
 	* Justifies Column AND the row it's on to this setting (left, right, center)
 	* Enables individual rows to be justified in addition to the entire window
 * NEW Sizer Element
@@ -893,7 +893,7 @@ TTK WIDGETS!  Welcome back Mac Users!
 	* grab_anywhere
 	* keep_on_top
 	* font
-* Test harness changes to help test new ttk stuff (want to shrink this window in the future so will fit on Trinket, Pi, etc	
+* Test harness changes to help test new ttk stuff (want to shrink this window in the future so will fit on Trinket, Pi, etc
 
 
 ## 4.8.0 PySimpleGUI 4-Dec-2019
@@ -911,7 +911,7 @@ Print in color!
 	* Wouldn't it be really nice if normal print calls had this parameter?
 	* Print(event, text_color='green', background_color='white',  end='')
 * ttk Buttons
-	* can have images. No longer forces Buttons with images to be the old tk Butons. Now you can choose either	
+	* can have images. No longer forces Buttons with images to be the old tk Butons. Now you can choose either
 	* can update the button color
 	* can update the button image
 * Set warning filter so that warnings are repeated
@@ -1068,7 +1068,7 @@ Lots of fixes
 * Output element does deletes now so that cleanup works. Can use in multiple windows as a result
 * DrawArc (draw_arc) - New width / line width parameter
 * RGB does more error checking, converts types
-* More descriptive errors for find element	
+* More descriptive errors for find element
 * popup_error used interally now sets keep on top
 * Element Re-use wording changed so that it's clear the element is the problem not the layout when re-use detected
 * Window.Close (Window.close) - fix for not immediately seeing the window disappear on Linux when clicking "X"
@@ -1167,7 +1167,7 @@ An "Oh F**k" Release - Table column sizes were bad
 
 ## 4.18.1 PySimpleGUI 12-Apr-2020
 
-Emergency patch - f-string managed to get into the code resulting crashes on 3.5 systems (Pi's for example) 
+Emergency patch - f-string managed to get into the code resulting crashes on 3.5 systems (Pi's for example)
 
 ## 4.18.2 PySimpleGUI 12-Apr-2020
 
@@ -1181,34 +1181,34 @@ WINDOW_CLOSE & WIN_CLOSE events
 Long list of stuff!
 
 * Imported from typing again to get correct docstrings
-* Print and MLine.Print fixed sep char handling 
+* Print and MLine.Print fixed sep char handling
 * New parameter to Muliline.print(autoscroll parameter)
 * New autoscroll parameter added to _print_to_element
-* popup_get_date 
+* popup_get_date
 * Complete reworking on Calendar Chooser Button
 	* Has a LOT more paramteter
 	* Can set location!
-* icon parm popup_animated 
+* icon parm popup_animated
 * popup button size (6,1) for all popups
-* NEW CALENDAR chooser integrated 
+* NEW CALENDAR chooser integrated
 * Graph.draw_lines - new method to allow for multiline lines that may not be a full polygon
 * System Tray fixed the docstrings
 * color chooser set parent window (needed for icon?)
-* scrollable column scrollwheel fixed 
+* scrollable column scrollwheel fixed
 * fixed TabGroup border width (wasn't getting set properly at all)
-* EXPERIMENTAL Scrollable Columns 
+* EXPERIMENTAL Scrollable Columns
 * Fixed Debug Printing to work like a normal "print"
 * Fixed _print_to_element to work like a normal "print"
 * Fixed light green 1 theme definition - Text color wasn't being set
-* fix for install from GitHub 
-* fix for Column scrolling with comboboxes 
-* Added Text.get 
-* Spin.update fix 
-* import typing again 
-* fixes for Pi 
-* test for valid ttk_theme names 
-* fix for Text.get docstring 
-* added tuples to some docstrings 
+* fix for install from GitHub
+* fix for Column scrolling with comboboxes
+* Added Text.get
+* Spin.update fix
+* import typing again
+* fixes for Pi
+* test for valid ttk_theme names
+* fix for Text.get docstring
+* added tuples to some docstrings
 * added code for better tag handling for Multiline elements (fixes a potential memory leak... thanks Ruud)
 * WIN_CLOSE & WINDOW_CLOSED constants added.  Both are None
 * EVENT_TIMEOUT and TIMEOUT_EVENT constants added to both be the same as TIMEOUT_KEY
@@ -1277,7 +1277,7 @@ More cprint stuff
 * Additional window and key parameter to cprint
 	* May seem like a small change, but the results are powerful
 	* Can now easily "print" to anywhere, in color!
-	
+
 
 ## 4.23.0 PySimpleGUI 3-Jul-2020
 
@@ -1305,7 +1305,7 @@ popup extensions
 	* image - can be a bytes (base64) or string (filename). Image will be shown at top of the popup
 * all popups - new image parameter (base64 or string)
 * a few new built-in icons
-	
+
 
 ## 4.24.0 PySimpleGUI 3-Jul-2020
 
@@ -1326,7 +1326,7 @@ stdout re-route to any Multiline
 table/tree highlights
 k element parameter
 
-* New "k" parameter for all elements. 
+* New "k" parameter for all elements.
 	* Same as "key"
 	* Created so layouts can be even more compact if desired
 	* New docstring for keys (basically anything except a list)
@@ -1354,7 +1354,7 @@ k element parameter
 		* OLD_TABLE_TREE_SELECTED_ROW_COLORS - ('#FFFFFF', '#4A6984') the old blueish color
 		* ALTERNATE_TABLE_AND_TREE_SELECTED_ROW_COLORS - (SystemHighlightText, SystemHighlight)
 	* Tree image caching happens at the element level now
-* Window	
+* Window
 	* make_modal - new method to turn a window into a modal window
 	* modal parameter when window is created.  Default is False
 	* write_event_value - new method that can be called by threads!  This will "queue" an event and a value for the next window.read()
@@ -1362,8 +1362,8 @@ k element parameter
 	* was_closed method added - returns True if a window has been closed
 * Combo - don't select first entry if updated with a new set of values
 * Tooltip - fix for stuck-on tooltips
-* New theme_previewer with scrollbars. 3 new parameters	
-* cprint - now has all parameters shown in docstring versus using *args **kwargs	
+* New theme_previewer with scrollbars. 3 new parameters
+* cprint - now has all parameters shown in docstring versus using *args **kwargs
 * New global variable __tclversion_detailed__ - string with full tkinter version (3 numbers instead of 2)
 * Warning is displayed if tcl version is found to be 8.5.
 
@@ -1396,7 +1396,7 @@ Theme searching
 	* reset to previous theme following preview
 * Sponsor button in main app
 * Theme previewer in main app
-* Progress bar 
+* Progress bar
 	* colors can use the single string "foreground on background" color format
 	* update_bar combined with update for a single update interface
 * Better element key error handling
@@ -1409,10 +1409,10 @@ Theme searching
 	* can assert with key error if desired (true by default)
 * fix for get item
 * Up/down arrow bindings for spinner if enabling events
-* Multiline 
+* Multiline
 	* new justification parameter on creation and update
 	* print - justification parameter added
-* cprint - justification parameter added - note tricky to set color of single word but possible	
+* cprint - justification parameter added - note tricky to set color of single word but possible
 * Added mousewheel for Linux return_keyboard_events enabled
 * Added get_globals function for extending easier
 * Refactored callbacks
@@ -1445,7 +1445,7 @@ Custom titlebar capabilities (several new features required)
 Better Alignment
 Calendar button works again
 
-* Window.visiblity_changed now refreshes the window 
+* Window.visiblity_changed now refreshes the window
 * Added Column.contents_changed which will update the scrollbar so corrently match the contents
 * Separators expand only in 1 direction now
 * Added 8 SYMBOLS:
@@ -1483,9 +1483,9 @@ Calendar button works again
 
 User Settings APIs, lots more themes, theme swatch previewer, test harness additions
 
-* Added shrink parameter to pin, 
-* added variable Window.maximized, 
-* added main_sdk_help_window function, 
+* Added shrink parameter to pin,
+* added variable Window.maximized,
+* added main_sdk_help_window function,
 * New themes - DarkGrey10,DarkGrey11 DarkGrey12 DarkGrey13 DarkGrey14, Python, DarkBrown7
 * Highlight Thickness for Button, Radio, Input elements
 	* Set to 1 now instead of 0 so that focus can be seen
@@ -1522,7 +1522,7 @@ User Settings class, write_event_value fixes, Menus get colors, Mac no_titlebar 
 
 * InputText element - Now treating None as '' for default
 * Combo - handling update calls with both disabled and readonly set
-* Spin - readonly 
+* Spin - readonly
 	* Added parameter added when creating
 	* Added parameter to update
 * Spin.get() now returns value rather than string version of value
@@ -1545,7 +1545,7 @@ User Settings class, write_event_value fixes, Menus get colors, Mac no_titlebar 
 	* One advantage of class is that [ ] can be used to get and set entries
 	* Looks and acts much like a "persistent global dictionary"
 	* The User Settings function interfaces now use the class
-* main_get_debug_data() 
+* main_get_debug_data()
 	* Function added that will display a popup and add to the clipboard data needed for GitHub Issues
 	* Added button to Test Harness to display the popup with version data
 * Mac - Added parm enable_mac_notitlebar_patch to set_options to enable apply a "patch" if the Window has no_titlebar set.
@@ -1563,7 +1563,7 @@ Menu colors and font, fixes
 	* All settings can be changed
 * Added ability to set the right click menu colors and font
 	* New parameters added to Window to control right click look
-* Fixed problem with Button.update. 
+* Fixed problem with Button.update.
 	* Was crashing if button color changed to COLOR_SYSTEM_DEFAULT
 * Fixed problem with right click menus introduced in the previous release
 * Auto-close windows can now be finalized (previously could not do this)
@@ -1721,11 +1721,11 @@ Emojis, Global settings, Exec APIs
 	* execute_editor
 	* execute_file_explorer
 	* execute_get_results
-* Debug button color fixed		
+* Debug button color fixed
 * popup_get_file
 	* fixed files_delimiter not being passed correctly to button
 	* files_delimiter parameter added
-* Column - auto expands entire ROW if y-expand is set to True	
+* Column - auto expands entire ROW if y-expand is set to True
 * popups
 	* fixed problem when using custom buttons
 * Print - easy_print or Debug Print
@@ -1761,7 +1761,7 @@ Emojis, Global settings, Exec APIs
 
 ## 4.36.0 PySimpleGUI 14-Mar-2021
 
-Happy Pi Day!  
+Happy Pi Day!
 Exec APIs 1.1, some others fixes too
 
 * Exec APIs
@@ -1791,9 +1791,9 @@ I'll eventually figure out this subprocess thing... honest...
 * Exposed the "running" functions so they can be used by Demos
 	* Used internally to see if running on Windows, Linux, Mac, Trinket
 	* Makes it one less import and the code already existed.  All that needed to happen is the _ removed from the front of function name
-	
 
-	
+
+
 ## 4.38.0 PySimpleGUI 21-Mar-2021
 
 The "so much for no new releases for a while" release
@@ -1824,7 +1824,7 @@ GitHub Issues GUI
 * GitHub issue GUI added - access via sg.main() or sg.main_open_github_issue()
 * s parm added to all elements
 * Element.block_focus - blocks an element from getting focus when using keyboard
-* Listbox 
+* Listbox
 	* Set the selected colors to be opposite of normal text/background colors
 	* Added highlight parms to Listbox so that they can be directly set
 	* The expand method now works for Listbox element
@@ -1840,13 +1840,13 @@ GitHub Issues GUI
 	* parameter right_click_entry_selected_colors added to Window - a simple dual color string or a tuple - used for right click menus and pop_menu
 * Error windows - better line wrapping
 * Show an error window if a bad Image specified in the Image element
-* expand_x & expand_y parms for vtop vbottom vcenter, 
+* expand_x & expand_y parms for vtop vbottom vcenter,
 * Added framework_version
 * RealtimeButton works again!
 * New popup - popup_menu will show a torn off right click menu at the indicated location
 * new comment figlets
 * More permissive layouts - embedded layouts for PSG+ features
-* Added more symbols for buttons - double L/R & arrowheads, 
+* Added more symbols for buttons - double L/R & arrowheads,
 * Moved theme tests into a tab" in sg.main
 
 
@@ -1873,7 +1873,7 @@ Gray Gray Gray should you wish to go colorless
 	* Fix for COLOR_SYSTEM_DEFAULT error when choosing "default1" Theme
 	* New Theme - "Gray Gray Gray" - sets no colors. The window will likely be some shades of gray
 	* Changed error messages to use "theme" instead of the old "change_look_and_feel"
-	* 
+	*
 * Debug window - problems was if set the erase_all parm and Debug window is then closed
 * timer_start, timer_stop - stop now returns the milliseconds elapsed instead of printing them
 * popup_menu - now uses the passed in title if provided
@@ -1928,7 +1928,7 @@ Grab Anywhere feature improved
 	* Provides the ability to have a window that is entirely themed
 	* Without it, was not possible to have a custom Titlebar with a menubar
 	* Works like the traditional Menu Element (the item chosen is returned as the event)
-* Added new elements to the SDK Reference built into PySimpleGUI and in the call reference documentation online	
+* Added new elements to the SDK Reference built into PySimpleGUI and in the call reference documentation online
 * Grab Anywhere
 	* Finally got the appropriate elements and widgets excluded!  Yeah!
 	* Now Multiline, Input, Slider, Pane, Sizegrip, active scrollbars will not move the window
@@ -1938,7 +1938,7 @@ Grab Anywhere feature improved
 		* Other times, you are using your Graph element with drag option set. In this case, you will want to exclude it.
 * Improved torn-off menu placement. Now places them at the window's location
 * Combo element new bind_return_key parameter - if set, when return key is pressed and element is focused, then event will be generated. Works like the Listbox's bind_return_key
-* Fix for changing the title of a Tab using 
+* Fix for changing the title of a Tab using
 
 
 ## 4.43.0 PySimpleGUI 23-May-2021
@@ -2028,11 +2028,11 @@ docstrings reformatted
 
 Text Elements really autosize now
 
-* Multiline.print & cprint 
+* Multiline.print & cprint
 	* Added autoscroll parameter - defaults to True (backward compatible)
 	* will now take a single color and use as text color
 * Text element - autosize with size of None, None creates an expanding Label widget with size and width of None and wraplen=0 (truely autosizing it appears!),
-* ButtonMenu 
+* ButtonMenu
 	* use font for button as menu font if none is supplied
 	* fixed mutible problem - makes a copy of menu definition when making ButtonMenu
 	* made menu definition optional so can change only some other settings
@@ -2057,7 +2057,7 @@ Text Elements really autosize now
 - execute_py_file
 	* set cwd='.' if dir not found
 	* check for file exists
-- Right click menu	
+- Right click menu
 	- added to Radio Checkbox Tabgroup Spin Slider
 	- Elements that don't have a right_click_menu parm now pick up the default from the Window
 	- Added a right click menu callback to cover portions of the window that don't have an element on them
@@ -2090,29 +2090,29 @@ Text Elements really autosize now
 
 ## 4.47.0 PySimpleGUI 30-Aug-2021
 
-Stretch & VStretch - A new era of element alignment!   
-Upgrade from GitHub - uses pip for real now   
-Image element - Simpler to use   
-`size` and `pad` parms can be ints in addition to tuples    to speed up coding   
+Stretch & VStretch - A new era of element alignment!
+Upgrade from GitHub - uses pip for real now
+Image element - Simpler to use
+`size` and `pad` parms can be ints in addition to tuples    to speed up coding
 
 - `rstrip` parm added to `Multiline` element
-- `Combo.update` fixed bug added in 4.45.0 with disabled not working correctly when calling update   
-- Changed font type in all docstrings to be (str or (str, int[, str]) or None) (thank you Jason!!)  
-- Added code from Jason (slightly modified) for _fixed_map  
-- Fix for default element size was incorrectly using as the default for parm in Window.  
-    - Needed to set it in the init code rather than using the parm to set it.  
-- `Window.location` gets a new parm `more_accurate` (defaults to `False`). If `True`, uses window's geometry   
-- Added `Window.keep_on_top_set` and `Window.keep_on_top_clear`. Makes window behave like was set when creating Window   
+- `Combo.update` fixed bug added in 4.45.0 with disabled not working correctly when calling update
+- Changed font type in all docstrings to be (str or (str, int[, str]) or None) (thank you Jason!!)
+- Added code from Jason (slightly modified) for _fixed_map
+- Fix for default element size was incorrectly using as the default for parm in Window.
+    - Needed to set it in the init code rather than using the parm to set it.
+- `Window.location` gets a new parm `more_accurate` (defaults to `False`). If `True`, uses window's geometry
+- Added `Window.keep_on_top_set` and `Window.keep_on_top_clear`. Makes window behave like was set when creating Window
 - Image Element
 	- Added new constant `BLANK_BASE64` that essentially erases an Image element if assigned to it. It's 1x1 pixel and Alpha=0
-	- Image element New `source` parameter as the first parm. 
+	- Image element New `source` parameter as the first parm.
 		- Can be a string or a bytestring. Backwards compatible because first was filename.
 		- Works for both the init and the update. No need to specify any name at all... just pass in the thing you want to change to. Greatly shortens code.
 		- Ths idea is to not have to specify the parameter name. `sg.Image('filename')` and `sg.Image(base64)` both work without using any parameter names.
 	- Fix for `Image.update` docstring
 - Element sizes, when being created, can be an **int**.  If `size=int`, then it represents a `size=(int, 1)`. GREATLY shortens layouts.
 	- Sometimes this these things only become apparent later even though it seems obvious
-- padding - Another tuple / int convenience change. 
+- padding - Another tuple / int convenience change.
 	- Tired of typing `pad=(0,0)`?  Yea, me too. Now we can type `pad=0`.
 	- If an int is specified instead of a tuple, then a tuple will be created to be same as the int.  `pad=0` is the same as `pad=(0,0)`
 - Add NEW upgrade from GitHub code.  Thank you @israel-dryer!
@@ -2131,10 +2131,10 @@ Image element - Simpler to use
 
 
 ## 4.48.0 PySimpleGUI 25-Sept-2021
-- Highlights:  
-	- Table clicking   
-	- Push element   
-	- p = pad in layouts   
+- Highlights:
+	- Table clicking
+	- Push element
+	- p = pad in layouts
 
 * Table Element - Feature expansion
     * enable_click_events - New parameter and associated events
@@ -2142,7 +2142,7 @@ Image element - Simpler to use
 	* The event format is a tuple: ('-TABLE KEY-', '+CICKED+', (3, 3))  3 items in the tuple:
             1. The Table's key
             2. "An additional event name" in this case I've called it "+CLICKED+"
-            3. The (row, col) 
+            3. The (row, col)
 	* The (row, col) will match the user's data unless one of these is clicked:
 		* A header (will return a row of -1)
 		* A row number (these are artificially generated numbers) and has a column of -1
@@ -2154,7 +2154,7 @@ Image element - Simpler to use
     * set_clipboard takes str or bytes
 	* ProgressBar - better size parm description
 	* Fixed return type for Window.read_all_windows
-* ProgressBar - new size_px parameter allows you to specify your meter directly in pixels	
+* ProgressBar - new size_px parameter allows you to specify your meter directly in pixels
 * pad alias!  Lazy coders and those wanting ultra-compact layouts may like this one
 	* You can use the parameter p just like the parameter pad
     * pad joins the parameters size (s) and key (k)
@@ -2169,10 +2169,10 @@ Image element - Simpler to use
 
 ## 4.49.0 PySimpleGUI 30-Sept-2021
 
-- Highlights    
-	- popup_get_file bug fix (primary reason for a quick release)   
-	- VPush   
-	- popup_get_file fix   
+- Highlights
+	- popup_get_file bug fix (primary reason for a quick release)
+	- VPush
+	- popup_get_file fix
 
 - VPush = VP = VStretch
 	- Same concept as Push element except in the Vertical direction
@@ -2186,18 +2186,18 @@ Image element - Simpler to use
 
 
 ## 4.50.0 PySimpleGUI 17-Oct-2021
-UserSettings API - support for .INI files  
-Listbox horizontal scrollbar  
+UserSettings API - support for .INI files
+Listbox horizontal scrollbar
 Column Element allow None for 1 size direction
 
 * UserSettings API
 	* INI File Support
-		* Read access:  `settings[section][key]`  
-	    Modify existing section and key:  `settings[section][key] = new_value`  
-	    Create a new key in an existing section:  `settings[section][new_key] = new_value`  
-	    Create a new section and key:  `settings[new_section][new_key] = new_value`    
-        Delete a section: `settings.delete_section(section)`  
-        Save the INI file: `settings.save()`  
+		* Read access:  `settings[section][key]`
+	    Modify existing section and key:  `settings[section][key] = new_value`
+	    Create a new key in an existing section:  `settings[section][new_key] = new_value`
+	    Create a new section and key:  `settings[new_section][new_key] = new_value`
+        Delete a section: `settings.delete_section(section)`
+        Save the INI file: `settings.save()`
 		* Available for UserSettings object only, not the function interface
 		* Demo Program released specific to .ini features
 		* Option to convert strings to Python values for True, False, None
@@ -2216,7 +2216,7 @@ Column Element allow None for 1 size direction
 * Listbox - added horizontal scrollbar option
 * New `pin` layout helper function implementation (hopefully better, not worse)
 * Column Element - Allow `None` to be used in any part of the `size`.
-	* If None used on width, then Column will default to width required by contents.  
+	* If None used on width, then Column will default to width required by contents.
 	* If None used on height, then Column will default to width required by contents divided by 2
 	* These are same values as `(None, None)` today but can invidually control now.
 * Made `Window.LayoutAndRead` deprication more user friendly with a popup
@@ -2227,14 +2227,14 @@ Column Element allow None for 1 size direction
 
 
 ## 4.51.0 PySimpleGUI 18-Oct-2021
-`relative_location` parameter for `Window`   
+`relative_location` parameter for `Window`
 
 * New parameter for `Window` - `relative_location`
 	* Locates the window at an **offset** from the normal location
 	* Very useful for multi-window applications
 	* Also works when you've set a default window location using the `set_options` call.
 
-## 4.51.2 - 4.51.7 
+## 4.51.2 - 4.51.7
 
 A series of dot releases to make the psg commands operational for upgrading, etc.  Was a bit of a mess for a week
 
@@ -2242,16 +2242,16 @@ A series of dot releases to make the psg commands operational for upgrading, etc
 
 ## 4.53.0 PySimpleGUI 24-Oct-2021
 
-The "Mike's really excited about this release!" release  
+The "Mike's really excited about this release!" release
 
-psg commands!  
-psgmain  
-psgupgrade  
-psghelp  
-psgver  
-psgsettings  
-Control Click window movement  
-Frame Elements with `size` parameter  
+psg commands!
+psgmain
+psgupgrade
+psghelp
+psgver
+psgsettings
+Control Click window movement
+Frame Elements with `size` parameter
 
 I really like this release.  It pulls together a ***lot*** of work over the past week. It fixes some things that have bothered me for a long time and adds support for some things that have bothered users for a long time.... so here we go....
 
@@ -2289,9 +2289,9 @@ I really like this release.  It pulls together a ***lot*** of work over the past
 
 ## 4.54.0 PySimpleGUI 6-Nov-2021
 
-Tabs - Are even better now  
-Right click menu better for Tabs, Frame, Columns  
-relative_location proliferation  
+Tabs - Are even better now
+Right click menu better for Tabs, Frame, Columns
+relative_location proliferation
 
 * Tab & TabGroup
 	* Added image_source parameter, enabling file-based and Base64 images to be added to your tabs
@@ -2332,12 +2332,12 @@ relative_location proliferation
 
 ## 4.55.0 PySimpleGUI 7-Nov-2021
 
-Exec APIs - Use sys.executable as default  
-FIXED the install from GitHub problem with psgmain/psgupgrade!  
+Exec APIs - Use sys.executable as default
+FIXED the install from GitHub problem with psgmain/psgupgrade!
 
 * Exec APIs Changes
-	* If no interpreter is set in the global settings, then the interpreter running currently (sys.executable) will be used as the default rather than the system-wide default. 
-	* Use python NOT pythonw (if returned from sys.executable) for all upgrades from github. The pip command was running pythonw and that caused future psgmain, psgupgrade, etc, commands to fail  
+	* If no interpreter is set in the global settings, then the interpreter running currently (sys.executable) will be used as the default rather than the system-wide default.
+	* Use python NOT pythonw (if returned from sys.executable) for all upgrades from github. The pip command was running pythonw and that caused future psgmain, psgupgrade, etc, commands to fail
 
 
 ## 4.55.1 PySimpleGUI 7-Nov-2021
@@ -2350,7 +2350,7 @@ FIXED the install from GitHub problem with psgmain/psgupgrade!
 
 ## 4.56.0 PySimpleGUI 5-Jan-2022
 
-The "It's been a minute" & "Welcome to 2022!" release  
+The "It's been a minute" & "Welcome to 2022!" release
 
 
 * Addition of stdin parm to execute_command_subprocess. This is to fix problem when pyinstaller is used to make an EXE from a psg program that calls this function
@@ -2367,12 +2367,12 @@ The "It's been a minute" & "Welcome to 2022!" release
 * New Table Element parameter right_click_selects. Default is False. If True, then will select a row using the right mouse button, but only if
     * zero or one rows are selected. If multiple rows are already selected, then the right click will not change the selection. This feature enables
     * a right-click-menu to be combined with table selection for features such as "delete row" using a right click menu.
-* Fixed bug in Column element was incorrectly checking background color for None or COLOR_SYSTEM_DEFAULT 
+* Fixed bug in Column element was incorrectly checking background color for None or COLOR_SYSTEM_DEFAULT
 * Changed docstring for Table.get_last_clicked_postition to indicate what's returned now. Was not useful for tkinter port until recently when cell clicks added.
 * Better auto-sizing of Columns for Tables.
     * Better sizing of the row number column using the font for the header in the calculation
     * Use the column heading font to help determine if the header will be what determines the width instead of the data in the column
-* Don't print the error message about wm_overrideredirect while hiding the master root if running on a Mac. 
+* Don't print the error message about wm_overrideredirect while hiding the master root if running on a Mac.
 * Fix for Tree Element not setting the row height if none is specified. Needed to set to value based on the font used.
 * Tree Element
     * Always left justify the first column. This is how it's always worked. tkinter 8.6.12 changed the behavior of the first col. This changes it back
@@ -2383,11 +2383,11 @@ The "It's been a minute" & "Welcome to 2022!" release
 * ButtonMenu Element
     * New init parm image_source Use instead of the filename and data parms. This parm is a unified one and is how several other elements work now too.
     * New update parms image_source, image_size, image_subsample enables the initial image to be changed to a new one
-* Fix in sdk_help crashed if asked for summary view of Titlebar or MenubarCustom because they're not classes            
+* Fix in sdk_help crashed if asked for summary view of Titlebar or MenubarCustom because they're not classes
 * Fix in open github issue the python experience and overall experience values were swapped.
 * UserSettings delete_entry will show popup error now with traceback like almost all PySimpleGUI errors (can be silenced)
 * TTK Button wraplen fix, height padding fix? (thank you Jason for another fix!)
-* Button fix for wraplen on non-TTK buttons. 
+* Button fix for wraplen on non-TTK buttons.
 * Layout reuse error message
 * Fix for set_options checking for "not None" instead of "True" for the dpi_awareness setting.  Note that once turned on, there is no option to turn off.
 * Docstring changes for all Element.update methods to indicate that the change will not be visible until Window.refresh or Window.read is called
@@ -2399,9 +2399,9 @@ The "It's been a minute" & "Welcome to 2022!" release
 
 
 ## 4.57.0 PySimpleGUI 13-Feb 2022
-  
-A little of this, a little of that  
-New Emojis for 2022... collect them all!  
+
+A little of this, a little of that
+New Emojis for 2022... collect them all!
 
 
 - set_options added disable_modal_windows option to provide a single call to disable the modal feature globally (including popups)
@@ -2410,7 +2410,7 @@ New Emojis for 2022... collect them all!
 - Updated docstrings for all Element.update methods to indicate that the helper function "pin" need to be used to keep an element in place if visibility changes
 - Replaced sponsor tab with a tab about the udemy course as well as the buy me a coffee link
 - Fixed event generation for Spin element.  Also changed to use the "command" parameter to get the event. NOTE still need to handle manual entry
-- New Emojis for 2022! 
+- New Emojis for 2022!
 - New base64 image PYTHON_COLORED_HEARTS_BASE64 (yes, more hearts... apologies to the heart-haters)
 - Changed +CICKEDto +CLICKED(typo) in the table header
 - Added constant TABLE_CLICKED_INDICATOR that is the value '+CLICKED+' so that it can be referenced instead of user's hard cording a string
@@ -2421,13 +2421,13 @@ New Emojis for 2022... collect them all!
 - Added check for bad Image filename in Image.update. Will show an error popup now like the initial Image element creation error popup
 - Addition of parameter paste (bool) to Input.update.  Inserts as if the value was pasted rather than replacing entirely
 - Fix for Listbox scrollbar not behaving correctly when making element invisible / visible
-- Docstring update for Window.perform_long_operation warns users that Thread are used and thus no PySimpleGUI calls are allowed. Also added description of exactly what happens when the user's function completes. 
+- Docstring update for Window.perform_long_operation warns users that Thread are used and thus no PySimpleGUI calls are allowed. Also added description of exactly what happens when the user's function completes.
 
 ## 4.58.0 PySimpleGUI 3-Apr-2022
 
-A little of this and that release  
-More focus on focus  
-`bind` methods improved with `propagate` parm  
+A little of this and that release
+More focus on focus
+`bind` methods improved with `propagate` parm
 Visibility losing settings fix
 
 - `execute_get_results` Added checking for timeout error to  instead of showing an error popup as it's not truly an error in this case
@@ -2441,15 +2441,15 @@ Visibility losing settings fix
 - `bind_return_key` parm added to Spin element.  If element has focus and the return key is pressed, then an event is generated.
 - Event generation for disabled elements
 	- If an element is disabled, then don't generate events (fixed specifically for Input element). However, if a Browse button fills in a disabled element, then an event should still be generated
-	- Don't generate events if no files / folders selected using File or Folder Browse buttons. If cancel is clicked then no longer generates an event. 
+	- Don't generate events if no files / folders selected using File or Folder Browse buttons. If cancel is clicked then no longer generates an event.
 - Fix docstring for image in the Titlebar element. Incorrectly said an ICO file can be used. Must be PNG or GIF
 - Windows-specific code that enables the PySimpleGUI supplied icon to be shown rather than the python.exe logo
 - Removed all temporary Tk() window creation calls
-	- Instead create the hidden master root. 
+	- Instead create the hidden master root.
 	- These were required for operations like getting the list of fonts from tkinter, the screensize, character width and height. This way one and only one Tk window will ever be creeated
 	- The reason for the change is that the Mac crashes if multiple Tk() objects are created, even if only 1 at a time is active.
 - `image_source` parm added to `Button`
-	- It can be either a filename or a base64 string. 
+	- It can be either a filename or a base64 string.
 	- This is like the Image elements parms
 - Graph element doc string improvement. Describes the mouse up event.
 - Improved support for focus
@@ -2464,7 +2464,7 @@ Visibility losing settings fix
 	- Expand and other settings were being lost when element is made invisible and visible again.
 - `propagate` parameter to the bind methods.  Used to tell tkinter whether or not to propagate the event to the element / or window
 - `Canvas.update` method added so that a `Canvas` can be made visible/invisible
-- Removed the need for `tk.scrolledtext.ScrolledText` by adding a vertical scrollbar to a Text widget.  Getting ready for addition of ttk scrollbars!  
+- Removed the need for `tk.scrolledtext.ScrolledText` by adding a vertical scrollbar to a Text widget.  Getting ready for addition of ttk scrollbars!
 - `tooltip_offset` parm added to `set_options` as a way to set tooltip location (a hack to get around an 8.6.12 bug)
 - `Table` and `Tree` elements new parameters
 	- `border_width` -  the border width for the element
@@ -2484,7 +2484,7 @@ Test harness forces all windows to be modal and is no longer keep-on-top
 - New `force_modal_windows` parm added to `set_options`
 	- Forces all windows to be modal
 	- Overrides the `disable_modal_windows` option
-	- Used in the `main()` test harness to ensure all windows are modal so no window is accidentally lost 
+	- Used in the `main()` test harness to ensure all windows are modal so no window is accidentally lost
 - Test Harness changes
 	- Set `keep_on_top=True` for all popups and windows created by test harness
 	- Set the main window `keep_on_top=False`. Ensures that all windows created by it should never be hidden.  This is a somewhat experimental change.  Let's hope for the best!
@@ -2493,10 +2493,10 @@ Test harness forces all windows to be modal and is no longer keep-on-top
 
 ## 4.60.0 PySimpleGUI 8-May-2022
 
-TTK Scrollbars... the carpet now matches the drapes  
-Debug Window improvements  
-Built-in Screen-capture Initial Release  
-Test Harness and Settings Windows fit on small screens better  
+TTK Scrollbars... the carpet now matches the drapes
+Debug Window improvements
+Built-in Screen-capture Initial Release
+Test Harness and Settings Windows fit on small screens better
 
 * Debug Window
 	* Added the `wait` and `blocking` parameters (they are identical)
@@ -2561,7 +2561,7 @@ Test Harness and Settings Windows fit on small screens better
 * `Column` Element
 	* Fixed scrollwheel not working correctly when expand paramters used. Scrolls the canvas now not the frame.
 	* New `size_subsample_width` & `size_subsample_height` parameteres
-		* Gives much more control over the sizing of SCROLLABLE columns.  Previously the size was set to 1/2 the required height and the full required width. 
+		* Gives much more control over the sizing of SCROLLABLE columns.  Previously the size was set to 1/2 the required height and the full required width.
 		* The defaults are backward compatible (size_subsample_width=1, size_subsample_height=2)
 		* Setting both to 1 will make the Column fit the contents exactly. One use is when you expect your Column to grow or shrink over time.  Or maybe you didn't like the 1/2 size that PySimpleGUI has always used before.
 * Made Select Colors match the theme colors
@@ -2633,7 +2633,7 @@ While not the best programming practice, the implementation resulted in a single
 In Python, functions behave just like object. When you're placing a Text Element into your form, you may be sometimes calling a function and other times declaring an object.  If you use the word Text, then you're getting an object.  If you're using `Txt`, then you're calling a function that returns a `Text` object.
 
 **Lists**
-It seemed quite natural to use Python's powerful list constructs when possible.  The form is specified as a series of lists.  Each "row" of the GUI is represented as a list of Elements. 
+It seemed quite natural to use Python's powerful list constructs when possible.  The form is specified as a series of lists.  Each "row" of the GUI is represented as a list of Elements.
 
 **Dictionaries**
 Want to view your form's results as a dictionary instead of a list... no problem, just use the `key` keyword on your elements.  For complex forms with a lot of values that need to be changed frequently, this is by far the best way of consuming the results.
@@ -2667,12 +2667,12 @@ Please note that this license does **not** allow you to break copyright laws.  Y
 
 There are a number of people that have been key contributors to this project both directly and indirectly.  Paid professional help has been deployed a number of critical times in the project's history.  This happens in the life of software development from time to time.
 
-If you've helped, I sure hope that you feel like you've been properly thanked.  That you have been recognized.  If not, then say something.... drop an email to comments@PySimpleGUI.org. 
+If you've helped, I sure hope that you feel like you've been properly thanked.  That you have been recognized.  If not, then say something.... drop an email to comments@PySimpleGUI.org.
 Please see the readme file for usage of other Python packages by this project.
 
 ## Support
 
-In response to a number of email contacts from individuals and corporations that are using PySimpleGUI that wanted to financially support the project a "Support" Button was added to the GitHub site.  This support button is connected with a PayPal account.  If you wish to help support this currently freely supplied software and free technical support, then follow this link: https://www.paypal.me/pythongui.  You'll find all the ways you can help support PySimpleGUI in the readme. 
+In response to a number of email contacts from individuals and corporations that are using PySimpleGUI that wanted to financially support the project a "Support" Button was added to the GitHub site.  This support button is connected with a PayPal account.  If you wish to help support this currently freely supplied software and free technical support, then follow this link: https://www.paypal.me/pythongui.  You'll find all the ways you can help support PySimpleGUI in the readme.
 
 The project is self-funded and there are ongoing costs just to offer the software (URLs, ReadTheDocs, etc). If you're a corporate user and find that PySimpleGUI is helping you financially, that's awesome.  If you want to help ensure PySimpleGUI has a future, you now have that option to help.  It's likely that at some point the costs will become too high for the project to continue to be free or perhaps continue at all, but until then we'll all enjoy the successes we're having.
 

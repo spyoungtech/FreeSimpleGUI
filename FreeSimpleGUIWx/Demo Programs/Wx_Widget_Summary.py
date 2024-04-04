@@ -38,7 +38,3 @@ while True:
                                                                   (current_time // 100) % 60,
                                                                   current_time % 100))
 window.Close()
-
-
-
-

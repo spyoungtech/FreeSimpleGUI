@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = __version__ = "0.17.1.5 Unreleased\n VSeparator added (spelling error), Radio.reset_group added and removed the clearing all when one cleared, added default key for one_line_progress_meter, auto-add keys to tables & trees, added theme_add_new"
+version = __version__ = '0.17.1.5 Unreleased\n VSeparator added (spelling error), Radio.reset_group added and removed the clearing all when one cleared, added default key for one_line_progress_meter, auto-add keys to tables & trees, added theme_add_new'
 
 port = 'PySimpleGUIWx'
 
@@ -34,13 +34,13 @@ RUN_INSPECTION_TOOL = False
     21-Dec-2018
     Welcome to the "core" PySimpleGUIWx port!
 
-:::       ::: :::    ::: :::::::::  :::   ::: ::::::::::: :::    :::  ::::::::  ::::    ::: 
-:+:       :+: :+:    :+: :+:    :+: :+:   :+:     :+:     :+:    :+: :+:    :+: :+:+:   :+: 
-+:+       +:+  +:+  +:+  +:+    +:+  +:+ +:+      +:+     +:+    +:+ +:+    +:+ :+:+:+  +:+ 
-+#+  +:+  +#+   +#++:+   +#++:++#+    +#++:       +#+     +#++:++#++ +#+    +:+ +#+ +:+ +#+ 
-+#+ +#+#+ +#+  +#+  +#+  +#+           +#+        +#+     +#+    +#+ +#+    +#+ +#+  +#+#+# 
- #+#+# #+#+#  #+#    #+# #+#           #+#        #+#     #+#    #+# #+#    #+# #+#   #+#+# 
-  ###   ###   ###    ### ###           ###        ###     ###    ###  ########  ###    #### 
+:::       ::: :::    ::: :::::::::  :::   ::: ::::::::::: :::    :::  ::::::::  ::::    :::
+:+:       :+: :+:    :+: :+:    :+: :+:   :+:     :+:     :+:    :+: :+:    :+: :+:+:   :+:
++:+       +:+  +:+  +:+  +:+    +:+  +:+ +:+      +:+     +:+    +:+ +:+    +:+ :+:+:+  +:+
++#+  +:+  +#+   +#++:+   +#++:++#+    +#++:       +#+     +#++:++#++ +#+    +:+ +#+ +:+ +#+
++#+ +#+#+ +#+  +#+  +#+  +#+           +#+        +#+     +#+    +#+ +#+    +#+ +#+  +#+#+#
+ #+#+# #+#+#  #+#    #+# #+#           #+#        #+#     #+#    #+# #+#    #+# #+#   #+#+#
+  ###   ###   ###    ### ###           ###        ###     ###    ###  ########  ###    ####
 
 
 
@@ -84,7 +84,7 @@ DEFAULT_MARGINS = (10, 5)  # Margins for each LEFT/RIGHT margin is first term
 DEFAULT_ELEMENT_PADDING = (3, 2)  # Padding between elements (row, col) in pixels
 DEFAULT_AUTOSIZE_TEXT = True
 DEFAULT_AUTOSIZE_BUTTONS = True
-DEFAULT_FONT = ("Helvetica", 10)
+DEFAULT_FONT = ('Helvetica', 10)
 DEFAULT_TEXT_JUSTIFICATION = 'left'
 DEFAULT_BORDER_WIDTH = 1
 DEFAULT_AUTOCLOSE_TIME = 3  # time in seconds to show an autoclose form
@@ -100,11 +100,11 @@ MENU_DISABLED_CHARACTER = '!'
 MENU_KEY_SEPARATOR = '::'
 
 #################### COLOR STUFF ####################
-BLUES = ("#082567", "#0A37A3", "#00345B")
-PURPLES = ("#480656", "#4F2398", "#380474")
-GREENS = ("#01826B", "#40A860", "#96D2AB", "#00A949", "#003532")
-YELLOWS = ("#F3FB62", "#F0F595")
-TANS = ("#FFF9D5", "#F4EFCF", "#DDD8BA")
+BLUES = ('#082567', '#0A37A3', '#00345B')
+PURPLES = ('#480656', '#4F2398', '#380474')
+GREENS = ('#01826B', '#40A860', '#96D2AB', '#00A949', '#003532')
+YELLOWS = ('#F3FB62', '#F0F595')
+TANS = ('#FFF9D5', '#F4EFCF', '#DDD8BA')
 NICE_BUTTON_COLORS = ((GREENS[3], TANS[0]),
                       ('#000000', '#FFFFFF'),
                       ('#FFFFFF', '#000000'),
@@ -122,7 +122,7 @@ CURRENT_LOOK_AND_FEEL = 'DarkBlue3'
 
 
 
-DEFAULT_ERROR_BUTTON_COLOR = ("#FFFFFF", "#FF0000")
+DEFAULT_ERROR_BUTTON_COLOR = ('#FFFFFF', '#FF0000')
 DEFAULT_BACKGROUND_COLOR = None
 DEFAULT_ELEMENT_BACKGROUND_COLOR = None
 DEFAULT_ELEMENT_TEXT_COLOR = COLOR_SYSTEM_DEFAULT
@@ -1246,7 +1246,7 @@ class Output(Element):
 # ---------------------------------------------------------------------- #
 class Button(Element):
     def __init__(self, button_text='', button_type=BUTTON_TYPE_READ_FORM, target=(None, None), tooltip=None,
-                 file_types=(("ALL Files", "*"),), initial_folder=None, disabled=False, change_submits=False, enable_events=False,
+                 file_types=(('ALL Files', '*'),), initial_folder=None, disabled=False, change_submits=False, enable_events=False,
                  image_filename=None, image_data=None, image_size=(None, None), image_subsample=None, border_width=None,
                  size=(None, None), auto_size_button=None, button_color=None, font=None, bind_return_key=False,
                  focus=False, pad=None, key=None, visible=True, size_px=(None,None)):
@@ -1354,7 +1354,7 @@ class Button(Element):
                     should_submit_window = True
             except:
                 pass
-        filetypes = (("ALL Files", "*"),) if self.FileTypes is None else self.FileTypes
+        filetypes = (('ALL Files', '*'),) if self.FileTypes is None else self.FileTypes
         if self.BType == BUTTON_TYPE_BROWSE_FOLDER:                     # Browse Folder
             wx_types = convert_tkinter_filetypes_to_wx(self.FileTypes)
             if self.InitialFolder:
@@ -2466,8 +2466,8 @@ class TreeData(object):
 
     def __init__(self):
         self.tree_dict = {}
-        self.root_node = self.Node("", "", 'root', [])
-        self.tree_dict[""] = self.root_node
+        self.root_node = self.Node('', '', 'root', [])
+        self.tree_dict[''] = self.root_node
 
     def _AddNode(self, key, node):
         self.tree_dict[key] = node
@@ -3622,7 +3622,7 @@ def FolderBrowse(button_text='Browse', target=(ThisRow, -1), initial_folder=None
 
 
 # -------------------------  FILE BROWSE Element lazy function  ------------------------- #
-def FileBrowse(button_text='Browse', target=(ThisRow, -1), file_types=(("ALL Files", "*.*"),), initial_folder=None,
+def FileBrowse(button_text='Browse', target=(ThisRow, -1), file_types=(('ALL Files', '*.*'),), initial_folder=None,
                tooltip=None, size=(None, None), auto_size_button=None, button_color=None, change_submits=False,
                font=None, disabled=False,
                pad=None, key=None):
@@ -3633,7 +3633,7 @@ def FileBrowse(button_text='Browse', target=(ThisRow, -1), file_types=(("ALL Fil
 
 
 # -------------------------  FILES BROWSE Element (Multiple file selection) lazy function  ------------------------- #
-def FilesBrowse(button_text='Browse', target=(ThisRow, -1), file_types=(("ALL Files", "*.*"),), disabled=False,
+def FilesBrowse(button_text='Browse', target=(ThisRow, -1), file_types=(('ALL Files', '*.*'),), disabled=False,
                 initial_folder=None, tooltip=None, size=(None, None), auto_size_button=None, button_color=None,
                 change_submits=False,
                 font=None, pad=None, key=None):
@@ -3644,7 +3644,7 @@ def FilesBrowse(button_text='Browse', target=(ThisRow, -1), file_types=(("ALL Fi
 
 
 # -------------------------  FILE BROWSE Element lazy function  ------------------------- #
-def FileSaveAs(button_text='Save As...', target=(ThisRow, -1), file_types=(("ALL Files", "*.*"),), initial_folder=None,
+def FileSaveAs(button_text='Save As...', target=(ThisRow, -1), file_types=(('ALL Files', '*.*'),), initial_folder=None,
                disabled=False, tooltip=None, size=(None, None), auto_size_button=None, button_color=None,
                change_submits=False, font=None,
                pad=None, key=None):
@@ -3655,7 +3655,7 @@ def FileSaveAs(button_text='Save As...', target=(ThisRow, -1), file_types=(("ALL
 
 
 # -------------------------  SAVE AS Element lazy function  ------------------------- #
-def SaveAs(button_text='Save As...', target=(ThisRow, -1), file_types=(("ALL Files", "*.*"),), initial_folder=None,
+def SaveAs(button_text='Save As...', target=(ThisRow, -1), file_types=(('ALL Files', '*.*'),), initial_folder=None,
            disabled=False, tooltip=None, size=(None, None), auto_size_button=None, button_color=None,
            change_submits=False, font=None,
            pad=None, key=None):
@@ -4175,7 +4175,7 @@ if sys.version_info[0] >= 3:
                 # print(f'Adding command {sub_menu_info}')
                 pos = sub_menu_info.find('&')
                 if pos != -1:
-                    if pos == 0 or sub_menu_info[pos - 1] != "\\":
+                    if pos == 0 or sub_menu_info[pos - 1] != '\\':
                         sub_menu_info = sub_menu_info[:pos] + sub_menu_info[pos + 1:]
                 if sub_menu_info == '---':
                     top_menu.Append(wx.ID_SEPARATOR)
@@ -4203,7 +4203,7 @@ if sys.version_info[0] >= 3:
                         return_val = new_menu
                         pos = sub_menu_info[i].find('&')
                         if pos != -1:
-                            if pos == 0 or sub_menu_info[i][pos - 1] != "\\":
+                            if pos == 0 or sub_menu_info[i][pos - 1] != '\\':
                                 sub_menu_info[i] = sub_menu_info[i][:pos] + sub_menu_info[i][pos + 1:]
                         if sub_menu_info[i][0] == MENU_DISABLED_CHARACTER:
                             id = top_menu.AppendSubMenu(new_menu, sub_menu_info[i][len(MENU_DISABLED_CHARACTER):])
@@ -4226,7 +4226,7 @@ if sys.version_info[0] >= 3:
                 # print(f'Adding command {sub_menu_info}')
                 pos = sub_menu_info.find('&')
                 if pos != -1:
-                    if pos == 0 or sub_menu_info[pos - 1] != "\\":
+                    if pos == 0 or sub_menu_info[pos - 1] != '\\':
                         sub_menu_info = sub_menu_info[:pos] + sub_menu_info[pos + 1:]
                 if sub_menu_info == '---':
                     top_menu.Append(wx.ID_SEPARATOR)
@@ -4241,7 +4241,7 @@ if sys.version_info[0] >= 3:
                         new_menu = wx.Menu()
                         pos = sub_menu_info[i].find('&')
                         if pos != -1:
-                            if pos == 0 or sub_menu_info[i][pos - 1] != "\\":
+                            if pos == 0 or sub_menu_info[i][pos - 1] != '\\':
                                 sub_menu_info[i] = sub_menu_info[i][:pos] + sub_menu_info[i][pos + 1:]
                         top_menu.AppendSubMenu(new_menu, sub_menu_info[i])
                         AddMenuItem(new_menu, sub_menu_info[i + 1], element, is_sub_menu=True)
@@ -4258,7 +4258,7 @@ else:
                 # print(f'Adding command {sub_menu_info}')
                 pos = sub_menu_info.find('&')
                 if pos != -1:
-                    if pos == 0 or sub_menu_info[pos - 1] != "\\":
+                    if pos == 0 or sub_menu_info[pos - 1] != '\\':
                         sub_menu_info = sub_menu_info[:pos] + sub_menu_info[pos + 1:]
                 if sub_menu_info == '---':
                     top_menu.add('separator')
@@ -4274,7 +4274,7 @@ else:
                         new_menu = tk.Menu(top_menu, tearoff=element.Tearoff)
                         pos = sub_menu_info[i].find('&')
                         if pos != -1:
-                            if pos == 0 or sub_menu_info[i][pos - 1] != "\\":
+                            if pos == 0 or sub_menu_info[i][pos - 1] != '\\':
                                 sub_menu_info[i] = sub_menu_info[i][:pos] + sub_menu_info[i][pos + 1:]
                         top_menu.add_cascade(label=sub_menu_info[i], menu=new_menu, underline=pos)
                         AddMenuItem(new_menu, sub_menu_info[i + 1], element, is_sub_menu=True)
@@ -4847,7 +4847,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_form):
                     text_ctrl.SetValue(element.DefaultText)
 
                 do_font_and_color(element.WxTextCtrl)
-                
+
                 if element.ChangeSubmits:
                     text_ctrl.Bind(wx.EVT_KEY_UP, element._WxCallbackKeyboard)
                 if element.EnterSubmits:
@@ -5626,10 +5626,10 @@ class QuickMeter(object):
             time_per_item = 1
         seconds_remaining = (self.max_value - self.current_value) * time_per_item
         time_remaining = str(datetime.timedelta(seconds=seconds_remaining))
-        time_remaining_short = (time_remaining).split(".")[0]
-        time_delta_short = str(time_delta).split(".")[0]
+        time_remaining_short = (time_remaining).split('.')[0]
+        time_delta_short = str(time_delta).split('.')[0]
         total_time = time_delta + datetime.timedelta(seconds=seconds_remaining)
-        total_time_short = str(total_time).split(".")[0]
+        total_time_short = str(total_time).split('.')[0]
         self.stat_messages = [
             '{} of {}'.format(self.current_value, self.max_value),
             '{} %'.format(100 * self.current_value // self.max_value),
@@ -5678,7 +5678,7 @@ def GetComplimentaryHex(color):
     # as good as substracting each of RGB component by 255(FF)
     comp_color = 0xFFFFFF ^ color
     # convert the color back to hex by prefixing a #
-    comp_color = "#%06X" % comp_color
+    comp_color = '#%06X' % comp_color
     return comp_color
 
 
@@ -7828,7 +7828,7 @@ def PopupGetFolder(message, title=None, default_path='', no_window=False, size=(
 
 # --------------------------- PopupGetFile ---------------------------
 
-def PopupGetFile(message, title=None, default_path='', default_extension='', save_as=False, file_types=(("ALL Files", "*"),),
+def PopupGetFile(message, title=None, default_path='', default_extension='', save_as=False, file_types=(('ALL Files', '*'),),
                  no_window=False, size=(None, None), button_color=None, background_color=None, text_color=None,
                  icon=DEFAULT_WINDOW_ICON, font=None, no_titlebar=False, grab_anywhere=False, keep_on_top=False,
                  location=(None, None), initial_folder=None):
@@ -7985,14 +7985,14 @@ theme(CURRENT_LOOK_AND_FEEL)
 
 
 """
-                       d8b          
-                       Y8P          
+                       d8b
+                       Y8P
 
-88888b.d88b.   8888b.  888 88888b.  
-888 "888 "88b     "88b 888 888 "88b 
-888  888  888 .d888888 888 888  888 
-888  888  888 888  888 888 888  888 
-888  888  888 "Y888888 888 888  888 
+88888b.d88b.   8888b.  888 88888b.
+888 "888 "88b     "88b 888 888 "88b
+888  888  888 .d888888 888 888  888
+888  888  888 888  888 888 888  888
+888  888  888 "Y888888 888 888  888
 
 """
 

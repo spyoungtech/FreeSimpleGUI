@@ -3,7 +3,7 @@ import FreeSimpleGUI as sg
 """
     The basic PySimpleGUI design pattern for a persistent window that is
     updated using data input from one of the elements.
-    
+
     Copyright 2020 PySimpleGUI.org
 """
 

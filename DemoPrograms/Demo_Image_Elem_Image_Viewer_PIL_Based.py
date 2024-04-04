@@ -7,15 +7,15 @@ import base64
 
 """
     Demo for displaying any format of image file.
-    
+
     Normally tkinter only wants PNG and GIF files.  This program uses PIL to convert files
     such as jpg files into a PNG format so that tkinter can use it.
-    
-    The key to the program is the function "convert_to_bytes" which takes a filename or a 
+
+    The key to the program is the function "convert_to_bytes" which takes a filename or a
     bytes object and converts (with optional resize) into a PNG formatted bytes object that
     can then be passed to an Image Element's update method.  This function can also optionally
     resize the image.
-    
+
     Copyright 2020 PySimpleGUI.org
 """
 

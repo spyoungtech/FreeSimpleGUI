@@ -33,8 +33,8 @@ window = sg.Window('Enter & Display Data').Layout(layout)
 string = ''
 S=[]
 while True:
-  
-    button, value = window.Read() 
+
+    button, value = window.Read()
     if button is not None:
     #use string formatting - best way? plus Courier New font - non-proportional font
         S = S +  ['{:^9s}{:<11s}{:<10s}{:>8s}'.format(value[0],value[1],value[2],value[3])]
@@ -43,4 +43,4 @@ while True:
         window.FindElement('_multiline_').Update(string)
         string =''
     else:
-        break   
+        break

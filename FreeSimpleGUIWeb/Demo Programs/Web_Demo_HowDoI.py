@@ -31,7 +31,7 @@ def HowDoI():
     window = sg.Window('How Do I?', layout, default_element_size=(30,1),
             font=('Helvetica',' 17'), default_button_element_size=(8,2),
             return_keyboard_events=False)
-    
+
     # ---===--- Loop taking in user input and using it to query HowDoI --- #
     command_history = []
     history_offset = 0
@@ -92,9 +92,8 @@ def QueryHowDoI(Query, num_answers, full_text, window:sg.Window):
     (output, err) = t.communicate()
     window['_OUTPUT_'].update('{:^88}'.format(Query.rstrip()), append=True)
     window['_OUTPUT_'].update('_'*60, append=True)
-    window['_OUTPUT_'].update(output.decode("utf-8"), append=True)
+    window['_OUTPUT_'].update(output.decode('utf-8'), append=True)
     exit_code = t.wait()
 
 if __name__ == '__main__':
     HowDoI()
-

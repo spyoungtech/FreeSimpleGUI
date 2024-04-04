@@ -19,8 +19,8 @@ layout =[[sg.Text('Search Demo', font =('Calibri', 18, 'bold')), sg.ReadButton('
 window = sg.Window('Search Demo').Layout(layout)
 
 #finalize allows the disabling of the two buttons before .Read statement
-window.Finalize()                                  
-window.FindElement('_ls_').Update(disabled = True)     
+window.Finalize()
+window.FindElement('_ls_').Update(disabled = True)
 window.FindElement('_bs_').Update(disabled = True)
 
 #names for Demo, could be loaded from a file
@@ -36,63 +36,62 @@ sorted_names = ['Andrea','Belinda','Deborah','Helen',
 def display_list(list, display):
     names = ''
     #add list elements with new line
-    for l in list:                
+    for l in list:
         names = names + l + '\n'
     window.FindElement(display).Update(names)
     #enable buttons now data loaded
-    window.FindElement('_ls_').Update(disabled = False)    
-    window.FindElement('_bs_').Update(disabled = False)    
-    
+    window.FindElement('_ls_').Update(disabled = False)
+    window.FindElement('_bs_').Update(disabled = False)
+
 #Linear Search - no need for Ordered list
 def linear_search():
     l = names[:]
     found = False
     for l in l:
         #Check each value
-        if l == value['_linear_']:             
+        if l == value['_linear_']:
             found = True
             window.FindElement('_display1_').Update('Linear search\n' + l + ' found.')
             break
     if not found:
         window.FindElement('_display1_').Update(value['_linear_'] + ' was \nNot found')
 
-#Binary Search - only works for ordered lists      
+#Binary Search - only works for ordered lists
 def binary_search():
-    l = sorted_names[:]                                 
+    l = sorted_names[:]
     lo = 0
     hi = len(l)-1
     #Start with found is Flase
-    found = False                   
+    found = False
     while lo <= hi:
         #Start in middle
         mid = (lo + hi) //2
         #get the value from the search box
-        if l[mid] == value['_binary_']:   
+        if l[mid] == value['_binary_']:
             window.FindElement('_display2_').Update('Binary search\n' + l[mid] + ' found.')
             #If found display and stop
-            found = True            
-            break                   
+            found = True
+            break
         elif l[mid] < value['_binary_']:
             #Search in top half
-            lo = mid + 1            
+            lo = mid + 1
         else:
             #Search in lower half
             hi = mid - 1
             #If we get to end  - display not found
-    if not found:                   
+    if not found:
         window.FindElement('_display2_').Update(value['_binary_'] + ' was \nNot found')
 
 while True:
-    button, value = window.Read() 
+    button, value = window.Read()
     if button is not None:
         #show names - unordered and sorted
-        if button == 'Show Names':  
+        if button == 'Show Names':
             display_list(names,'_display1_')
             display_list(sorted_names, '_display2_')
-        if button == '_ls_':   
+        if button == '_ls_':
             linear_search()
         if button == '_bs_':
             binary_search()
     else:
-        break  
-
+        break

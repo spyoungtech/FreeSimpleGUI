@@ -3,22 +3,22 @@ import FreeSimpleGUI as sg
 
 """
     Demo Long Operations
-    
+
     How to make calls to your functions that take a very long time to complete.
-    
+
     One of the classic GUI problems is when a function takes a long time to complete.
     Normally these functions cause a GUI to appear to the operating system to have
     hung and you'll see a message asking if you want to kill your program.
-    
+
     PySimpleGUI has a Window method - perform_long_operation that can help in these situations
     NOTE - because this method uses threads, it's important you do not make any FreeSimpleGUI calls
     from your long function.  Also, some things simply cannot be safely run as a thread.  Just understand
     that this function perform_long_operation utilizes threads.
-    
+
     window.perform_long_operation takes 2 parameters:
         * A lambda expression that represents your function call
         * A key that is returned when you function completes
-        
+
     When you function completes, you will receive an event when calling window.read() that
     matches the key provided.
 
@@ -27,20 +27,20 @@ import FreeSimpleGUI as sg
 
 
 '''
-M""MMMMM""M                            
-M  MMMMM  M                            
-M  MMMMM  M .d8888b. .d8888b. 88d888b. 
-M  MMMMM  M Y8ooooo. 88ooood8 88'  `88 
-M  `MMM'  M       88 88.  ... 88       
-Mb       dM `88888P' `88888P' dP       
-MMMMMMMMMMM                            
-                                       
-MM""""""""`M                            
-MM  mmmmmmmM                            
-M'      MMMM dP    dP 88d888b. .d8888b. 
-MM  MMMMMMMM 88    88 88'  `88 88'  `"" 
-MM  MMMMMMMM 88.  .88 88    88 88.  ... 
-MM  MMMMMMMM `88888P' dP    dP `88888P' 
+M""MMMMM""M
+M  MMMMM  M
+M  MMMMM  M .d8888b. .d8888b. 88d888b.
+M  MMMMM  M Y8ooooo. 88ooood8 88'  `88
+M  `MMM'  M       88 88.  ... 88
+Mb       dM `88888P' `88888P' dP
+MMMMMMMMMMM
+
+MM""""""""`M
+MM  mmmmmmmM
+M'      MMMM dP    dP 88d888b. .d8888b.
+MM  MMMMMMMM 88    88 88'  `88 88'  `""
+MM  MMMMMMMM 88.  .88 88    88 88.  ...
+MM  MMMMMMMM `88888P' dP    dP `88888P'
 MMMMMMMMMMMM
 '''
 
@@ -60,19 +60,19 @@ def my_long_func(count, a=1, b=2):
 
 
 '''
-                    oo          
-                                
-88d8b.d8b. .d8888b. dP 88d888b. 
-88'`88'`88 88'  `88 88 88'  `88 
-88  88  88 88.  .88 88 88    88 
-dP  dP  dP `88888P8 dP dP    dP 
-                                
-                                
-oo                dP oo                              dP                        dP dP 
-                  88                                 88                        88 88 
-dP 88d888b. .d888b88 dP 88d888b. .d8888b. .d8888b. d8888P    .d8888b. .d8888b. 88 88 
-88 88'  `88 88'  `88 88 88'  `88 88ooood8 88'  `""   88      88'  `"" 88'  `88 88 88 
-88 88    88 88.  .88 88 88       88.  ... 88.  ...   88      88.  ... 88.  .88 88 88 
+                    oo
+
+88d8b.d8b. .d8888b. dP 88d888b.
+88'`88'`88 88'  `88 88 88'  `88
+88  88  88 88.  .88 88 88    88
+dP  dP  dP `88888P8 dP dP    dP
+
+
+oo                dP oo                              dP                        dP dP
+                  88                                 88                        88 88
+dP 88d888b. .d888b88 dP 88d888b. .d8888b. .d8888b. d8888P    .d8888b. .d8888b. 88 88
+88 88'  `88 88'  `88 88 88'  `88 88ooood8 88'  `""   88      88'  `"" 88'  `88 88 88
+88 88    88 88.  .88 88 88       88.  ... 88.  ...   88      88.  ... 88.  .88 88 88
 dP dP    dP `88888P8 dP dP       `88888P' `88888P'   dP      `88888P' `88888P8 dP dP
 '''
 
@@ -108,19 +108,19 @@ def main():
 
 
 '''
-                    oo          
-                                
-88d8b.d8b. .d8888b. dP 88d888b. 
-88'`88'`88 88'  `88 88 88'  `88 
-88  88  88 88.  .88 88 88    88 
-dP  dP  dP `88888P8 dP dP    dP 
-                                
-                                
-      dP oo                              dP                        dP dP 
-      88                                 88                        88 88 
-.d888b88 dP 88d888b. .d8888b. .d8888b. d8888P    .d8888b. .d8888b. 88 88 
-88'  `88 88 88'  `88 88ooood8 88'  `""   88      88'  `"" 88'  `88 88 88 
-88.  .88 88 88       88.  ... 88.  ...   88      88.  ... 88.  .88 88 88 
+                    oo
+
+88d8b.d8b. .d8888b. dP 88d888b.
+88'`88'`88 88'  `88 88 88'  `88
+88  88  88 88.  .88 88 88    88
+dP  dP  dP `88888P8 dP dP    dP
+
+
+      dP oo                              dP                        dP dP
+      88                                 88                        88 88
+.d888b88 dP 88d888b. .d8888b. .d8888b. d8888P    .d8888b. .d8888b. 88 88
+88'  `88 88 88'  `88 88ooood8 88'  `""   88      88'  `"" 88'  `88 88 88
+88.  .88 88 88       88.  ... 88.  ...   88      88.  ... 88.  .88 88 88
 `88888P8 dP dP       `88888P' `88888P'   dP      `88888P' `88888P8 dP dP
 '''
 

@@ -14,9 +14,9 @@ import time
         * How to animate the drawing by simply erasing and drawing the entire figure
 
     The point here is to keep things simple to enable you to get started.
-    
+
     The example static graph can be found in the matplotlib gallery:
-    https://matplotlib.org/stable/gallery/images_contours_and_fields/specgram_demo.html        
+    https://matplotlib.org/stable/gallery/images_contours_and_fields/specgram_demo.html
 
     Copyright 2021 PySimpleGUI
 """

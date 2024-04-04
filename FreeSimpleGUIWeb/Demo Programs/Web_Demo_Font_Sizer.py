@@ -15,24 +15,24 @@ layout = [
             change_submits=True, key='spin'),
            sg.Slider(range=(6, 172), orientation='h', size=(10, 20),
                      change_submits=True, key='slider', font=('Helvetica 20')),
-           sg.Text("Aa", size=(2, 1), font="Helvetica " + str(fontsize), key='text')]
+           sg.Text('Aa', size=(2, 1), font='Helvetica ' + str(fontsize), key='text')]
     ]
 
-window = sg.Window("Font size selector", layout)
+window = sg.Window('Font size selector', layout)
 
 while True:         # the event loop
     event, values = window.read()
     if event is None or event == 'Quit':
         break
-    
+
     if int(values['spin']) != fontsize:
         fontsize = int(values['spin'])
     else:
         fontsize = int(values['slider'])
-    
-    window['text'].update(font="Helvetica " + str(fontsize))
+
+    window['text'].update(font='Helvetica ' + str(fontsize))
     window['slider'].update(fontsize, range=(10, 20))
     window['spin'].update(fontsize)
 window.close()
 
-print("Done.")
+print('Done.')

@@ -3,7 +3,7 @@ import FreeSimpleGUI as sg
 
 """
     Demonstration of how to work with multiple colors and fonts when outputting text to a multiline element or with Debug Print
-    
+
     Copyright 2021 PySimpleGUI
 """
 

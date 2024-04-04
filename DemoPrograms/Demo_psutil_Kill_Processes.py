@@ -12,7 +12,7 @@ CONFIRM_KILLS = False
 """
     Utility to show running processes, CPU usage and provides way to kill processes.
     Based on psutil package that is easily installed using pip
-    
+
     Copyright 2021 PySimpleGUI
 """
 

@@ -666,7 +666,7 @@ def main():
 
         run_a_ping_and_graph()
         photo = draw(fig, canvas)
-    
+
     window.close()
 
 if __name__ == '__main__':

@@ -15,7 +15,7 @@ filename = r'C:\Python\PycharmProjects\GooeyGUI\ProgrammingClassExamples\Win10 v
 # --- populate table with file contents --- #
 data = []
 if filename is not None:
-    with open(filename, "r") as infile:
+    with open(filename, 'r') as infile:
         reader = csv.reader(infile)
         try:
             data = list(reader)  # read everything else into a list of rows

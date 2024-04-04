@@ -6,8 +6,8 @@ sg.ChangeLookAndFeel('BlueMono')
 #get pathname to current file
 
 dirname, filename = os.path.split(os.path.abspath(__file__))
-pathname = os.path.join(dirname , 'Names.txt')           
-                         
+pathname = os.path.join(dirname , 'Names.txt')
+
 #Get data from file
 names = [line.strip() for line in open(pathname)]
 sorted_names = names[:]
@@ -46,24 +46,24 @@ def linear_search():
         result = [value['_linear_'], 'was not found']
         window.FindElement('_display1_').Update(result)
 
-#Binary Search - only works for ordered lists      
+#Binary Search - only works for ordered lists
 def binary_search():
-    l = sorted_names                   
+    l = sorted_names
     lo = 0
     hi = len(l)-1
-    found = False               
+    found = False
     while lo <= hi:
-        mid = (lo + hi) //2         
-        if l[mid] == value['_binary_']:    
+        mid = (lo + hi) //2
+        if l[mid] == value['_binary_']:
             found = True
             result = ['Binary search', l[mid] + ' found.']
-            window.FindElement('_display2_').Update(result)    
-            break                   
+            window.FindElement('_display2_').Update(result)
+            break
         elif l[mid] < value['_binary_']:
-            lo = mid + 1            
+            lo = mid + 1
         else:
-            hi = mid - 1            
-    if not found:                  
+            hi = mid - 1
+    if not found:
         result = [value['_binary_'], 'was not found']
         window.FindElement('_display2_').Update(result)
 

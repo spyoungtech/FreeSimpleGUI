@@ -7,11 +7,11 @@ import os
 
 """
     Demo_Toolbar - A floating toolbar with quick launcher
-    
+
     One cool PySimpleGUI demo. Shows borderless windows, grab_anywhere, tight button layout
     You can setup a specific program to launch when a button is clicked, or use the
     Combobox to select a .py file found in the root folder, and run that file.
-    
+
 """
 
 ROOT_PATH = './'

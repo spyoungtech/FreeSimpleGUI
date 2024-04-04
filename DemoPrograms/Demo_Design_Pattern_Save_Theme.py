@@ -5,7 +5,7 @@ import FreeSimpleGUI as sg
     * Creates window in a separate function for easy "restart"
     * Saves theme as a user variable
     * Puts main code into a main function so that multiprocessing works if you later convert to use
-    
+
     Copyright 2020 PySimpleGUI.org
 """
 
@@ -43,4 +43,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

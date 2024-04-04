@@ -146,4 +146,3 @@ def main(mask_rate=0.7):
 if __name__ == "__main__":
     mask_rate = 0.7  # % Of cells to hide
     main(mask_rate)
-

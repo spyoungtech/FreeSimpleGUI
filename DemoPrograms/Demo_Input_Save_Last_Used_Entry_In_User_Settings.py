@@ -5,7 +5,7 @@ import FreeSimpleGUI as sg
 
     Tired of typing in the same value or entering the same filename into an Input element?
     If so, this may be exactly what you need.
-    
+
     It simply saves the last value you entered so that the next time you start your program, that will be the default
 
     Copyright 2022 PySimpleGUI.org
@@ -28,4 +28,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

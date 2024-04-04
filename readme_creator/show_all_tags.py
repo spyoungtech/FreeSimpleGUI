@@ -1,7 +1,7 @@
 import PySimpleGUI;sg = FreeSimpleGUI
 import datetime, inspect
 
-""" 
+"""
     Create All Possible Tags
     Will output to STDOUT all of the different tags for classes, members and functions for a given PySimpleGUI.py
     file.  Functions that begin with _ are filtered out from the list.
@@ -27,9 +27,9 @@ def valid_field(pair):
 
 
 #                                                                                       # ]
-psg_members  = [i for i in inspect.getmembers(PySimpleGUI) if valid_field(i)]        # ] 
+psg_members  = [i for i in inspect.getmembers(PySimpleGUI) if valid_field(i)]        # ]
 psg_funcs    = [o[0] for o in psg_members if inspect.isfunction(o[1])]                  # ] Grabing PSG objects
-psg_classes  = [o for o in psg_members if inspect.isclass(o[1])]                        # ] 
+psg_classes  = [o for o in psg_members if inspect.isclass(o[1])]                        # ]
 # psg_props    = [o for o in psg_members if type(o[1]).__name__ == 'property']          # ]
 
 
@@ -39,12 +39,12 @@ psg_classes = sorted(list(set([i[1] for i in psg_classes])), key=lambda x : x.__
 
 for aclass in psg_classes:
     class_name = aclass.__name__
-    
+
     # filter bad objects
     if  'Tk' in class_name or 'TK' in class_name or\
         'Element' == class_name: # or 'Window' == class_name:
         continue
-    
+
     # print standart things:
     log(f'## {class_name} Element ')
     log(f'<!-- <+{class_name}.doc+> -->')

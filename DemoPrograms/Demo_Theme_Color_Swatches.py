@@ -2,27 +2,27 @@ import FreeSimpleGUI as sg
 
 """
     Demo Theme Color Swatches
-    
+
     Sometimes when working with themes, it's nice ot know all of the hex values
     for the theme.  Or, maybe you want to scroll through the list of themes and
     look at the colors in the theme as groups of color swatches.  Whatever thr
     reason, this ia good candidate for you.
-    
+
     Thie program is interactive.  In addition to showing you the swatches, you can
-    interact with them.  
-    * If you hover with your mouse, you'll get a tooltip popup  that tells you the hex value.  
+    interact with them.
+    * If you hover with your mouse, you'll get a tooltip popup  that tells you the hex value.
     * If you left click, then the value it posted to the clipboard.
     * If you right click a swatch, then the right clip menu will show you the hex value.
       If you then select that menu item, it's copied to the clipbard.
-    
+
     The code has several examples you may want to try out in your prgorams.  Everything from
     using "Symbols" to make the swatches, so generating layouts, integrating (optionally) other
     packages like pyperclip, moving a window based on the size of the window
-    
+
     This code's pattern is becoming more widespread lately:
     * Have a "create_window' function where the layout and Window is defined
     * Use a "main" program function where the event loop also lives
-    
+
     Copyright 2020  PySimpleGUI.org
 """
 

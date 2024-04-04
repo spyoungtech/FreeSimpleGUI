@@ -22,7 +22,7 @@ import webbrowser
 
     Your initial location is determined using your IP address and will be used if no settings file is found
 
-    This widget is an early version of a PSG Widget so it may not share the same names / constructs as the templates. 
+    This widget is an early version of a PSG Widget so it may not share the same names / constructs as the templates.
 
     Copyright 2020, 2022 PySimpleGUI - www.PySimpleGUI.com
 

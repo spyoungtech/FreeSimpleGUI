@@ -4,7 +4,7 @@
 
 import FreeSimpleGUI as sg
 
-#sg.ChangeLookAndFeel('SandyBeach')    
+#sg.ChangeLookAndFeel('SandyBeach')
 sg.SetOptions (background_color = 'LightBlue',
             element_background_color = 'LightBlue',
             text_element_background_color = 'LightBlue',
@@ -15,7 +15,7 @@ sg.SetOptions (background_color = 'LightBlue',
                )
 
 layout0 = [[sg.ReadButton('Show/Hide window1'),sg.ReadButton('Show/Hide window2')]]
-    
+
 layout1 =[[ sg.Text('window1')], [sg.Multiline( size = (35, 10))]]
 layout2 =[[ sg.Text('window2')], [sg.Multiline( size = (35, 10))]]
 window0 = sg.Window('Home Window', location = (200, 140)).Layout(layout0)
@@ -27,7 +27,7 @@ w1 = False
 window2 = sg.Window('Window2', location = (600, 200)).Layout(layout2).Finalize()
 window2.Hide()
 w2 = False
-           
+
 while True:
     button, v = window0.Read()
     if button is not None:
@@ -49,4 +49,4 @@ while True:
         break
 
 
-    
+

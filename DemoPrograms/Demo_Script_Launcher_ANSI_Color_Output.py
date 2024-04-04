@@ -5,9 +5,9 @@ import re
 	Demo Program - Realtime output of a shell command in the window using ANSI color codes
 		Shows how you can run a long-running subprocess and have the output
 		be displayed in realtime in the window.  The output is assumed to have color codes embedded in it.
-		
+
 	The commands you enter will be run as shell commands.  The output is then shown with the ANSI strings parsed.
-	
+
 	Copyright 2022 PySimpleGUI
 """
 

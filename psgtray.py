@@ -7,36 +7,36 @@ import FreeSimpleGUI as sg
 
     To use, add this import to your code:
     from psgtray import SystemTray
-    
+
     Make sure the psgtray.py file is in the same folder as your app or is on your Python path
 
     Because this code is entirely in the user's space it's possible to use the pystray package
     to implement the system tray icon feature.  You need to install pystray and PIL.
-    
+
     As of this date, the latest version of pystray is 0.17.3
-    
+
     This code works well under Windows.
-    
+
     On Linux there are some challenges.  Some changes were
     needed in order to get pystray to run as a thread using gtk as the backend.
     The separator '---' caused problems so it is now ignored.  Unknown why it caused the
     menu to not show at all, but it does.
 
     A sample bit of code is at the bottom for your reference.
-    
+
     Your window will receive events from the system tray thread.
-    
+
     In addition to the init, these are the class methods available:
         change_icon
         hide_icon
         show_icon
         set_tooltip
         notify
-        
+
     In your code, you will receive events from tray with key SystemTray.key
     The value will be the choice made or a click event.  This is the magic statement:
         window.write_event_value(tray.key, item.text)
-        
+
     Extra Special thanks to FireDM for the design pattern that made this work.
     (https://github.com/firedm/FireDM)
     Copyright 2021 PySimpleGUI

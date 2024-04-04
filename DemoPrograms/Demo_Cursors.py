@@ -3,10 +3,10 @@ import webbrowser
 
 """
     Demo Cursors
-    
+
     Demonstration of setting an Element's Cursor to use a different cursor than the standard arrow.
-    Can also change Cursor at the Window level.  
-    
+    Can also change Cursor at the Window level.
+
     If you want no cursor, set the cursor to the string 'none'.
 
     Copyright 2021, 2022 PySimpleGUI

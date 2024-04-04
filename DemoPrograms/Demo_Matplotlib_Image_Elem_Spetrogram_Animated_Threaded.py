@@ -22,7 +22,7 @@ import time
         without problems so it's perhaps safe as written.
 
     The example static graph can be found in the matplotlib gallery:
-    https://matplotlib.org/stable/gallery/images_contours_and_fields/specgram_demo.html        
+    https://matplotlib.org/stable/gallery/images_contours_and_fields/specgram_demo.html
 
     Copyright 2021, 2022 PySimpleGUI
 """

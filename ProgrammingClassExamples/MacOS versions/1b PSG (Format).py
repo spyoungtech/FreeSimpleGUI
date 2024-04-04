@@ -21,7 +21,7 @@ layout = [
     [sg.Submit()]
    ]
 
-window = sg.Window('Converter').Layout(layout)   
+window = sg.Window('Converter').Layout(layout)
 button, value = window.Read()
 if button is None:
     #windows was closed without button being pressed
@@ -36,6 +36,6 @@ sg.Popup('Result',result)
 
 
 
-        
 
-    
+
+

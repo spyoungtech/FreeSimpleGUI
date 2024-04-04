@@ -6,7 +6,7 @@ import datetime
     Desktop Widget - Template to start with
     This "template" is meant to give you a starting point towards making your own Desktop Widget
     Note - the term "Widget" here means a "Desktop Widget", not a GUI Widget
-    
+
     It has many of the features that a Rainmeter-style Desktop Widget would have
         * Save position of window
         * Set Alpha channel
@@ -18,20 +18,20 @@ import datetime
         * A status section of the window that can be hidden / restored (currently shows last refresh time)
         * A title
         * A main display area
-        
+
     The contents of your widget may be significantly different than this example.  Change the function
         make_window to create your own custom layout and window.
-        
+
     There are several important design patterns provided including:
         Using a function to define and create your window
         Using User Settings APIs to save program settings
         A Theme Selection window with previewing capability
-        
+
     The standard PySimpleGUI Coding Conventions are used throughout including
         * Naming layout keys in format '-KEY-'
         * Naming User Settings keys in the format '-key-'
         * Using standard layout, window, event, values variable names
-        
+
     Copyright 2021 PySimpleGUI
 """
 

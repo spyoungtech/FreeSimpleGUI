@@ -4,7 +4,7 @@ import pyfiglet
 
 """
     Demo pyfiglet integration
-    
+
     '##:::::'##:'##::::'##::::'###::::'########::::'####::'######::
      ##:'##: ##: ##:::: ##:::'## ##:::... ##..:::::. ##::'##... ##:
      ##: ##: ##: ##:::: ##::'##:. ##::::: ##:::::::: ##:: ##:::..::
@@ -22,35 +22,35 @@ import pyfiglet
      ##:::: ##:::: ##:::::::'####:. ######::: ########: ########:::: ##:::::::'##:::::
     ..:::::..:::::..::::::::....:::......::::........::........:::::..::::::::..::::::
 
-    
+
     Adapted from code originally from this fantastic repository:
     https://github.com/nycynik/ascii-font-processor
     Thank you nycynik for a fantastic headstart
-    
+
     If you are running PySimpleGUI before verion 4.35.0.11, then you'll get an error
     message saying there is a problem with:  bound method Multiline.__del__
     It's because a newer parm is used in this code.  It'll all still work just fine with this error.
-    
+
     This demo has an interesting little trick.  If the window is resized, then it
     will use the new size of the Multiline element to compute the numiber of characters
     wide the Multiline has to work with.  This number is passed to the figlet renderer.
 
-    
+
     ____________________________________
-      ______                            
-        /      /     ,            ,     
+      ______
+        /      /     ,            ,
     ---/------/__-------__-----------__-
       /      /   ) /   (_ `     /   (_ `
     _/______/___/_/___(__)_____/___(__)_
-                                        
-                                        
+
+
     ___________________________________________________________
                   _____      __     __     _      _____  ______
-                  /    '     /    /    )   /      /    '   /   
+                  /    '     /    /    )   /      /    '   /
     ----__-------/__--------/----/--------/------/__------/----
-      /   )     /          /    /  --,   /      /        /     
+      /   )     /          /    /  --,   /      /        /
     _(___(_____/________ _/_ __(____/___/____/_/____ ___/______
-    
+
 
 
     Copyright 2021 PySimpleGUI

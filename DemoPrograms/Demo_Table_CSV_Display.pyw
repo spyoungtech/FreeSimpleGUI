@@ -6,17 +6,17 @@ import operator
 
 """
     Demo - Simple CSV Table Display
-    
+
     Enables you to easily filter and sort tables that are in a CSV file format
-    
+
     Choose your CSV file and then a table will be displayed.
     Clicking on a heading will sort on that column if no value is entered for the filter.
     If a filter value is entered and then a heading is clicked, then only rows matchines the filter in that column as are displayed
-        The filtering is not case sensative so no need to worry about exact matches 
+        The filtering is not case sensative so no need to worry about exact matches
     Use the checkbox to specify ascending or descending sorting
-    
+
     The first row in your table needs to be the Column Names
-    
+
     Copyright 2022 PySimpleGUI
 """
 

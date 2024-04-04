@@ -5,11 +5,11 @@ import datetime
 """
     Another simple Desktop Widget using PySimpleGUI
     The "Days Since _______" Widget
-    
-    This widget counts the number of days since some date of your choosing.  
+
+    This widget counts the number of days since some date of your choosing.
     Maybe you want to track the number of days since the start of the year.
     Or perhaps when you got married.... or divorced.... or stopped some activity
-    Or started some activity.... you get the idea.  It tracks a time delta in days  
+    Or started some activity.... you get the idea.  It tracks a time delta in days
 
     Copyright 2021 PySimpleGUI
 """

@@ -5,10 +5,10 @@ import FreeSimpleGUI as sg
 
     Drag this window around your multiple monitors.  It will show you where
     tkinter believes the corners are for the window.
-    
+
     You can then use this information to locate your what to pass in the location
     parameter when you want to create a window at a specific spot.
-    
+
     The value in the center is the screen dimensions for the primary window.
 
     Copyright 2021, 2022 PySimpleGUI

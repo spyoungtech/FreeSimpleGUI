@@ -3,14 +3,14 @@
 #Oct 2018 MacOs
 
 import FreeSimpleGUI as sg
-import os                     
+import os
 
 #sg.ChangeLookAndFeel('GreenTan')
 
 sg.SetOptions(background_color = 'LightBlue',
             element_background_color = 'LightBlue',
             text_element_background_color = 'LightBlue',
-              font= ('Calibri', 14, 'bold'))   
+              font= ('Calibri', 14, 'bold'))
 
 layout = [
     [sg.Text('Enter a Name and four Marks')],
@@ -23,12 +23,12 @@ layout = [
     [sg.ReadButton('Display',size = (6,1), key = '_display_'), sg.Text('To retrieve and Display')],
     [sg.Multiline(size = (24,4), key = '_multiline_', pad = (2,15))]]
 
-window = sg.Window('Simple Average Finder').Layout(layout)   
+window = sg.Window('Simple Average Finder').Layout(layout)
 
 
 while True:
     button, value = window.Read()   #value is a dictionary holding name and marks (4)
-    if button is not None:  
+    if button is not None:
         #initialise variables
         total = 0.0
         index = ''
@@ -36,25 +36,25 @@ while True:
         #get pathname to current file
         dirname, filename = os.path.split(os.path.abspath(__file__))
         #add desired file name for saving to path
-        pathname = os.path.join(dirname , 'results.txt' )                        
-        
+        pathname = os.path.join(dirname , 'results.txt' )
+
         #needs validation and try/catch error checking, will crash if blank or text entry for marks
-        
+
         if button == '_save_':
             #create dictionary index _m1_ ... _m4_
             for i in range (1,5):
-                index = '_m' + str(i) + '_'            
-                total += float(value[index])   
+                index = '_m' + str(i) + '_'
+                total += float(value[index])
             average = total/4
             #open file and save
-            f = open(pathname, 'w')                                       
+            f = open(pathname, 'w')
             print (name, file = f)
             print (total, file = f)
             print (average, file = f)
             f.close()
 
         #some error checking for missing file needed here
-            
+
         if button == '_display_':
             #This loads the file line by line into a list called data.
             #the strip() removes whitespaces from beginning and end of each line.
@@ -63,5 +63,4 @@ while True:
             string = 'Name:  ' + data[0] +'\nTotal:  ' + str(data[1]) + '\nAverage:  ' + str(data[2])
             window.FindElement('_multiline_').Update(string)
     else:
-        break  
-
+        break

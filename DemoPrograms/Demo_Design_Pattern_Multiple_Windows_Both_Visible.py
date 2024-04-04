@@ -3,12 +3,12 @@ import FreeSimpleGUI as sg
     Demo - 2 simultaneous windows using read_all_window
 
     Both windows are immediately visible.  Each window updates the other.
-    
+
     There's an added capability to "re-open" window 2 should it be closed.  This is done by simply calling the make_win2 function
     again when the button is pressed in window 1.
-    
+
     The program exits when both windows have been closed
-        
+
     Copyright 2020 PySimpleGUI.org
 """
 

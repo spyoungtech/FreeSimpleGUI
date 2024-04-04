@@ -4,12 +4,12 @@ import FreeSimpleGUI as sg
     Demo - Custom Checkboxes done simply
 
     The Base64 Image encoding feature of PySimpleGUI makes it possible to create beautiful GUIs very simply
-    
-    These 2 checkboxes required 3 extra lines of code than a normal checkbox.  
+
+    These 2 checkboxes required 3 extra lines of code than a normal checkbox.
     1. Keep track of the current value using the Image Element's Metadata
     2. Changle / Update the image when clicked
     3. The Base64 image definition
-    
+
     Enable the event on the Image with the checkbox so that you can take action (flip the value)
 
     Copyright 2022 PySimpleGUI

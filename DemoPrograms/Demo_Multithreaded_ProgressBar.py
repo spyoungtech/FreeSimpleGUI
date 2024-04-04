@@ -13,14 +13,14 @@ import time
     have implemented your own progress meter in your window.
 
     Using the write_event_value method enables you to easily do either of these.
-    
+
     In this demo, all thread events are a TUPLE with the first item in tuple being THREAD_KEY ---> '-THEAD-'
         This allows easy separation of all of the thread-based keys into 1 if statment:
             elif event[0] == THREAD_KEY:
     Example
         (THREAD_KEY, DL_START_KEY) indicates the download is starting and provices the Max value
         (THREAD_KEY, DL_END_KEY) indicates the downloading has completed
-        
+
     The main window uses a relative location when making the window so that the one-line-progress-meter has room
 
     Copyright 2021, 2022 PySimpleGUI

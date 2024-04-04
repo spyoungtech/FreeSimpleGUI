@@ -12,13 +12,13 @@ from matplotlib.ticker import NullFormatter  # useful for `logit` scale
 
 """
     Demo - Matplotlib Non-interactive Embedded with Theme and Style selection
-    
+
     This demo is based on the Matplotlib "TEMPLATE" demo that is a general purpose, display-only
     demo as only the image of the plot is shown.  None of the buttons and interactive parts
     of the MAtplotlib interface are included.
-    
+
     This demo adds the ability to change the Window's "Theme" and the Matplotlib's "Style".
-    It gives you a way to quickly see how well a theme is going to match a particular Matplotlib Style. 
+    It gives you a way to quickly see how well a theme is going to match a particular Matplotlib Style.
 
     Copyright 2020 PySimpleGUI.org
 """

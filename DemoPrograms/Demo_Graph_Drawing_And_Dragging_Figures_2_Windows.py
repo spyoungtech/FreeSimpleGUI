@@ -7,10 +7,10 @@ from PIL import ImageGrab
     This demo shows how to use a Graph Element to (optionally) display an image and then use the
     mouse to "drag" and draw rectangles and circles.
 
-    This demo is an adaptation of a single-window version called Demo_Graph_Drawing_And_Dragging_Figures.  The 
+    This demo is an adaptation of a single-window version called Demo_Graph_Drawing_And_Dragging_Figures.  The
     difference between the 2 programs is that the "action" portion of the interface is split into a floating
     toolbar kind of interface in this version.
-    
+
     Copyright 2020 PySimpleGUI.org
 """
 

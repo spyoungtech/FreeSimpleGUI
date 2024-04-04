@@ -85,9 +85,8 @@ def QueryHowDoI(Query, num_answers, full_text):
     (output, err) = t.communicate()
     print('{:^88}'.format(Query.rstrip()))
     print('_'*60)
-    print(output.decode("utf-8") )
+    print(output.decode('utf-8') )
     exit_code = t.wait()
 
 if __name__ == '__main__':
     HowDoI()
-

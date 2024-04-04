@@ -4,27 +4,27 @@ import sys
 
 """
     Jumpcutter GUI
-    
+
     This is a front-end GUI for a command line tool named jumpcutter.
-    
+
     jumpcutter is a command line based tool written by Carykh.  You'll find the repo here:
     https://github.com/carykh/jumpcutter
-    
+
     The design of this GUI was made in a way that should not have required any changes to the
     jumpcutter.py file.  However, there appears to be a bug in the original code. The sample rate
     argument was specified as a float, but this later causes a crash in the program, so a single
     change was made to line 68, changing the parameter from a float to an int.  You can get around
     this change by not specifying a default value in this GUI.  Rather than specifying 44100, leave it blank
     which will cause the parameter to be skipped.
-    
+
     This kind of GUI can be applied to a large number of other commandline programs.
-    
+
     NOTE - it has not yet been tested on Linux.  It's only been tested on Windows.  Hoping to get it
     tested out on Linux shortly.
-    
+
     KNOWN Problem - filenames with spaces.  Working on it.  For now, make a temp folder and make sure everything
     has no spaces and you'll be fine.  YouTube download wasn't working on the video I tried
-    
+
     Copyright 2020 PySimpleGUI.org
 """
 

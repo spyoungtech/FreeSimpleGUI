@@ -21,13 +21,13 @@ layout = [
 
     [sg.Combo(values=['Combo 1', 'Combo 2', 'Combo 3'], default_value='Combo 2', key='_COMBO_',
               enable_events=True, readonly=False, tooltip='Combo box', disabled=False, size=(12, 1))],
-        
+
     [sg.Listbox(values=('Listbox 1', 'Listbox 2',
                         'Listbox 3'), size=(10, 3))],
-        
+
     [sg.Slider((1, 100), default_value=80, key='_SLIDER_',
                visible=True, enable_events=True, orientation='h')],
-        
+
     [sg.Spin(values=(1, 2, 3), initial_value=2, size=(4, 1))],
     [sg.Image(filename=r'dot:logo.jpg')],
     [sg.OK(), sg.Button('Exit', button_color=('white', 'red'))]

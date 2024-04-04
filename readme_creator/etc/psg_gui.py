@@ -1,6 +1,6 @@
 import make_real_readme as mk_readme
 import FreeSimpleGUI as sg
-import logging, os 
+import logging, os
 
 enable_logs = False
 
@@ -11,8 +11,8 @@ def readfile(filename):
 def writefile(fpath, content):
     with open(fpath, 'w', encoding='utf-8') as ff:
         ff.write(content)
-    
-        
+
+
 window = sg.Window('Test',     [
     [sg.CB('include all .md files', True, key='all-checkbox', enable_events=True)],
     [sg.CB('1', True, key='file1', disabled=True, enable_events=True)],
@@ -22,7 +22,7 @@ window = sg.Window('Test',     [
 
     [sg.CB('4', False,key='file4', disabled=True, enable_events=True)],
     [sg.T('well, this is you output name:'), sg.I('readme.md', key='output_name'), sg.B('aaaand, hope for the best... Compile.', key='comp')],
-    
+
     [sg.T('-- -- -- -- -- -- --\nlogs\n-- -- -- -- -- -- --', justification='center')],
     # [sg.ML('', key='logs', size=(120,25))]
 
@@ -48,7 +48,7 @@ while True:
         window['file3'](disabled=values['all-checkbox'])
         window['file4'](disabled=values['all-checkbox'])
     if event == 'comp':
-        
+
         if enable_logs: window['logs'](values['logs'] + 'start')
 
         # MAIN WORK - START

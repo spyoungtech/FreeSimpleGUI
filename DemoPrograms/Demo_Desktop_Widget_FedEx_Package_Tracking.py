@@ -4,26 +4,26 @@ import datetime
 
 """
     Demo - FedEx Package Tracking
-    
+
     A simple Desktop Widget that checks your FedEx tracking number and
     shows the current delivery estimate.
-    
+
     USING:
         Enter a tracking number in the input element
         Right click and choose Refresh
         If additional tracking numbers are desired, right click and choose Add Package
-    
+
     The status information is courtesy of @israel-dryer (https://github.com/israel-dryer)
     He used web scraping to gather the data.  This removes the need for using an account and access package.
-    
+
     At the moment only FedEx is supported.  The drop-down list is there for future support of other carriers.
-    
+
     Like other PySimpleGUI Desktop Widgets, a number of standard features are include such as:
         * Alpha Channel
         * Theme Selection
         * Screen location
         * Edit Me (launcher your editor for easy code modification)
-    
+
     Copyright 2021 PySimpleGUI, Israel Dryer
 """
 

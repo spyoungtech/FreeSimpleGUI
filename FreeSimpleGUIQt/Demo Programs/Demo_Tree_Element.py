@@ -5,14 +5,14 @@ treedata = sg.TreeData()
 green = r'C:/Python/PycharmProjects/GooeyGUI/ButtonGraphics/Oct16/Mac/green30.png'
 orange = r'C:\Python\PycharmProjects\GooeyGUI\ButtonGraphics\Oct16\Mac\orange30.png'
 red = r'C:\Python\PycharmProjects\GooeyGUI\ButtonGraphics\Oct16\Mac\red30.png'
-treedata.Insert("", '_A_', 'A', [1,2,3], orange)
-treedata.Insert("", '_B_', 'B', [4,5,6], green)
-treedata.Insert("_A_", '_A1_', 'A1', ['can','be','anything'], red)
-treedata.Insert("", '_C_', 'C', [], red)
-treedata.Insert("_C_", '_C1_', 'C1', ['or'], green)
-treedata.Insert("_A_", '_A2_', 'A2', [None, None])
-treedata.Insert("_A1_", '_A3_', 'A30', ['getting deep'])
-treedata.Insert("_C_", '_C2_', 'C2', ['nothing', 'at', 'all'])
+treedata.Insert('', '_A_', 'A', [1,2,3], orange)
+treedata.Insert('', '_B_', 'B', [4,5,6], green)
+treedata.Insert('_A_', '_A1_', 'A1', ['can','be','anything'], red)
+treedata.Insert('', '_C_', 'C', [], red)
+treedata.Insert('_C_', '_C1_', 'C1', ['or'], green)
+treedata.Insert('_A_', '_A2_', 'A2', [None, None])
+treedata.Insert('_A1_', '_A3_', 'A30', ['getting deep'])
+treedata.Insert('_C_', '_C2_', 'C2', ['nothing', 'at', 'all'])
 
 for i in range(100):
     treedata.Insert('_C_', i, i, [])
@@ -32,12 +32,12 @@ while True:     # Event Loop
         break
     if event == 'Update':
         treedata = sg.TreeData()
-        treedata.Insert("", '_A_', 'A', [1, 2, 3], filename )
-        treedata.Insert("", '_B_', 'B', [4, 5, 6], filename)
-        treedata.Insert("_A_", '_A1_', 'A1', ['can', 'be', 'anything'], filename)
-        treedata.Insert("", '_C_', 'C', [], filename)
-        treedata.Insert("_C_", '_C1_', 'C1', ['or'])
-        treedata.Insert("_A_", '_A2_', 'A2', [None, None])
+        treedata.Insert('', '_A_', 'A', [1, 2, 3], filename )
+        treedata.Insert('', '_B_', 'B', [4, 5, 6], filename)
+        treedata.Insert('_A_', '_A1_', 'A1', ['can', 'be', 'anything'], filename)
+        treedata.Insert('', '_C_', 'C', [], filename)
+        treedata.Insert('_C_', '_C1_', 'C1', ['or'])
+        treedata.Insert('_A_', '_A2_', 'A2', [None, None])
         window.FindElement('_TREE_').Update(treedata)
     elif event == 'Read':
         print(event, values)

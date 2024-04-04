@@ -7,9 +7,9 @@ import random
     The Graph Element is very versatile. Because you can define your own
     coordinate system, it makes producing graphs of many lines (bar, line, etc) very
     straightforward.
-    
+
     In this Demo a "bar" is nothing more than a rectangle drawn in a Graph Element (draw_rectangle).
-    
+
     To make things a little more interesting, this is a barchart with that data values
     placed as labels atop each bar, another Graph element method (draw_text)
 

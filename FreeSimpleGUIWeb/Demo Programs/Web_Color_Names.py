@@ -2,9 +2,9 @@
 import FreeSimpleGUIWeb as sg
 
 """
-   
-    Shows a big chart of colors... 
-    Once large window is shown, you can click on any color and another window will popup 
+
+    Shows a big chart of colors...
+    Once large window is shown, you can click on any color and another window will popup
     showing both white and black text on that color
     Uses TOOLTIPS to show the hex values for the colors.  Hover over a color and a tooltip will show you the RGB
     You will find the list of tkinter colors here:

@@ -4,7 +4,7 @@ import sys
 import psutil
 
 """
-    Desktop floating widget - CPU Cores 
+    Desktop floating widget - CPU Cores
     Uses psutil to display:
         CPU usage of each individual core
     CPU utilization is updated every 500 ms by default
@@ -14,7 +14,7 @@ import psutil
       No titlebar
       Grab anywhere, making window easy to move around
     Note that the keys are tuples, with a tuple as the second item
-        ('-KEY-', (row, col))      
+        ('-KEY-', (row, col))
     Copyright 2020, 2022 PySimpleGUI
 """
 

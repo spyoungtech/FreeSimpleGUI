@@ -11,7 +11,7 @@ import FreeSimpleGUI as sg
     3. Read any event from the window which will close the window and return
 
     Note that while the window has no scrollbar, you can still use the mousewheel to scroll
-    
+
     Copyright 2021 PySimpleGUI
 """
 

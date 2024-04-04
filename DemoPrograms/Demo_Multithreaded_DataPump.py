@@ -12,7 +12,7 @@ import queue
     A thread gets data from a queue object and passes it over to the main event loop.
     The external_thread is only used here to generaate random data.  It's not part of the
     overall "Design Pattern".
-    
+
     The thread the_thread IS part of the design pattern.  It reads data from the thread_queue and sends that
     data over to the PySimpleGUI event loop.
 
