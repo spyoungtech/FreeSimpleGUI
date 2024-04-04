@@ -1,13 +1,15 @@
 # FreeSimpleGUI
 
+![](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_readme/freesimplegui.png)
+
 --------------------------
 
 ## User Interfaces for Humans - Transforms tkinter, Qt, Remi, WxPython into portable people-friendly Pythonic interfaces
 
-## <span>The Call Reference Section Moved to <a href="https://freesimplegui.readthedocs.io/en/latest/call%20reference/">here</a></span>
+<span>The Call Reference Section Moved to <a href="https://freesimplegui.readthedocs.io/en/latest/call%20reference/">here</a></span>
 
-### This manual is crammed full of answers so start your search for answers here. Read/Search this prior to opening an Issue on GitHub.  Press Control F and type.
----
+### This manual is under construction as we adapt changes to FreeSimpleGUI and make simplifications. Some links may not work as expected. References to "PySimpleGUI" can safely be assumed to be interchangable with "FreeSimpleGUI"
+
 
 # Jump-Start
 
@@ -7316,3 +7318,7 @@ GNU Lesser General Public License (LGPL 3) +
 
 Copyright 2024 Spencer Phillip Young  
 Copyright 2018 PySimpleGUI
+
+'PySimpleGUI' is a trademark registered in the United States to Satisfice Labs LLC
+
+FreeSimpleGUI has no official association with PySimpleGUI or Satisfice Labs LLC and no such associations are expressed or implied.
