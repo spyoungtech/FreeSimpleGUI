@@ -16,7 +16,7 @@
     Copyright 2021 PySimpleGUI
 """
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 def main():
     # The Quit button is being placed in the bottom right corner and the colors are inverted, just for fun

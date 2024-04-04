@@ -8,7 +8,7 @@
     Copyright 2021 PySimpleGUI
 """
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 # Simple example of TabGroup element and the options available to it
 sg.theme('Dark Red')     # Please always add color to your window
 # The tab 1, 2, 3 layouts - what goes inside the tab

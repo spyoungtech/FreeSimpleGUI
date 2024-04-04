@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 """
     Demo - Running 2 windows with both being active at the same time
     Three important things to note about this design patter:

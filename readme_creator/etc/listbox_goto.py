@@ -1,4 +1,4 @@
-import PySimpleGUIQt as sg
+import FreeSimpleGUIQt as sg
 print(sg)
       
 

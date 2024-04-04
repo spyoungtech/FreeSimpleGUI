@@ -20,7 +20,7 @@
     Copyright 2021 PySimpleGUI
 """
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 
 def main():

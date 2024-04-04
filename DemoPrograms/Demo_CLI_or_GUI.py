@@ -8,7 +8,7 @@
     Copyright 2022 PySimpleGUI
 """
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 import sys
 
 def main_cli(filename):

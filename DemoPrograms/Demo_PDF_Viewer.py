@@ -34,7 +34,7 @@ pixmaps and page re-visits will re-use a once-created display list.
 """
 import sys
 import fitz
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 from sys import exit
 
 sg.theme('GreenTan')

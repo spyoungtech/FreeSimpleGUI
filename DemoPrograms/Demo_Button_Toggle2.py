@@ -29,7 +29,7 @@
     Copyright 2021 PySimpleGUI
 """
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 import random
 
 # Class holding the button graphic info. At this time only the state is kept

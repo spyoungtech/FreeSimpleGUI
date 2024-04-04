@@ -15,7 +15,7 @@
 """
 
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 # Settings for you to modify are the size of the element, the circle width & color and the font for the % complete
 GRAPH_SIZE = (300 , 300)          # this one setting drives the other settings

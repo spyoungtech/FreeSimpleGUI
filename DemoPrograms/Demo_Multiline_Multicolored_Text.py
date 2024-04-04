@@ -1,5 +1,5 @@
-import PySimpleGUI as sg
-# import PySimpleGUIQt as sg
+import FreeSimpleGUI as sg
+# import FreeSimpleGUIQt as sg
 
 """
     Demonstration of how to work with multiple colors and fonts when outputting text to a multiline element or with Debug Print

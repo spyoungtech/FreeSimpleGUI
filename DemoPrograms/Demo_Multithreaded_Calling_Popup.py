@@ -1,6 +1,6 @@
 import threading
 import time
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 """
     Threaded Demo - Uses Window.write_event_value to communicate from thread to GUI

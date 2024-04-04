@@ -2,7 +2,7 @@
 from matplotlib.backends.backend_tkagg import FigureCanvasAgg
 import matplotlib.backends.tkagg as tkagg
 import matplotlib.pyplot as plt
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 import tkinter as tk
 
 """

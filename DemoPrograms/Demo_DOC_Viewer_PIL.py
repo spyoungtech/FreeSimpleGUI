@@ -32,7 +32,7 @@ pixmaps and page re-visits will re-use a once-created display list.
 import sys
 import fitz
 import sys
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 import tkinter as tk
 from PIL import Image, ImageTk

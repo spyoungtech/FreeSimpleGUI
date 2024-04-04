@@ -1,5 +1,5 @@
-# import PySimpleGUIWeb as sg
-import PySimpleGUI as sg
+# import FreeSimpleGUIWeb as sg
+import FreeSimpleGUI as sg
 import pymunk
 import random
 import socket

@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 """
     Demo Titlebar Multiple Combintions - how to make a custom titlebar with different color options

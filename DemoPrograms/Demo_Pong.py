@@ -25,7 +25,7 @@
     Copyright 2021 PySimpleGUI, Jay Nabonne
 """
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 import random
 import datetime
 

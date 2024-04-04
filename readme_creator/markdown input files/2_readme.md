@@ -3673,8 +3673,10 @@ Here is a design pattern you can use to get a jump-start.
 This program will create a system tray icon and perform a blocking Read.  If the item "Open" is chosen from the system tray, then a popup is shown.
 
 The same code can be executed on any of the Desktop versions of PySimpleGUI (tkinter, Qt, WxPython)
+
 ```python
-import PySimpleGUIQt as sg
+import FreeSimpleGUIQt as sg
+
 # import PySimpleGUIWx as sg
 # import PySimpleGUI as sg
 
@@ -4741,27 +4743,27 @@ while True:
 ## Multi-Window Design Pattern 2 - only 1 active window
 
 ```python
-import PySimpleGUIQt as sg
+import FreeSimpleGUIQt as sg
 
 # Design pattern 1 - First window does not remain active
 
-layout = [[ sg.Text('Window 1'),],
+layout = [[sg.Text('Window 1'), ],
           [sg.Input(do_not_clear=True)],
-          [sg.Text(size=(15,1),  key='-OUTPUT-')],
+          [sg.Text(size=(15, 1), key='-OUTPUT-')],
           [sg.Button('Launch 2')]]
 
 win1 = sg.Window('Window 1', layout)
-win2_active=False
+win2_active = False
 while True:
     ev1, vals1 = win1.read(timeout=100)
     if ev1 == sg.WIN_CLOSED:
         break
     win1.FindElement('-OUTPUT-').update(vals1[0])
 
-    if ev1 == 'Launch 2'  and not win2_active:
+    if ev1 == 'Launch 2' and not win2_active:
         win2_active = True
         win1.Hide()
-        layout2 = [[sg.Text('Window 2')],       # note must create a layout from scratch every time. No reuse
+        layout2 = [[sg.Text('Window 2')],  # note must create a layout from scratch every time. No reuse
                    [sg.Button('Exit')]]
 
         win2 = sg.Window('Window 2', layout2)

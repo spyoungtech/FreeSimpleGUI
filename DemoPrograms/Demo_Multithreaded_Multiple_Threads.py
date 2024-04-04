@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import threading
 import time
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 """
     You want to look for 3 points in this code, marked with comment "LOCATION X". 

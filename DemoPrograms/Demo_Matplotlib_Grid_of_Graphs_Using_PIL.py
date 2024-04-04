@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-import PySimpleGUI as sg
-# import PySimpleGUIQt as sg
-# import PySimpleGUIWeb as sg
+import FreeSimpleGUI as sg
+# import FreeSimpleGUIQt as sg
+# import FreeSimpleGUIWeb as sg
 
 import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasAgg

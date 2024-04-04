@@ -3,7 +3,7 @@ import shutil
 import subprocess
 import sys
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 """
     Demo - GitHub File Management

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 '''
 A simple send/response chat window.  Add call to your send-routine and print the response
