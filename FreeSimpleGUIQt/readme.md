@@ -375,5 +375,5 @@ All elements that are capable of producing events now have a parameter `enable_e
 
 GNU Lesser General Public License (LGPL 3) +
 
-Copyright 2024 Spencer Phillip Young
+Copyright 2024 Spencer Phillip Young  
 Copyright 2018, 2019, 2020 PySimpleGUI
