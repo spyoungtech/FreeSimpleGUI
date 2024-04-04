@@ -179,7 +179,7 @@ http://calls.PySimpleGUI.org
 
 [Brief Tutorial](http://Tutorial.PySimpleGUI.org)
 
-[Latest Demos and Master Branch on GitHub](https://github.com/spyoungtech/FreeSimpleGUI/tree/master/DemoPrograms)
+[Latest Demos and Master Branch on GitHub](https://github.com/spyoungtech/FreeSimpleGUI/tree/main/DemoPrograms)
 
 [How to submit an Issue](https://github.com/spyoungtech/FreeSimpleGUI/issues/1646)
 
@@ -387,7 +387,7 @@ There is also an accompanying debugger known as `imwatchingyou`.  If you are run
 
 Qt was the second port after tkinter.  It is the 2nd most complete with the original PySimpleGUI (tkinter) being the most complete and is likely to continue to be the front-runner.  All of the Elements are available on PySimpleGUIQt.
 
-As mentioned previously each port has an area.  For Qt, you can learn more on the [PySimpleGUIQt GitHub site](https://github.com/MikeTheWatchGuy/PySimpleGUI/tree/master/PySimpleGUIQt).  **There is a separate Readme file for the Qt version** that you'll find there.  This is true for all of the PySimpleGUI ports.
+As mentioned previously each port has an area.  For Qt, you can learn more on the [PySimpleGUIQt GitHub site](https://github.com/spyoungtech/FreeSimpleGUI/tree/main/PySimpleGUIQt).  **There is a separate Readme file for the Qt version** that you'll find there.  This is true for all of the PySimpleGUI ports.
 
 Give it a shot if you're looking for something a bit more "modern".  PySimpleGUIQt is currently in **Alpha**.  *All of the widgets are operational but some may not yet be full-featured.*  If one is missing and your project needs it, log an Issue.  It's how new features are born.
 
@@ -397,7 +397,7 @@ As you can see, you've got a full array of GUI Elements to work with.  All the s
 
 ## WxPython Version
 
-[PySimpleGUIWx GitHub site](https://github.com/spyoungtech/FreeSimpleGUI/tree/master/PySimpleGUIWx).  **There is a separate Readme file for the WxPython version**.
+[PySimpleGUIWx GitHub site](https://github.com/spyoungtech/FreeSimpleGUI/tree/main/PySimpleGUIWx).  **There is a separate Readme file for the WxPython version**.
 
 Started in late December 2018 PySimpleGUIWx started with the SystemTray Icon feature.    This enabled the package to have one fully functioning feature that can be used along with tkinter to provide a complete program.    The System Tray feature is complete and working very well.  It was used not long ago in a corporate setting and has been performing with few problems reported.
 
@@ -407,7 +407,7 @@ Remi (the "web port") overnight leapt the WxPython effort and Web became a #1 pr
 
 ## Web Version (Remi)
 
-[PySimpleGUIWeb GitHub site](https://github.com/spyoungtech/FreeSimpleGUI/tree/master/PySimpleGUIWeb).  **There is a separate Readme file for the Web version**.
+[PySimpleGUIWeb GitHub site](https://github.com/spyoungtech/FreeSimpleGUI/tree/main/PySimpleGUIWeb).  **There is a separate Readme file for the Web version**.
 
 New for 2019, PySimpleGUIWeb.  This is an exciting development!  PySimpleGUI in your Web Browser!
 
@@ -645,7 +645,7 @@ import FreeSimpleGUI as sg
 sg.popup('Hello From PySimpleGUI!', 'This is the shortest GUI program ever!')
 ```
 
-![hello world](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/master/images/for_docs/HelloWorld.jpg)
+![hello world](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_docs/HelloWorld.jpg)
 
 Or how about a ***custom GUI*** in 1 line of code?  No kidding this is a valid program and it uses Elements and produce the same Widgets like you normally would in a tkinter program.  It's just been compacted together is all, strictly for demonstration purposes as there's no need to go that extreme in compactness, unless you have a reason to and then you can be thankful it's possible to do.
 
@@ -655,7 +655,7 @@ import FreeSimpleGUI as sg
 event, values = sg.Window('Get filename example', [[sg.Text('Filename')], [sg.Input(), sg.FileBrowse()], [sg.OK(), sg.Cancel()] ]).read(close=True)
 ```
 
-![get filename](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/master/images/for_docs/GetFileExample.jpg)
+![get filename](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_docs/GetFileExample.jpg)
 
 ## The Beauty of Simplicity
 
@@ -683,7 +683,7 @@ event, values = window.read()
 window.close()
 ```
 
-![get filename](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/master/images/for_docs/Simple.jpg)
+![get filename](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_docs/Simple.jpg)
 
 Unlike other GUI SDKs, you can likely understand every line of code you just read, even though you have not yet read a single instructional line from this document about how you write Elements in a layout.
 
@@ -762,19 +762,19 @@ You can replace the titlebar that your operating system provides with one that i
 
 Normally, the Operating System provides the titlebar.  This means they are unlikely to match your color scheme.  Here is a Window with a dark color theme and the default titlebar provided by Windows.
 
-![](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/master/images/for_docs/NormalTitlebar.jpg)
+![](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_docs/NormalTitlebar.jpg)
 
 It's an OK window.  By adding a `Titlebar` element to your layout, then your window completely matches your color theme.  Here is the same window with a PySimpleGUI `Titlebar` element
 
-![](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/master/images/for_docs/CustomTitlebar1.jpg)
+![](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_docs/CustomTitlebar1.jpg)
 
 Regardless of the "Theme" you choose for your window, the Titlebar will match it.
 
-![](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/master/images/for_docs/CustomTitlebar2.jpg)
+![](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_docs/CustomTitlebar2.jpg)
 
-![](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/master/images/for_docs/CustomTitlebar3.jpg)
+![](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_docs/CustomTitlebar3.jpg)
 
-![](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/master/images/for_docs/CustomTitlebar0.jpg)
+![](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_docs/CustomTitlebar0.jpg)
 
 ## Some Examples Of More "Polished" Windows
 
@@ -2524,7 +2524,7 @@ Let's run this last program so you can see what all this looks like to users.
 
 In both cases that a user previously exited the window, there is now an additional confirmation step.
 
-![download](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/master/images/for_readme/Window%20Closed%20Confirmation.gif)
+![download](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_readme/Window%20Closed%20Confirmation.gif)
 
 ### Demo Programs.... A PySimpleGUI Program's Best Friend
 
@@ -2536,7 +2536,7 @@ As of this writing, the name of the Demo Program Browser is:
 
 If you enter the parameter described in this section - `enable_close_attempted_event` you'll find a Demo Program that uses this parameter.
 
-![DemoBrowser](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/master/images/for_readme/Demo%20Browser%20Search%20Close%20Attempted.jpg)
+![DemoBrowser](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/for_readme/Demo%20Browser%20Search%20Close%20Attempted.jpg)
 
 This demo shows you code similar to the code used in this section of the documentation. Use this Browser program!  It will make finding examples ***much easier***!
 
@@ -7221,7 +7221,7 @@ window.close()
 
 # Troubleshooting
 
-![](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/master/images/emojis/frust_112.png)
+![](https://raw.githubusercontent.com/spyoungtech/FreeSimpleGUI/main/images/emojis/frust_112.png)
 
 This section was added in early 2022, so it's a bit late in arriving, but it's a start.  This section meant to be found when searching for common errors.
 
@@ -7298,16 +7298,16 @@ These programs are an integral part of the overall PySimpleGUI documentation and
 You will find Demo Programs located in a subfolder named "Demo Programs" under the top level and each of the PySimpleGUI ports on GitHub.
 
 Demo programs for plain PySimpleGUI (tkinter)
-https://github.com/spyoungtech/FreeSimpleGUI/tree/master/DemoPrograms
+https://github.com/spyoungtech/FreeSimpleGUI/tree/main/DemoPrograms
 
 Demo programs for PySimpleGUIQt:
-https://github.com/spyoungtech/FreeSimpleGUI/tree/master/PySimpleGUIQt/Demo%20Programs
+https://github.com/spyoungtech/FreeSimpleGUI/tree/main/PySimpleGUIQt/Demo%20Programs
 
 Demo programs for PySimpleGUIWx:
-https://github.com/spyoungtech/FreeSimpleGUI/tree/master/PySimpleGUIWx/Demo%20Programs
+https://github.com/spyoungtech/FreeSimpleGUI/tree/main/PySimpleGUIWx/Demo%20Programs
 
 Demo programs for PySimpleGUIWeb:
-https://github.com/spyoungtech/FreeSimpleGUI/tree/master/PySimpleGUIWeb/Demo%20Programs
+https://github.com/spyoungtech/FreeSimpleGUI/tree/main/PySimpleGUIWeb/Demo%20Programs
 
 There are not many programs under each of the port's folders because the main Demo Programs should run on all of the other platforms with minimal changes (often only the import statement changes).
 
