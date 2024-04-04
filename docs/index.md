@@ -366,7 +366,7 @@ What does a wrapper do (Yo! PSG in the house!)?  It does the layout, boilerplate
 
 You've seen examples of the code already. The big deal of all this is that anyone can create a GUI simply and quickly that matches GUIs written in the native GUI framework.  You can create complex layouts with complex element interactions.  And, that code you wrote to run on tkinter will also run on Qt by changing your import statement.
 
-If you want a deeper explanation about the [architecture of PySimpleGUI](https://pysimplegui.readthedocs.io/en/latest/architecture/), you'll find it on ReadTheDocs in the same document as the Readme & Cookbook. There is a tab at the top with labels for each document.
+If you want a deeper explanation about the [architecture of PySimpleGUI](https://freesimplegui.readthedocs.io/en/latest/architecture/), you'll find it on ReadTheDocs in the same document as the Readme & Cookbook. There is a tab at the top with labels for each document.
 
 ## The "Ports"
 
@@ -896,7 +896,7 @@ All of the boilerplate code, the event handling, widget creation, frames contain
 
 The full complement of Widgets are available to you via PySimpleGUI Elements.  And those widgets are presented to you in a unique and fun way.
 
-If you wish to learn more about the Architecture of PySimpleGUI, take a look at the [Architecture document located on ReadTheDocs](https://pysimplegui.readthedocs.io/en/latest/architecture/).
+If you wish to learn more about the Architecture of PySimpleGUI, take a look at the [Architecture document located on ReadTheDocs](https://freesimplegui.readthedocs.io/en/latest/architecture/).
 
 ### The Result
 
@@ -3016,7 +3016,7 @@ If you want to get or modify any of the theme settings, you can do it with these
 
 You'll find a detailed list of the theme calls in the SDK Call Reference in this section:
 
-https://pysimplegui.readthedocs.io/en/latest/call%20reference/#themes
+https://freesimplegui.readthedocs.io/en/latest/call%20reference/#themes
 
 ```python
 theme
