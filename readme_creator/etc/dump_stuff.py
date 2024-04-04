@@ -1,5 +1,5 @@
 import inspect
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 psg_members = inspect.getmembers(PySimpleGUI)
 

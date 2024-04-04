@@ -4,7 +4,7 @@ import sys
 if sys.version_info[0] >= 3:
     import FreeSimpleGUIQt as sg
 else:
-    import PySimpleGUI27 as sg
+    import FreeSimpleGUI27 as sg
 import time
 
 """

@@ -1,4 +1,4 @@
-﻿import PySimpleGUI as sg
+﻿import FreeSimpleGUI as sg
 import random
 from time import sleep
 # import ctypes

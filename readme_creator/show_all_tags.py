@@ -1,4 +1,4 @@
-import PySimpleGUI;sg = PySimpleGUI
+import PySimpleGUI;sg = FreeSimpleGUI
 import datetime, inspect
 
 """ 

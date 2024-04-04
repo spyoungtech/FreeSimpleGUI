@@ -11,7 +11,7 @@ import FreeSimpleGUI as sg
     hung and you'll see a message asking if you want to kill your program.
     
     PySimpleGUI has a Window method - perform_long_operation that can help in these situations
-    NOTE - because this method uses threads, it's important you do not make any PySimpleGUI calls
+    NOTE - because this method uses threads, it's important you do not make any FreeSimpleGUI calls
     from your long function.  Also, some things simply cannot be safely run as a thread.  Just understand
     that this function perform_long_operation utilizes threads.
     

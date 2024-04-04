@@ -3,7 +3,7 @@
 #Tony Crewe
 #Oct 2018 MacOS
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 #sg.ChangeLookAndFeel('GreenTan')
 

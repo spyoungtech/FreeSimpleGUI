@@ -2,7 +2,7 @@
 #Tony Crewe
 #Sep 2018
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 #layout, Text, Input,button on line below
 layout = [

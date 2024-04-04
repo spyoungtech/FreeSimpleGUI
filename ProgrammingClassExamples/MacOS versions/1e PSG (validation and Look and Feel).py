@@ -2,7 +2,7 @@
 #Tony Crewe
 #Oct 2018 MacOS
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 #Can use a variety of themes - plus individual options
 #Not on MacOS

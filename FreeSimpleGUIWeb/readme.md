@@ -47,7 +47,7 @@ Should this not work, you can copy and paste the file PySimpleGUIWeb.py into you
 There are a lot of examples in the PySimpleGUI Cookbook as well as on the GitHub site.  At the moment very few will work due to the limited number of features of the 0.1.0 release.  It shouldn't be too long before they'll work.
 
 To use PySimpleGUIWeb you need to import it:
-`import PySimpleGUIWeb as sg`
+`import FreeSimpleGUIWeb as sg`
 
 From there follow the code examples in the Cookbook and the Demo Programs.  The only difference in those programs is the import statement.  The remainder of the code should work without modification.
 

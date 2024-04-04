@@ -1,5 +1,5 @@
 from matplotlib import use
-# import PySimpleGUI as sg          # Same program can be used with tkinter port
+# import FreeSimpleGUI as sg          # Same program can be used with tkinter port
 import FreeSimpleGUIQt as sg; use('qt5agg')
 import matplotlib.pyplot as plt
 

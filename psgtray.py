@@ -1,6 +1,6 @@
 import pystray, io, base64, threading, time
 from PIL import Image
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 """
     A System Tray Icon implementation that can work with the tkinter port of PySimpleGUI!

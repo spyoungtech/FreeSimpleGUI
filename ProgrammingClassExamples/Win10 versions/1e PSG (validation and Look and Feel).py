@@ -2,7 +2,7 @@
 #Tony Crewe
 #Sep 2018
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 #Can use a variety of themes - plus individual options
 sg.ChangeLookAndFeel('SandyBeach')    

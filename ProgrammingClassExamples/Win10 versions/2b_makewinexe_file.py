@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 #pip install PyInstaller
 #windows command prompt pyinstaller -wF 2b_makewinexe_file.py
 #must CD to directory where py file is

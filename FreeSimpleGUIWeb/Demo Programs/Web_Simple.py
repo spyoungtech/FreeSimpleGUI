@@ -1,4 +1,4 @@
-import PySimpleGUIWeb as sg
+import FreeSimpleGUIWeb as sg
 
 # Basic example of PSGWeb
 

@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 import os
 import time
 import random
@@ -111,7 +111,7 @@ exit()
 
 
 # 1 - The import
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 # 2 - Layout definition
 layout = [[sg.Text('My layout')],
@@ -172,7 +172,7 @@ exit()
 
 
 # 1 - The import
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 # 2 - Layout definition
 layout = [[sg.Text('My layout')],
@@ -315,7 +315,7 @@ exit()
 #  8888888888 888  "Y8888  888  888  888  "Y8888  888  888  "Y888  88888P'
 
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 
 sg.theme('Dark Red')
@@ -476,7 +476,7 @@ exit()
 
 
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 # Build layout using list comprehension
 
@@ -557,7 +557,7 @@ exit()
 #      888     888 888  888  888  "Y8888   "Y88P"   "Y88888  "Y888  88888P'
 
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 layout = [  [sg.Text('My Timer')],
             [sg.Text(size=(12,1), key='-OUT-')],
@@ -592,9 +592,9 @@ exit()
 #             Y8b d88P                                                            Y8b d88P
 #              "Y88P"                                                              "Y88P"
 
-# import PySimpleGUIWx as sg
-# import PySimpleGUIQt as sg
-import PySimpleGUI as sg
+# import FreeSimpleGUIWx as sg
+# import FreeSimpleGUIQt as sg
+import FreeSimpleGUI as sg
 
 tray = sg.SystemTray(menu=['UNUSED', ['My', 'Simple', '---', 'Menu', 'Exit']], data_base64=sg.DEFAULT_BASE64_ICON)
 
@@ -620,7 +620,7 @@ exit()
 #                                         "Y88P"   "Y88P"
 
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 layout = [  [sg.Text('My Window')],
             [sg.Input(key='-IN-'), sg.Text(size=(12,1), key='-OUT-')],
@@ -649,7 +649,7 @@ window.close()
 #                                                                    Y8b d88P
 #                                                                     "Y88P"
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 window = sg.Window('test', layout=[[sg.ProgressBar(max_value=100, size=(30, 10), key='bar')]], finalize=True)
 

@@ -2,7 +2,7 @@
     PySimpleGUI The Complete Course
     Lesson 7 - Multiple Windows
 """
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 # Design pattern 2 - First window remains active
 

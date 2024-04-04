@@ -2,7 +2,7 @@
 #Tony Crewe
 #Oct 2018 MacOS
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 import os
 
 sg.SetOptions (font =('Calibri',12,'bold'))    

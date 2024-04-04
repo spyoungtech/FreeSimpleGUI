@@ -1,5 +1,5 @@
 import inspect
-import PySimpleGUI
+import FreeSimpleGUI
 
 """ 
     Create All Possible Tags

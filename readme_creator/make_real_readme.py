@@ -1,7 +1,7 @@
 import inspect
 from inspect import getmembers, isfunction, isclass, getsource, signature, _empty, isdatadescriptor
 from datetime import datetime
-import PySimpleGUI, click, textwrap, logging, json, re, os
+import FreeSimpleGUI, click, textwrap, logging, json, re, os
 import os
 cd = CD = os.path.dirname(os.path.abspath(__file__))
 

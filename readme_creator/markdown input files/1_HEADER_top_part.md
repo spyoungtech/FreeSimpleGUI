@@ -116,7 +116,7 @@ pip3 install pysimplegui
 ### This Code
 
 ```python
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 sg.theme('DarkAmber')	# Add a touch of color
 # All the stuff inside your window.
@@ -400,7 +400,7 @@ Now look at the `layout` variable and then look at the window graphic below.  De
 This makes the coding process extremely quick and the amount of code very small
 
 ```python
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 sg.theme('DarkAmber')   # Add a little color to your windows
 # All the stuff inside your window. This is the PSG magic code compactor...
 layout = [  [sg.Text('Some text on Row 1')],
@@ -481,7 +481,7 @@ The net result - it's easy to expand features that are not yet available in PySi
 
 PySimpleGUI wraps tkinter, Qt, WxPython, and Remi so that you get all the same widgets, but you interact with them in a more friendly way that's common across the ports. 
 
-What does a wrapper do (Yo! PSG in the house!)?  It does the layout, boilerplate code, creates and manages the GUI Widgets for you and presents you with a **simple, efficient interface.**   Most importantly, it maps the Widgets in tkinter/Qt/Wx/Remi into PySimpleGUI Elements.  Finally, it replaces the GUIs' event loop with one of our own.  
+What does a wrapper do (Yo! PSG in the house!)?  It does the layout, boilerplate code, creates and manages the GUI Widgets for you and presents you with a **simple, efficient interface.**   Most importantly, it maps the Widgets in tkinter/Qt/Wx/Remi into FreeSimpleGUI Elements.  Finally, it replaces the GUIs' event loop with one of our own.  
 
 You've seen examples of the code already. The big deal of all this is that anyone can create a GUI simply and quickly that matches GUIs written in the native GUI framework.  You can create complex layouts with complex element interactions.  And, that code you wrote to run on tkinter will also run on Qt by changing your import statement.
 
@@ -546,7 +546,7 @@ If more than 1 person connects at a time, then both users will see the exact sam
 
 PySimpleGUI runs on Android devices with the help of either the PyDroid3 app or the Termux app.  Both are capable of running tkinter programs which means both are capable of running PySimpleGUI.
 
-To use with PyDroid3 you will need to add this import to the top of all of your PySimpleGUI program files:
+To use with PyDroid3 you will need to add this import to the top of all of your FreeSimpleGUI program files:
 
 ```python
 import tkinter
@@ -560,7 +560,7 @@ Here's a quick demo that uses OpenCV2 to display your webcam in a window that ru
 
 ```python
 import tkinter
-import cv2, PySimpleGUI as sg
+import cv2, FreeSimpleGUI as sg
 USE_CAMERA = 0      # change to 1 for front facing camera
 window, cap = sg.Window('Demo Application - OpenCV Integration', [[sg.Image(filename='', key='image')], ], location=(0, 0), grab_anywhere=True), cv2.VideoCapture(USE_CAMERA)
 while window(timeout=20)[0] != sg.WIN_CLOSED:
@@ -574,7 +574,7 @@ Also, you must be using the Premium, yes paid, version of PyDroid3 in order to r
 
 ## Source code compatibility
 
-In theory, your source code is completely portable from one platform to another by simply changing the import statement.  That's the GOAL and surprisingly many times this 1-line change works.  Seeing your code run on tkinter, then change the import to `import  PySimpleGUIWeb as sg` and instead of a tkinter window, up pops your default browser with your window running on it is an incredible feeling.
+In theory, your source code is completely portable from one platform to another by simply changing the import statement.  That's the GOAL and surprisingly many times this 1-line change works.  Seeing your code run on tkinter, then change the import to `import  FreeSimpleGUIWeb as sg` and instead of a tkinter window, up pops your default browser with your window running on it is an incredible feeling.
 
 But, ***caution is advised.***  As you've read already, some ports are further along than others.  That means when you move from one port to another, some features may not work.  There also may be some alignment tweaks if you have an application that precisely aligns Elements.
 
@@ -598,13 +598,13 @@ You may have to "install" the PySimpleGUI package for your project.  If it doesn
 
 ### PySimpleGUIWeb (Remi based)
 
-For PySimpleGUIWeb programs you run using repl.it will automatically download and install the latest PySimpleGUIWeb from PyPI onto a virtual Python environment.  All that is required is to type `import PySimpleGUIWeb` you'll have a Python environment up and running with the latest PyPI release of PySimpleGUIWeb.
+For PySimpleGUIWeb programs you run using repl.it will automatically download and install the latest PySimpleGUIWeb from PyPI onto a virtual Python environment.  All that is required is to type `import PySimpleGUIWeb` you'll have a Python environment up and running with the latest PyPI release of FreeSimpleGUIWeb.
 
 ### Creating a repl.it project from scratch / troubleshooting
 
 To create your own repl.it PySimpleGUI project from scratch, first choose the type of Python virtual machine you want.  For PySimpleGUI programs, choose the "Python with tkinter" project type.  For PySimpleGUIWeb, choose the normal Python project.
 
-There have been times where repl.it didn't do the auto import thing.  If that doesn't work for some reason, you can install packages by clicking on the package button on the left side of the interface, typing in the package name (PySimpleGUI or PySimpleGUIWeb) and install it. 
+There have been times where repl.it didn't do the auto import thing.  If that doesn't work for some reason, you can install packages by clicking on the package button on the left side of the interface, typing in the package name (PySimpleGUI or FreeSimpleGUIWeb) and install it. 
 
 ### Why this is so cool (listen up Teachers, tutorial writers)
 
@@ -861,7 +861,7 @@ The high-level calls are those that perform a lot of work for you. These are not
 Let's use one of these high level calls, the `popup` and use it to create our first window, the obligatory "Hello World".  It's a single line of code.  You can use these calls like print statements, adding as many parameters and types as you desire.
 
 ```python
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 sg.popup('Hello From PySimpleGUI!', 'This is the shortest GUI program ever!')
 ```
@@ -873,7 +873,7 @@ Or how about a ***custom GUI*** in 1 line of code?  No kidding this is a valid p
 
 
 ```python
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 event, values = sg.Window('Get filename example', [[sg.Text('Filename')], [sg.Input(), sg.FileBrowse()], [sg.OK(), sg.Cancel()] ]).read(close=True)
 ```
@@ -896,7 +896,7 @@ Creating and reading the user's inputs for the window occupy the last 2 lines of
 
 
 ```python
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 sg.theme('Dark Grey 13')
 
@@ -1272,7 +1272,7 @@ The Single Line Progress Meter is a good example. It requires one and only 1 lin
 
 Be Pythonic... 
 
-This one is difficult for me to define.  The code implementing PySimpleGUI isn't PEP8 compliant, but it is consistent.  The important thing was what the user saw and experienced while coding, NOT the choices for naming conventions in the implementation code.  The user interface to PySimpleGUI now has a PEP8 compliant interface.  The methods are snake_case now (in addition to retaining the older CamelCase names)
+This one is difficult for me to define.  The code implementing PySimpleGUI isn't PEP8 compliant, but it is consistent.  The important thing was what the user saw and experienced while coding, NOT the choices for naming conventions in the implementation code.  The user interface to FreeSimpleGUI now has a PEP8 compliant interface.  The methods are snake_case now (in addition to retaining the older CamelCase names)
 
 I ended up defining it as - attempt to use language constructs in a natural way and to exploit some of Python's interesting features.  It's Python's lists and optional parameters make PySimpleGUI work smoothly. 
 
@@ -1362,7 +1362,7 @@ You can pip install `typing` just like PySimpleGUI.  However it's not a requirem
 
 ### Installing for Python 2.7
 
-**IMPORTANT** PySimpleGUI27 will disappear from the GitHub on Dec 31, 2019. PLEASE migrate to 3.6 at least.  It's not painful for most people.
+**importANT** FreeSimpleGUI27 will disappear from the GitHub on Dec 31, 2019. PLEASE migrate to 3.6 at least.  It's not painful for most people.
 
 `pip install --upgrade PySimpleGUI27`
 or
@@ -1434,14 +1434,14 @@ You can also test by using the REPL....
 
 #### Instructions for Testing Python 2.7:
 ```python
->>> import PySimpleGUI27
+>>> import FreeSimpleGUI27
 >>> PySimpleGUI27.main()
 ```
 
 #### Instructions for Testing Python 3:
 
 ```python3
->>> import PySimpleGUI
+>>> import FreeSimpleGUI
 >>> PySimpleGUI.main()
 ```
 
@@ -1455,7 +1455,7 @@ Sometimes when debugging, questions arise as to exactly which PySimpleGUI you ar
 
 
 ```python3
->>> import PySimpleGUI as sg
+>>> import FreeSimpleGUI as sg
 >>> sg
 ```
 
@@ -1467,7 +1467,7 @@ When you type sg, Python will tell you the full patch to your PySimpleGUI file /
 If you continue to have troubles with getting the right version of PySimpleGUI loaded, THE ***definitive*** way to determine where your program is getting PySimpleGUI from is to add a print to your program.  It's that *simple*!  You can also get the version you are running by also printing
 
 ```python
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 print(sg)
 print(sg.version)
@@ -1478,7 +1478,7 @@ Just like when using the REPL >>> to determine the location, this `print` in you
 
 ### Manual installation
 
-If you're not connected to the net on your target machine, or pip isn't working, or you want to run the latest code from GitHub, then all you have to do is place the single PySimpleGUI source file `PySimpleGUI.py` (for tkinter port)  in your application's folder (the folder where the py file is that imports PySimpleGUI).  Your application will load that local copy of PySimpleGUI as if it were a package.
+If you're not connected to the net on your target machine, or pip isn't working, or you want to run the latest code from GitHub, then all you have to do is place the single PySimpleGUI source file `PySimpleGUI.py` (for tkinter port)  in your application's folder (the folder where the py file is that imports PySimpleGUI).  Your application will load that local copy of FreeSimpleGUI as if it were a package.
 
 Be ***sure*** that you delete this PySimpleGUI.py file if you install a newer pip version.  Often the sequence of events is that a bug you've reported was fixed and checked into GitHub.  You download the PySimpleGUI.py file (or the appropriately named one for your port) and put with your app.  Then later your fix is posted with a new release on PyPI.  You'll want to delete the GitHub one before you install from pip.
 
@@ -1519,7 +1519,7 @@ If you're on a Raspberry Pi or some other limited environment, then you'll may h
 
 ### Using The Docstrings (Don't skip this section)
 
-Beginning with the 4.0 release of PySimpleGUI, the tkinter port, a whole new world opened up for PySimpleGUI programmers, one where referencing the readme and ReadTheDocs documentation is no longer needed.  PyCharm and Wing both support these docstrings REALLY well and I'm sure Visual Studio does too.  Why is this important?  Because it will teach you the PySimpleGUI SDK as you use the package.  
+Beginning with the 4.0 release of PySimpleGUI, the tkinter port, a whole new world opened up for PySimpleGUI programmers, one where referencing the readme and ReadTheDocs documentation is no longer needed.  PyCharm and Wing both support these docstrings REALLY well and I'm sure Visual Studio does too.  Why is this important?  Because it will teach you the FreeSimpleGUI SDK as you use the package.  
 
 Don't know the parameters and various options for the `InputText` Element?  It's a piece of cake with PyCharm.  You can set PyCharm to automatically display documentation about the class, function, method, etc, that your cursor is currently sitting on.  You can also manually bring up the documentation by pressing CONTROL+Q.  When you do, you'll be treated to a window similar to this:
 
@@ -1547,7 +1547,7 @@ Pay attention when you're working with PyCharm and you'll see where you may have
 ## Using  - Python 3
 
 To use in your code, simply import....
-`import PySimpleGUI as sg`
+`import FreeSimpleGUI as sg`
 
 Then use either "high level" API calls or build your own windows.
 

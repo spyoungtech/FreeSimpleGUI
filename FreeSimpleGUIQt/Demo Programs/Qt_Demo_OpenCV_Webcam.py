@@ -3,7 +3,7 @@ import sys
 if sys.version_info[0] >= 3:
     import FreeSimpleGUIQt as sg
 else:
-    import PySimpleGUI27 as sg
+    import FreeSimpleGUI27 as sg
 import cv2
 import numpy as np
 from sys import exit as exit

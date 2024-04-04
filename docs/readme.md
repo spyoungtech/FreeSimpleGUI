@@ -186,7 +186,7 @@ While I'm a relative newcomer to Python, I've been writing software since the 70
 
 ## Project Goals 🥅
 
-Two of the most important goals of the PySimpleGUI project:
+Two of the most important goals of the FreeSimpleGUI project:
 
 * Having fun
 * Your success 
@@ -219,7 +219,7 @@ This type of program is called a "one-shot" window because the window is display
 There are 5 sections to a PySimpleGUI program
 
 ```python
-import PySimpleGUI as sg                        # Part 1 - The import
+import FreeSimpleGUI as sg                        # Part 1 - The import
 
 # Define the window's contents
 layout = [  [sg.Text("What's your name?")],     # Part 2 - The Layout
@@ -254,7 +254,7 @@ In this example, our window will remain on the screen until the user closes the 
 
 
 ```python
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 # Define the window's contents
 layout = [[sg.Text("What's your name?")],
@@ -398,7 +398,7 @@ Using lists to define your GUI has some huge advantages over how GUI programming
 These 3 lines of code:
 
 ```python
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 layout = [[sg.Button(f'{row}, {col}') for col in range(4)] for row in range(4)]
 
@@ -437,7 +437,7 @@ event, values = sg.Window('Window Title', [[sg.T("What's your name?")],[sg.I()],
 
 ### Code Portability
 
-PySimpleGUI is currently capable of running on 4 Python GUI Frameworks.  The framework to use is specified using the import statement.  Change the import and you'll change the underlying GUI framework.  For some programs, no other changes are needed than the import statement to run on a different GUI framework.  In the example above, changing the import from `PySimpleGUI` to `PySimpleGUIQt`, `PySimpleGUIWx`, `PySimpleGUIWeb` will change the framework.
+PySimpleGUI is currently capable of running on 4 Python GUI Frameworks.  The framework to use is specified using the import statement.  Change the import and you'll change the underlying GUI framework.  For some programs, no other changes are needed than the import statement to run on a different GUI framework.  In the example above, changing the import from `PySimpleGUI` to `PySimpleGUIQt`, `PySimpleGUIWx`, `FreeSimpleGUIWeb` will change the framework.
 
 | Import Statement | Resulting Window |
 |--|--|
@@ -566,7 +566,7 @@ Adding a single line to get a filename instead of specifying a filename on the c
 
 
 ```python
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 filename = sg.popup_get_file('Enter the file you wish to process')
 sg.popup('You entered', filename)
@@ -782,7 +782,7 @@ With most GUI frameworks, you must specify the color for every widget you create
 To use a theme, call the `theme` function with the name of the theme before creating your window. You can add spaces for readability.  To set the theme to "Dark Grey 9":
 
 ```python
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 sg.theme('dark grey 9')
 ```

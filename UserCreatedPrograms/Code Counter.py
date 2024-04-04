@@ -7,7 +7,7 @@
     https://github.com/israel-dryer/Code-Counter
 
 """
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 import statistics as stats
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg

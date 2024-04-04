@@ -2,7 +2,7 @@
 #Tony Crewe
 #Sep 2018 MacOs
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 #sg.ChangeLookAndFeel('SandyBeach')    
 sg.SetOptions (background_color = 'LightBlue',

@@ -1,4 +1,4 @@
-import PySimpleGUIWeb as sg
+import FreeSimpleGUIWeb as sg
 
 """
 Simple Demo that shows how Elements can effect other elements in the Window

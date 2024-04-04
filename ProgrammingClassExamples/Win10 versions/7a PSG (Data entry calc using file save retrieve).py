@@ -2,7 +2,7 @@
 #Tony Crewe
 #Sep 2018
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 import os                       #to work with windows OS
 
 sg.ChangeLookAndFeel('GreenTan')

@@ -12234,7 +12234,7 @@ class Window:
         1. The value you provide for end_key will be returned to you when you call window.read()
         2. If your function returns a value, then the value returned will also be included in your windows.read call in the values dictionary
 
-        IMPORTANT - This method uses THREADS... this means you CANNOT make any PySimpleGUI calls from
+        importANT - This method uses THREADS... this means you CANNOT make any FreeSimpleGUI calls from
         the function you provide with the exception of one function, Window.write_event_value.
 
         :param func:    A lambda or a function name with no parms
@@ -20254,7 +20254,7 @@ def obj_to_string(obj, extra='    '):
 def clipboard_set(new_value):
     """
     Sets the clipboard to a specific value.
-    IMPORTANT NOTE - Your PySimpleGUI application needs to remain running until you've pasted
+    importANT NOTE - Your FreeSimpleGUI application needs to remain running until you've pasted
     your clipboard. This is a tkinter limitation.  A workaround was found for Windows, but you still
     need to stay running for Linux systems.
 

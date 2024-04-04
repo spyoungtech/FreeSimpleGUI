@@ -219,7 +219,7 @@ Thanks for this amazing module, I'm really having fun learning it!
 -----------
 
 [PySimpleGUI](https://github.com/PySimpleGUI) 2023-03-16T18:56:49Z
-@ssweber the color scheme looks like the `GrayGrayGray` theme to me which means no colors will be added (all system defaults will be used).  The important feature that's adding the images is either `Image` elements or `Button` elements.  Using a Base64 version of images will enable you to drop them directly into your source code.  The PySimpleGUI application `psgresizer` is very helpful in enabling you to quickly add button graphics to your application.
+@ssweber the color scheme looks like the `GrayGrayGray` theme to me which means no colors will be added (all system defaults will be used).  The important feature that's adding the images is either `Image` elements or `Button` elements.  Using a Base64 version of images will enable you to drop them directly into your source code.  The FreeSimpleGUI application `psgresizer` is very helpful in enabling you to quickly add button graphics to your application.
 
 Here are some steps I followed:
 
@@ -788,7 +788,7 @@ A quick demo differentiating 'release', 'down' and 'drag' events from the graph.
 <img width="642" alt="Screenshot 2022-06-25 at 12 17 12 am" src="https://user-images.githubusercontent.com/7659338/175724689-0ff3533f-7e9e-4ba8-880f-e1a6666d09e6.png">
 
 ```py
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 
 def draw_points(points, connections, canvas: sg.Graph):
@@ -1013,7 +1013,7 @@ A surprising amount of the code still works.  The unpacking of the values dictio
 
 
 ```python
-import PySimpleGUI as gg
+import FreeSimpleGUI as gg
 form_rows = [[gg.Text('PDF Image Extraction')],
              [gg.Text('Choose Source and Destination Folders')],
              [gg.Text('Source Folder', size=(15, 1)), gg.InputText('Source'), gg.FolderBrowse()],
@@ -1235,7 +1235,7 @@ This was a fun little project to learn about the Graph element!
 
 ```py
 # main.py
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 import planar_projection
 
@@ -1492,7 +1492,7 @@ Every day is a learning day:
 I quite like the Graph element - being able to position your 0, 0 point is a really understated feature for making clear code! Being able to return the elements to manipulate them also presents some interesting opportunities. One of the main reasons I was using PIL is that I can write out the generated image to disk for printing / emailing etc. Is that possible with the graph element here? 
 
 ```py
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 layout = [
     [sg.Graph((300, 50), (-50, -30), (250, 20), background_color='white', key='-GRAPH-')],
@@ -1559,7 +1559,7 @@ Just some proof of concept! Using Pillow to generate a line that can be updated 
 
 ```py
 from PIL import Image, ImageDraw
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 
 img = Image.new('RGB', (300, 50), 'white')
@@ -1833,7 +1833,7 @@ Here's an example of a window that has inputs with labels that are varying lengt
 ![image](https://user-images.githubusercontent.com/46163555/159958724-4b14bb15-7943-4ff2-953c-7f50f957e04b.png)
 
 ```python
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 layout = [  [sg.Text('My Window with a bunch of inputs........')],
             [sg.Text('Label 1'), sg.Input(size=(12,1))],
@@ -2885,7 +2885,7 @@ Simple GUI for using wget to download individual web pages or spider whole web s
 [GitHub repository](https://github.com/andrewmk/wget_gui)
 
 ```python
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 import os
 import psutil
@@ -3044,7 +3044,7 @@ This code reaches through the chain link fence around PySimpleGUI and does some 
 ![Screenshot 2021-12-05 000125](https://user-images.githubusercontent.com/1872642/144728906-839f52dd-e1e3-4e57-bd82-e10dd129a465.png)
 
 ```python
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 import tkinter
 from xkcdpass import xkcd_password as xp
@@ -3306,7 +3306,7 @@ This technique may be good in some situations where Matplotlib is going to be di
 This code:
 
 ```python
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 sg.theme_background_color('white')
 sg.theme_element_background_color('white')
@@ -4070,7 +4070,7 @@ https://pysimplegui.trinket.io/demo-programs#/layouts/centered-and-simple
 Here it is for your ease of downloading.
 
 ```python
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 """
     Demo - A simple minimal window with a material design feel

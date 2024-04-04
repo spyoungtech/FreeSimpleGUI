@@ -10,7 +10,7 @@ import FreeSimpleGUI as sg
     2. Create your menu defintion
     3. Add if statements to take action based on your input
 
-    Note from the imports that this code works on all PySimpleGUI ports (except Web).
+    Note from the imports that this code works on all FreeSimpleGUI ports (except Web).
     For the tkinter port, however, the icon isn't located in the system tray. Instead it's located just above
     the system tray in the form of what looks like an "icon" on your desktop.  It's actually a very small window.
     

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import PySimpleGUIWeb as sg
+import FreeSimpleGUIWeb as sg
 import psutil
 import time
 from threading import Thread

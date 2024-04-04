@@ -8,7 +8,7 @@ import FreeSimpleGUI as sg
     
     Requires PySimpleGUI.py version 4.25.0 and later
     
-    This is a really important demo  to understand if you're going to be using multithreading in PySimpleGUI.
+    This is a really important demo  to understand if you're going to be using multithreading in FreeSimpleGUI.
     
     Older mechanisms for multi-threading in PySimpleGUI relied on polling of a queue. The management of a communications
     queue is now performed internally to PySimpleGUI.

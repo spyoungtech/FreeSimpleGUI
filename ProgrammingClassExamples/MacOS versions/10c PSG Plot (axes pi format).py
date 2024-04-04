@@ -2,7 +2,7 @@
 #Tony Crewe
 #Oct 2018 MacOS
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 import matplotlib
 # added this to work with MacOs
 matplotlib.use('TkAgg')

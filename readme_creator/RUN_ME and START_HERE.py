@@ -1,5 +1,5 @@
 import time
-import subprocess,re,datetime,time,os,platform,json,PySimpleGUI as sg; from subprocess import Popen; from make_real_readme import main
+import subprocess,re,datetime,time,os,platform,json,FreeSimpleGUI as sg; from subprocess import Popen; from make_real_readme import main
 
 # mkdir
 import os

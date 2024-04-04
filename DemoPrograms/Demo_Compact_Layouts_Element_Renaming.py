@@ -17,7 +17,7 @@ import FreeSimpleGUI as sg
     If you don't want to use that very-long import or perhaps want to use your own shortcut names, you can easily
     create your shortcut by simple assignment:
         T = sg.T
-    This enables you to use T just as if you imported the Class T from PySimpleGUI.  You could develop your own
+    This enables you to use T just as if you imported the Class T from FreeSimpleGUI.  You could develop your own
     template that you copy and paste at the top of all of your PySimpleGUI programs.  Or perhaps perform an import
     of those assignments from a .py file you create.
     
