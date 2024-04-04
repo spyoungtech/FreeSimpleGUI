@@ -1,0 +1,35 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'wx-v*.*.*'
+
+jobs:
+  build:
+    permissions:
+      id-token: write
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: setup python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11
+    - name: build
+      shell: bash
+      run: |
+        python -m pip install --upgrade wheel setuptools build
+        python -m build ./FreeSimpleGUIWx/
+    - name: Release PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        packages-dir: FreeSimpleGUIWx/dist/
+    - name: Release GitHub
+      uses: softprops/action-gh-release@v1
+      with:
+        files: "FreeSimpleGUIWx/dist/*"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
