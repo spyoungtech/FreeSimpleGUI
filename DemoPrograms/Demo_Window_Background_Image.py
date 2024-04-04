@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 """
     Highly experimental demo of how the illusion of a window with a background image is possible with PySimpleGUI.

@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 """
     Demo - User Setting API to automatically save and load Input Elements

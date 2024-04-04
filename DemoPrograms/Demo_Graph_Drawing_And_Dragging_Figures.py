@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 """
     Demo - Drawing and moving demo

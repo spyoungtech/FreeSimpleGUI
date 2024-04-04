@@ -1,5 +1,5 @@
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 
 DarkGreyFig = {'BACKGROUND': '#232429',

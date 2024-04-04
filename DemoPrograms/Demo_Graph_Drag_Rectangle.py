@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 """
     Demo - Drag a rectangle to draw it

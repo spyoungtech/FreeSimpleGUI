@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 import random
 import psutil
 from threading import Thread

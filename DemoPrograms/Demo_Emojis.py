@@ -9,7 +9,7 @@
 """
 
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 layout = [[sg.Text('The PySimpleGUI Helpers', font='_ 20')],
           [sg.Text('Sometimes frustrated or tired....', font='_ 15')],

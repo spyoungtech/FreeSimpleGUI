@@ -2,7 +2,7 @@
 import PIL
 from PIL import Image
 from sys import exit
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 import os
 import io
 import base64

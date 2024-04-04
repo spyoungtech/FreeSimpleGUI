@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 """
     Demo program that shows you how to integrate the PySimpleGUI Debugger

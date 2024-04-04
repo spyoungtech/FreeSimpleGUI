@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 from chatterbot import ChatBot
 import chatterbot.utils
 from gtts import gTTS

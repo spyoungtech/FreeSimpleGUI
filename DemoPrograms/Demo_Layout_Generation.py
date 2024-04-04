@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 """
     PySimpleGUI is designed & authored in Python to take full advantage the awesome Python constructs & capabilities.

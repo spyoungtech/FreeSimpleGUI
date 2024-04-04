@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 """
     Demo - Save previously entered strings for Input and Combo elements by using user_settings calls

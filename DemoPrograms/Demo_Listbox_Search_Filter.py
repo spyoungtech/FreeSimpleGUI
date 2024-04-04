@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 names = ['Roberta', 'Kylie', 'Jenny', 'Helen',
          'Andrea', 'Meredith', 'Deborah', 'Pauline',

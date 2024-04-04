@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 from gtts import gTTS
 from pygame import mixer
 import time

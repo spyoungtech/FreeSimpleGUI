@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 from json import (load as jsonload, dump as jsondump)
 from os import path
 

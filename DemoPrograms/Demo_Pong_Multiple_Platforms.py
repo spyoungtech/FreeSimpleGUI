@@ -1,7 +1,7 @@
 # !/usr/bin/env python
 # Based on work by - Siddharth Natamai
 # At the moment, this source file runs on TWO of the 4 PySimpleGUI ports with a third one coming soon (Qt).
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 import random
 
 GAMEPLAY_SIZE = (700, 400)

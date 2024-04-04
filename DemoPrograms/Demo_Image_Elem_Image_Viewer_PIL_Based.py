@@ -1,5 +1,5 @@
-import PySimpleGUI as sg
-# import PySimpleGUIQt as sg
+import FreeSimpleGUI as sg
+# import FreeSimpleGUIQt as sg
 import os.path
 import PIL.Image
 import io

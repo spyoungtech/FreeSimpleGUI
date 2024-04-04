@@ -23,7 +23,7 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import numpy
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 BOX_SIZE = 15
 

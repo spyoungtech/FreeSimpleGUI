@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 if not sys.platform.startswith('win'):
     sg.popup_error('Sorry, you gotta be on Windows')

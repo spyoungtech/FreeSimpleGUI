@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 import random
 # ------- Sort visualizer. Displays bar chart representing list items -------
 BAR_SPACING, BAR_WIDTH, EDGE_OFFSET = 11, 10, 3

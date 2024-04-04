@@ -1,6 +1,6 @@
 import threading
 import time
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 
 """

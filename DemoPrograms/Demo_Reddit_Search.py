@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 import praw  # The Reddit APIs
 from webbrowser import open_new_tab
 

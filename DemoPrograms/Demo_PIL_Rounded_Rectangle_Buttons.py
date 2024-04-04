@@ -1,6 +1,6 @@
 from io import BytesIO
 from PIL import Image, ImageDraw, ImageFont
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 """
     Demo Rounded Rectangle Buttons created using PIL

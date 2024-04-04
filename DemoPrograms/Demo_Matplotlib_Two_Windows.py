@@ -1,6 +1,6 @@
 from matplotlib import use
-import PySimpleGUI as sg
-# import PySimpleGUIQt as sg; use('qt5agg')
+import FreeSimpleGUI as sg
+# import FreeSimpleGUIQt as sg; use('qt5agg')
 import matplotlib.pyplot as plt
 
 """

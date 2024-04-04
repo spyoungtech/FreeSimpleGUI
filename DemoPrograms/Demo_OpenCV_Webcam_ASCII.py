@@ -1,7 +1,7 @@
 import cv2
 from PIL import Image
 import numpy as np
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 """
     Interesting program that shows your webcam's image as ASCII text.  Runs in realtime, producing a stream of

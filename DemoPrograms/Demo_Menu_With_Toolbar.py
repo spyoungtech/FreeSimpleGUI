@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 # Usage of icons as base64 string and toolbar
 

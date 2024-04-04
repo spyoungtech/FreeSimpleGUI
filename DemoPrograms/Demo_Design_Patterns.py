@@ -10,7 +10,7 @@ These are the accepted design patterns that cover the two primary use cases
 # -----------------------------------#
 # DESIGN PATTERN 1 - One-shot Window #
 # -----------------------------------#
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 layout = [[ sg.Text('My Oneshot') ],
           [ sg.Input(key='-IN-') ],
@@ -24,7 +24,7 @@ window.close()
 # ---------------------------------------------#
 # DESIGN PATTERN 2 - One-shot Window in 1 line #
 # ---------------------------------------------#
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 event, values = sg.Window('Design Pattern 2', [[sg.Text('My Oneshot')],[sg.Input(key='-IN-')], [ sg.Button('OK') ]]).read(close=True)
 
@@ -33,7 +33,7 @@ event, values = sg.Window('Design Pattern 2', [[sg.Text('My Oneshot')],[sg.Input
 # -------------------------------------#
 # DESIGN PATTERN 3 - Persistent Window #
 # -------------------------------------#
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 layout = [[sg.Text('My layout')],
           [sg.Input(key='-INPUT-')],
@@ -50,7 +50,7 @@ window.close()
 # ------------------------------------------------------------------#
 # DESIGN PATTERN 4 - Persistent Window with "early update" required #
 # ------------------------------------------------------------------#
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 layout = [[ sg.Text('My layout') ],
           [sg.Input(key='-INPUT-')],

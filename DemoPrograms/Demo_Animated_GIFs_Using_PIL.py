@@ -1,5 +1,5 @@
 from PIL import Image, ImageTk, ImageSequence
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 """
     Demo_Animated_GIFs_Using_PIL.py

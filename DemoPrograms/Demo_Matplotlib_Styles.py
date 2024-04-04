@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasAgg

@@ -1,6 +1,6 @@
-import PySimpleGUI as sg
-# import PySimpleGUIWx as sg
-# import PySimpleGUIQt as sg
+import FreeSimpleGUI as sg
+# import FreeSimpleGUIWx as sg
+# import FreeSimpleGUIQt as sg
 from PIL import Image
 import base64, io
 from time import time

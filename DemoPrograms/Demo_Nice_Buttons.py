@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 import os
 import io
 from PIL import Image, ImageDraw, ImageTk, ImageFont

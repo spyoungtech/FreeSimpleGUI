@@ -8,7 +8,7 @@
     Copyright 2021 PySimpleGUI
 """
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 sg.set_options(font='_ 18')
 

@@ -1,5 +1,5 @@
 import pyglet
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 import os
 
 """

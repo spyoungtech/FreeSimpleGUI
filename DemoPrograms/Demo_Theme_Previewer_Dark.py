@@ -1,6 +1,6 @@
-import PySimpleGUI as sg
-# import PySimpleGUIWeb as sg
-# import PySimpleGUIQt as sg
+import FreeSimpleGUI as sg
+# import FreeSimpleGUIWeb as sg
+# import FreeSimpleGUIQt as sg
 
 """
     If you're using the PySimpleGUI color themes, then your code will a line that looks something like this:

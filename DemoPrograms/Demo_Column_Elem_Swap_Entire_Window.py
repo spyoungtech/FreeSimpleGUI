@@ -1,5 +1,5 @@
-import PySimpleGUI as sg
-# import PySimpleGUIQt as sg
+import FreeSimpleGUI as sg
+# import FreeSimpleGUIQt as sg
 
 """
     Demo - Multiple layouts in a single window that are swapped in and out

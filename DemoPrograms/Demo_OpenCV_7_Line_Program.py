@@ -1,4 +1,4 @@
-import cv2, PySimpleGUI as sg
+import cv2, FreeSimpleGUI as sg
 
 window = sg.Window('Demo Application - OpenCV Integration', [[sg.Image(key='-I-')], ], location=(800, 400))
 cap = cv2.VideoCapture(0)  # Setup the camera as a capture device

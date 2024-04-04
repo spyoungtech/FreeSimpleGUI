@@ -1,5 +1,5 @@
 import tkinter
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 import cv2
 
 """

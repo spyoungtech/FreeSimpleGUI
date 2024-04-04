@@ -3,7 +3,7 @@ import subprocess
 import sys
 import mmap, re
 import warnings
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 """
     PySimpleGUI Demo Program Browser
