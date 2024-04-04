@@ -16,7 +16,7 @@ Because PySimpleGUI is an active project, new capabilities are being added frequ
 
 # The "Demo Programs" Are Also "Recipes"
 
-If you like this Cookbook, then you'll LOVE the 300 sample programs that are just like these.  You'll find them in the GitHub at http://Demos.PySimpleGUI.com.  They are located in the folder `DemoPrograms` and there is also a `Demo Programs` folder for each of the PySimpleGUI ports.
+If you like this Cookbook, then you'll LOVE the 300 sample programs that are just like these.  You'll find them in the GitHub at https://github.com/spyoungtech/FreeSimpleGUI/tree/main/DemoPrograms.  They are located in the folder `DemoPrograms` and there is also a `Demo Programs` folder for each of the PySimpleGUI ports.
 
 These programs are updated frequently, much more so than this Cookbook document.  It's there that you'll find the largest potential for a big jump-start on your project.
 
