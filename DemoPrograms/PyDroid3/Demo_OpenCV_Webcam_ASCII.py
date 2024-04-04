@@ -23,7 +23,7 @@ Also added onto this are a spinner and a slider. They do essentially the same th
 to be modified on the fly.
 
 You need PySimpleGUI installed as well as OpenCV. Both are easily installed via pip:
-pip install PySimpleGUI
+pip install FreeSimpleGUI
 pip install opencv-python
 
 On Linux / Mac use pip3 instead of pip

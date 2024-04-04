@@ -69,7 +69,7 @@ It's possible to create a single .EXE file that can be distributed to Windows us
 Installation of the packages, you'll need to install PySimpleGUI and PyInstaller (you need to install only once)
 
 ```bash
-pip install PySimpleGUI
+pip install FreeSimpleGUI
 pip install PyInstaller
 
 ```

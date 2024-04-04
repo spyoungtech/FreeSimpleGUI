@@ -108,9 +108,9 @@ HOW DO I INSERT IMAGES ???
 ## Install
 
 ```
-pip install pysimplegui
+pip install FreeSimpleGUI
 or
-pip3 install pysimplegui
+pip3 install FreeSimpleGUI
 ```
 
 ### This Code
@@ -1408,8 +1408,8 @@ The "Safest" approach is to call `sg.main()` from your code and then click the r
 If you run into a problem upgrading after upgrading from GitHub, you can likely use pip to uninstall, then re-install from PyPI to see if you can upgrade again from GitHub.
 
 
-`pip uninstall PySimpleGUI`
-`pip install PySimpleGUI`
+`pip uninstall FreeSimpleGUI`
+`pip install FreeSimpleGUI`
 
 
 
