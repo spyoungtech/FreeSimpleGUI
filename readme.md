@@ -19,13 +19,13 @@ To migrate from PySimpleGUI:
 ```
 
 
+### Support
 
-Transforms the tkinter, Qt, WxPython, and Remi (browser-based) GUI frameworks into a simpler interface.  The window definition is simplified by using Python core data types understood by beginners (lists and dictionaries). Further simplification happens by changing event handling from a callback-based model to a message passing one.
+If you encounter any issues or have any questions, please feel welcome to [open an issue](https://github.com/spyoungtech/FreeSimpleGUI/issues/new).
 
-Your code is not _required_ to have an object oriented architecture which makes the package usable by a larger audience. While the architecture is simple to understand, it does not *necessarily* limit you to only simple problems.
+### Contributions
 
-Some programs are not well-suited for FreeSimpleGUI however.  By definition, FreeSimpleGUI implements a subset of the underlying GUI frameworks' capabilities.  It's difficult to define exactly which programs are well suited for FreeSimpleGUI and which are not.  It depends on the details of your program.  Duplicating Excel in every detail is an example of something not well suited for FreeSimpleGUI.
-
+Contributions are welcome! Contributions can be made via pull request. Ideally, please try to make sure there is an open [issue](https://github.com/spyoungtech/FreeSimpleGUI/issues) associated with your pull request first or create one if necessary.
 
 --------------------------
 
