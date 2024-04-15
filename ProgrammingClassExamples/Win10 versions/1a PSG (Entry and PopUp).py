@@ -24,13 +24,3 @@ fahrenheit = round(9/5*float(value[0]) +32, 1)
 result =  'Temperature in Fahrenheit is: ' + str(fahrenheit)
 #display in Popup
 sg.Popup('Result', result)
-
-
-
-
-
-
-
-
-
-
