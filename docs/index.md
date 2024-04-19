@@ -53,8 +53,8 @@ and returns the value input as well as the button clicked.
 
 # Background - Why FreeSimpleGUI Came to Be
 
-Once upon a time there was a package called `PySimpleGUI` that people liked a lot. The owners decided to rug-pull its 
-continued availability and re-license it with a proprietary commercial license under a paid subscription. FreeSimpleGUI 
+Once upon a time there was a package called `PySimpleGUI` that people liked a lot. The owners decided to rug-pull its
+continued availability and re-license it with a proprietary commercial license under a paid subscription. FreeSimpleGUI
 is the continuation of the LGPL3 licensed version last available.
 
 `FreeSimpleGUI` will remain free and permissively licensed forever.
@@ -7316,7 +7316,7 @@ This will ensure that the tkinter widgets are all deleted in the context of the 
 
 GNU Lesser General Public License (LGPL 3) +
 
-Copyright 2024 Spencer Phillip Young  
+Copyright 2024 Spencer Phillip Young
 Copyright 2018 PySimpleGUI
 
 'PySimpleGUI' is a trademark registered in the United States to Satisfice Labs LLC

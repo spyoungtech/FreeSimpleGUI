@@ -47,6 +47,3 @@ while True:
                 w2=True
     else:
         break
-
-
-
