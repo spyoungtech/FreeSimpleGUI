@@ -22,7 +22,7 @@ repos:
         args:
             - "-S"
             - "-l"
-            - "120"
+            - "360"
         files: ^(FreeSimpleGUI(?:Qt|Web|Wx)?)/(?!Demo).*\.py
 
 -   repo: https://github.com/pycqa/flake8

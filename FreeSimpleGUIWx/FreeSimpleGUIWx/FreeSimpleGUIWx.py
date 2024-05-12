@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-version = __version__ = (
-    '0.17.1.5 Unreleased\n VSeparator added (spelling error), Radio.reset_group added and removed the clearing all when one cleared, added default key for one_line_progress_meter, auto-add keys to tables & trees, added theme_add_new'
-)
+version = __version__ = '0.17.1.5 Unreleased\n VSeparator added (spelling error), Radio.reset_group added and removed the clearing all when one cleared, added default key for one_line_progress_meter, auto-add keys to tables & trees, added theme_add_new'
 
 port = 'PySimpleGUIWx'
 
@@ -356,13 +354,9 @@ class Element:
                 ELEM_TYPE_TAB,
                 ELEM_TYPE_COLUMN,
             ):
-                self.Size = _convert_tkinter_size_to_Wx(
-                    size, DEFAULT_PIXELS_TO_CHARS_SCALING_MULTILINE_TEXT, DEFAULT_PIXEL_TO_CHARS_CUTOFF_MULTILINE
-                )
+                self.Size = _convert_tkinter_size_to_Wx(size, DEFAULT_PIXELS_TO_CHARS_SCALING_MULTILINE_TEXT, DEFAULT_PIXEL_TO_CHARS_CUTOFF_MULTILINE)
             else:
-                self.Size = _convert_tkinter_size_to_Wx(
-                    size, DEFAULT_PIXELS_TO_CHARS_SCALING, DEFAULT_PIXEL_TO_CHARS_CUTOFF
-                )
+                self.Size = _convert_tkinter_size_to_Wx(size, DEFAULT_PIXELS_TO_CHARS_SCALING, DEFAULT_PIXEL_TO_CHARS_CUTOFF)
         self.Type = elem_type
         self.AutoSizeText = auto_size_text
         # self.Pad = DEFAULT_ELEMENT_PADDING if pad is None else pad
@@ -492,9 +486,7 @@ class Element:
     def _WxCallbackKeyboard(self, value):
         element_callback_quit_mainloop(self)
 
-    def Update(
-        self, widget, background_color=None, text_color=None, font=None, visible=None, disabled=None, tooltip=None
-    ):
+    def Update(self, widget, background_color=None, text_color=None, font=None, visible=None, disabled=None, tooltip=None):
         if font:
             widget.SetFont(font_to_wx_font(font))
         if text_color not in (None, COLOR_SYSTEM_DEFAULT):
@@ -589,9 +581,7 @@ class InputText(Element):
             size_px=size_px,
         )
 
-    def Update(
-        self, value=None, disabled=None, select=None, background_color=None, text_color=None, font=None, visible=None
-    ):
+    def Update(self, value=None, disabled=None, select=None, background_color=None, text_color=None, font=None, visible=None):
         if disabled is True:
             self.WxTextCtrl.Enable(True)
         elif disabled is False:
@@ -606,9 +596,7 @@ class InputText(Element):
         #     self.ParentForm.VisibilityChanged()
         # elif visible is False:
         #     self.WxTextCtrl.Hide()
-        super().Update(
-            self.WxTextCtrl, background_color=background_color, text_color=text_color, font=font, visible=visible
-        )
+        super().Update(self.WxTextCtrl, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
     def Get(self):
         return self.WxTextCtrl.GetValue()
@@ -710,9 +698,7 @@ class Combo(Element):
         if readonly is not None:
             self.WxComboBox.SetWindowStyle(wx.CB_READONLY)
 
-        super().Update(
-            self.WxComboBox, background_color=background_color, text_color=text_color, font=font, visible=visible
-        )
+        super().Update(self.WxComboBox, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
     update = Update
 
@@ -967,9 +953,7 @@ class Radio(Element):
             self.WxRadioButton.SetValue(True)
         elif value is False:
             self.WxRadioButton.SetValue(False)
-        super().Update(
-            self.WxRadioButton, background_color=background_color, text_color=text_color, font=font, visible=visible
-        )
+        super().Update(self.WxRadioButton, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
     def reset_group(self):
         self.WxRadioButton.SetValue(True)
@@ -1138,9 +1122,7 @@ class Spin(Element):
         if self.ChangeSubmits:
             element_callback_quit_mainloop(self)
 
-    def Update(
-        self, value=None, values=None, disabled=None, background_color=None, text_color=None, font=None, visible=None
-    ):
+    def Update(self, value=None, values=None, disabled=None, background_color=None, text_color=None, font=None, visible=None):
         if values != None:
             self.Values = values
             self.QT_Spinner.setStrings(values)
@@ -1156,9 +1138,7 @@ class Spin(Element):
             self.QT_Spinner.setDisabled(True)
         elif disabled == False:
             self.QT_Spinner.setDisabled(False)
-        super().Update(
-            self.QT_Spinner, background_color=background_color, text_color=text_color, font=font, visible=visible
-        )
+        super().Update(self.QT_Spinner, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
     def Get(self):
         return self.WxSpinCtrl.GetValue()
@@ -1238,9 +1218,7 @@ class Multiline(Element):
         )
         return
 
-    def Update(
-        self, value=None, disabled=None, append=False, background_color=None, text_color=None, font=None, visible=None
-    ):
+    def Update(self, value=None, disabled=None, append=False, background_color=None, text_color=None, font=None, visible=None):
         try:  # added in case the widget has already been deleted for some readon.
             if value is not None and not append:
                 self.WxTextCtrl.SetValue(value)
@@ -1259,9 +1237,7 @@ class Multiline(Element):
         except:
             pass
 
-        super().Update(
-            self.WxTextCtrl, background_color=background_color, text_color=text_color, font=font, visible=visible
-        )
+        super().Update(self.WxTextCtrl, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
     #
     # def Update(self, value=None, disabled=None, append=False, background_color=None, text_color=None, font=None, visible=None):
@@ -1357,9 +1333,7 @@ class MultilineOutput(Element):
         )
         return
 
-    def Update(
-        self, value=None, disabled=None, append=False, background_color=None, text_color=None, font=None, visible=None
-    ):
+    def Update(self, value=None, disabled=None, append=False, background_color=None, text_color=None, font=None, visible=None):
         if value is not None and not append:
             self.WxTextCtrl.SetLabel(value)
         elif value is not None and append:
@@ -1374,9 +1348,7 @@ class MultilineOutput(Element):
             self.WxTextCtrl.Enable(True)
         elif disabled is False:
             self.WxTextCtrl.Enable(False)
-        super().Update(
-            self.WxTextCtrl, background_color=background_color, text_color=text_color, font=font, visible=visible
-        )
+        super().Update(self.WxTextCtrl, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
     def Get(self):
         self.WxTextCtrl.GetValue()
@@ -1476,9 +1448,7 @@ class Text(Element):
             self.WxStaticText.SetForegroundColour(text_color)
         if font is not None:
             self.WxStaticText.SetFont(font)
-        super().Update(
-            self.WxStaticText, background_color=background_color, text_color=text_color, font=font, visible=visible
-        )
+        super().Update(self.WxStaticText, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
     update = Update
 
@@ -1563,9 +1533,7 @@ class Output(Element):
     def Update(self, value=None, background_color=None, text_color=None, font=None, visible=None):
         if value is not None:
             self.WxTextCtrl.AppendText(value)
-        super().Update(
-            self.WxTextCtrl, background_color=background_color, text_color=text_color, font=font, visible=visible
-        )
+        super().Update(self.WxTextCtrl, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
     def __del__(self):
         try:
@@ -1742,9 +1710,7 @@ class Button(Element):
         elif self.BType == BUTTON_TYPE_BROWSE_FILE:  # Browse File
             qt_types = convert_tkinter_filetypes_to_wx(self.FileTypes)
             if self.InitialFolder:
-                dialog = wx.FileDialog(
-                    self.ParentForm.MasterFrame, defaultDir=self.InitialFolder, wildcard=qt_types, style=wx.FD_OPEN
-                )
+                dialog = wx.FileDialog(self.ParentForm.MasterFrame, defaultDir=self.InitialFolder, wildcard=qt_types, style=wx.FD_OPEN)
             else:
                 dialog = wx.FileDialog(self.ParentForm.MasterFrame, wildcard=qt_types, style=wx.FD_OPEN)
             file_name = ''
@@ -1760,9 +1726,7 @@ class Button(Element):
         elif self.BType == BUTTON_TYPE_BROWSE_FILES:  # Browse Files
             qt_types = convert_tkinter_filetypes_to_wx(self.FileTypes)
             if self.InitialFolder:
-                dialog = wx.FileDialog(
-                    self.ParentForm.MasterFrame, defaultDir=self.InitialFolder, wildcard=qt_types, style=wx.FD_MULTIPLE
-                )
+                dialog = wx.FileDialog(self.ParentForm.MasterFrame, defaultDir=self.InitialFolder, wildcard=qt_types, style=wx.FD_MULTIPLE)
             else:
                 dialog = wx.FileDialog(self.ParentForm.MasterFrame, wildcard=qt_types, style=wx.FD_MULTIPLE)
             file_names = ''
@@ -1786,9 +1750,7 @@ class Button(Element):
                     style=wx.FD_SAVE | wx.FD_OVERWRITE_PROMPT,
                 )
             else:
-                dialog = wx.FileDialog(
-                    self.ParentForm.MasterFrame, wildcard=qt_types, style=wx.FD_SAVE | wx.FD_OVERWRITE_PROMPT
-                )
+                dialog = wx.FileDialog(self.ParentForm.MasterFrame, wildcard=qt_types, style=wx.FD_SAVE | wx.FD_OVERWRITE_PROMPT)
             file_name = ''
             if dialog.ShowModal() == wx.ID_OK:
                 file_name = dialog.GetPath()
@@ -1843,9 +1805,7 @@ class Button(Element):
             self.ParentForm.MasterFrame.Close()
             self.ParentForm._Close()
             Window.DecrementOpenCount()
-        elif (
-            self.BType == BUTTON_TYPE_CALENDAR_CHOOSER
-        ):  # this is a return type button so GET RESULTS and destroy window
+        elif self.BType == BUTTON_TYPE_CALENDAR_CHOOSER:  # this is a return type button so GET RESULTS and destroy window
             should_submit_window = False
 
         if should_submit_window:
@@ -1981,9 +1941,7 @@ class ProgressBar(Element):
 #                           Image                                        #
 # ---------------------------------------------------------------------- #
 class Image(Element):
-    def __init__(
-        self, filename=None, data=None, background_color=None, size=(None, None), pad=None, key=None, tooltip=None
-    ):
+    def __init__(self, filename=None, data=None, background_color=None, size=(None, None), pad=None, key=None, tooltip=None):
         '''
         Image Element
         :param filename:
@@ -2048,9 +2006,7 @@ class Canvas(Element):
         self.BackgroundColor = background_color if background_color is not None else DEFAULT_BACKGROUND_COLOR
         self._TKCanvas = canvas
 
-        super().__init__(
-            ELEM_TYPE_CANVAS, background_color=background_color, size=size, pad=pad, key=key, tooltip=tooltip
-        )
+        super().__init__(ELEM_TYPE_CANVAS, background_color=background_color, size=size, pad=pad, key=key, tooltip=tooltip)
         return
 
     @property
@@ -2096,9 +2052,7 @@ class Graph(Element):
         self.DragSubmits = drag_submits
         self.ClickPosition = (None, None)
         self.MouseButtonDown = False
-        super().__init__(
-            ELEM_TYPE_GRAPH, background_color=background_color, size_px=canvas_size, pad=pad, key=key, tooltip=tooltip
-        )
+        super().__init__(ELEM_TYPE_GRAPH, background_color=background_color, size_px=canvas_size, pad=pad, key=key, tooltip=tooltip)
         return
 
     def _convert_xy_to_canvas_xy(self, x_in, y_in):
@@ -2224,9 +2178,7 @@ class Graph(Element):
             print('*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***')
             print('Call Window.Finalize() prior to this operation')
             return None
-        text_id = self._TKCanvas2.create_text(
-            converted_point[0], converted_point[1], text=text, font=font, fill=color, angle=angle
-        )
+        text_id = self._TKCanvas2.create_text(converted_point[0], converted_point[1], text=text, font=font, fill=color, angle=angle)
         return text_id
 
     def Erase(self):
@@ -2781,9 +2733,7 @@ class Column(Element):
         self.ElementJustification = element_justification
         tsize = size_px if size_px != (None, None) else size
 
-        super().__init__(
-            ELEM_TYPE_COLUMN, background_color=background_color, size_px=tsize, pad=pad, key=key, visible=visible
-        )
+        super().__init__(ELEM_TYPE_COLUMN, background_color=background_color, size_px=tsize, pad=pad, key=key, visible=visible)
         return
 
     def _AddRow(self, *args):
@@ -3030,9 +2980,7 @@ class Tree(Element):
     def add_treeview_data(self, node):
         # print(f'Inserting {node.key} under parent {node.parent}')
         if node.key != '':
-            self.TKTreeview.insert(
-                node.parent, 'end', node.key, text=node.text, values=node.values, open=self.ShowExpanded
-            )
+            self.TKTreeview.insert(node.parent, 'end', node.key, text=node.text, values=node.values, open=self.ShowExpanded)
         for node in node.children:
             self.add_treeview_data(node)
 
@@ -3088,10 +3036,7 @@ class TreeData(object):
         return self._NodeStr(self.root_node, 1)
 
     def _NodeStr(self, node, level):
-        return '\n'.join(
-            [str(node.key) + ' : ' + str(node.text)]
-            + [' ' * 4 * level + self._NodeStr(child, level + 1) for child in node.children]
-        )
+        return '\n'.join([str(node.key) + ' : ' + str(node.text)] + [' ' * 4 * level + self._NodeStr(child, level + 1) for child in node.children])
 
 
 # ---------------------------------------------------------------------- #
@@ -3477,11 +3422,7 @@ class Window:
         self.Title = title
         self.Rows = []  # a list of ELEMENTS for this row
         self.DefaultElementSize = _convert_tkinter_size_to_Wx(default_element_size)
-        self.DefaultButtonElementSize = (
-            _convert_tkinter_size_to_Wx(default_button_element_size)
-            if default_button_element_size != (None, None)
-            else _convert_tkinter_size_to_Wx(DEFAULT_BUTTON_ELEMENT_SIZE)
-        )
+        self.DefaultButtonElementSize = _convert_tkinter_size_to_Wx(default_button_element_size) if default_button_element_size != (None, None) else _convert_tkinter_size_to_Wx(DEFAULT_BUTTON_ELEMENT_SIZE)
         self.Location = location
         self.ButtonColor = button_color if button_color else DEFAULT_BUTTON_COLOR
         self.BackgroundColor = background_color if background_color else DEFAULT_BACKGROUND_COLOR
@@ -3489,11 +3430,7 @@ class Window:
         self.Font = font if font else DEFAULT_FONT
         self.RadioDict = {}
         self.BorderDepth = border_depth
-        self.WindowIcon = (
-            Window.user_defined_icon
-            if Window.user_defined_icon is not None
-            else icon if icon is not None else DEFAULT_WINDOW_ICON
-        )
+        self.WindowIcon = Window.user_defined_icon if Window.user_defined_icon is not None else icon if icon is not None else DEFAULT_WINDOW_ICON
         self.AutoClose = auto_close
         self.NonBlocking = False
         self.TKroot = None
@@ -3583,9 +3520,7 @@ class Window:
         return self
 
     def LayoutAndRead(self, rows, non_blocking=False):
-        raise DeprecationWarning(
-            'LayoutAndRead is no longer supported... change your call to window.Layout(layout).Read()'
-        )
+        raise DeprecationWarning('LayoutAndRead is no longer supported... change your call to window.Layout(layout).Read()')
         # self.AddRows(rows)
         # self.Show(non_blocking=non_blocking)
         # return self.ReturnValues
@@ -3795,13 +3730,9 @@ class Window:
                 self.LastButtonClicked = None
             return results
         else:
-            if (
-                not self.XFound and self.Timeout != 0 and self.Timeout is not None and self.ReturnValues[0] is None
-            ):  # Special Qt case because returning for no reason so fake timeout
+            if not self.XFound and self.Timeout != 0 and self.Timeout is not None and self.ReturnValues[0] is None:  # Special Qt case because returning for no reason so fake timeout
                 self.ReturnValues = self.TimeoutKey, self.ReturnValues[1]  # fake a timeout
-            elif (
-                not self.XFound and self.ReturnValues[0] is None
-            ):  # TODO HIGHLY EXPERIMENTAL... added due to tray icon interaction
+            elif not self.XFound and self.ReturnValues[0] is None:  # TODO HIGHLY EXPERIMENTAL... added due to tray icon interaction
                 # print("*** Faking timeout ***")
                 self.ReturnValues = self.TimeoutKey, self.ReturnValues[1]  # fake a timeout
             return self.ReturnValues
@@ -3919,18 +3850,10 @@ class Window:
                         top_window.DictionaryKeyCounter += 1
                 if element.Key is not None:
                     if element.Key in key_dict.keys():
-                        (
-                            print('*** Duplicate key found in your layout {} ***'.format(element.Key))
-                            if element.Type != ELEM_TYPE_BUTTON
-                            else None
-                        )
+                        (print('*** Duplicate key found in your layout {} ***'.format(element.Key)) if element.Type != ELEM_TYPE_BUTTON else None)
                         element.Key = element.Key + str(self.UniqueKeyCounter)
                         self.UniqueKeyCounter += 1
-                        (
-                            print('*** Replaced new key with {} ***'.format(element.Key))
-                            if element.Type != ELEM_TYPE_BUTTON
-                            else None
-                        )
+                        (print('*** Replaced new key with {} ***'.format(element.Key)) if element.Type != ELEM_TYPE_BUTTON else None)
                     key_dict[element.Key] = element
         return key_dict
 
@@ -4189,9 +4112,7 @@ def quit_mainloop(window):
 # =========================================================================== #
 # Convert from characters to pixels                                           #
 # =========================================================================== #
-def _convert_tkinter_size_to_Wx(
-    size, scaling=DEFAULT_PIXELS_TO_CHARS_SCALING, height_cutoff=DEFAULT_PIXEL_TO_CHARS_CUTOFF
-):
+def _convert_tkinter_size_to_Wx(size, scaling=DEFAULT_PIXELS_TO_CHARS_SCALING, height_cutoff=DEFAULT_PIXEL_TO_CHARS_CUTOFF):
     """
     Converts size in characters to size in pixels
     :param size:  size in characters, rows
@@ -4243,9 +4164,7 @@ def preprocess_radio_elements(top_window, window):
         for element in row:
             if element.Type == ELEM_TYPE_INPUT_RADIO:
                 if element.WxRadioButton is None:
-                    element.WxRadioButton = wx.RadioButton(
-                        top_window.MasterPanel, id=wx.ID_ANY, label=element.Text, style=wx.RB_GROUP
-                    )
+                    element.WxRadioButton = wx.RadioButton(top_window.MasterPanel, id=wx.ID_ANY, label=element.Text, style=wx.RB_GROUP)
                     create_wx_radio_buttons(top_window, top_window, element.GroupID)
             if element.Type in (ELEM_TYPE_COLUMN, ELEM_TYPE_FRAME, ELEM_TYPE_TAB_GROUP, ELEM_TYPE_TAB):
                 preprocess_radio_elements(top_window, element)
@@ -5186,11 +5105,7 @@ def BuildResultsForSubform(form, initialize_only, top_level_form):
             if not initialize_only:
                 if element.Type == ELEM_TYPE_INPUT_TEXT:
                     value = element.WxTextCtrl.GetValue()
-                    if (
-                        not top_level_form.NonBlocking
-                        and not element.do_not_clear
-                        and not top_level_form.ReturnKeyboardEvents
-                    ):
+                    if not top_level_form.NonBlocking and not element.do_not_clear and not top_level_form.ReturnKeyboardEvents:
                         element.WxTextCtrl.SetValue('')
                 elif element.Type == ELEM_TYPE_INPUT_CHECKBOX:
                     value = element.WxCheckbox.GetValue()
@@ -5238,11 +5153,7 @@ def BuildResultsForSubform(form, initialize_only, top_level_form):
                     except:
                         pass
 
-                    if (
-                        not top_level_form.NonBlocking
-                        and not element.do_not_clear
-                        and not top_level_form.ReturnKeyboardEvents
-                    ):
+                    if not top_level_form.NonBlocking and not element.do_not_clear and not top_level_form.ReturnKeyboardEvents:
                         element.WxTextCtrl.SetValue('')
                 elif element.Type == ELEM_TYPE_TAB_GROUP:
                     try:
@@ -5262,29 +5173,12 @@ def BuildResultsForSubform(form, initialize_only, top_level_form):
                 value = None
 
             # if an input type element, update the results
-            if (
-                element.Type != ELEM_TYPE_BUTTON
-                and element.Type != ELEM_TYPE_TEXT
-                and element.Type != ELEM_TYPE_IMAGE
-                and element.Type != ELEM_TYPE_OUTPUT
-                and element.Type != ELEM_TYPE_PROGRESS_BAR
-                and element.Type != ELEM_TYPE_COLUMN
-                and element.Type != ELEM_TYPE_FRAME
-                and element.Type != ELEM_TYPE_TAB
-            ):
+            if element.Type != ELEM_TYPE_BUTTON and element.Type != ELEM_TYPE_TEXT and element.Type != ELEM_TYPE_IMAGE and element.Type != ELEM_TYPE_OUTPUT and element.Type != ELEM_TYPE_PROGRESS_BAR and element.Type != ELEM_TYPE_COLUMN and element.Type != ELEM_TYPE_FRAME and element.Type != ELEM_TYPE_TAB:
                 AddToReturnList(form, value)
                 AddToReturnDictionary(top_level_form, element, value)
             elif (
-                (
-                    element.Type == ELEM_TYPE_BUTTON
-                    and element.BType == BUTTON_TYPE_CALENDAR_CHOOSER
-                    and element.Target == (None, None)
-                )
-                or (
-                    element.Type == ELEM_TYPE_BUTTON
-                    and element.BType == BUTTON_TYPE_COLOR_CHOOSER
-                    and element.Target == (None, None)
-                )
+                (element.Type == ELEM_TYPE_BUTTON and element.BType == BUTTON_TYPE_CALENDAR_CHOOSER and element.Target == (None, None))
+                or (element.Type == ELEM_TYPE_BUTTON and element.BType == BUTTON_TYPE_COLOR_CHOOSER and element.Target == (None, None))
                 or (
                     element.Type == ELEM_TYPE_BUTTON
                     and element.Key is not None
@@ -5761,11 +5655,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_form):
                     justification = toplevel_form.TextJustification
                 else:
                     justification = DEFAULT_TEXT_JUSTIFICATION
-                style = (
-                    wx.ALIGN_LEFT
-                    if justification.startswith('l')
-                    else wx.ALIGN_CENTER if justification.startswith('c') else wx.ALIGN_RIGHT
-                )
+                style = wx.ALIGN_LEFT if justification.startswith('l') else wx.ALIGN_CENTER if justification.startswith('c') else wx.ALIGN_RIGHT
                 # print(border_depth, element.BorderWidth)
                 if border_depth:
                     if element.Relief:
@@ -5777,9 +5667,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_form):
                             style |= wx.RAISED_BORDER
                         elif element.Relief in (RELIEF_SUNKEN, RELIEF_SUNKEN):
                             style |= wx.SUNKEN_BORDER
-                statictext = element.WxStaticText = wx.StaticText(
-                    toplevel_form.MasterPanel, -1, element.DisplayText, style=style
-                )
+                statictext = element.WxStaticText = wx.StaticText(toplevel_form.MasterPanel, -1, element.DisplayText, style=style)
                 if font:
                     statictext.SetFont(font_to_wx_font(font))
                 if element.TextColor not in (None, COLOR_SYSTEM_DEFAULT):
@@ -5839,9 +5727,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_form):
                 if auto_size:
                     element.WxButton.SetWindowStyleFlag(element.WxButton.GetWindowStyleFlag() | wx.BU_EXACTFIT)
                 else:
-                    element.WxButton.SetMinSize(
-                        _convert_tkinter_size_to_Wx((width, height), DEFAULT_PIXEL_TO_CHARS_CUTOFF)
-                    )
+                    element.WxButton.SetMinSize(_convert_tkinter_size_to_Wx((width, height), DEFAULT_PIXEL_TO_CHARS_CUTOFF))
                 if element.ButtonColor != (None, None) and element.ButtonColor != DEFAULT_BUTTON_COLOR:
                     bc = element.ButtonColor
                 elif toplevel_form.ButtonColor != (None, None) and toplevel_form.ButtonColor != DEFAULT_BUTTON_COLOR:
@@ -5915,11 +5801,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_form):
                     justification = toplevel_form.TextJustification
                 else:
                     justification = DEFAULT_TEXT_JUSTIFICATION
-                justify = (
-                    wx.ALIGN_LEFT
-                    if justification.startswith('l')
-                    else wx.ALIGN_CENTER_HORIZONTAL if justification.startswith('c') else wx.ALIGN_RIGHT
-                )
+                justify = wx.ALIGN_LEFT if justification.startswith('l') else wx.ALIGN_CENTER_HORIZONTAL if justification.startswith('c') else wx.ALIGN_RIGHT
                 if element.PasswordCharacter:
                     justify |= wx.TE_PASSWORD
 
@@ -6165,9 +6047,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_form):
                 style = wx.GA_HORIZONTAL if element.Orientation.startswith('h') else wx.GA_VERTICAL
                 element_size = element_size[::-1] if element.Orientation.startswith('v') else element_size
                 element_size = wx.Size((element_size[0], element_size[1]))
-                element.WxGauge = gauge = wx.Gauge(
-                    toplevel_form.MasterPanel, wx.ID_ANY, range=element.MaxValue, style=style, size=element_size
-                )
+                element.WxGauge = gauge = wx.Gauge(toplevel_form.MasterPanel, wx.ID_ANY, range=element.MaxValue, style=style, size=element_size)
                 if element.StartValue is not None:
                     gauge.SetValue(element.StartValue)
                 do_font_and_color(element.WxGauge)
@@ -6209,9 +6089,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_form):
                 full_element_pad = saved_pad
                 ######## Now make a "Spin Button" that has the arrows ########
                 # element.WxSpinCtrl = widget = wx.SpinCtrl(toplevel_form.MasterPanel, style=wx.SP_WRAP|wx.SP_ARROW_KEYS)
-                element.WxSpinCtrl = widget = wx.SpinButton(
-                    toplevel_form.MasterPanel, style=wx.SP_WRAP | wx.SP_ARROW_KEYS
-                )
+                element.WxSpinCtrl = widget = wx.SpinButton(toplevel_form.MasterPanel, style=wx.SP_WRAP | wx.SP_ARROW_KEYS)
                 do_font_and_color(element.WxSpinCtrl)
                 element.WxSpinCtrl.SetRange(0, len(element.Values) - 1)
                 if element.DefaultValue:
@@ -6324,9 +6202,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_form):
                 # if not element.Visible:
                 #     hsizer.Hide(vsizer, recursive=True)
                 # element.panel = panel = wx.Panel(toplevel_form.MasterFrame)
-                element.WxBoxSizer = vsizer = wx.StaticBoxSizer(
-                    orient=wx.VERTICAL, parent=toplevel_form.MasterFrame.panel, label=element.Title
-                )
+                element.WxBoxSizer = vsizer = wx.StaticBoxSizer(orient=wx.VERTICAL, parent=toplevel_form.MasterFrame.panel, label=element.Title)
                 element.WxHSizer = hsizer
                 PackFormIntoFrame(element, vsizer, toplevel_form)
 
@@ -6612,9 +6488,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_form):
                 if element.Orientation.lower().startswith('v'):
                     element.WxStaticLine = static_line = wx.StaticLine(toplevel_form.MasterPanel, style=wx.LI_VERTICAL)
                 else:
-                    element.WxStaticLine = static_line = wx.StaticLine(
-                        toplevel_form.MasterPanel, style=wx.LI_HORIZONTAL
-                    )
+                    element.WxStaticLine = static_line = wx.StaticLine(toplevel_form.MasterPanel, style=wx.LI_HORIZONTAL)
 
                 do_font_and_color(element.WxStaticLine)
 
@@ -6759,9 +6633,7 @@ def StartupTK(window: Window):
 
     if window.AutoClose:
         window.timer = wx.Timer(window.App, id=Window.NumOpenWindows)
-        window.App.Bind(
-            wx.EVT_TIMER, lambda frame: window.autoclose_timer_callback(window.MasterFrame), id=Window.NumOpenWindows
-        )
+        window.App.Bind(wx.EVT_TIMER, lambda frame: window.autoclose_timer_callback(window.MasterFrame), id=Window.NumOpenWindows)
         window.timer.Start(milliseconds=window.AutoCloseDuration * 1000, oneShot=wx.TIMER_ONE_SHOT)
     # ------------------------------------ MAINLOOP ------------------------------------
 
@@ -6874,9 +6746,7 @@ class QuickMeter(object):
         layout = []
         if self.orientation.lower().startswith('h'):
             col = []
-            col += [
-                [T(''.join(map(lambda x: str(x) + '\n', args)), key='_OPTMSG_')]
-            ]  ### convert all *args into one string that can be updated
+            col += [[T(''.join(map(lambda x: str(x) + '\n', args)), key='_OPTMSG_')]]  ### convert all *args into one string that can be updated
             col += [
                 [T('', size=(25, 8), key='_STATS_')],
                 [ProgressBar(max_value=self.max_value, orientation='h', key='_PROG_', size=self.size)],
@@ -6886,9 +6756,7 @@ class QuickMeter(object):
         else:
             col = [[ProgressBar(max_value=self.max_value, orientation='v', key='_PROG_', size=self.size)]]
             col2 = []
-            col2 += [
-                [T(''.join(map(lambda x: str(x) + '\n', args)), key='_OPTMSG_')]
-            ]  ### convert all *args into one string that can be updated
+            col2 += [[T(''.join(map(lambda x: str(x) + '\n', args)), key='_OPTMSG_')]]  ### convert all *args into one string that can be updated
             col2 += [[T('', size=(25, 8), key='_STATS_')], [Cancel(button_color=self.button_color), Stretch()]]
             layout = [Column(col), Column(col2)]
         self.window = Window(self.title, grab_anywhere=self.grab_anywhere, border_depth=self.border_width)
@@ -6901,18 +6769,12 @@ class QuickMeter(object):
         self.max_value = max_value
         self.window.Element('_PROG_').UpdateBar(self.current_value, self.max_value)
         self.window.Element('_STATS_').Update('\n'.join(self.ComputeProgressStats()))
-        self.window.Element('_OPTMSG_').Update(
-            value=''.join(map(lambda x: str(x) + '\n', args))
-        )  ###  update the string with the args
+        self.window.Element('_OPTMSG_').Update(value=''.join(map(lambda x: str(x) + '\n', args)))  ###  update the string with the args
         event, values = self.window.Read(timeout=0)
         if event in ('Cancel', None) or current_value >= max_value:
             self.window.Close()
             del QuickMeter.active_meters[self.key]
-            QuickMeter.exit_reasons[self.key] = (
-                METER_REASON_CANCELLED
-                if event == 'Cancel'
-                else METER_REASON_CLOSED if event is None else METER_REASON_REACHED_MAX
-            )
+            QuickMeter.exit_reasons[self.key] = METER_REASON_CANCELLED if event == 'Cancel' else METER_REASON_CLOSED if event is None else METER_REASON_REACHED_MAX
             return QuickMeter.exit_reasons[self.key]
         return METER_OK
 
@@ -7046,9 +6908,7 @@ class DebugWin:
             grab_anywhere=grab_anywhere,
             keep_on_top=keep_on_top,
         )
-        self.output_element = (
-            MultilineOutput(size=win_size, key='_MULTILINE_') if do_not_reroute_stdout else Output(size=win_size)
-        )
+        self.output_element = MultilineOutput(size=win_size, key='_MULTILINE_') if do_not_reroute_stdout else Output(size=win_size)
 
         if no_button:
             self.layout = [[self.output_element]]
@@ -7145,9 +7005,7 @@ def EasyPrintClose():
 
 # ========================  Scrolled Text Box   =====#
 # ===================================================#
-def PopupScrolled(
-    *args, button_color=None, yes_no=False, auto_close=False, auto_close_duration=None, size=(None, None)
-):
+def PopupScrolled(*args, button_color=None, yes_no=False, auto_close=False, auto_close_duration=None, size=(None, None)):
     if not args:
         return
     width, height = size
@@ -7173,9 +7031,7 @@ def PopupScrolled(
         height_computed += lines_needed
         complete_output += message + '\n'
         total_lines += lines_needed
-    height_computed = (
-        MAX_SCROLLED_TEXT_BOX_HEIGHT if height_computed > MAX_SCROLLED_TEXT_BOX_HEIGHT else height_computed
-    )
+    height_computed = MAX_SCROLLED_TEXT_BOX_HEIGHT if height_computed > MAX_SCROLLED_TEXT_BOX_HEIGHT else height_computed
     if height:
         height_computed = height
     form.AddRow(Multiline(complete_output, size=(max_line_width, height_computed)))
@@ -9547,35 +9403,13 @@ sprint = ScrolledTextBox
 def ObjToStringSingleObj(obj):
     if obj is None:
         return 'None'
-    return (
-        str(obj.__class__)
-        + '\n'
-        + '\n'.join((repr(item) + ' = ' + repr(obj.__dict__[item]) for item in sorted(obj.__dict__)))
-    )
+    return str(obj.__class__) + '\n' + '\n'.join((repr(item) + ' = ' + repr(obj.__dict__[item]) for item in sorted(obj.__dict__)))
 
 
 def ObjToString(obj, extra='    '):
     if obj is None:
         return 'None'
-    return (
-        str(obj.__class__)
-        + '\n'
-        + '\n'.join(
-            (
-                extra
-                + (
-                    str(item)
-                    + ' = '
-                    + (
-                        ObjToString(obj.__dict__[item], extra + '    ')
-                        if hasattr(obj.__dict__[item], '__dict__')
-                        else str(obj.__dict__[item])
-                    )
-                )
-                for item in sorted(obj.__dict__)
-            )
-        )
-    )
+    return str(obj.__class__) + '\n' + '\n'.join((extra + (str(item) + ' = ' + (ObjToString(obj.__dict__[item], extra + '    ') if hasattr(obj.__dict__[item], '__dict__') else str(obj.__dict__[item]))) for item in sorted(obj.__dict__)))
 
 
 # ------------------------------------------------------------------------------------------------------------------ #
@@ -9671,9 +9505,7 @@ def Popup(
         max_line_total = max(max_line_total, width_used)
         # height = _GetNumLinesNeeded(message, width_used)
         height = message_wrapped_lines
-        window.AddRow(
-            Text(message_wrapped, auto_size_text=True, text_color=text_color, background_color=background_color)
-        )
+        window.AddRow(Text(message_wrapped, auto_size_text=True, text_color=text_color, background_color=background_color))
         total_lines += height
 
     if non_blocking:
@@ -9683,11 +9515,7 @@ def Popup(
     # show either an OK or Yes/No depending on paramater
     if custom_text != (None, None):
         if type(custom_text) is not tuple:
-            window.AddRow(
-                PopupButton(
-                    custom_text, size=(len(custom_text), 1), button_color=button_color, focus=True, bind_return_key=True
-                )
-            )
+            window.AddRow(PopupButton(custom_text, size=(len(custom_text), 1), button_color=button_color, focus=True, bind_return_key=True))
         elif custom_text[1] is None:
             window.AddRow(
                 PopupButton(
@@ -9711,21 +9539,13 @@ def Popup(
             )
     elif button_type is POPUP_BUTTONS_YES_NO:
         window.AddRow(
-            PopupButton(
-                'Yes', button_color=button_color, focus=True, bind_return_key=True, pad=((20, 5), 3), size=(5, 1)
-            ),
+            PopupButton('Yes', button_color=button_color, focus=True, bind_return_key=True, pad=((20, 5), 3), size=(5, 1)),
             PopupButton('No', button_color=button_color, size=(5, 1)),
         )
     elif button_type is POPUP_BUTTONS_CANCELLED:
-        window.AddRow(
-            PopupButton('Cancelled', button_color=button_color, focus=True, bind_return_key=True, pad=((20, 0), 3))
-        )
+        window.AddRow(PopupButton('Cancelled', button_color=button_color, focus=True, bind_return_key=True, pad=((20, 0), 3)))
     elif button_type is POPUP_BUTTONS_ERROR:
-        window.AddRow(
-            PopupButton(
-                'Error', size=(6, 1), button_color=button_color, focus=True, bind_return_key=True, pad=((20, 0), 3)
-            )
-        )
+        window.AddRow(PopupButton('Error', size=(6, 1), button_color=button_color, focus=True, bind_return_key=True, pad=((20, 0), 3)))
     elif button_type is POPUP_BUTTONS_OK_CANCEL:
         window.AddRow(
             PopupButton('OK', size=(6, 1), button_color=button_color, focus=True, bind_return_key=True),
@@ -9734,11 +9554,7 @@ def Popup(
     elif button_type is POPUP_BUTTONS_NO_BUTTONS:
         pass
     else:
-        window.AddRow(
-            PopupButton(
-                'OK', size=(5, 1), button_color=button_color, focus=True, bind_return_key=True, pad=((20, 0), 3)
-            )
-        )
+        window.AddRow(PopupButton('OK', size=(5, 1), button_color=button_color, focus=True, bind_return_key=True, pad=((20, 0), 3)))
 
     if non_blocking:
         button, values = window.Read(timeout=0)
@@ -10517,11 +10333,7 @@ def PopupGetFile(
             file_name = ''
         return file_name
 
-    browse_button = (
-        SaveAs(file_types=file_types, initial_folder=initial_folder)
-        if save_as
-        else FileBrowse(file_types=file_types, initial_folder=initial_folder)
-    )
+    browse_button = SaveAs(file_types=file_types, initial_folder=initial_folder) if save_as else FileBrowse(file_types=file_types, initial_folder=initial_folder)
 
     layout = [
         [Text(message, auto_size_text=True, text_color=text_color, background_color=background_color)],

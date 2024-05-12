@@ -742,9 +742,7 @@ class InputText(Element):
         self._ReturnKeyHandler(None)
         return
 
-    def Update(
-        self, value=None, disabled=None, select=None, background_color=None, text_color=None, font=None, visible=None
-    ):
+    def Update(self, value=None, disabled=None, select=None, background_color=None, text_color=None, font=None, visible=None):
         if disabled is True:
             self.QT_QLineEdit.setDisabled(True)
         elif disabled is False:
@@ -757,9 +755,7 @@ class InputText(Element):
             # self.ValueWasChanged = True
         if select:
             self.QT_QLineEdit.setSelection(0, QtGui.QTextCursor.End)
-        super().Update(
-            self.QT_QLineEdit, background_color=background_color, text_color=text_color, font=font, visible=visible
-        )
+        super().Update(self.QT_QLineEdit, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
     def Get(self):
         return self.QT_QLineEdit.text()
@@ -913,9 +909,7 @@ class Combo(Element):
         if readonly is not None:
             self.Readonly = readonly
 
-        super().Update(
-            self.QT_ComboBox, background_color=background_color, text_color=text_color, font=font, visible=visible
-        )
+        super().Update(self.QT_ComboBox, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
     update = Update
 
@@ -1143,9 +1137,7 @@ class Listbox(Element):
             self.QT_ListWidget.setDisabled(False)
         if set_to_index is not None:
             self.QT_ListWidget.setCurrentRow(set_to_index)
-        super().Update(
-            self.QT_ListWidget, background_color=background_color, text_color=text_color, font=font, visible=visible
-        )
+        super().Update(self.QT_ListWidget, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
         return
 
@@ -1285,9 +1277,7 @@ class Radio(Element):
             self.QT_RadioButtonGroup.setExclusive(False)
             self.QT_Radio_Button.setChecked(False)
             self.QT_RadioButtonGroup.setExclusive(True)
-        super().Update(
-            self.QT_Radio_Button, background_color=background_color, text_color=text_color, font=font, visible=visible
-        )
+        super().Update(self.QT_Radio_Button, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
     def reset_group(self):
         self.QT_Radio_Button.setChecked(True)
@@ -1405,9 +1395,7 @@ class Checkbox(Element):
             self.QT_Checkbox.setDisabled(True)
         elif disabled == False:
             self.QT_Checkbox.setDisabled(False)
-        super().Update(
-            self.QT_Checkbox, background_color=background_color, text_color=text_color, font=font, visible=visible
-        )
+        super().Update(self.QT_Checkbox, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
     get = Get
     update = Update
@@ -1533,9 +1521,7 @@ class Spin(Element):
             return
         _element_callback_quit_mainloop(self)
 
-    def Update(
-        self, value=None, values=None, disabled=None, background_color=None, text_color=None, font=None, visible=None
-    ):
+    def Update(self, value=None, values=None, disabled=None, background_color=None, text_color=None, font=None, visible=None):
         if values != None:
             self.Values = values
             self.QT_Spinner.setStrings(values)
@@ -1551,9 +1537,7 @@ class Spin(Element):
             self.QT_Spinner.setDisabled(True)
         elif disabled == False:
             self.QT_Spinner.setDisabled(False)
-        super().Update(
-            self.QT_Spinner, background_color=background_color, text_color=text_color, font=font, visible=visible
-        )
+        super().Update(self.QT_Spinner, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
     def Get(self):
         return self.QT_Spinner.value()
@@ -1757,9 +1741,7 @@ class Multiline(Element):
             self.QT_TextEdit.setReadOnly(True)
         elif readonly is False:
             self.QT_TextEdit.setReadOnly(False)
-        super().Update(
-            self.QT_TextEdit, background_color=background_color, text_color=text_color, font=font, visible=visible
-        )
+        super().Update(self.QT_TextEdit, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
     def Get(self):
         return self.QT_TextEdit.toPlainText()
@@ -1932,9 +1914,7 @@ class MultilineOutput(Element):
             self.QT_TextBrowser.setDisabled(False)
         if self.Autoscroll or autoscroll and autoscroll is not False:
             self.QT_TextBrowser.moveCursor(QtGui.QTextCursor.End)
-        super().Update(
-            self.QT_TextBrowser, background_color=background_color, text_color=text_color, font=font, visible=visible
-        )
+        super().Update(self.QT_TextBrowser, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
     def Get(self):
         return self.QT_TextBrowser.toPlainText()
@@ -2083,9 +2063,7 @@ class Text(Element):
         if value is not None:
             self.DisplayText = str(value)
             self.QT_Label.setText(str(value))
-        super().Update(
-            self.QT_Label, background_color=background_color, text_color=text_color, font=font, visible=visible
-        )
+        super().Update(self.QT_Label, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
     update = Update
 
@@ -2192,9 +2170,7 @@ class Output(Element):
     def Update(self, value=None, background_color=None, text_color=None, font=None, visible=None):
         if value is not None:
             self.QT_TextBrowser.setText(value)
-        super().Update(
-            self.QT_TextBrowser, background_color=background_color, text_color=text_color, font=font, visible=visible
-        )
+        super().Update(self.QT_TextBrowser, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
     def __del__(self):
         sys.stdout = self.my_stdout
@@ -2466,9 +2442,7 @@ class Button(Element):
             if self.ParentForm.CurrentlyRunningMainloop:  # if this window is running the mainloop, kick out
                 self.ParentForm.QTApplication.exit()
             Window.DecrementOpenCount()
-        elif (
-            self.BType == BUTTON_TYPE_CALENDAR_CHOOSER
-        ):  # this is a return type button so GET RESULTS and destroy window
+        elif self.BType == BUTTON_TYPE_CALENDAR_CHOOSER:  # this is a return type button so GET RESULTS and destroy window
             should_submit_window = False
 
         if should_submit_window:
@@ -4042,9 +4016,7 @@ class Column(Element):
         self.vbox_layout = None  # type: QVBoxLayout
         self.Layout(layout)
 
-        super().__init__(
-            ELEM_TYPE_COLUMN, background_color=bg, size=size, pad=pad, key=key, visible=visible, metadata=metadata
-        )
+        super().__init__(ELEM_TYPE_COLUMN, background_color=bg, size=size, pad=pad, key=key, visible=visible, metadata=metadata)
         return
 
     def AddRow(self, *args):
@@ -4280,9 +4252,7 @@ class Table(Element):
         self.BackgroundColor = background_color if background_color is not None else DEFAULT_BACKGROUND_COLOR
         self.TextColor = text_color
         self.HeaderTextColor = header_text_color if header_text_color is not None else theme_input_text_color()
-        self.HeaderBackgroundColor = (
-            header_background_color if header_background_color is not None else theme_input_background_color()
-        )
+        self.HeaderBackgroundColor = header_background_color if header_background_color is not None else theme_input_background_color()
         self.HeaderFont = header_font
         self.Justification = justification
         self.InitialState = None
@@ -4511,9 +4481,7 @@ class Tree(Element):
         self.BackgroundColor = background_color if background_color is not None else DEFAULT_BACKGROUND_COLOR
         self.TextColor = text_color
         self.HeaderTextColor = header_text_color if header_text_color is not None else theme_input_text_color()
-        self.HeaderBackgroundColor = (
-            header_background_color if header_background_color is not None else theme_input_background_color()
-        )
+        self.HeaderBackgroundColor = header_background_color if header_background_color is not None else theme_input_background_color()
         self.HeaderFont = header_font
         self.Justification = justification
         self.InitialState = None
@@ -4653,10 +4621,7 @@ class TreeData(object):
         return self._NodeStr(self.root_node, 1)
 
     def _NodeStr(self, node, level):
-        return '\n'.join(
-            [str(node.key) + ' : ' + str(node.text)]
-            + [' ' * 4 * level + self._NodeStr(child, level + 1) for child in node.children]
-        )
+        return '\n'.join([str(node.key) + ' : ' + str(node.text)] + [' ' * 4 * level + self._NodeStr(child, level + 1) for child in node.children])
 
     insert = Insert
 
@@ -5039,11 +5004,7 @@ class Window:
         self.Title = title
         self.Rows = []  # a list of ELEMENTS for this row
         self.DefaultElementSize = _convert_tkinter_size_to_Qt(default_element_size)
-        self.DefaultButtonElementSize = (
-            _convert_tkinter_size_to_Qt(default_button_element_size)
-            if default_button_element_size != (None, None)
-            else DEFAULT_BUTTON_ELEMENT_SIZE
-        )
+        self.DefaultButtonElementSize = _convert_tkinter_size_to_Qt(default_button_element_size) if default_button_element_size != (None, None) else DEFAULT_BUTTON_ELEMENT_SIZE
         self.Location = location
         self.ButtonColor = button_color if button_color else DEFAULT_BUTTON_COLOR
         self.BackgroundColor = background_color if background_color else DEFAULT_BACKGROUND_COLOR
@@ -5187,9 +5148,7 @@ class Window:
         return self
 
     def LayoutAndRead(self, rows, non_blocking=False):
-        raise DeprecationWarning(
-            'LayoutAndRead is no longer supported... change your call to window.Layout(layout).Read()'
-        )
+        raise DeprecationWarning('LayoutAndRead is no longer supported... change your call to window.Layout(layout).Read()')
         # self.AddRows(rows)
         # self.Show(non_blocking=non_blocking)
         # return self.ReturnValues
@@ -5367,13 +5326,9 @@ class Window:
                 self.LastButtonClicked = None
             return results
         else:
-            if (
-                not self.XFound and self.Timeout != 0 and self.Timeout is not None and self.ReturnValues[0] is None
-            ):  # Special Qt case because returning for no reason so fake timeout
+            if not self.XFound and self.Timeout != 0 and self.Timeout is not None and self.ReturnValues[0] is None:  # Special Qt case because returning for no reason so fake timeout
                 self.ReturnValues = self.TimeoutKey, self.ReturnValues[1]  # fake a timeout
-            elif (
-                not self.XFound and self.ReturnValues[0] is None
-            ):  # TODO HIGHLY EXPERIMENTAL... added due to tray icon interaction
+            elif not self.XFound and self.ReturnValues[0] is None:  # TODO HIGHLY EXPERIMENTAL... added due to tray icon interaction
                 # print("*** Faking timeout ***")
                 self.ReturnValues = self.TimeoutKey, self.ReturnValues[1]  # fake a timeout
             return self.ReturnValues
@@ -5485,18 +5440,10 @@ class Window:
                         top_window.DictionaryKeyCounter += 1
                 if element.Key is not None:
                     if element.Key in key_dict.keys():
-                        (
-                            print('*** Duplicate key found in your layout {} ***'.format(element.Key))
-                            if element.Type != ELEM_TYPE_BUTTON
-                            else None
-                        )
+                        (print('*** Duplicate key found in your layout {} ***'.format(element.Key)) if element.Type != ELEM_TYPE_BUTTON else None)
                         element.Key = str(element.Key) + str(self.UniqueKeyCounter)
                         self.UniqueKeyCounter += 1
-                        (
-                            print('*** Replaced new key with {} ***'.format(element.Key))
-                            if element.Type != ELEM_TYPE_BUTTON
-                            else None
-                        )
+                        (print('*** Replaced new key with {} ***'.format(element.Key)) if element.Type != ELEM_TYPE_BUTTON else None)
                     key_dict[element.Key] = element
         return key_dict
 
@@ -6015,9 +5962,7 @@ def _element_callback_quit_mainloop(element):
 # =========================================================================== #
 # Convert from characters to pixels                                           #
 # =========================================================================== #
-def _convert_tkinter_size_to_Qt(
-    size, scaling=DEFAULT_PIXELS_TO_CHARS_SCALING, height_cutoff=DEFAULT_PIXEL_TO_CHARS_CUTOFF
-):
+def _convert_tkinter_size_to_Qt(size, scaling=DEFAULT_PIXELS_TO_CHARS_SCALING, height_cutoff=DEFAULT_PIXEL_TO_CHARS_CUTOFF):
     """
     Converts size in characters to size in pixels
     :param size:  size in characters, rows
@@ -7261,11 +7206,7 @@ def BuildResultsForSubform(form, initialize_only, top_level_form):
             if not initialize_only:
                 if element.Type == ELEM_TYPE_INPUT_TEXT:
                     value = element.QT_QLineEdit.text()
-                    if (
-                        not top_level_form.NonBlocking
-                        and not element.do_not_clear
-                        and not top_level_form.ReturnKeyboardEvents
-                    ):
+                    if not top_level_form.NonBlocking and not element.do_not_clear and not top_level_form.ReturnKeyboardEvents:
                         element.QT_QLineEdit.setText('')
 
                 elif element.Type == ELEM_TYPE_INPUT_CHECKBOX:
@@ -7290,9 +7231,7 @@ def BuildResultsForSubform(form, initialize_only, top_level_form):
                             value = None
                 elif element.Type == ELEM_TYPE_INPUT_COMBO:
                     element = element  # type: Combo
-                    index = (
-                        element.QT_ComboBox.currentIndex()
-                    )  # index into the list of values, but can be larger if manual entry
+                    index = element.QT_ComboBox.currentIndex()  # index into the list of values, but can be larger if manual entry
                     if index < len(element.Values):
                         value = element.Values[index]
                     else:  # if not a valid index, then get what was typed in
@@ -7326,11 +7265,7 @@ def BuildResultsForSubform(form, initialize_only, top_level_form):
                     if element.WriteOnly:
                         continue
                     value = element.QT_TextEdit.toPlainText()
-                    if (
-                        not top_level_form.NonBlocking
-                        and not element.do_not_clear
-                        and not top_level_form.ReturnKeyboardEvents
-                    ):
+                    if not top_level_form.NonBlocking and not element.do_not_clear and not top_level_form.ReturnKeyboardEvents:
                         element.QT_TextEdit.setText('')
                 elif element.Type == ELEM_TYPE_TAB_GROUP:
                     element = element  # type: TabGroup
@@ -7360,29 +7295,12 @@ def BuildResultsForSubform(form, initialize_only, top_level_form):
                 value = None
 
             # if an input type element, update the results
-            if (
-                element.Type != ELEM_TYPE_BUTTON
-                and element.Type != ELEM_TYPE_TEXT
-                and element.Type != ELEM_TYPE_IMAGE
-                and element.Type != ELEM_TYPE_OUTPUT
-                and element.Type != ELEM_TYPE_PROGRESS_BAR
-                and element.Type != ELEM_TYPE_COLUMN
-                and element.Type != ELEM_TYPE_FRAME
-                and element.Type != ELEM_TYPE_TAB
-            ):
+            if element.Type != ELEM_TYPE_BUTTON and element.Type != ELEM_TYPE_TEXT and element.Type != ELEM_TYPE_IMAGE and element.Type != ELEM_TYPE_OUTPUT and element.Type != ELEM_TYPE_PROGRESS_BAR and element.Type != ELEM_TYPE_COLUMN and element.Type != ELEM_TYPE_FRAME and element.Type != ELEM_TYPE_TAB:
                 AddToReturnList(form, value)
                 AddToReturnDictionary(top_level_form, element, value)
             elif (
-                (
-                    element.Type == ELEM_TYPE_BUTTON
-                    and element.BType == BUTTON_TYPE_CALENDAR_CHOOSER
-                    and element.Target == (None, None)
-                )
-                or (
-                    element.Type == ELEM_TYPE_BUTTON
-                    and element.BType == BUTTON_TYPE_COLOR_CHOOSER
-                    and element.Target == (None, None)
-                )
+                (element.Type == ELEM_TYPE_BUTTON and element.BType == BUTTON_TYPE_CALENDAR_CHOOSER and element.Target == (None, None))
+                or (element.Type == ELEM_TYPE_BUTTON and element.BType == BUTTON_TYPE_COLOR_CHOOSER and element.Target == (None, None))
                 or (
                     element.Type == ELEM_TYPE_BUTTON
                     and element.Key is not None
@@ -8065,11 +7983,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
                 # === style === end
 
                 # element.QT_QPushButton.setFlat(False)
-                if (
-                    element.AutoSizeButton is False
-                    or toplevel_win.AutoSizeButtons is False
-                    or element.Size[0] is not None
-                ) and element.ImageData is None:
+                if (element.AutoSizeButton is False or toplevel_win.AutoSizeButtons is False or element.Size[0] is not None) and element.ImageData is None:
                     if element_size[0] is not None:
                         element.QT_QPushButton.setFixedWidth(element_size[0])
                     if element_size[1] is not None:
@@ -8410,9 +8324,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
 
                     style['border'] = '%spx solid grey' % border_depth
                     style['border-radius'] = '0px'
-                    style['background-color'] = str(
-                        element.BarColor[1] if element.BarColor[1] is not None else DEFAULT_PROGRESS_BAR_COLOR[1]
-                    )
+                    style['background-color'] = str(element.BarColor[1] if element.BarColor[1] is not None else DEFAULT_PROGRESS_BAR_COLOR[1])
 
                 element.QT_QProgressBar.setStyleSheet(style.build_css_string() + style_chunk.build_css_string())
                 element.qt_styles = (style, style_chunk)
@@ -8636,10 +8548,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
                     menu_style['font'] = create_style_from_font(font)
                     if element.MenuItemTextColor is not None and element.MenuItemTextColor != COLOR_SYSTEM_DEFAULT:
                         menu_style['color'] = element.MenuItemTextColor
-                    if (
-                        element.MenuItemBackgroundColor is not None
-                        and element.MenuItemBackgroundColor != COLOR_SYSTEM_DEFAULT
-                    ):
+                    if element.MenuItemBackgroundColor is not None and element.MenuItemBackgroundColor != COLOR_SYSTEM_DEFAULT:
                         menu_style['background-color'] = element.MenuItemBackgroundColor
                     # style['margin'] = full_element_pad
                     baritem.setStyleSheet(menu_style.build_css_string())
@@ -8675,11 +8584,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
                 element.qt_styles = (style,)
                 # === style === end
 
-                if (
-                    element.AutoSizeButton is False
-                    or toplevel_win.AutoSizeButtons is False
-                    or element.Size[0] is not None
-                ) and element.ImageData is None:
+                if (element.AutoSizeButton is False or toplevel_win.AutoSizeButtons is False or element.Size[0] is not None) and element.ImageData is None:
                     if element_size[0] is not None:
                         element.QT_QPushButton.setFixedWidth(element_size[0])
                     if element_size[1] is not None:
@@ -8998,9 +8903,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
             # -------------------------  TABLE placement element  ------------------------- #
             elif element_type == ELEM_TYPE_TABLE:
                 element = element  # type: Table
-                element.Widget = element.QT_TableWidget = Table.QTTableWidget(
-                    toplevel_win.ReturnKeyboardEvents, toplevel_win
-                )
+                element.Widget = element.QT_TableWidget = Table.QTTableWidget(toplevel_win.ReturnKeyboardEvents, toplevel_win)
                 if element.NumRows is not None:
                     element.QT_TableWidget.setFixedHeight(element.NumRows * 35 + 25)
                 # element.QT_TableWidget = QTableWidget()
@@ -9016,14 +8919,10 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
                 style['border'] = '{}px solid gray'.format(border_depth)
 
                 # more css: ScrollBar
-                style.append_css_to_end.append(
-                    ' QScrollBar:vertical {border: none; background:lightgray; width:12px; margin: 0px 0px 0px 0px; } '
-                )
+                style.append_css_to_end.append(' QScrollBar:vertical {border: none; background:lightgray; width:12px; margin: 0px 0px 0px 0px; } ')
                 # more css: QHeaderView
                 header_style = QtStyle('QHeaderView::section')
-                header_style['font'] = create_style_from_font(
-                    element.HeaderFont if element.HeaderFont is not None else font
-                )
+                header_style['font'] = create_style_from_font(element.HeaderFont if element.HeaderFont is not None else font)
                 header_style['background-color'] = element.HeaderBackgroundColor
                 header_style['color'] = element.HeaderTextColor
 
@@ -9116,14 +9015,10 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
                     style['background-color'] = element.BackgroundColor
                 style['margin'] = full_element_pad
                 style['border'] = '{}px solid gray'.format(border_depth)
-                style.append_css_to_end.append(
-                    ' QScrollBar:vertical {border: none; background:lightgray; width:12px; margin: 0px 0px 0px 0px; } '
-                )
+                style.append_css_to_end.append(' QScrollBar:vertical {border: none; background:lightgray; width:12px; margin: 0px 0px 0px 0px; } ')
 
                 header_style = QtStyle('QHeaderView::section')
-                header_style['font'] = create_style_from_font(
-                    element.HeaderFont if element.HeaderFont is not None else font
-                )
+                header_style['font'] = create_style_from_font(element.HeaderFont if element.HeaderFont is not None else font)
                 header_style['background-color'] = element.HeaderBackgroundColor
                 header_style['color'] = element.HeaderTextColor
 
@@ -9484,9 +9379,7 @@ class QuickMeter(object):
     def BuildWindow(self, *args):
         layout = []
         if self.orientation.lower().startswith('h'):
-            col = [
-                [T(''.join(map(lambda x: str(x) + '\n', args)), key='_OPTMSG_')]
-            ]  ### convert all *args into one string that can be updated
+            col = [[T(''.join(map(lambda x: str(x) + '\n', args)), key='_OPTMSG_')]]  ### convert all *args into one string that can be updated
             col += [
                 [T('', size=(25, 5), key='_STATS_')],
                 [
@@ -9513,9 +9406,7 @@ class QuickMeter(object):
                     )
                 ]
             ]
-            col2 = [
-                [T(''.join(map(lambda x: str(x) + '\n', args)), key='_OPTMSG_')]
-            ]  ### convert all *args into one string that can be updated
+            col2 = [[T(''.join(map(lambda x: str(x) + '\n', args)), key='_OPTMSG_')]]  ### convert all *args into one string that can be updated
             col2 += [[T('', size=(25, 5), key='_STATS_')], [Cancel(button_color=self.button_color), Stretch()]]
             layout += [Column(col), Column(col2)]
         self.window = Window(self.title, grab_anywhere=self.grab_anywhere, border_depth=self.border_width)
@@ -9528,18 +9419,12 @@ class QuickMeter(object):
         self.max_value = max_value
         self.window.Element('_PROG_').UpdateBar(self.current_value, self.max_value)
         self.window.Element('_STATS_').Update('\n'.join(self.ComputeProgressStats()))
-        self.window.Element('_OPTMSG_').Update(
-            value=''.join(map(lambda x: str(x) + '\n', args))
-        )  ###  update the string with the args
+        self.window.Element('_OPTMSG_').Update(value=''.join(map(lambda x: str(x) + '\n', args)))  ###  update the string with the args
         event, values = self.window.Read(timeout=0)
         if event in ('Cancel', None) or current_value >= max_value:
             self.window.Close()
             del QuickMeter.active_meters[self.key]
-            QuickMeter.exit_reasons[self.key] = (
-                METER_REASON_CANCELLED
-                if event == 'Cancel'
-                else METER_REASON_CLOSED if event is None else METER_REASON_REACHED_MAX
-            )
+            QuickMeter.exit_reasons[self.key] = METER_REASON_CANCELLED if event == 'Cancel' else METER_REASON_CLOSED if event is None else METER_REASON_REACHED_MAX
             return QuickMeter.exit_reasons[self.key]
         return METER_OK
 
@@ -9695,9 +9580,7 @@ class DebugWin:
             grab_anywhere=grab_anywhere,
             keep_on_top=keep_on_top,
         )
-        self.output_element = (
-            MultilineOutput(size=win_size, key='_MULTILINE_') if do_not_reroute_stdout else Output(size=win_size)
-        )
+        self.output_element = MultilineOutput(size=win_size, key='_MULTILINE_') if do_not_reroute_stdout else Output(size=win_size)
 
         if no_button:
             self.layout = [[self.output_element]]
@@ -9973,9 +9856,7 @@ def cprint(
 # ------------------------------------------------------------------------------------------------ #
 
 
-def _print_to_element(
-    multiline_element, *args, end=None, sep=None, text_color=None, background_color=None, autoscroll=True
-):
+def _print_to_element(multiline_element, *args, end=None, sep=None, text_color=None, background_color=None, autoscroll=True):
     """
     Print like Python normally prints except route the output to a multline element and also add colors if desired
 
@@ -10085,9 +9966,7 @@ def PopupScrolled(
         height_computed += lines_needed
         complete_output += message + '\n'
         total_lines += lines_needed
-    height_computed = (
-        MAX_SCROLLED_TEXT_BOX_HEIGHT if height_computed > MAX_SCROLLED_TEXT_BOX_HEIGHT else height_computed
-    )
+    height_computed = MAX_SCROLLED_TEXT_BOX_HEIGHT if height_computed > MAX_SCROLLED_TEXT_BOX_HEIGHT else height_computed
     if height:
         height_computed = height
     computed_size = (max_line_width * 10, height_computed * 16)
@@ -10098,9 +9977,7 @@ def PopupScrolled(
     if yes_no:
         window.AddRow(Text('', size=(pad, 1), auto_size_text=False), button('Yes'), button('No'))
     else:
-        window.AddRow(
-            Text('', size=(pad, 1), auto_size_text=False), button('OK', size=(5, 1), button_color=button_color)
-        )
+        window.AddRow(Text('', size=(pad, 1), auto_size_text=False), button('OK', size=(5, 1), button_color=button_color))
 
     if non_blocking:
         button, values = window.Read(timeout=0)
@@ -12692,11 +12569,7 @@ def ObjToStringSingleObj(obj):
     """
     if obj is None:
         return 'None'
-    return (
-        str(obj.__class__)
-        + '\n'
-        + '\n'.join((repr(item) + ' = ' + repr(obj.__dict__[item]) for item in sorted(obj.__dict__)))
-    )
+    return str(obj.__class__) + '\n' + '\n'.join((repr(item) + ' = ' + repr(obj.__dict__[item]) for item in sorted(obj.__dict__)))
 
 
 def ObjToString(obj, extra='    '):
@@ -12711,25 +12584,7 @@ def ObjToString(obj, extra='    '):
     """
     if obj is None:
         return 'None'
-    return (
-        str(obj.__class__)
-        + '\n'
-        + '\n'.join(
-            (
-                extra
-                + (
-                    str(item)
-                    + ' = '
-                    + (
-                        ObjToString(obj.__dict__[item], extra + '    ')
-                        if hasattr(obj.__dict__[item], '__dict__')
-                        else str(obj.__dict__[item])
-                    )
-                )
-                for item in sorted(obj.__dict__)
-            )
-        )
-    )
+    return str(obj.__class__) + '\n' + '\n'.join((extra + (str(item) + ' = ' + (ObjToString(obj.__dict__[item], extra + '    ') if hasattr(obj.__dict__[item], '__dict__') else str(obj.__dict__[item]))) for item in sorted(obj.__dict__)))
 
 
 # ------------------------------------------------------------------------------------------------------------------ #
@@ -12856,9 +12711,7 @@ def Popup(
         max_line_total = max(max_line_total, width_used)
         # height = _GetNumLinesNeeded(message, width_used)
         height = message_wrapped_lines
-        window.AddRow(
-            Text(message_wrapped, auto_size_text=True, text_color=text_color, background_color=background_color)
-        )
+        window.AddRow(Text(message_wrapped, auto_size_text=True, text_color=text_color, background_color=background_color))
         total_lines += height
 
     # if total_lines < 3:
@@ -12890,9 +12743,7 @@ def Popup(
             ]
         )
     elif button_type is POPUP_BUTTONS_CANCELLED:
-        layout.append(
-            [PopupButton('Cancelled', button_color=button_color, focus=True, bind_return_key=True), Stretch()]
-        )
+        layout.append([PopupButton('Cancelled', button_color=button_color, focus=True, bind_return_key=True), Stretch()])
     elif button_type is POPUP_BUTTONS_ERROR:
         layout.append(
             [
@@ -12911,9 +12762,7 @@ def Popup(
     elif button_type is POPUP_BUTTONS_NO_BUTTONS:
         pass
     else:
-        layout.append(
-            [PopupButton('OK', size=(60, 20), button_color=button_color, focus=True, bind_return_key=True), Stretch()]
-        )
+        layout.append([PopupButton('OK', size=(60, 20), button_color=button_color, focus=True, bind_return_key=True), Stretch()])
 
     window.Layout(layout)
     if non_blocking:
@@ -13969,11 +13818,7 @@ def PopupGetFile(
             filename = QFileDialog.getOpenFileName(dir=initial_folder, filter=qt_types)
         return filename[0]
 
-    browse_button = (
-        SaveAs(file_types=file_types, initial_folder=initial_folder)
-        if save_as
-        else FileBrowse(file_types=file_types, initial_folder=initial_folder)
-    )
+    browse_button = SaveAs(file_types=file_types, initial_folder=initial_folder) if save_as else FileBrowse(file_types=file_types, initial_folder=initial_folder)
 
     if image is not None:
         if isinstance(image, str):
@@ -14258,9 +14103,7 @@ def main():
 
     frame4 = [
         [
-            Slider(
-                range=(0, 100), tick_interval=None, orientation='v', size=(3, 30), default_value=40, tooltip='Slider'
-            ),
+            Slider(range=(0, 100), tick_interval=None, orientation='v', size=(3, 30), default_value=40, tooltip='Slider'),
             Dial(range=(0, 100), tick_interval=1, resolution=1, size=(150, 150), default_value=40, tooltip='Dial'),
             Stretch(),
         ],
@@ -14315,9 +14158,7 @@ def main():
         [Text('VERSION {}'.format(ver), size=(85, 1), text_color='yellow', font='ANY 18')],
         # [Image(data_base64=logo, tooltip='Image', click_submits=True, key='_IMAGE_'),
         [
-            Frame(
-                'Input Text Group', frame1, title_color='yellow', tooltip='Text Group', frame_color='yellow', pad=(0, 0)
-            ),
+            Frame('Input Text Group', frame1, title_color='yellow', tooltip='Text Group', frame_color='yellow', pad=(0, 0)),
             Stretch(),
         ],
         [
@@ -14336,9 +14177,7 @@ def main():
             ProgressBar(max_value=600, start_value=400, size=(600, 25), key='+PROGRESS+'),
             Text('', key='_PROGTEXT_'),
             Stretch(),
-            ButtonMenu(
-                '&Menu', ['Menu', ['&Pause Graph', 'Menu item::optional_key']], key='_MENU_', tooltip='Button Menu'
-            ),
+            ButtonMenu('&Menu', ['Menu', ['&Pause Graph', 'Menu item::optional_key']], key='_MENU_', tooltip='Button Menu'),
             Button('Button'),
             Button('Exit', tooltip='Exit button'),
         ],
@@ -14373,14 +14212,10 @@ def main():
         if not graph_paused:
 
             if i < 600:
-                graph_elem.DrawLine(
-                    (i, 0), (i, random.randint(0, 300)), width=1, color='#{:06x}'.format(random.randint(0, 0xFFFFFF))
-                )
+                graph_elem.DrawLine((i, 0), (i, random.randint(0, 300)), width=1, color='#{:06x}'.format(random.randint(0, 0xFFFFFF)))
             else:
                 graph_elem.Move(-1, 0)
-                graph_elem.DrawLine(
-                    (i, 0), (i, random.randint(0, 300)), width=1, color='#{:06x}'.format(random.randint(0, 0xFFFFFF))
-                )
+                graph_elem.DrawLine((i, 0), (i, random.randint(0, 300)), width=1, color='#{:06x}'.format(random.randint(0, 0xFFFFFF)))
 
         window.FindElement('+PROGRESS+').UpdateBar(i % 600)
         window.FindElement('_PROGTEXT_').Update((i % 600) // 6)
