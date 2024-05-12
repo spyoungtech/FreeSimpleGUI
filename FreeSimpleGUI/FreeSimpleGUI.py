@@ -37,7 +37,6 @@ import datetime
 import textwrap
 
 import socket
-from hashlib import sha256 as hh
 import inspect
 import traceback
 import difflib
@@ -24192,20 +24191,6 @@ def get_versions():
     return versions
 
 
-def scheck_hh():
-    with open(__file__, 'r',encoding='utf8') as file:
-        lines_in_file = file.readlines()
-    combined_lines = ''.join(lines_in_file[:-1])
-    entire_file_bytes = bytearray(combined_lines, encoding='utf8')
-    cfileh = hh(entire_file_bytes)
-    return cfileh.hexdigest()
-
-
-def read_last_line():
-    with open(__file__, 'r',encoding='utf8') as file:
-        last_line = file.readlines()[-1]
-    return last_line
-
 # ==================================================#
 #
 # MM""""""""`M                     oo oo
@@ -24450,101 +24435,7 @@ Mb.     .dM `88888P' dP       8888P'   dP `88888P' `88888P'
 MMMMMMMMMMM
 '''
 
-__upgrade_server_ip = ''
-__upgrade_server_port = ''
 
-
-def __send_dict(ip, port, dict_to_send):
-    """
-    Send a dictionary to the upgrade server and get back a dictionary in response
-    :param ip:           ip address of the upgrade server
-    :type ip:            str
-    :param port:         port number
-    :type port:          int | str
-    :param dict_to_send: dictionary of items to send
-    :type dict_to_send:  dict
-    :return:             dictionary that is the reply
-    :rtype:              dict
-    """
-
-    # print(f'sending dictionary to ip {ip} port {port}')
-    try:
-        # Create a socket object
-        s = socket.socket()
-
-        s.settimeout(5.0)       # set a 5 second timeout
-
-        # connect to the server on local computer
-        s.connect((ip , int(port)))
-        # send a python dictionary
-        s.send(json.dumps(dict_to_send).encode())
-
-        # receive data from the server
-        reply_data = s.recv(1024).decode()
-        # close the connection
-        s.close()
-    except Exception as e:
-        # print(f'Error sending to server:', e)
-        # print(f'payload:\n', dict_to_send)
-        reply_data = e
-    try:
-        data_dict = json.loads(reply_data)
-    except Exception as e:
-        # print(f'UPGRADE THREAD - Error decoding reply {reply_data} as a dictionary. Error = {e}')
-        data_dict = {}
-    return data_dict
-
-def __show_previous_upgrade_information():
-    """
-    Shows information about upgrades if upgrade information is waiting to be shown
-
-    :return:
-    """
-
-    # if nothing to show, then just return
-    if pysimplegui_user_settings.get('-upgrade info seen-', True) and not pysimplegui_user_settings.get('-upgrade info available-', False):
-        return
-    if pysimplegui_user_settings.get('-upgrade show only critical-', False) and pysimplegui_user_settings.get('-severity level-', '') != 'Critical':
-        return
-
-    message1 = pysimplegui_user_settings.get('-upgrade message 1-', '')
-    message2 = pysimplegui_user_settings.get('-upgrade message 2-', '')
-    recommended_version = pysimplegui_user_settings.get('-upgrade recommendation-', '')
-    severity_level = pysimplegui_user_settings.get('-severity level-', '')
-
-    if severity_level != 'Critical':
-        return
-
-    layout = [[Image(EMOJI_BASE64_HAPPY_THUMBS_UP), T('An upgrade is available & recommended', font='_ 14')],
-              [T('It is recommended you upgrade to version {}'.format(recommended_version))],
-              [T(message1, enable_events=True, k='-MESSAGE 1-')],
-              [T(message2, enable_events=True, k='-MESSAGE 2-')],
-              [CB('Do not show this message again in the future', default=True, k='-SKIP IN FUTURE-')],
-              [B('Close'), T('This window auto-closes in'), T('30', k='-CLOSE TXT-', text_color='white', background_color='red'), T('seconds')]]
-
-    window = Window('PySimpleGUI Intelligent Upgrade', layout, finalize=True)
-    if 'http' in message1:
-        window['-MESSAGE 1-'].set_cursor('hand1')
-    if 'http' in message2:
-        window['-MESSAGE 2-'].set_cursor('hand1')
-
-    seconds_left=30
-    while True:
-        event, values = window.read(timeout=1000)
-        if event in ('Close', WIN_CLOSED) or seconds_left < 1:
-            break
-        if values['-SKIP IN FUTURE-']:
-            if not running_trinket():
-                pysimplegui_user_settings['-upgrade info available-'] = False
-                pysimplegui_user_settings['-upgrade info seen-'] = True
-        if event == '-MESSAGE 1-' and 'http' in message1 and webbrowser_available:
-            webbrowser.open_new_tab(message1)
-        elif event == '-MESSAGE 2-' and 'http' in message2 and webbrowser_available:
-            webbrowser.open_new_tab(message2)
-        window['-CLOSE TXT-'].update(seconds_left)
-        seconds_left -= 1
-
-    window.close()
 
 
 def __get_linux_distribution():
@@ -24564,70 +24455,6 @@ def __get_linux_distribution():
     return line_tuple
 
 
-def __perform_upgrade_check_thread():
-    return
-    # print(f'Upgrade thread...seen = {pysimplegui_user_settings.get("-upgrade info seen-", False)}')
-    try:
-        if running_trinket():
-            os_name = 'Trinket'
-            os_ver = __get_linux_distribution()
-        elif running_replit():
-            os_name = 'REPL.IT'
-            os_ver = __get_linux_distribution()
-        elif running_windows():
-            os_name = 'Windows'
-            os_ver = platform.win32_ver()
-        elif running_linux():
-            os_name = 'Linux'
-            os_ver = __get_linux_distribution()
-        elif running_mac():
-            os_name = 'Mac'
-            os_ver = platform.mac_ver()
-        else:
-            os_name = 'Other'
-            os_ver = ''
-
-        psg_ver = version
-        framework_ver = framework_version
-        python_ver = sys.version
-
-        upgrade_dict = {
-            'OSName' : str(os_name),
-            'OSVersion' : str(os_ver),
-            'PythonVersion' : str(python_ver),
-            'PSGVersion' : str(psg_ver),
-            'FrameworkName' : 'tkinter',
-            'FrameworkVersion' : str(framework_ver),
-        }
-        reply_data = __send_dict(__upgrade_server_ip, __upgrade_server_port, upgrade_dict)
-
-        recommended_version = reply_data.get('SuggestedVersion', '')
-        message1 = reply_data.get('Message1', '')
-        message2 = reply_data.get('Message2', '')
-        severity_level = reply_data.get('SeverityLevel', '')
-        # If any part of the reply has changed from the last reply, overwrite the data and set flags so user will be informed
-        if (message1 or message2) and not running_trinket():
-            if pysimplegui_user_settings.get('-upgrade message 1-', '') != message1 or \
-               pysimplegui_user_settings.get('-upgrade message 2-', '') != message2 or \
-               pysimplegui_user_settings.get('-upgrade recommendation-', '') != recommended_version or \
-               pysimplegui_user_settings.get('-severity level-', '') != severity_level:
-                # Save the data to the settings file
-                pysimplegui_user_settings['-upgrade info seen-'] = False
-                pysimplegui_user_settings['-upgrade info available-'] = True
-                pysimplegui_user_settings['-upgrade message 1-'] = message1
-                pysimplegui_user_settings['-upgrade message 2-'] = message2
-                pysimplegui_user_settings['-upgrade recommendation-'] = recommended_version
-                pysimplegui_user_settings['-severity level-'] = severity_level
-    except Exception as e:
-        reply_data = {}
-        # print('Upgrade server error', e)
-    # print(f'Upgrade Reply = {reply_data}')
-
-def __perform_upgrade_check():
-    # For now, do not show data returned. Still testing and do not want to "SPAM" users with any popups
-    return
-    __show_previous_upgrade_information()
-    threading.Thread(target=lambda: __perform_upgrade_check_thread(), daemon=True).start()
 
 
 # =========================================================================#
@@ -25056,11 +24883,7 @@ def main_open_github_issue():
 
     # for i in range(len(checklist)):
     [window['-T{}-'.format(i)].set_cursor('hand1') for i in range(len(checklist))]
-    # window['-TABGROUP-'].expand(True, True, True)
-    # window['-ML CODE-'].expand(True, True, True)
-    # window['-ML DETAILS-'].expand(True, True, True)
-    # window['-ML MARKDOWN-'].expand(True, True, True)
-    # window['-PANE-'].expand(True, True, True)
+
 
     if running_mac():
         window['-OS MAC VER-'].update(platform.mac_ver())
@@ -25182,183 +25005,6 @@ MMMM  MMMM dP    dP dP       `88888P' `88888P8 `88888P8
 MMMMMMMMMM
 '''
 
-def _the_github_upgrade_thread(window, sp):
-    """
-    The thread that's used to run the subprocess so that the GUI can continue and the stdout/stderror is collected
-
-    :param window:
-    :param sp:
-    :return:
-    """
-
-    window.write_event_value('-THREAD-', (sp, '===THEAD STARTING==='))
-    window.write_event_value('-THREAD-', (sp, '----- STDOUT & STDERR Follows ----'))
-    for line in sp.stdout:
-        oline = line.decode().rstrip()
-        window.write_event_value('-THREAD-', (sp, oline))
-
-    # DO NOT CHECK STDERR because it won't exist anymore. The subprocess code now combines stdout and stderr
-    # window.write_event_value('-THREAD-', (sp, '----- STDERR ----'))
-
-    # for line in sp.stderr:
-    #     oline = line.decode().rstrip()
-    #     window.write_event_value('-THREAD-', (sp, oline))
-    window.write_event_value('-THREAD-', (sp, '===THEAD DONE==='))
-
-
-
-def _copy_files_from_github():
-    """Update the local PySimpleGUI installation from Github"""
-
-    github_url = 'https://raw.githubusercontent.com/spyoungtech/FreeSimpleGui/main/'
-    #files = ["PySimpleGUI.py", "setup.py"]
-    files = ['PySimpleGUI.py']
-
-    # add a temp directory
-    temp_dir = tempfile.TemporaryDirectory()
-    psg_dir = os.path.join(temp_dir.name, 'PySimpleGUI')
-    path = psg_dir
-
-
-    os.mkdir(path)
-    # path = os.path.abspath('temp')
-
-    # download the files
-    downloaded = []
-    for file in files:
-        with request.urlopen(github_url + file) as response:
-            with open(os.path.join(path, file), 'wb') as f:
-                f.write(response.read())
-                downloaded.append(file)
-
-    # get the new version number if possible
-    with open(os.path.join(path, files[0]), encoding='utf-8') as f:
-        text_data = f.read()
-
-    package_version = 'Unknown'
-    match = re.search(r'__version__ = \"([\d\.]+)', text_data)
-    if match:
-        package_version = match.group(1)
-
-    # create a setup.py file from scratch
-    setup_text = ''.join([
-            'import setuptools\n',
-            'setuptools.setup(',
-            "name='PySimpleGUI',",
-            "author='PySimpleGUI',"
-            "author_email='PySimpleGUI@PySimpleGUI.org',",
-            "description='Unreleased Development Version',",
-            "url='https://github.com/PySimpleGUI/PySimpleGUI',"
-            'packages=setuptools.find_packages(),',
-            "version='", package_version, "',",
-            'entry_points={',
-            "'gui_scripts': [",
-            "'psgissue=PySimpleGUI.PySimpleGUI:main_open_github_issue',",
-            "'psgmain=PySimpleGUI.PySimpleGUI:_main_entry_point',",
-            "'psgupgrade=PySimpleGUI.PySimpleGUI:_upgrade_entry_point',",
-            "'psghelp=PySimpleGUI.PySimpleGUI:main_sdk_help',",
-            "'psgver=PySimpleGUI.PySimpleGUI:main_get_debug_data',",
-            "'psgsettings=PySimpleGUI.PySimpleGUI:main_global_pysimplegui_settings',",
-            '],',
-            '},)'
-            ])
-
-    with open(os.path.join(temp_dir.name, 'setup.py'), 'w', encoding='utf-8') as f:
-        f.write(setup_text)
-
-    # create an __init__.py file
-    with open(os.path.join(path, '__init__.py'), 'w', encoding='utf-8') as f:
-        f.writelines([
-            'name="PySimpleGUI"\n',
-            'from .PySimpleGUI import *\n',
-            'from .PySimpleGUI import __version__'
-        ])
-
-    # install the pysimplegui package from local dist
-    # https://pip.pypa.io/en/stable/user_guide/?highlight=subprocess#using-pip-from-your-program
-    # subprocess.check_call([sys.executable, '-m', 'pip', 'install', path])
-    # python_command = execute_py_get_interpreter()
-    python_command = sys.executable         # always use the currently running interpreter to perform the pip!
-    if 'pythonw' in python_command:
-        python_command = python_command.replace('pythonw', 'python')
-
-    layout = [[Text('Pip Upgrade Progress')],
-              [Multiline(s=(90,15), k='-MLINE-', reroute_cprint=True, write_only=True, expand_x=True, expand_y=True)],
-              [Button('Downloading...', k='-EXIT-'), Sizegrip()]]
-
-    window = Window('Pip Upgrade', layout, finalize=True, keep_on_top=True, modal=True, disable_close=True, resizable=True)
-
-    window.disable_debugger()
-
-    cprint('The value of sys.executable = ', sys.executable, c='white on red')
-
-    # if not python_command:
-    #     python_command = sys.executable
-
-    cprint('Installing with the Python interpreter =', python_command, c='white on purple')
-
-    sp = execute_command_subprocess(python_command, '-m pip install', temp_dir.name,  pipe_output=True)
-
-    threading.Thread(target=_the_github_upgrade_thread, args=(window, sp), daemon=True).start()
-
-    while True:
-        event, values = window.read()
-        if event == WIN_CLOSED or (event == '-EXIT-' and window['-EXIT-'].ButtonText == 'Done'):
-            break
-        if event == '-THREAD-':
-            cprint(values['-THREAD-'][1])
-            if values['-THREAD-'][1] == '===THEAD DONE===':
-                window['-EXIT-'].update(text='Done', button_color='white on red')
-    window.close()
-    # cleanup and remove files
-    temp_dir.cleanup()
-
-
-    return package_version
-
-
-def _upgrade_from_github():
-    mod_version = _copy_files_from_github()
-
-    popup('*** SUCCESS ***', 'PySimpleGUI.py installed version:', mod_version,
-          'For python located at:', os.path.dirname(sys.executable), keep_on_top=True, background_color='red',
-          text_color='white')
-
-
-def _upgrade_gui():
-    try:
-        cur_ver = version[:version.index('\n')]
-    except:
-        cur_ver = version
-
-    if popup_yes_no('* WARNING *',
-                    'You are about to upgrade your PySimpleGUI package previously installed via pip to the latest version location on the GitHub server.',
-                    'You are running verrsion {}'.format(cur_ver),
-                    '',
-                    'Are you sure you want to overwrite this release?', title='Are you sure you want to overwrite?',
-                    keep_on_top=True) == 'Yes':
-        _upgrade_from_github()
-    else:
-        popup_quick_message('Cancelled upgrade\nNothing overwritten', background_color='red', text_color='white', keep_on_top=True, non_blocking=False)
-
-# main_upgrade_from_github = _upgrade_gui
-
-def _upgrade_entry_point():
-    """
-    This function is entered via the psgupgrade.exe file.
-
-    It is needed so that the exe file will exit and thus allow itself to be overwritten which
-        is what the upgrade will do.
-    It simply runs the PySimpleGUI.py file with a command line argument "upgrade" which will
-        actually do the upgrade.
-    """
-    interpreter = sys.executable
-    if 'pythonw' in interpreter:
-        interpreter = interpreter.replace('pythonw', 'python')
-    execute_py_file(__file__, 'upgrade', interpreter_command=interpreter)
-
-
-
 def _main_entry_point():
     # print('Restarting main as a new process...(needed in case you want to GitHub Upgrade)')
     # Relaunch using the same python interpreter that was used to run this function
@@ -25366,8 +25012,6 @@ def _main_entry_point():
     if 'pythonw' in interpreter:
         interpreter = interpreter.replace('pythonw', 'python')
     execute_py_file(__file__, interpreter_command=interpreter)
-
-main_upgrade_from_github = _upgrade_entry_point
 
 ####################################################################################################
 
@@ -26211,7 +25855,7 @@ def main():
             window._see_through = not window._see_through
             window.set_transparent_color(theme_background_color() if window._see_through else '')
         elif event in ('-INSTALL-', '-UPGRADE FROM GITHUB-'):
-            _upgrade_gui()
+            pass
         elif event == 'Popup':
             popup('This is your basic popup', keep_on_top=True)
         elif event == 'Get File':
@@ -26278,13 +25922,10 @@ def main():
             main_open_github_issue()
             window.normal()
         elif event == 'Show Notification Again':
-            if not running_trinket():
-                pysimplegui_user_settings.set('-upgrade info seen-', False)
-            __show_previous_upgrade_information()
+            pass
         elif event == '-UPGRADE SHOW ONLY CRITICAL-':
             if not running_trinket():
                 pysimplegui_user_settings.set('-upgrade show only critical-', values['-UPGRADE SHOW ONLY CRITICAL-'])
-
 
         i += 1
         # _refresh_debugger()
@@ -26394,7 +26035,6 @@ if _mac_should_set_alpha_to_99():
     set_options(alpha_channel=0.99)
 
 
-__perform_upgrade_check()
 
 
 # -------------------------------- ENTRY POINT IF RUN STANDALONE -------------------------------- #
@@ -26402,11 +26042,10 @@ if __name__ == '__main__':
     # To execute the upgrade from command line, type:
     # python -m PySimpleGUI.PySimpleGUI upgrade
     if len(sys.argv) > 1 and sys.argv[1] == 'upgrade':
-        _upgrade_gui()
-        exit(0)
+        print('Upgrading FreeSimpleGUI in place is not supported. Please use pip or your preferred package manager to update FreeSimpleGUI.', file=sys.stderr)
+        exit(1)
     elif len(sys.argv) > 1 and sys.argv[1] == 'help':
         main_sdk_help()
         exit(0)
     main()
     exit(0)
-#25424909a31c4fa789f5aa4e210e7e07d412560195dc21abe678b68a3b4bdb2a8a78651d8613daaded730bc2a31adc02ba8b99717fff701cda8ae13c31f1dcee9da8837908626f1c5cc81e7a34d3b9cd032dba190647564bba72d248ad6b83e30c8abc057f3f1b1fb3a2ca853069de936f3f53522fd4732b743268e0fcde54577a05880f2057efe6bbd6349f77d6c002544f38e24db40ab84f3dde4a4b8b31e84480db31656fb74ae0c01a7af0b35ac66cf8a0fbb8ca85685fea075608c7862da6635511d0e5403c4a637138324ce1fb1308b765cba53863ddf7b01ca4fc988932b03c4a8403a72b8105f821913f02925218dbecf1e089bd32e78667939503f2abfd89b37fa293927e30550d441f21dc68273d2d07ed910f6a69bc8c792015eb623ada7e65347cf0389cf2a1696a7ccf88098a4fb4bfa44e88fac2a94a44e25b010355e48d483d896c58eb771ef47e01066156f9344750b487e176ca0642601951f096d4c03045aa8f912d475dbe04b82c6ddf1ac3adbf815aef4ca2c6add058c2789b66a9abd875f334752ec1bde11b9b56e334823304b6cc3fadf7daae277c982ebc7eadb726a33e2740d075ad082b9c20304c4a53228d6f05357c40903a78113aea4e6169e1a5351866f7a9ffc6666eb08a31bfb84d90cb3002f7ebf87871988b88a7b8a52d36a1a7dd826360b5c6ad922829d9f73d204f09d1b9ad9ffd8d
