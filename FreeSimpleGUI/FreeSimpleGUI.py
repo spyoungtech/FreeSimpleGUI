@@ -13691,14 +13691,14 @@ class Window:
 
     def _OnMotion(self, event):
 
-        self.TKroot.geometry(f'+{event.x_root-self._mouse_offset_x}+{event.y_root-self._mouse_offset_y}')
+        self.TKroot.geometry(f'+{event.x_root - self._mouse_offset_x}+{event.y_root - self._mouse_offset_y}')
         # ------ Move All Windows code ------
         try:
             if Window._move_all_windows:
                 for win in Window._active_windows:
                     if win == self:
                         continue
-                    win.TKroot.geometry(f'+{event.x_root-win._mouse_offset_x}+{event.y_root-win._mouse_offset_y}')
+                    win.TKroot.geometry(f'+{event.x_root - win._mouse_offset_x}+{event.y_root - win._mouse_offset_y}')
         except Exception as e:
             print('on motion error', e)
 
