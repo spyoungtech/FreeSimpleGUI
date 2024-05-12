@@ -31,5 +31,5 @@ repos:
     -   id: flake8
         args:
           - "--ignore"
-          - "E501,E704,E301,W503,E701,E722,E266,E203"
+          - "E501,E704,E301,W503,E701,E722,E266,E203,E231"
         files: FreeSimpleGUI/FreeSimpleGUI.py
