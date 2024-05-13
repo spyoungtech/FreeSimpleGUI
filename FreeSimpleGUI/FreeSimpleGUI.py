@@ -45,7 +45,7 @@ from typing import Tuple  # noqa
 tclversion_detailed = tkinter.Tcl().eval('info patchlevel')
 framework_version = tclversion_detailed
 
-version = __version__ = '5.0.1'
+version = __version__ = '5.1.0'
 
 _change_log = ''
 
