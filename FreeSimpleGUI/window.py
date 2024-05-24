@@ -28,28 +28,6 @@ from FreeSimpleGUI import _refresh_debugger
 from FreeSimpleGUI import _TimerPeriodic
 from FreeSimpleGUI import BUTTON_TYPE_CALENDAR_CHOOSER
 from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
-from FreeSimpleGUI import CURRENT_LOOK_AND_FEEL
-from FreeSimpleGUI import CUSTOM_TITLEBAR_ICON
-from FreeSimpleGUI import DEFAULT_ALPHA_CHANNEL
-from FreeSimpleGUI import DEFAULT_AUTOCLOSE_TIME
-from FreeSimpleGUI import DEFAULT_AUTOSIZE_BUTTONS
-from FreeSimpleGUI import DEFAULT_AUTOSIZE_TEXT
-from FreeSimpleGUI import DEFAULT_BACKGROUND_COLOR
-from FreeSimpleGUI import DEFAULT_BASE64_ICON
-from FreeSimpleGUI import DEFAULT_BASE64_ICON_16_BY_16
-from FreeSimpleGUI import DEFAULT_BUTTON_ELEMENT_SIZE
-from FreeSimpleGUI import DEFAULT_ELEMENT_PADDING
-from FreeSimpleGUI import DEFAULT_ELEMENT_SIZE
-from FreeSimpleGUI import DEFAULT_FONT
-from FreeSimpleGUI import DEFAULT_KEEP_ON_TOP
-from FreeSimpleGUI import DEFAULT_MARGINS
-from FreeSimpleGUI import DEFAULT_MODAL_WINDOWS_ENABLED
-from FreeSimpleGUI import DEFAULT_MODAL_WINDOWS_FORCED
-from FreeSimpleGUI import DEFAULT_SCALING
-from FreeSimpleGUI import DEFAULT_TTK_THEME
-from FreeSimpleGUI import DEFAULT_WINDOW_ICON
-from FreeSimpleGUI import DEFAULT_WINDOW_LOCATION
-from FreeSimpleGUI import DEFAULT_WINDOW_SNAPSHOT_KEY
 from FreeSimpleGUI import ELEM_TYPE_BUTTON
 from FreeSimpleGUI import ELEM_TYPE_BUTTONMENU
 from FreeSimpleGUI import ELEM_TYPE_COLUMN
@@ -74,7 +52,6 @@ from FreeSimpleGUI import ELEM_TYPE_TAB_GROUP
 from FreeSimpleGUI import ELEM_TYPE_TABLE
 from FreeSimpleGUI import ELEM_TYPE_TREE
 from FreeSimpleGUI import EMOJI_BASE64_KEY
-from FreeSimpleGUI import ENABLE_MAC_MODAL_DISABLE_PATCH
 from FreeSimpleGUI import EVENT_TIMER
 from FreeSimpleGUI import FillFormWithValues
 from FreeSimpleGUI import GRAB_ANYWHERE_IGNORE_THESE_WIDGETS
@@ -88,9 +65,6 @@ from FreeSimpleGUI import running_linux
 from FreeSimpleGUI import running_mac
 from FreeSimpleGUI import running_windows
 from FreeSimpleGUI import StartupTK
-from FreeSimpleGUI import SUPPRESS_ERROR_POPUPS
-from FreeSimpleGUI import SUPPRESS_KEY_GUESSING
-from FreeSimpleGUI import SUPPRESS_RAISE_KEY_ERRORS
 from FreeSimpleGUI import theme_input_background_color
 from FreeSimpleGUI import theme_input_text_color
 from FreeSimpleGUI import theme_use_custom_titlebar
@@ -103,7 +77,6 @@ from FreeSimpleGUI import TITLEBAR_METADATA_MARKER
 from FreeSimpleGUI import TITLEBAR_MINIMIZE_KEY
 from FreeSimpleGUI import TITLEBAR_TEXT_KEY
 from FreeSimpleGUI import TTKPartOverrides
-from FreeSimpleGUI import USE_TTK_BUTTONS
 from FreeSimpleGUI import WINDOW_CLOSE_ATTEMPTED_EVENT
 from FreeSimpleGUI import WINDOW_CONFIG_EVENT
 from FreeSimpleGUI._utils import _error_popup_with_traceback
@@ -163,7 +136,7 @@ class Window:
         background_color=None,
         border_depth=None,
         auto_close=False,
-        auto_close_duration=DEFAULT_AUTOCLOSE_TIME,
+        auto_close_duration=FreeSimpleGUI.DEFAULT_AUTOCLOSE_TIME,
         icon=None,
         force_toplevel=False,
         alpha_channel=None,
@@ -337,21 +310,21 @@ class Window:
         """
 
         self._metadata = None  # type: Any
-        self.AutoSizeText = auto_size_text if auto_size_text is not None else DEFAULT_AUTOSIZE_TEXT
-        self.AutoSizeButtons = auto_size_buttons if auto_size_buttons is not None else DEFAULT_AUTOSIZE_BUTTONS
+        self.AutoSizeText = auto_size_text if auto_size_text is not None else FreeSimpleGUI.DEFAULT_AUTOSIZE_TEXT
+        self.AutoSizeButtons = auto_size_buttons if auto_size_buttons is not None else FreeSimpleGUI.DEFAULT_AUTOSIZE_BUTTONS
         self.Title = str(title)
         self.Rows = []  # a list of ELEMENTS for this row
-        self.DefaultElementSize = default_element_size if default_element_size is not None else DEFAULT_ELEMENT_SIZE
-        self.DefaultButtonElementSize = default_button_element_size if default_button_element_size != (None, None) else DEFAULT_BUTTON_ELEMENT_SIZE
-        if DEFAULT_WINDOW_LOCATION != (None, None) and location == (None, None):
-            self.Location = DEFAULT_WINDOW_LOCATION
+        self.DefaultElementSize = default_element_size if default_element_size is not None else FreeSimpleGUI.DEFAULT_ELEMENT_SIZE
+        self.DefaultButtonElementSize = default_button_element_size if default_button_element_size != (None, None) else FreeSimpleGUI.DEFAULT_BUTTON_ELEMENT_SIZE
+        if FreeSimpleGUI.DEFAULT_WINDOW_LOCATION != (None, None) and location == (None, None):
+            self.Location = FreeSimpleGUI.DEFAULT_WINDOW_LOCATION
         else:
             self.Location = location
         self.RelativeLoction = relative_location
         self.ButtonColor = button_color_to_tuple(button_color)
-        self.BackgroundColor = background_color if background_color else DEFAULT_BACKGROUND_COLOR
+        self.BackgroundColor = background_color if background_color else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
         self.ParentWindow = None
-        self.Font = font if font else DEFAULT_FONT
+        self.Font = font if font else FreeSimpleGUI.DEFAULT_FONT
         self.RadioDict = {}
         self.BorderDepth = border_depth
         if icon:
@@ -359,7 +332,7 @@ class Window:
         elif Window._user_defined_icon is not None:
             self.WindowIcon = Window._user_defined_icon
         else:
-            self.WindowIcon = DEFAULT_WINDOW_ICON
+            self.WindowIcon = FreeSimpleGUI.DEFAULT_WINDOW_ICON
         self.AutoClose = auto_close
         self.NonBlocking = False
         self.TKroot = None  # type: tk.Tk
@@ -386,14 +359,14 @@ class Window:
         self.Grab = grab_anywhere
         self.GrabAnywhere = grab_anywhere
         self.GrabAnywhereUsingControlKey = grab_anywhere_using_control
-        if keep_on_top is None and DEFAULT_KEEP_ON_TOP is not None:
-            keep_on_top = DEFAULT_KEEP_ON_TOP
+        if keep_on_top is None and FreeSimpleGUI.DEFAULT_KEEP_ON_TOP is not None:
+            keep_on_top = FreeSimpleGUI.DEFAULT_KEEP_ON_TOP
         elif keep_on_top is None:
             keep_on_top = False
         self.KeepOnTop = keep_on_top
         self.ForceTopLevel = force_toplevel
         self.Resizable = resizable
-        self._AlphaChannel = alpha_channel if alpha_channel is not None else DEFAULT_ALPHA_CHANNEL
+        self._AlphaChannel = alpha_channel if alpha_channel is not None else FreeSimpleGUI.DEFAULT_ALPHA_CHANNEL
         self.Timeout = None
         self.TimeoutKey = TIMEOUT_KEY
         self.TimerCancelled = False
@@ -407,11 +380,11 @@ class Window:
                 element_padding = (element_padding, element_padding)
 
         if element_padding is None:
-            self.ElementPadding = DEFAULT_ELEMENT_PADDING
+            self.ElementPadding = FreeSimpleGUI.DEFAULT_ELEMENT_PADDING
         else:
             self.ElementPadding = element_padding
         self.RightClickMenu = right_click_menu
-        self.Margins = margins if margins != (None, None) else DEFAULT_MARGINS
+        self.Margins = margins if margins != (None, None) else FreeSimpleGUI.DEFAULT_MARGINS
         self.ContainerElemementNumber = Window._GetAContainerNumber()
         # The dictionary containing all elements and keys for the window
         # The keys are the keys for the elements and the values are the elements themselves.
@@ -423,8 +396,8 @@ class Window:
         self.ElementJustification = element_justification
         self.FocusSet = False
         self.metadata = metadata
-        self.TtkTheme = ttk_theme or DEFAULT_TTK_THEME
-        self.UseTtkButtons = use_ttk_buttons if use_ttk_buttons is not None else USE_TTK_BUTTONS
+        self.TtkTheme = ttk_theme or FreeSimpleGUI.DEFAULT_TTK_THEME
+        self.UseTtkButtons = use_ttk_buttons if use_ttk_buttons is not None else FreeSimpleGUI.USE_TTK_BUTTONS
         self.user_bind_dict = {}  # Used when user defines a tkinter binding using bind method - convert bind string to key modifier
         self.user_bind_event = None  # Used when user defines a tkinter binding using bind method - event data from tkinter
         self.modal = modal
@@ -462,7 +435,7 @@ class Window:
         self._has_custom_titlebar = use_custom_titlebar
         self._mousex = self._mousey = 0
         self._startx = self._starty = 0
-        self.scaling = scaling if scaling is not None else DEFAULT_SCALING
+        self.scaling = scaling if scaling is not None else FreeSimpleGUI.DEFAULT_SCALING
         if self.use_custom_titlebar:
             self.Margins = (0, 0)
             self.NoTitleBar = True
@@ -496,7 +469,7 @@ class Window:
             if finalize:
                 self.Finalize()
 
-        if CURRENT_LOOK_AND_FEEL == 'Default':
+        if FreeSimpleGUI.CURRENT_LOOK_AND_FEEL == 'Default':
             print(
                 'Window will be a boring gray. Try removing the theme call entirely\n',
                 'You will get the default theme or the one set in global settings\n' "If you seriously want this gray window and no more nagging, add  theme('DefaultNoMoreNagging')  or theme('Gray Gray Gray') for completely gray/System Defaults",
@@ -670,12 +643,12 @@ class Window:
         if self.use_custom_titlebar and not self.override_custom_titlebar:
             if self.titlebar_icon is not None:
                 icon = self.titlebar_icon
-            elif CUSTOM_TITLEBAR_ICON is not None:
-                icon = CUSTOM_TITLEBAR_ICON
+            elif FreeSimpleGUI.CUSTOM_TITLEBAR_ICON is not None:
+                icon = FreeSimpleGUI.CUSTOM_TITLEBAR_ICON
             elif self.titlebar_icon is not None:
                 icon = self.titlebar_icon
-            elif self.WindowIcon == DEFAULT_WINDOW_ICON:
-                icon = DEFAULT_BASE64_ICON_16_BY_16
+            elif self.WindowIcon == FreeSimpleGUI.DEFAULT_WINDOW_ICON:
+                icon = FreeSimpleGUI.DEFAULT_BASE64_ICON_16_BY_16
             else:
                 icon = None
 
@@ -812,7 +785,7 @@ class Window:
             try:
                 self.TKroot.tk.call('wm', 'iconphoto', self.TKroot._w, wicon)
             except:
-                wicon = tkinter.PhotoImage(data=DEFAULT_BASE64_ICON)
+                wicon = tkinter.PhotoImage(data=FreeSimpleGUI.DEFAULT_BASE64_ICON)
                 try:
                     self.TKroot.tk.call('wm', 'iconphoto', self.TKroot._w, wicon)
                 except:
@@ -829,7 +802,7 @@ class Window:
                 self.TKroot.tk.call('wm', 'iconphoto', self.TKroot._w, wicon)
             except:
                 try:
-                    wicon = tkinter.PhotoImage(data=DEFAULT_BASE64_ICON)
+                    wicon = tkinter.PhotoImage(data=FreeSimpleGUI.DEFAULT_BASE64_ICON)
                     try:
                         self.TKroot.tk.call('wm', 'iconphoto', self.TKroot._w, wicon)
                     except:
@@ -985,7 +958,7 @@ class Window:
             Window._root_running_mainloop = self.TKroot
             results = self._read(timeout=timeout, timeout_key=timeout_key)
             if results is not None:
-                if results[0] == DEFAULT_WINDOW_SNAPSHOT_KEY:
+                if results[0] == FreeSimpleGUI.DEFAULT_WINDOW_SNAPSHOT_KEY:
                     self.save_window_screenshot_to_disk()
                     popup_quick_message(
                         'Saved window screenshot to disk',
@@ -1185,7 +1158,7 @@ class Window:
         return _BuildResults(self, False, self)
 
     def _start_autoclose_timer(self):
-        duration = DEFAULT_AUTOCLOSE_TIME if self.AutoCloseDuration is None else self.AutoCloseDuration
+        duration = FreeSimpleGUI.DEFAULT_AUTOCLOSE_TIME if self.AutoCloseDuration is None else self.AutoCloseDuration
         self.TKAfterID = self.TKroot.after(int(duration * 1000), self._AutoCloseAlarmCallback)
 
     def finalize(self):
@@ -1327,8 +1300,8 @@ class Window:
 
         key_error = False
         closest_key = None
-        supress_guessing = supress_guessing if supress_guessing is not None else SUPPRESS_KEY_GUESSING
-        supress_raise = supress_raise if supress_raise is not None else SUPPRESS_RAISE_KEY_ERRORS
+        supress_guessing = supress_guessing if supress_guessing is not None else FreeSimpleGUI.SUPPRESS_KEY_GUESSING
+        supress_raise = supress_raise if supress_raise is not None else FreeSimpleGUI.SUPPRESS_RAISE_KEY_ERRORS
         try:
             element = self.AllKeysDict[key]
         except KeyError:
@@ -1449,7 +1422,7 @@ class Window:
                         if element.Type == ELEM_TYPE_BUTTON and FreeSimpleGUI.WARN_DUPLICATE_BUTTON_KEY_ERRORS:  # for Buttons see if should complain
                             warnings.warn(f'*** Duplicate key found in your layout {element.Key} ***', UserWarning)
                             warnings.warn(f'*** Replaced new key with {str(element.Key) + str(self.UniqueKeyCounter)} ***')
-                            if not SUPPRESS_ERROR_POPUPS:
+                            if not FreeSimpleGUI.SUPPRESS_ERROR_POPUPS:
                                 _error_popup_with_traceback(
                                     'Duplicate key found in your layout',
                                     f'Dupliate key: {element.Key}',
@@ -2406,12 +2379,11 @@ class Window:
         if not self._is_window_created('tried Window.make_modal'):
             return
 
-        if running_mac() and ENABLE_MAC_MODAL_DISABLE_PATCH:
+        if running_mac() and FreeSimpleGUI.ENABLE_MAC_MODAL_DISABLE_PATCH:
             return
 
         # if modal windows have been disabled globally
-        if not DEFAULT_MODAL_WINDOWS_ENABLED and not DEFAULT_MODAL_WINDOWS_FORCED:
-            # if not DEFAULT_MODAL_WINDOWS_ENABLED:
+        if not FreeSimpleGUI.DEFAULT_MODAL_WINDOWS_ENABLED and not FreeSimpleGUI.DEFAULT_MODAL_WINDOWS_FORCED:
             return
 
         try:
@@ -2467,7 +2439,7 @@ class Window:
         try:
             self.TKroot.bell(display_number)
         except Exception as e:
-            if not SUPPRESS_ERROR_POPUPS:
+            if not FreeSimpleGUI.SUPPRESS_ERROR_POPUPS:
                 _error_popup_with_traceback('Window.ding() - tkinter reported error from bell() call', e)
 
     def _window_tkvar_changed_callback(self, *args):
@@ -2681,18 +2653,18 @@ class Window:
         """
         Returns the current scaling value set for this window
 
-        :return:    Scaling according to tkinter. Returns DEFAULT_SCALING if error
+        :return:    Scaling according to tkinter. Returns FreeSimpleGUI.DEFAULT_SCALING if error
         :rtype:     float
         """
 
         if not self._is_window_created('Tried Window.set_scaling'):
-            return DEFAULT_SCALING
+            return FreeSimpleGUI.DEFAULT_SCALING
         try:
             scaling = self.TKroot.tk.call('tk', 'scaling')
         except Exception as e:
-            if not SUPPRESS_ERROR_POPUPS:
+            if not FreeSimpleGUI.SUPPRESS_ERROR_POPUPS:
                 _error_popup_with_traceback('Window.get_scaling() - tkinter reported error', e)
-            scaling = DEFAULT_SCALING
+            scaling = FreeSimpleGUI.DEFAULT_SCALING
 
         return scaling
 
@@ -2847,7 +2819,7 @@ class Window:
                 'You cannot perform operations on a Window until it is read or finalized. Adding a "finalize=True" parameter to your Window creation will fix this. ' + msg,
                 UserWarning,
             )
-            if not SUPPRESS_ERROR_POPUPS:
+            if not FreeSimpleGUI.SUPPRESS_ERROR_POPUPS:
                 _error_popup_with_traceback(
                     'You cannot perform operations on a Window until it is read or finalized.',
                     'Adding a "finalize=True" parameter to your Window creation will likely fix this',
