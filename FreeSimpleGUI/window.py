@@ -8,13 +8,13 @@ import pickle
 import queue
 import sys
 import threading
+import tkinter
 import tkinter as tk
 import warnings
 from typing import Any
 from typing import Dict
 from typing import List
 from typing import Tuple
-import tkinter
 
 import FreeSimpleGUI
 from FreeSimpleGUI import _BuildResults
