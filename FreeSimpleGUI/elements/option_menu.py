@@ -2,11 +2,10 @@ from __future__ import annotations
 
 import tkinter as tk
 
-from FreeSimpleGUI import DEFAULT_INPUT_ELEMENTS_COLOR
-from FreeSimpleGUI import DEFAULT_INPUT_TEXT_COLOR
+import FreeSimpleGUI
 from FreeSimpleGUI import ELEM_TYPE_INPUT_OPTION_MENU
 from FreeSimpleGUI import Element
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
+from FreeSimpleGUI._utils import _error_popup_with_traceback
 
 
 class OptionMenu(Element):
@@ -78,8 +77,8 @@ class OptionMenu(Element):
         self.DefaultValue = default_value
         self.Widget = self.TKOptionMenu = None  # type: tk.OptionMenu
         self.Disabled = disabled
-        bg = background_color if background_color else DEFAULT_INPUT_ELEMENTS_COLOR
-        fg = text_color if text_color is not None else DEFAULT_INPUT_TEXT_COLOR
+        bg = background_color if background_color else FreeSimpleGUI.DEFAULT_INPUT_ELEMENTS_COLOR
+        fg = text_color if text_color is not None else FreeSimpleGUI.DEFAULT_INPUT_TEXT_COLOR
         key = key if key is not None else k
         sz = size if size != (None, None) else s
         pad = pad if pad is not None else p

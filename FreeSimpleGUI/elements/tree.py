@@ -6,14 +6,13 @@ from typing import Any
 from typing import Dict
 from typing import List
 
-from FreeSimpleGUI import CURRENT_LOOK_AND_FEEL
-from FreeSimpleGUI import DEFAULT_BACKGROUND_COLOR
+import FreeSimpleGUI
 from FreeSimpleGUI import ELEM_TYPE_TREE
 from FreeSimpleGUI import Element
 from FreeSimpleGUI import LOOK_AND_FEEL_TABLE
 from FreeSimpleGUI import theme_button_color
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
-from FreeSimpleGUI.FreeSimpleGUI import _exit_mainloop
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+from FreeSimpleGUI._utils import _exit_mainloop
 
 
 class Tree(Element):
@@ -175,10 +174,10 @@ class Tree(Element):
         self.MaxColumnWidth = max_col_width
         self.DefaultColumnWidth = def_col_width
         self.AutoSizeColumns = auto_size_columns
-        self.BackgroundColor = background_color if background_color is not None else DEFAULT_BACKGROUND_COLOR
+        self.BackgroundColor = background_color if background_color is not None else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
         self.TextColor = text_color
-        self.HeaderTextColor = header_text_color if header_text_color is not None else LOOK_AND_FEEL_TABLE[CURRENT_LOOK_AND_FEEL]['TEXT_INPUT']
-        self.HeaderBackgroundColor = header_background_color if header_background_color is not None else LOOK_AND_FEEL_TABLE[CURRENT_LOOK_AND_FEEL]['INPUT']
+        self.HeaderTextColor = header_text_color if header_text_color is not None else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]['TEXT_INPUT']
+        self.HeaderBackgroundColor = header_background_color if header_background_color is not None else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]['INPUT']
         self.HeaderBorderWidth = header_border_width
         self.BorderWidth = border_width
         self.HeaderRelief = header_relief

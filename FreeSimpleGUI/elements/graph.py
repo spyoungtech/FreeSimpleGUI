@@ -7,8 +7,8 @@ from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
 from FreeSimpleGUI import ELEM_TYPE_GRAPH
 from FreeSimpleGUI import Element
 from FreeSimpleGUI import TEXT_LOCATION_CENTER
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
-from FreeSimpleGUI.FreeSimpleGUI import _exit_mainloop
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+from FreeSimpleGUI._utils import _exit_mainloop
 
 
 class Graph(Element):

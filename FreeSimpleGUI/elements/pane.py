@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from FreeSimpleGUI import DEFAULT_BACKGROUND_COLOR
+import FreeSimpleGUI
 from FreeSimpleGUI import ELEM_TYPE_PANE
 from FreeSimpleGUI import Element
 from FreeSimpleGUI import RELIEF_RAISED
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
+from FreeSimpleGUI._utils import _error_popup_with_traceback
 
 
 class Pane(Element):
@@ -84,7 +84,7 @@ class Pane(Element):
         self.Relief = relief
         self.HandleSize = handle_size or 8
         self.BorderDepth = border_width
-        bg = background_color if background_color is not None else DEFAULT_BACKGROUND_COLOR
+        bg = background_color if background_color is not None else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
 
         self.Rows = [pane_list]
         key = key if key is not None else k

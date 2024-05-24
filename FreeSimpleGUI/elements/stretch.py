@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from FreeSimpleGUI import Text
+from FreeSimpleGUI.elements.text import Text
 
 
 def Push(background_color=None):

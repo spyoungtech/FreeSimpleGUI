@@ -3,20 +3,18 @@ from __future__ import annotations
 import warnings
 from tkinter import ttk
 
+import FreeSimpleGUI
 from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
-from FreeSimpleGUI import CURRENT_LOOK_AND_FEEL
-from FreeSimpleGUI import DEFAULT_BACKGROUND_COLOR
 from FreeSimpleGUI import ELEM_TYPE_TABLE
 from FreeSimpleGUI import Element
 from FreeSimpleGUI import LOOK_AND_FEEL_TABLE
 from FreeSimpleGUI import obj_to_string_single_obj
 from FreeSimpleGUI import running_mac
-from FreeSimpleGUI import SUPPRESS_ERROR_POPUPS
 from FreeSimpleGUI import TABLE_CLICKED_INDICATOR
 from FreeSimpleGUI import theme_button_color
-from FreeSimpleGUI.FreeSimpleGUI import _create_error_message
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
-from FreeSimpleGUI.FreeSimpleGUI import _exit_mainloop
+from FreeSimpleGUI._utils import _create_error_message
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+from FreeSimpleGUI._utils import _exit_mainloop
 
 
 class Table(Element):
@@ -188,10 +186,10 @@ class Table(Element):
         self.MaxColumnWidth = max_col_width
         self.DefaultColumnWidth = def_col_width
         self.AutoSizeColumns = auto_size_columns
-        self.BackgroundColor = background_color if background_color is not None else DEFAULT_BACKGROUND_COLOR
+        self.BackgroundColor = background_color if background_color is not None else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
         self.TextColor = text_color
-        self.HeaderTextColor = header_text_color if header_text_color is not None else LOOK_AND_FEEL_TABLE[CURRENT_LOOK_AND_FEEL]['TEXT_INPUT']
-        self.HeaderBackgroundColor = header_background_color if header_background_color is not None else LOOK_AND_FEEL_TABLE[CURRENT_LOOK_AND_FEEL]['INPUT']
+        self.HeaderTextColor = header_text_color if header_text_color is not None else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]['TEXT_INPUT']
+        self.HeaderBackgroundColor = header_background_color if header_background_color is not None else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]['INPUT']
         self.HeaderFont = header_font
         self.Justification = justification
         self.InitialState = None

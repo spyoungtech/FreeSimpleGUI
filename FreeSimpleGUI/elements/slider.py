@@ -2,14 +2,11 @@ from __future__ import annotations
 
 import tkinter as tk
 
-from FreeSimpleGUI import DEFAULT_SCROLLBAR_COLOR
-from FreeSimpleGUI import DEFAULT_SLIDER_BORDER_WIDTH
-from FreeSimpleGUI import DEFAULT_SLIDER_ORIENTATION
-from FreeSimpleGUI import DEFAULT_SLIDER_RELIEF
+import FreeSimpleGUI
 from FreeSimpleGUI import ELEM_TYPE_INPUT_SLIDER
 from FreeSimpleGUI import Element
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
-from FreeSimpleGUI.FreeSimpleGUI import _exit_mainloop
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+from FreeSimpleGUI._utils import _exit_mainloop
 
 
 class Slider(Element):
@@ -104,15 +101,15 @@ class Slider(Element):
         self.TKScale = self.Widget = None  # type: tk.Scale
         self.Range = (1, 10) if range == (None, None) else range
         self.DefaultValue = self.Range[0] if default_value is None else default_value
-        self.Orientation = orientation if orientation else DEFAULT_SLIDER_ORIENTATION
-        self.BorderWidth = border_width if border_width else DEFAULT_SLIDER_BORDER_WIDTH
-        self.Relief = relief if relief else DEFAULT_SLIDER_RELIEF
+        self.Orientation = orientation if orientation else FreeSimpleGUI.DEFAULT_SLIDER_ORIENTATION
+        self.BorderWidth = border_width if border_width else FreeSimpleGUI.DEFAULT_SLIDER_BORDER_WIDTH
+        self.Relief = relief if relief else FreeSimpleGUI.DEFAULT_SLIDER_RELIEF
         self.Resolution = 1 if resolution is None else resolution
         self.ChangeSubmits = change_submits or enable_events
         self.Disabled = disabled
         self.TickInterval = tick_interval
         self.DisableNumericDisplay = disable_number_display
-        self.TroughColor = trough_color or DEFAULT_SCROLLBAR_COLOR
+        self.TroughColor = trough_color or FreeSimpleGUI.DEFAULT_SCROLLBAR_COLOR
         sz = size if size != (None, None) else s
         temp_size = sz
         if temp_size == (None, None):

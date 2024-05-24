@@ -2,12 +2,11 @@ from __future__ import annotations
 
 import tkinter as tk
 
-from FreeSimpleGUI import DEFAULT_INPUT_ELEMENTS_COLOR
-from FreeSimpleGUI import DEFAULT_INPUT_TEXT_COLOR
+import FreeSimpleGUI
 from FreeSimpleGUI import ELEM_TYPE_INPUT_SPIN
 from FreeSimpleGUI import Element
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
-from FreeSimpleGUI.FreeSimpleGUI import _exit_mainloop
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+from FreeSimpleGUI._utils import _exit_mainloop
 
 
 class Spin(Element):
@@ -103,8 +102,8 @@ class Spin(Element):
         self.BindReturnKey = bind_return_key
         self.wrap = wrap
 
-        bg = background_color if background_color else DEFAULT_INPUT_ELEMENTS_COLOR
-        fg = text_color if text_color is not None else DEFAULT_INPUT_TEXT_COLOR
+        bg = background_color if background_color else FreeSimpleGUI.DEFAULT_INPUT_ELEMENTS_COLOR
+        fg = text_color if text_color is not None else FreeSimpleGUI.DEFAULT_INPUT_TEXT_COLOR
         key = key if key is not None else k
         sz = size if size != (None, None) else s
         pad = pad if pad is not None else p

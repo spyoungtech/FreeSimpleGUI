@@ -2,13 +2,11 @@ from __future__ import annotations
 
 import tkinter as tk
 
+import FreeSimpleGUI
 from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
-from FreeSimpleGUI import DEFAULT_BORDER_WIDTH
-from FreeSimpleGUI import DEFAULT_INPUT_ELEMENTS_COLOR
-from FreeSimpleGUI import DEFAULT_INPUT_TEXT_COLOR
 from FreeSimpleGUI import ELEM_TYPE_INPUT_TEXT
 from FreeSimpleGUI import Element
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
+from FreeSimpleGUI._utils import _error_popup_with_traceback
 
 
 class Input(Element):
@@ -114,8 +112,8 @@ class Input(Element):
 
         self.DefaultText = default_text if default_text is not None else ''
         self.PasswordCharacter = password_char
-        bg = background_color if background_color is not None else DEFAULT_INPUT_ELEMENTS_COLOR
-        fg = text_color if text_color is not None else DEFAULT_INPUT_TEXT_COLOR
+        bg = background_color if background_color is not None else FreeSimpleGUI.DEFAULT_INPUT_ELEMENTS_COLOR
+        fg = text_color if text_color is not None else FreeSimpleGUI.DEFAULT_INPUT_TEXT_COLOR
         self.selected_text_color = selected_text_color
         self.selected_background_color = selected_background_color
         self.Focus = focus
@@ -128,7 +126,7 @@ class Input(Element):
         self.disabled_readonly_background_color = disabled_readonly_background_color
         self.disabled_readonly_text_color = disabled_readonly_text_color
         self.ReadOnly = readonly
-        self.BorderWidth = border_width if border_width is not None else DEFAULT_BORDER_WIDTH
+        self.BorderWidth = border_width if border_width is not None else FreeSimpleGUI.DEFAULT_BORDER_WIDTH
         self.TKEntry = self.Widget = None  # type: tk.Entry
         key = key if key is not None else k
         sz = size if size != (None, None) else s

@@ -5,7 +5,7 @@ import warnings
 from typing import Any
 from typing import List
 
-from FreeSimpleGUI import DEFAULT_LISTBOX_SELECT_MODE
+import FreeSimpleGUI
 from FreeSimpleGUI import ELEM_TYPE_INPUT_LISTBOX
 from FreeSimpleGUI import Element
 from FreeSimpleGUI import LISTBOX_SELECT_MODE_BROWSE
@@ -18,7 +18,7 @@ from FreeSimpleGUI import SELECT_MODE_MULTIPLE
 from FreeSimpleGUI import SELECT_MODE_SINGLE
 from FreeSimpleGUI import theme_input_background_color
 from FreeSimpleGUI import theme_input_text_color
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
+from FreeSimpleGUI._utils import _error_popup_with_traceback
 
 
 class Listbox(Element):
@@ -159,7 +159,7 @@ class Listbox(Element):
         elif select_mode == LISTBOX_SELECT_MODE_SINGLE:
             self.SelectMode = SELECT_MODE_SINGLE
         else:
-            self.SelectMode = DEFAULT_LISTBOX_SELECT_MODE
+            self.SelectMode = FreeSimpleGUI.DEFAULT_LISTBOX_SELECT_MODE
         bg = background_color if background_color is not None else theme_input_background_color()
         fg = text_color if text_color is not None else theme_input_text_color()
         self.HighlightBackgroundColor = highlight_background_color if highlight_background_color is not None else fg

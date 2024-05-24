@@ -5,9 +5,8 @@ import tkinter as tk
 import warnings
 from tkinter import ttk
 
-from FreeSimpleGUI import AddMenuItem
+import FreeSimpleGUI
 from FreeSimpleGUI import BROWSE_FILES_DELIMITER
-from FreeSimpleGUI import button_color_to_tuple
 from FreeSimpleGUI import BUTTON_DISABLED_MEANS_IGNORE
 from FreeSimpleGUI import BUTTON_TYPE_BROWSE_FILE
 from FreeSimpleGUI import BUTTON_TYPE_BROWSE_FILES
@@ -19,11 +18,8 @@ from FreeSimpleGUI import BUTTON_TYPE_COLOR_CHOOSER
 from FreeSimpleGUI import BUTTON_TYPE_READ_FORM
 from FreeSimpleGUI import BUTTON_TYPE_SAVEAS_FILE
 from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
-from FreeSimpleGUI import DEFAULT_BORDER_WIDTH
-from FreeSimpleGUI import DEFAULT_USE_BUTTON_SHORTCUTS
 from FreeSimpleGUI import ELEM_TYPE_BUTTON
 from FreeSimpleGUI import ELEM_TYPE_BUTTONMENU
-from FreeSimpleGUI import Element
 from FreeSimpleGUI import FILE_TYPES_ALL_FILES
 from FreeSimpleGUI import MENU_SHORTCUT_CHARACTER
 from FreeSimpleGUI import running_mac
@@ -32,9 +28,9 @@ from FreeSimpleGUI import theme_button_color
 from FreeSimpleGUI import theme_input_background_color
 from FreeSimpleGUI import theme_input_text_color
 from FreeSimpleGUI import ThisRow
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
-from FreeSimpleGUI.FreeSimpleGUI import _exit_mainloop
-from FreeSimpleGUI.window import Window
+from FreeSimpleGUI.elements.base import Element
+from FreeSimpleGUI.elements.helpers import AddMenuItem
+from FreeSimpleGUI.elements.helpers import button_color_to_tuple
 
 
 class Button(Element):
@@ -187,7 +183,7 @@ class Button(Element):
         self.ImageSubsample = image_subsample
         self.zoom = int(image_zoom) if image_zoom is not None else None
         self.UserData = None
-        self.BorderWidth = border_width if border_width is not None else DEFAULT_BORDER_WIDTH
+        self.BorderWidth = border_width if border_width is not None else FreeSimpleGUI.DEFAULT_BORDER_WIDTH
         self.BindReturnKey = bind_return_key
         self.Focus = focus
         self.TKCal = None
@@ -214,7 +210,7 @@ class Button(Element):
 
         if key is None and k is None:
             _key = self.ButtonText
-            if DEFAULT_USE_BUTTON_SHORTCUTS is True:
+            if FreeSimpleGUI.DEFAULT_USE_BUTTON_SHORTCUTS is True:
                 pos = _key.find(MENU_SHORTCUT_CHARACTER)
                 if pos != -1:
                     if pos < len(MENU_SHORTCUT_CHARACTER) or _key[pos - len(MENU_SHORTCUT_CHARACTER)] != '\\':
@@ -523,7 +519,7 @@ class Button(Element):
             button_style = ttk.Style()
         if text is not None:
             btext = text
-            if DEFAULT_USE_BUTTON_SHORTCUTS is True:
+            if FreeSimpleGUI.DEFAULT_USE_BUTTON_SHORTCUTS is True:
                 pos = btext.find(MENU_SHORTCUT_CHARACTER)
                 if pos != -1:
                     if pos < len(MENU_SHORTCUT_CHARACTER) or btext[pos - len(MENU_SHORTCUT_CHARACTER)] != '\\':
@@ -737,7 +733,7 @@ class ButtonMenu(Element):
         self.TextColor = text_color if text_color is not None else theme_input_text_color()
         self.DisabledTextColor = disabled_text_color if disabled_text_color is not None else COLOR_SYSTEM_DEFAULT
         self.ItemFont = item_font
-        self.BorderWidth = border_width if border_width is not None else DEFAULT_BORDER_WIDTH
+        self.BorderWidth = border_width if border_width is not None else FreeSimpleGUI.DEFAULT_BORDER_WIDTH
         if image_source is not None:
             if isinstance(image_source, str):
                 image_filename = image_source
@@ -921,3 +917,7 @@ class ButtonMenu(Element):
 
     Update = update
     Click = click
+
+
+from FreeSimpleGUI._utils import _error_popup_with_traceback, _exit_mainloop
+from FreeSimpleGUI.window import Window

@@ -1,10 +1,10 @@
 from __future__ import annotations
 
+import FreeSimpleGUI
 from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
-from FreeSimpleGUI import DEFAULT_BACKGROUND_COLOR
 from FreeSimpleGUI import ELEM_TYPE_CANVAS
 from FreeSimpleGUI import Element
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
+from FreeSimpleGUI._utils import _error_popup_with_traceback
 
 
 class Canvas(Element):
@@ -59,7 +59,7 @@ class Canvas(Element):
         :type metadata:          (Any)
         """
 
-        self.BackgroundColor = background_color if background_color is not None else DEFAULT_BACKGROUND_COLOR
+        self.BackgroundColor = background_color if background_color is not None else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
         self._TKCanvas = self.Widget = canvas
         self.RightClickMenu = right_click_menu
         self.BorderWidth = border_width

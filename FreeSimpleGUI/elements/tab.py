@@ -4,10 +4,10 @@ import tkinter as tk
 import warnings
 from tkinter import ttk
 
+import FreeSimpleGUI
+from FreeSimpleGUI import _add_right_click_menu
+from FreeSimpleGUI import _random_error_emoji
 from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
-from FreeSimpleGUI import CURRENT_LOOK_AND_FEEL
-from FreeSimpleGUI import DEFAULT_BACKGROUND_COLOR
-from FreeSimpleGUI import DEFAULT_TOOLTIP_TIME
 from FreeSimpleGUI import ELEM_TYPE_TAB
 from FreeSimpleGUI import ELEM_TYPE_TAB_GROUP
 from FreeSimpleGUI import Element
@@ -16,10 +16,8 @@ from FreeSimpleGUI import PackFormIntoFrame
 from FreeSimpleGUI import popup_error_with_traceback
 from FreeSimpleGUI import PopupError
 from FreeSimpleGUI import ToolTip
-from FreeSimpleGUI import Window
-from FreeSimpleGUI.FreeSimpleGUI import _add_right_click_menu
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
-from FreeSimpleGUI.FreeSimpleGUI import _random_error_emoji
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+from FreeSimpleGUI.window import Window
 
 
 class Tab(Element):
@@ -124,7 +122,7 @@ class Tab(Element):
         self.Disabled = disabled
         self.ParentNotebook = None
         self.TabID = None
-        self.BackgroundColor = background_color if background_color is not None else DEFAULT_BACKGROUND_COLOR
+        self.BackgroundColor = background_color if background_color is not None else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
         self.RightClickMenu = right_click_menu
         self.ContainerElemementNumber = Window._GetAContainerNumber()
         self.ElementJustification = element_justification
@@ -401,17 +399,17 @@ class TabGroup(Element):
         self.ReturnValuesDictionary = {}
         self.DictionaryKeyCounter = 0
         self.ParentWindow = None
-        self.SelectedTitleColor = selected_title_color if selected_title_color is not None else LOOK_AND_FEEL_TABLE[CURRENT_LOOK_AND_FEEL]['TEXT']
-        self.SelectedBackgroundColor = selected_background_color if selected_background_color is not None else LOOK_AND_FEEL_TABLE[CURRENT_LOOK_AND_FEEL]['BACKGROUND']
-        title_color = title_color if title_color is not None else LOOK_AND_FEEL_TABLE[CURRENT_LOOK_AND_FEEL]['TEXT_INPUT']
-        self.TabBackgroundColor = tab_background_color if tab_background_color is not None else LOOK_AND_FEEL_TABLE[CURRENT_LOOK_AND_FEEL]['INPUT']
+        self.SelectedTitleColor = selected_title_color if selected_title_color is not None else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]['TEXT']
+        self.SelectedBackgroundColor = selected_background_color if selected_background_color is not None else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]['BACKGROUND']
+        title_color = title_color if title_color is not None else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]['TEXT_INPUT']
+        self.TabBackgroundColor = tab_background_color if tab_background_color is not None else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]['INPUT']
         self.Rows = []
         self.TKNotebook = None  # type: ttk.Notebook
         self.Widget = None  # type: ttk.Notebook
         self.tab_index_to_key = {}  # has a list of the tabs in the notebook and their associated key
         self.TabCount = 0
         self.BorderWidth = border_width
-        self.BackgroundColor = background_color if background_color is not None else DEFAULT_BACKGROUND_COLOR
+        self.BackgroundColor = background_color if background_color is not None else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
         self.ChangeSubmits = change_submits or enable_events
         self.TabLocation = tab_location
         self.ElementJustification = 'left'
@@ -668,7 +666,7 @@ class TabGroup(Element):
         if tab_element.BorderWidth is not None:
             tab_element.TKFrame.configure(borderwidth=tab_element.BorderWidth)
         if tab_element.Tooltip is not None:
-            tab_element.TooltipObject = ToolTip(tab_element.TKFrame, text=tab_element.Tooltip, timeout=DEFAULT_TOOLTIP_TIME)
+            tab_element.TooltipObject = ToolTip(tab_element.TKFrame, text=tab_element.Tooltip, timeout=FreeSimpleGUI.DEFAULT_TOOLTIP_TIME)
         _add_right_click_menu(tab_element, form)
 
     def update(self, visible=None):

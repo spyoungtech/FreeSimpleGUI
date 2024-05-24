@@ -3,16 +3,13 @@ from __future__ import annotations
 import sys
 import tkinter as tk
 
+import FreeSimpleGUI
+from FreeSimpleGUI import _print_to_element
 from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
-from FreeSimpleGUI import DEFAULT_BORDER_WIDTH
-from FreeSimpleGUI import DEFAULT_FONT
-from FreeSimpleGUI import DEFAULT_INPUT_ELEMENTS_COLOR
-from FreeSimpleGUI import DEFAULT_INPUT_TEXT_COLOR
 from FreeSimpleGUI import ELEM_TYPE_INPUT_MULTILINE
-from FreeSimpleGUI import Element
-from FreeSimpleGUI import Window
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
-from FreeSimpleGUI.FreeSimpleGUI import _print_to_element
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+from FreeSimpleGUI.elements.base import Element
+from FreeSimpleGUI.window import Window
 
 
 class Multiline(Element):
@@ -168,17 +165,17 @@ class Multiline(Element):
 
         self.DefaultText = str(default_text)
         self.EnterSubmits = enter_submits
-        bg = background_color if background_color else DEFAULT_INPUT_ELEMENTS_COLOR
+        bg = background_color if background_color else FreeSimpleGUI.DEFAULT_INPUT_ELEMENTS_COLOR
         self.Focus = focus
         self.do_not_clear = do_not_clear
-        fg = text_color if text_color is not None else DEFAULT_INPUT_TEXT_COLOR
+        fg = text_color if text_color is not None else FreeSimpleGUI.DEFAULT_INPUT_TEXT_COLOR
         self.selected_text_color = selected_text_color
         self.selected_background_color = selected_background_color
         self.Autoscroll = autoscroll
         self.Disabled = disabled
         self.ChangeSubmits = change_submits or enable_events
         self.RightClickMenu = right_click_menu
-        self.BorderWidth = border_width if border_width is not None else DEFAULT_BORDER_WIDTH
+        self.BorderWidth = border_width if border_width is not None else FreeSimpleGUI.DEFAULT_BORDER_WIDTH
         self.TagCounter = 0
         self.TKText = self.Widget = None  # type: tk.Text
         self.element_frame = None  # type: tk.Frame
@@ -212,7 +209,7 @@ class Multiline(Element):
             key=key,
             pad=pad,
             tooltip=tooltip,
-            font=font or DEFAULT_FONT,
+            font=font or FreeSimpleGUI.DEFAULT_FONT,
             visible=visible,
             metadata=metadata,
             sbar_trough_color=sbar_trough_color,

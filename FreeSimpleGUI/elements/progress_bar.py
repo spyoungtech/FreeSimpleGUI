@@ -3,19 +3,14 @@ from __future__ import annotations
 import tkinter as tk
 from tkinter import ttk
 
+import FreeSimpleGUI
+from FreeSimpleGUI import _change_ttk_theme
 from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
-from FreeSimpleGUI import DEFAULT_METER_ORIENTATION
-from FreeSimpleGUI import DEFAULT_PROGRESS_BAR_BORDER_WIDTH
-from FreeSimpleGUI import DEFAULT_PROGRESS_BAR_COLOR
-from FreeSimpleGUI import DEFAULT_PROGRESS_BAR_RELIEF
-from FreeSimpleGUI import DEFAULT_PROGRESS_BAR_SIZE
-from FreeSimpleGUI import DEFAULT_TTK_THEME
 from FreeSimpleGUI import ELEM_TYPE_PROGRESS_BAR
 from FreeSimpleGUI import Element
-from FreeSimpleGUI import Window
-from FreeSimpleGUI.FreeSimpleGUI import _change_ttk_theme
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
-from FreeSimpleGUI.FreeSimpleGUI import _simplified_dual_color_to_tuple
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+from FreeSimpleGUI.elements.helpers import _simplified_dual_color_to_tuple
+from FreeSimpleGUI.window import Window
 
 
 class TKProgressBar:
@@ -26,11 +21,11 @@ class TKProgressBar:
         root,
         max,
         length=400,
-        width=DEFAULT_PROGRESS_BAR_SIZE[1],
-        ttk_theme=DEFAULT_TTK_THEME,
+        width=FreeSimpleGUI.DEFAULT_PROGRESS_BAR_SIZE[1],
+        ttk_theme=FreeSimpleGUI.DEFAULT_TTK_THEME,
         style_name='',
-        relief=DEFAULT_PROGRESS_BAR_RELIEF,
-        border_width=DEFAULT_PROGRESS_BAR_BORDER_WIDTH,
+        relief=FreeSimpleGUI.DEFAULT_PROGRESS_BAR_RELIEF,
+        border_width=FreeSimpleGUI.DEFAULT_PROGRESS_BAR_BORDER_WIDTH,
         orientation='horizontal',
         BarColor=(None, None),
         key=None,
@@ -199,18 +194,18 @@ class ProgressBar(Element):
         self.TKProgressBar = None  # type: TKProgressBar
         self.Cancelled = False
         self.NotRunning = True
-        self.Orientation = orientation if orientation else DEFAULT_METER_ORIENTATION
+        self.Orientation = orientation if orientation else FreeSimpleGUI.DEFAULT_METER_ORIENTATION
         self.RightClickMenu = right_click_menu
         # Progress Bar colors can be a tuple (text, background) or a string with format "bar on background" - examples "red on white" or ("red", "white")
         if bar_color is None:
-            bar_color = DEFAULT_PROGRESS_BAR_COLOR
+            bar_color = FreeSimpleGUI.DEFAULT_PROGRESS_BAR_COLOR
         else:
-            bar_color = _simplified_dual_color_to_tuple(bar_color, default=DEFAULT_PROGRESS_BAR_COLOR)
+            bar_color = _simplified_dual_color_to_tuple(bar_color, default=FreeSimpleGUI.DEFAULT_PROGRESS_BAR_COLOR)
 
         self.BarColor = bar_color  # should be a tuple at this point
-        self.BarStyle = style if style else DEFAULT_TTK_THEME
-        self.BorderWidth = border_width if border_width else DEFAULT_PROGRESS_BAR_BORDER_WIDTH
-        self.Relief = relief if relief else DEFAULT_PROGRESS_BAR_RELIEF
+        self.BarStyle = style if style else FreeSimpleGUI.DEFAULT_TTK_THEME
+        self.BorderWidth = border_width if border_width else FreeSimpleGUI.DEFAULT_PROGRESS_BAR_BORDER_WIDTH
+        self.Relief = relief if relief else FreeSimpleGUI.DEFAULT_PROGRESS_BAR_RELIEF
         self.BarExpired = False
         key = key if key is not None else k
         sz = size if size != (None, None) else s
@@ -292,7 +287,7 @@ class ProgressBar(Element):
         if visible is not None:
             self._visible = visible
         if bar_color is not None:
-            bar_color = _simplified_dual_color_to_tuple(bar_color, default=DEFAULT_PROGRESS_BAR_COLOR)
+            bar_color = _simplified_dual_color_to_tuple(bar_color, default=FreeSimpleGUI.DEFAULT_PROGRESS_BAR_COLOR)
             self.BarColor = bar_color
             style = ttk.Style()
             style.configure(self.ttk_style_name, background=bar_color[0], troughcolor=bar_color[1])

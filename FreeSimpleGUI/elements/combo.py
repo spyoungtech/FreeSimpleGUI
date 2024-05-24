@@ -4,14 +4,12 @@ import tkinter as tk
 import tkinter.font
 from tkinter import ttk
 
+import FreeSimpleGUI
 from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
-from FreeSimpleGUI import DEFAULT_FONT
-from FreeSimpleGUI import DEFAULT_INPUT_ELEMENTS_COLOR
-from FreeSimpleGUI import DEFAULT_INPUT_TEXT_COLOR
 from FreeSimpleGUI import ELEM_TYPE_INPUT_COMBO
 from FreeSimpleGUI import Element
 from FreeSimpleGUI import theme_button_color
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
+from FreeSimpleGUI._utils import _error_popup_with_traceback
 
 
 class Combo(Element):
@@ -107,8 +105,8 @@ class Combo(Element):
         self.Disabled = disabled
         self.Readonly = readonly
         self.BindReturnKey = bind_return_key
-        bg = background_color if background_color else DEFAULT_INPUT_ELEMENTS_COLOR
-        fg = text_color if text_color is not None else DEFAULT_INPUT_TEXT_COLOR
+        bg = background_color if background_color else FreeSimpleGUI.DEFAULT_INPUT_ELEMENTS_COLOR
+        fg = text_color if text_color is not None else FreeSimpleGUI.DEFAULT_INPUT_TEXT_COLOR
         key = key if key is not None else k
         sz = size if size != (None, None) else s
         pad = pad if pad is not None else p

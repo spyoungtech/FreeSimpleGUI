@@ -2,14 +2,12 @@ from __future__ import annotations
 
 import tkinter.font
 
+import FreeSimpleGUI
+from FreeSimpleGUI import _get_hidden_master_root
 from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
-from FreeSimpleGUI import DEFAULT_FONT
-from FreeSimpleGUI import DEFAULT_TEXT_COLOR
-from FreeSimpleGUI import DEFAULT_TEXT_ELEMENT_BACKGROUND_COLOR
 from FreeSimpleGUI import ELEM_TYPE_TEXT
-from FreeSimpleGUI import Element
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
-from FreeSimpleGUI.FreeSimpleGUI import _get_hidden_master_root
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+from FreeSimpleGUI.elements.base import Element
 
 
 class Text(Element):
@@ -93,12 +91,12 @@ class Text(Element):
         """
 
         self.DisplayText = str(text)
-        self.TextColor = text_color if text_color else DEFAULT_TEXT_COLOR
+        self.TextColor = text_color if text_color else FreeSimpleGUI.DEFAULT_TEXT_COLOR
         self.Justification = justification
         self.Relief = relief
         self.ClickSubmits = click_submits or enable_events
         if background_color is None:
-            bg = DEFAULT_TEXT_ELEMENT_BACKGROUND_COLOR
+            bg = FreeSimpleGUI.DEFAULT_TEXT_ELEMENT_BACKGROUND_COLOR
         else:
             bg = background_color
         self.RightClickMenu = right_click_menu
@@ -116,7 +114,7 @@ class Text(Element):
             auto_size_text=auto_size_text,
             size=sz,
             background_color=bg,
-            font=font if font else DEFAULT_FONT,
+            font=font if font else FreeSimpleGUI.DEFAULT_FONT,
             text_color=self.TextColor,
             pad=pad,
             key=key,

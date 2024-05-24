@@ -15,10 +15,17 @@ from typing import Dict
 from typing import List
 from typing import Tuple
 
-from FreeSimpleGUI import button_color_to_tuple
+from FreeSimpleGUI import _BuildResults
+from FreeSimpleGUI import _Debugger
+from FreeSimpleGUI import _debugger_window_is_open
+from FreeSimpleGUI import _FindElementWithFocusInSubForm
+from FreeSimpleGUI import _get_hidden_master_root
+from FreeSimpleGUI import _global_settings_get_watermark_info
+from FreeSimpleGUI import _long_func_thread
+from FreeSimpleGUI import _refresh_debugger
+from FreeSimpleGUI import _TimerPeriodic
 from FreeSimpleGUI import BUTTON_TYPE_CALENDAR_CHOOSER
 from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
-from FreeSimpleGUI import Column
 from FreeSimpleGUI import CURRENT_LOOK_AND_FEEL
 from FreeSimpleGUI import CUSTOM_TITLEBAR_ICON
 from FreeSimpleGUI import DEFAULT_ALPHA_CHANNEL
@@ -64,10 +71,8 @@ from FreeSimpleGUI import ELEM_TYPE_TAB
 from FreeSimpleGUI import ELEM_TYPE_TAB_GROUP
 from FreeSimpleGUI import ELEM_TYPE_TABLE
 from FreeSimpleGUI import ELEM_TYPE_TREE
-from FreeSimpleGUI import Element
 from FreeSimpleGUI import EMOJI_BASE64_KEY
 from FreeSimpleGUI import ENABLE_MAC_MODAL_DISABLE_PATCH
-from FreeSimpleGUI import ErrorElement
 from FreeSimpleGUI import EVENT_TIMER
 from FreeSimpleGUI import FillFormWithValues
 from FreeSimpleGUI import GRAB_ANYWHERE_IGNORE_THESE_WIDGETS
@@ -95,23 +100,15 @@ from FreeSimpleGUI import TITLEBAR_MAXIMIZE_KEY
 from FreeSimpleGUI import TITLEBAR_METADATA_MARKER
 from FreeSimpleGUI import TITLEBAR_MINIMIZE_KEY
 from FreeSimpleGUI import TITLEBAR_TEXT_KEY
-from FreeSimpleGUI import TkScrollableFrame
 from FreeSimpleGUI import TTKPartOverrides
 from FreeSimpleGUI import USE_TTK_BUTTONS
 from FreeSimpleGUI import WINDOW_CLOSE_ATTEMPTED_EVENT
 from FreeSimpleGUI import WINDOW_CONFIG_EVENT
-from FreeSimpleGUI.FreeSimpleGUI import _BuildResults
-from FreeSimpleGUI.FreeSimpleGUI import _Debugger
-from FreeSimpleGUI.FreeSimpleGUI import _debugger_window_is_open
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
-from FreeSimpleGUI.FreeSimpleGUI import _exit_mainloop
-from FreeSimpleGUI.FreeSimpleGUI import _FindElementWithFocusInSubForm
-from FreeSimpleGUI.FreeSimpleGUI import _get_hidden_master_root
-from FreeSimpleGUI.FreeSimpleGUI import _global_settings_get_watermark_info
-from FreeSimpleGUI.FreeSimpleGUI import _long_func_thread
-from FreeSimpleGUI.FreeSimpleGUI import _refresh_debugger
-from FreeSimpleGUI.FreeSimpleGUI import _simplified_dual_color_to_tuple
-from FreeSimpleGUI.FreeSimpleGUI import _TimerPeriodic
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+from FreeSimpleGUI._utils import _exit_mainloop
+from FreeSimpleGUI.elements.base import Element
+from FreeSimpleGUI.elements.helpers import _simplified_dual_color_to_tuple
+from FreeSimpleGUI.elements.helpers import button_color_to_tuple
 
 
 class Window:
@@ -1323,7 +1320,7 @@ class Window:
         :param supress_raise:    Override for the global setting that determines if a key error should raise an exception
         :type supress_raise:     (bool | None)
         :return:                 Return value can be: the Element that matches the supplied key if found; an Error Element if silent_on_error is False; None if silent_on_error True
-        :rtype:                  Element | ErrorElement | None
+        :rtype:                  Element | FreeSimpleGUI.elements.error.ErrorElement | None
         """
 
         key_error = False
@@ -2825,7 +2822,7 @@ class Window:
         :param key: The key to find
         :type key:  str | int | tuple | object
         :return:    The element found
-        :rtype:     Element | Input | Combo | OptionMenu | Listbox | Radio | Checkbox | Spin | Multiline | Text | StatusBar | FreeSimpleGUI.elements.multiline.Output | Button | ButtonMenu | ProgressBar | Image | FreeSimpleGUI.elements.canvas.Canvas | Graph | Frame | VerticalSeparator | HorizontalSeparator | FreeSimpleGUI.elements.tab.Tab | FreeSimpleGUI.elements.tab.TabGroup | Slider | Column | FreeSimpleGUI.elements.pane.Pane | Menu | FreeSimpleGUI.elements.table.Table | FreeSimpleGUI.elements.tree.Tree | ErrorElement | None
+        :rtype:     Element | Input | Combo | OptionMenu | Listbox | Radio | Checkbox | Spin | Multiline | Text | StatusBar | FreeSimpleGUI.elements.multiline.Output | Button | ButtonMenu | ProgressBar | Image | FreeSimpleGUI.elements.canvas.Canvas | Graph | Frame | VerticalSeparator | HorizontalSeparator | FreeSimpleGUI.elements.tab.Tab | FreeSimpleGUI.elements.tab.TabGroup | Slider | Column | FreeSimpleGUI.elements.pane.Pane | Menu | FreeSimpleGUI.elements.table.Table | FreeSimpleGUI.elements.tree.Tree | FreeSimpleGUI.elements.error.ErrorElement | None
         """
 
         return self.find_element(key)
@@ -2904,3 +2901,8 @@ class Window:
     CloseNonBlocking = close
     CloseNonBlockingForm = close
     start_thread = perform_long_operation
+
+
+from FreeSimpleGUI.elements.column import Column
+from FreeSimpleGUI.elements.error import ErrorElement
+from FreeSimpleGUI.elements.column import TkScrollableFrame

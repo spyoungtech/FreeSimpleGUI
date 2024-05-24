@@ -2,15 +2,15 @@ from __future__ import annotations
 
 import tkinter as tk
 
+from FreeSimpleGUI import _hex_to_hsl
+from FreeSimpleGUI import _hsl_to_rgb
 from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
 from FreeSimpleGUI import ELEM_TYPE_INPUT_RADIO
 from FreeSimpleGUI import Element
 from FreeSimpleGUI import rgb
 from FreeSimpleGUI import theme_background_color
 from FreeSimpleGUI import theme_text_color
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
-from FreeSimpleGUI.FreeSimpleGUI import _hex_to_hsl
-from FreeSimpleGUI.FreeSimpleGUI import _hsl_to_rgb
+from FreeSimpleGUI._utils import _error_popup_with_traceback
 
 
 class Radio(Element):

@@ -3,16 +3,16 @@ from __future__ import annotations
 import copy
 import tkinter as tk
 
-from FreeSimpleGUI import AddMenuItem
 from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
 from FreeSimpleGUI import ELEM_TYPE_MENUBAR
-from FreeSimpleGUI import Element
 from FreeSimpleGUI import MENU_DISABLED_CHARACTER
 from FreeSimpleGUI import MENU_SHORTCUT_CHARACTER
 from FreeSimpleGUI import theme_input_background_color
 from FreeSimpleGUI import theme_input_text_color
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
-from FreeSimpleGUI.FreeSimpleGUI import _exit_mainloop
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+from FreeSimpleGUI._utils import _exit_mainloop
+from FreeSimpleGUI.elements.base import Element
+from FreeSimpleGUI.elements.helpers import AddMenuItem
 
 
 class Menu(Element):

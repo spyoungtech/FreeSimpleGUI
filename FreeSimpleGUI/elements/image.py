@@ -5,8 +5,8 @@ import tkinter as tk
 import warnings
 
 from FreeSimpleGUI import ELEM_TYPE_IMAGE
-from FreeSimpleGUI import Element
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+from FreeSimpleGUI.elements.base import Element
 
 
 class Image(Element):

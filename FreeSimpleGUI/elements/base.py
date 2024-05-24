@@ -5,11 +5,8 @@ import tkinter as tk
 import warnings
 from typing import Any
 
-from FreeSimpleGUI import AddMenuItem
+import FreeSimpleGUI
 from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
-from FreeSimpleGUI import DEFAULT_ELEMENT_BACKGROUND_COLOR
-from FreeSimpleGUI import DEFAULT_ELEMENT_TEXT_COLOR
-from FreeSimpleGUI import DEFAULT_TOOLTIP_TIME
 from FreeSimpleGUI import ELEM_TYPE_BUTTON
 from FreeSimpleGUI import ELEM_TYPE_COLUMN
 from FreeSimpleGUI import ELEM_TYPE_FRAME
@@ -28,8 +25,6 @@ from FreeSimpleGUI import PSG_THEME_PART_SLIDER
 from FreeSimpleGUI import PSG_THEME_PART_TEXT
 from FreeSimpleGUI import pysimplegui_user_settings
 from FreeSimpleGUI import running_mac
-from FreeSimpleGUI import SUPPRESS_ERROR_POPUPS
-from FreeSimpleGUI import SUPPRESS_WIDGET_NOT_FINALIZED_WARNINGS
 from FreeSimpleGUI import theme_background_color
 from FreeSimpleGUI import theme_button_color_background
 from FreeSimpleGUI import theme_button_color_text
@@ -50,10 +45,6 @@ from FreeSimpleGUI import TTK_SCROLLBAR_PART_RELIEF
 from FreeSimpleGUI import TTK_SCROLLBAR_PART_SCROLL_WIDTH
 from FreeSimpleGUI import TTK_SCROLLBAR_PART_TROUGH_COLOR
 from FreeSimpleGUI import TTKPartOverrides
-from FreeSimpleGUI.FreeSimpleGUI import _create_error_message
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
-from FreeSimpleGUI.FreeSimpleGUI import _exit_mainloop
-from FreeSimpleGUI.window import Window
 
 
 class Element:
@@ -151,8 +142,8 @@ class Element:
         self.ParentContainer = None  # will be a Form, Column, or Frame element # UNBIND
         self.TextInputDefault = None
         self.Position = (0, 0)  # Default position Row 0, Col 0
-        self.BackgroundColor = background_color if background_color is not None else DEFAULT_ELEMENT_BACKGROUND_COLOR
-        self.TextColor = text_color if text_color is not None else DEFAULT_ELEMENT_TEXT_COLOR
+        self.BackgroundColor = background_color if background_color is not None else FreeSimpleGUI.DEFAULT_ELEMENT_BACKGROUND_COLOR
+        self.TextColor = text_color if text_color is not None else FreeSimpleGUI.DEFAULT_ELEMENT_TEXT_COLOR
         self.Key = key  # dictionary key for return values
         self.Tooltip = tooltip
         self.TooltipObject = None
@@ -616,7 +607,7 @@ class Element:
             except:
                 pass
 
-        self.TooltipObject = ToolTip(self.Widget, text=tooltip_text, timeout=DEFAULT_TOOLTIP_TIME)
+        self.TooltipObject = ToolTip(self.Widget, text=tooltip_text, timeout=FreeSimpleGUI.DEFAULT_TOOLTIP_TIME)
 
     def set_focus(self, force=False):
         """
@@ -828,14 +819,14 @@ class Element:
         if self.Widget is not None:
             return True
         else:
-            if SUPPRESS_WIDGET_NOT_FINALIZED_WARNINGS:
+            if FreeSimpleGUI.SUPPRESS_WIDGET_NOT_FINALIZED_WARNINGS:
                 return False
 
             warnings.warn(
                 'You cannot Update element with key = {} until the window.read() is called or set finalize=True when creating window'.format(self.Key),
                 UserWarning,
             )
-            if not SUPPRESS_ERROR_POPUPS:
+            if not FreeSimpleGUI.SUPPRESS_ERROR_POPUPS:
                 _error_popup_with_traceback(
                     f'Unable to complete operation on element with key {self.Key}',
                     'You cannot perform operations (such as calling update) on an Element until:',
@@ -1059,3 +1050,12 @@ class Element:
 
     SetTooltip = set_tooltip
     SetFocus = set_focus
+
+
+from FreeSimpleGUI.elements.helpers import AddMenuItem
+
+from FreeSimpleGUI._utils import _create_error_message
+from FreeSimpleGUI._utils import _exit_mainloop
+
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+from FreeSimpleGUI.window import Window

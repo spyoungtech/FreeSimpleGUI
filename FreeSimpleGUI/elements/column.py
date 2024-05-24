@@ -3,15 +3,14 @@ from __future__ import annotations
 import tkinter as tk
 import warnings
 
-from FreeSimpleGUI import DEFAULT_BACKGROUND_COLOR
+import FreeSimpleGUI
+from FreeSimpleGUI import _make_ttk_scrollbar
+from FreeSimpleGUI import _random_error_emoji
 from FreeSimpleGUI import ELEM_TYPE_COLUMN
-from FreeSimpleGUI import Element
 from FreeSimpleGUI import PopupError
 from FreeSimpleGUI import VarHolder
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
-from FreeSimpleGUI.FreeSimpleGUI import _make_ttk_scrollbar
-from FreeSimpleGUI.FreeSimpleGUI import _random_error_emoji
-from FreeSimpleGUI.window import Window
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+from FreeSimpleGUI.elements.base import Element
 
 
 class TkFixedFrame(tk.Frame):
@@ -254,7 +253,7 @@ class Column(Element):
         self.VerticalScrollOnly = vertical_scroll_only
 
         self.RightClickMenu = right_click_menu
-        bg = background_color if background_color is not None else DEFAULT_BACKGROUND_COLOR
+        bg = background_color if background_color is not None else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
         self.ContainerElemementNumber = Window._GetAContainerNumber()
         self.ElementJustification = element_justification
         self.Justification = justification
@@ -438,3 +437,6 @@ class Column(Element):
     AddRow = add_row
     Layout = layout
     Update = update
+
+
+from FreeSimpleGUI.window import Window

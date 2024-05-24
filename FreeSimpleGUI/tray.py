@@ -4,11 +4,11 @@ import textwrap
 import tkinter as tk
 
 from FreeSimpleGUI import AddMenuItem
-from FreeSimpleGUI import Graph
-from FreeSimpleGUI import Image
 from FreeSimpleGUI import TEXT_LOCATION_TOP_LEFT
 from FreeSimpleGUI import TIMEOUT_KEY
-from FreeSimpleGUI import Window
+from FreeSimpleGUI.elements.graph import Graph
+from FreeSimpleGUI.elements.image import Image
+from FreeSimpleGUI.window import Window
 
 SYSTEM_TRAY_WIN_MARGINS = 160, 60  # from right edge of screen, from bottom of screen
 SYSTEM_TRAY_MESSAGE_MAX_LINE_LENGTH = 50

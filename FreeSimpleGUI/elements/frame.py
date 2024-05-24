@@ -3,13 +3,12 @@ from __future__ import annotations
 import tkinter as tk
 import warnings
 
-from FreeSimpleGUI import DEFAULT_BACKGROUND_COLOR
-from FreeSimpleGUI import DEFAULT_FRAME_RELIEF
+import FreeSimpleGUI
+from FreeSimpleGUI import _random_error_emoji
 from FreeSimpleGUI import ELEM_TYPE_FRAME
 from FreeSimpleGUI import Element
 from FreeSimpleGUI import PopupError
-from FreeSimpleGUI.FreeSimpleGUI import _error_popup_with_traceback
-from FreeSimpleGUI.FreeSimpleGUI import _random_error_emoji
+from FreeSimpleGUI._utils import _error_popup_with_traceback
 from FreeSimpleGUI.window import Window
 
 
@@ -25,7 +24,7 @@ class Frame(Element):
         title_color=None,
         background_color=None,
         title_location=None,
-        relief=DEFAULT_FRAME_RELIEF,
+        relief=FreeSimpleGUI.DEFAULT_FRAME_RELIEF,
         size=(None, None),
         s=(None, None),
         font=None,
@@ -106,7 +105,7 @@ class Frame(Element):
         self.Relief = relief
         self.TitleLocation = title_location
         self.BorderWidth = border_width
-        self.BackgroundColor = background_color if background_color is not None else DEFAULT_BACKGROUND_COLOR
+        self.BackgroundColor = background_color if background_color is not None else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
         self.RightClickMenu = right_click_menu
         self.ContainerElemementNumber = Window._GetAContainerNumber()
         self.ElementJustification = element_justification
