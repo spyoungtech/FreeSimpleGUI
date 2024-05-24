@@ -131,7 +131,7 @@ class Combo(Element):
             key=key,
             pad=pad,
             tooltip=tooltip,
-            font=font or DEFAULT_FONT,
+            font=font or FreeSimpleGUI.DEFAULT_FONT,
             visible=visible,
             metadata=metadata,
         )

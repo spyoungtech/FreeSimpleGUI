@@ -14,7 +14,9 @@ from typing import Any
 from typing import Dict
 from typing import List
 from typing import Tuple
+import tkinter
 
+import FreeSimpleGUI
 from FreeSimpleGUI import _BuildResults
 from FreeSimpleGUI import _Debugger
 from FreeSimpleGUI import _debugger_window_is_open
@@ -1444,7 +1446,7 @@ class Window:
                         top_window.DictionaryKeyCounter += 1
                 if element.Key is not None:
                     if element.Key in key_dict.keys():
-                        if element.Type == ELEM_TYPE_BUTTON and WARN_DUPLICATE_BUTTON_KEY_ERRORS:  # for Buttons see if should complain
+                        if element.Type == ELEM_TYPE_BUTTON and FreeSimpleGUI.WARN_DUPLICATE_BUTTON_KEY_ERRORS:  # for Buttons see if should complain
                             warnings.warn(f'*** Duplicate key found in your layout {element.Key} ***', UserWarning)
                             warnings.warn(f'*** Replaced new key with {str(element.Key) + str(self.UniqueKeyCounter)} ***')
                             if not SUPPRESS_ERROR_POPUPS:
