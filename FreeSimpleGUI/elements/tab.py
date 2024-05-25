@@ -13,8 +13,8 @@ from FreeSimpleGUI import ELEM_TYPE_TAB_GROUP
 from FreeSimpleGUI import Element
 from FreeSimpleGUI import LOOK_AND_FEEL_TABLE
 from FreeSimpleGUI import PackFormIntoFrame
+from FreeSimpleGUI import popup_error
 from FreeSimpleGUI import popup_error_with_traceback
-from FreeSimpleGUI import PopupError
 from FreeSimpleGUI import ToolTip
 from FreeSimpleGUI._utils import _error_popup_with_traceback
 from FreeSimpleGUI.window import Window
@@ -217,7 +217,7 @@ class Tab(Element):
             try:
                 iter(row)
             except TypeError:
-                PopupError(
+                popup_error(
                     'Error creating Tab layout',
                     'Your row is not an iterable (e.g. a list)',
                     f'Instead of a list, the type found was {type(row)}',
@@ -453,7 +453,7 @@ class TabGroup(Element):
         # -------------------------  Add the elements to a row  ------------------------- #
         for i, element in enumerate(args):  # Loop through list of elements and add them to the row
             if type(element) is list:
-                PopupError(
+                popup_error(
                     'Error creating Tab layout',
                     'Layout has a LIST instead of an ELEMENT',
                     'This sometimes means you have a badly placed ]',
@@ -465,7 +465,7 @@ class TabGroup(Element):
                 )
                 continue
             elif callable(element) and not isinstance(element, Element):
-                PopupError(
+                popup_error(
                     'Error creating Tab layout',
                     'Layout has a FUNCTION instead of an ELEMENT',
                     'This likely means you are missing () from your layout',
@@ -481,7 +481,7 @@ class TabGroup(Element):
                     '*** YOU ARE ATTEMPTING TO REUSE AN ELEMENT IN YOUR LAYOUT! Once placed in a layout, an element cannot be used in another layout. ***',
                     UserWarning,
                 )
-                PopupError(
+                popup_error(
                     'Error creating Tab layout',
                     'The layout specified has already been used',
                     'You MUST start witha "clean", unused layout every time you create a window',
@@ -516,7 +516,7 @@ class TabGroup(Element):
             try:
                 iter(row)
             except TypeError:
-                PopupError(
+                popup_error(
                     'Error creating Tab layout',
                     'Your row is not an iterable (e.g. a list)',
                     f'Instead of a list, the type found was {type(row)}',

@@ -4443,48 +4443,6 @@ def _change_ttk_theme(style, theme_name):
     return True
 
 
-# class Stylist:
-#     """
-#     A class to help get information about ttk styles
-#     """
-#     @staticmethod
-#     def get_elements(layout):
-#         """Return a list of elements contained in the style"""
-#         elements = []
-#         element = layout[0][0]
-#         elements.append(element)
-#         sublayout = layout[0][1]
-#
-#         if 'children' in sublayout:
-#             child_elements = Stylist.get_elements(sublayout['children'])
-#             elements.extend(child_elements)
-#         return elements
-#
-#     @staticmethod
-#     def get_options(ttkstyle, theme=None):
-#         style = ttk.Style()
-#         if theme is not None:
-#             style.theme_use(theme)
-#         layout = style.layout(ttkstyle)
-#         elements = Stylist.get_elements(layout)
-#         options = []
-#         for e in elements:
-#             _opts = style.element_options(e)
-#             if _opts:
-#                 options.extend(list(_opts))
-#         return list(set(options))
-#
-#     @staticmethod
-#     def create_style(base_style: str, theme=None, **kwargs):
-#         style = ttk.Style()
-#         if theme is not None:
-#             style.theme_use(theme)
-#         style_id = uuid4()
-#         ttkstyle = '{}.{}'.format(style_id, base_style)
-#         style.configure(ttkstyle, **kwargs)
-#         return ttkstyle
-
-
 def _make_ttk_style_name(base_style, element, primary_style=False):
     Window._counter_for_ttk_widgets += 1
     style_name = str(Window._counter_for_ttk_widgets) + '___' + str(element.Key) + base_style
@@ -4622,22 +4580,6 @@ def _make_ttk_scrollbar(element, orientation, window):
 
     if scroll_relief not in (None, COLOR_SYSTEM_DEFAULT):
         style.configure(style_name, relief=scroll_relief)
-
-
-# if __name__ == '__main__':
-#     root = tk.Tk()
-#
-#     # find out what options are available for the theme and widget style
-#     options = Stylist.get_options('TFrame', 'default')
-#     print('The options for this style and theme are', options)
-#
-#     # create a new style
-#     frame_style = Stylist.create_style('TFrame', 'alt', relief=tk.RAISED, borderwidth=1)
-#
-#     # apply the new style
-#     ttk.Frame(style=frame_style, width=100, height=100).pack(padx=10, pady=10)
-#
-#     root.mainloop()
 
 
 # @_timeit
