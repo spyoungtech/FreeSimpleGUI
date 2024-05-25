@@ -7,7 +7,7 @@ import FreeSimpleGUI
 from FreeSimpleGUI import _random_error_emoji
 from FreeSimpleGUI import ELEM_TYPE_FRAME
 from FreeSimpleGUI import Element
-from FreeSimpleGUI import PopupError
+from FreeSimpleGUI import popup_error
 from FreeSimpleGUI._utils import _error_popup_with_traceback
 from FreeSimpleGUI.window import Window
 
@@ -146,7 +146,7 @@ class Frame(Element):
         # -------------------------  Add the elements to a row  ------------------------- #
         for i, element in enumerate(args):  # Loop through list of elements and add them to the row
             if type(element) is list:
-                PopupError(
+                popup_error(
                     'Error creating Frame layout',
                     'Layout has a LIST instead of an ELEMENT',
                     'This sometimes means you have a badly placed ]',
@@ -157,7 +157,7 @@ class Frame(Element):
                 )
                 continue
             elif callable(element) and not isinstance(element, Element):
-                PopupError(
+                popup_error(
                     'Error creating Frame layout',
                     'Layout has a FUNCTION instead of an ELEMENT',
                     'This likely means you are missing () from your layout',
@@ -206,7 +206,7 @@ class Frame(Element):
             try:
                 iter(row)
             except TypeError:
-                PopupError(
+                popup_error(
                     'Error creating Frame layout',
                     'Your row is not an iterable (e.g. a list)',
                     f'Instead of a list, the type found was {type(row)}',

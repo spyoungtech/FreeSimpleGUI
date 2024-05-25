@@ -53,7 +53,7 @@ from FreeSimpleGUI import ELEM_TYPE_TABLE
 from FreeSimpleGUI import ELEM_TYPE_TREE
 from FreeSimpleGUI import EMOJI_BASE64_KEY
 from FreeSimpleGUI import EVENT_TIMER
-from FreeSimpleGUI import FillFormWithValues
+from FreeSimpleGUI import fill_form_with_values
 from FreeSimpleGUI import GRAB_ANYWHERE_IGNORE_THESE_WIDGETS
 from FreeSimpleGUI import InitializeResults
 from FreeSimpleGUI import PackFormIntoFrame
@@ -1222,7 +1222,7 @@ class Window:
         :rtype:             (Window)
         """
 
-        FillFormWithValues(self, values_dict)
+        fill_form_with_values(self, values_dict)
         return self
 
     def _find_closest_key(self, search_key):
