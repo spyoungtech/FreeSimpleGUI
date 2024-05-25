@@ -668,7 +668,6 @@ def running_replit():
     return False
 
 
-
 # ----====----====----==== Constants the user should NOT change ====----====----====----#
 ThisRow = 555666777  # magic number
 
