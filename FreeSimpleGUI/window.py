@@ -2543,7 +2543,6 @@ class Window:
             from PIL import ImageGrab
         except:
             warnings.warn('Failed to import PIL. In a future version, this will raise an ImportError instead of returning None', DeprecationWarning, stacklevel=2)
-            print('FAILED TO IMPORT PIL!')
             return None
         try:
             # Get location of window to save
