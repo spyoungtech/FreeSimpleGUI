@@ -65,7 +65,6 @@ port = 'FreeSimpleGUI'
 name = 'FreeSimpleGui'
 
 
-pil_import_attempted = pil_imported = False
 
 warnings.simplefilter('always', UserWarning)
 
@@ -16722,3 +16721,9 @@ if __name__ == '__main__':
         exit(0)
     main()
     exit(0)
+
+def __getattr__(name):
+    if name in ('pil_import_attempted', 'pil_imported'):
+        warnings.warn(f'The name {name} is deprecated. This value will always be False. In a future version, this will become an AttributeError.', DeprecationWarning, stacklevel=2)
+        return False
+    raise AttributeError(f'module {__name__} has no attribute {name!r}')

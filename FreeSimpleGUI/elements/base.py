@@ -938,21 +938,13 @@ class Element:
         :return:                A PIL ImageGrab object that can be saved or manipulated
         :rtype:                 (PIL.ImageGrab | None)
         """
-        global pil_import_attempted, pil_imported, PIL, ImageGrab, Image
 
-        if not pil_import_attempted:
-            try:
-                import PIL as PIL
-                from PIL import ImageGrab
-                from PIL import Image
-
-                pil_imported = True
-                pil_import_attempted = True
-            except:
-                pil_imported = False
-                pil_import_attempted = True
-                print('FAILED TO IMPORT PIL!')
-                return None
+        try:
+            from PIL import ImageGrab
+            from PIL import Image
+        except:
+            warnings.warn("Failed to import PIL. In a future version, this will become an exception, rather than returning None", DeprecationWarning, stacklevel=2)
+            return None
         try:
             # Add a little to the X direction if window has a titlebar
             rect = (
