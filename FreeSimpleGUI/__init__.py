@@ -503,7 +503,7 @@ def timer_start():
     Uses the time.time value, a technique known to not be terribly accurage, but tis' gclose enough for our purposes
     """
     global g_time_start
-    warnings.warn("The timer_start function is deprecated and will be removed in a future version", DeprecationWarning, stacklevel=2)
+    warnings.warn('The timer_start function is deprecated and will be removed in a future version', DeprecationWarning, stacklevel=2)
 
     g_time_start = time.time()
 
@@ -516,7 +516,7 @@ def timer_stop():
     :rtype:  int
     """
     global g_time_delta, g_time_end
-    warnings.warn("The timer_stop function is deprecated and will be removed in a future version", DeprecationWarning, stacklevel=2)
+    warnings.warn('The timer_stop function is deprecated and will be removed in a future version', DeprecationWarning, stacklevel=2)
 
     g_time_end = time.time()
     g_time_delta = g_time_end - g_time_start
@@ -531,7 +531,7 @@ def timer_stop_usec():
     :rtype:  int
     """
     global g_time_delta, g_time_end
-    warnings.warn("The timer_stop_usec function is deprecated and will be removed in a future version", DeprecationWarning, stacklevel=2)
+    warnings.warn('The timer_stop_usec function is deprecated and will be removed in a future version', DeprecationWarning, stacklevel=2)
 
     g_time_end = time.time()
     g_time_delta = g_time_end - g_time_start
@@ -547,7 +547,7 @@ def _timeit(func):
     :return:     Execution time for the decorated function
     :rtype:
     """
-    warnings.warn("The _timeit function is deprecated and will be removed in a future version", DeprecationWarning, stacklevel=2)
+    warnings.warn('The _timeit function is deprecated and will be removed in a future version', DeprecationWarning, stacklevel=2)
 
     @wraps(func)
     def wrapper(*args, **kwargs):
@@ -575,7 +575,7 @@ def _timeit_summary(func):
     :return:     Execution time for the decorated function
     :rtype:
     """
-    warnings.warn("The _timeit_summary function is deprecated and will be removed in a future version", DeprecationWarning, stacklevel=2)
+    warnings.warn('The _timeit_summary function is deprecated and will be removed in a future version', DeprecationWarning, stacklevel=2)
 
     @wraps(func)
     def wrapper(*args, **kwargs):
