@@ -668,38 +668,8 @@ def running_replit():
     return False
 
 
-# Handy python statements to increment and decrement with wrapping that I don't want to forget
-# count = (count + (MAX - 1)) % MAX           # Decrement - roll over to MAX from 0
-# count = (count + 1) % MAX                   # Increment to MAX then roll over to 0
 
-"""
-    Welcome to the "core" PySimpleGUI code....
-
-    It's a mess.... really... it's a mess internally... it's the external-facing interfaces that
-    are not a mess.  The Elements and the methods for them are well-designed.
-    PEP8 - this code is far far from PEP8 compliant.
-    It was written PRIOR to learning that PEP8 existed.
-
-    I'll be honest.... started learning Python in Nov 2017, started writing PySimpleGUI in Feb 2018.
-    Released PySimpleGUI in July 2018.  I knew so little about Python that my parameters were all named
-    using CamelCase.  DOH!  Someone on Reddit set me straight on that.  So overnight I renamed all of the
-    parameters to lower case.  Unfortunately, the internal naming conventions have been set.  Mixing them
-    with PEP8 at this moment would be even MORE confusing.
-
-    Code I write now, outside PySimpleGUI, IS PEP8 compliant.
-
-    The variable and function naming in particular are not compliant.  There is
-    liberal use of CamelVariableAndFunctionNames, but for anything externally facing, there are aliases
-    available for all functions.  If you've got a serious enough problem with 100% PEP8 compliance
-    that you'll pass on this package, then that's your right and I invite you to do so.  However, if
-    perhaps you're a practical thinker where it's the results that matter, then you'll have no
-    trouble with this code base.  There is consisency however.
-
-    I truly hope you get a lot of enjoyment out of using PySimpleGUI.  It came from good intentions.
-"""
-
-
-# ----====----====----==== Constants the user should NOT f-with ====----====----====----#
+# ----====----====----==== Constants the user should NOT change ====----====----====----#
 ThisRow = 555666777  # magic number
 
 # DEFAULT_WINDOW_ICON = ''
