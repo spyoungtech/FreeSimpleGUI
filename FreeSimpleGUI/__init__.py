@@ -516,7 +516,7 @@ def timer_stop():
     :rtype:  int
     """
     global g_time_delta, g_time_end
-    warnings.warn("The timer_start function is deprecated and will be removed in a future version", DeprecationWarning, stacklevel=2)
+    warnings.warn("The timer_stop function is deprecated and will be removed in a future version", DeprecationWarning, stacklevel=2)
 
     g_time_end = time.time()
     g_time_delta = g_time_end - g_time_start
