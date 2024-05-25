@@ -7538,8 +7538,11 @@ def one_line_progress_meter(
         meter = _QuickMeter.active_meters[key]
 
     meter.UpdateMeter(current_value, max_value, *args)  # pass the *args to UpdateMeter function
-    OneLineProgressMeter.exit_reasons = getattr(OneLineProgressMeter, 'exit_reasons', _QuickMeter.exit_reasons)
-    exit_reason = OneLineProgressMeter.exit_reasons.get(key)
+
+    # XXX: wtf?
+    one_line_progress_meter.exit_reasons = getattr(one_line_progress_meter, 'exit_reasons', _QuickMeter.exit_reasons)
+    exit_reason = one_line_progress_meter.exit_reasons.get(key)
+
     return METER_OK if exit_reason in (None, METER_REASON_REACHED_MAX) else METER_STOPPED
 
 
@@ -9440,7 +9443,7 @@ def change_look_and_feel(index, force=False):
         else:
             colors['PROGRESS'] = DEFAULT_PROGRESS_BAR_COLOR_OFFICIAL
         # call to change all the colors
-        SetOptions(
+        set_options(
             background_color=colors['BACKGROUND'],
             text_element_background_color=colors['BACKGROUND'],
             element_background_color=colors['BACKGROUND'],
@@ -9560,7 +9563,7 @@ def obj_to_string(obj, extra='    '):
     """
     if obj is None:
         return 'None'
-    return str(obj.__class__) + '\n' + '\n'.join(extra + (str(item) + ' = ' + (ObjToString(obj.__dict__[item], extra + '    ') if hasattr(obj.__dict__[item], '__dict__') else str(obj.__dict__[item]))) for item in sorted(obj.__dict__))
+    return str(obj.__class__) + '\n' + '\n'.join(extra + (str(item) + ' = ' + (obj_to_string(obj.__dict__[item], extra + '    ') if hasattr(obj.__dict__[item], '__dict__') else str(obj.__dict__[item]))) for item in sorted(obj.__dict__))
 
 
 # ...######..##.......####.########..########...#######.....###....########..########.
@@ -10109,7 +10112,7 @@ def popup_no_buttons(
     :type modal:                bool
     :return:                    Returns text of the button that was pressed.  None will be returned if user closed window with X
     :rtype:                     str | None | TIMEOUT_KEY"""
-    Popup(
+    popup(
         *args,
         title=title,
         background_color=background_color,
@@ -13832,11 +13835,11 @@ class _Debugger:
         elif event.endswith('_OBJ_'):  # OBJECT BUTTON
             var = values[f'_VAR{event[4]}_']
             try:
-                result = ObjToStringSingleObj(mylocals[var])
+                result = obj_to_string_single_obj(mylocals[var])
             except Exception:
                 try:
                     result = eval(f'{var}', myglobals, mylocals)
-                    result = ObjToStringSingleObj(result)
+                    result = obj_to_string_single_obj(result)
                 except Exception as e:
                     result = f'{e}\nError showing object {var}'
             old_theme = theme()
@@ -15598,8 +15601,8 @@ def main_global_pysimplegui_settings():
                 ttk_part_mapping_dict[ttk_part] = value
             DEFAULT_TTK_THEME = values['-TTK THEME-']
             for i in range(100):
-                Print(i, keep_on_top=True)
-            Print('Close this window to continue...', keep_on_top=True)
+                easy_print(i, keep_on_top=True)
+            easy_print('Close this window to continue...', keep_on_top=True)
 
     window.close()
     # In case some of the settings were modified and tried out, reset the ttk info to be what's in the config file
