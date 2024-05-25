@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import tkinter as tk
+import tkinter as tk  # noqa
 
 from FreeSimpleGUI import _hex_to_hsl
 from FreeSimpleGUI import _hsl_to_rgb

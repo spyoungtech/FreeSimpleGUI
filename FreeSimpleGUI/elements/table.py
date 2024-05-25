@@ -406,7 +406,7 @@ class Table(Element):
                 column = None
         except Exception as e:
             warnings.warn(f'Error getting table click data for table with key= {self.Key}\nError: {e}', UserWarning)
-            if not SUPPRESS_ERROR_POPUPS:
+            if not FreeSimpleGUI.SUPPRESS_ERROR_POPUPS:
                 _error_popup_with_traceback(
                     f'Unable to complete operation getting the clicked event for table with key {self.Key}',
                     _create_error_message(),

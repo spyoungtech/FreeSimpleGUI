@@ -2540,9 +2540,7 @@ class Window:
         :rtype:                 (PIL.ImageGrab | None)
         """
         try:
-            import PIL as PIL
             from PIL import ImageGrab
-            from PIL import Image
         except:
             warnings.warn('Failed to import PIL. In a future version, this will raise an ImportError instead of returning None', DeprecationWarning, stacklevel=2)
             print('FAILED TO IMPORT PIL!')

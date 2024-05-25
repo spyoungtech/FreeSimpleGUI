@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import tkinter as tk
 import warnings
-from typing import Any
-from typing import List
+from typing import Any  # noqa
+from typing import List  # noqa
 
 import FreeSimpleGUI
 from FreeSimpleGUI import ELEM_TYPE_INPUT_LISTBOX

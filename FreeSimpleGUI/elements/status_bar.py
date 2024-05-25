@@ -106,7 +106,7 @@ class StatusBar(Element):
             size=sz,
             auto_size_text=auto_size_text,
             background_color=bg,
-            font=font or DEFAULT_FONT,
+            font=font or FreeSimpleGUI.DEFAULT_FONT,
             text_color=self.TextColor,
             pad=pad,
             key=key,

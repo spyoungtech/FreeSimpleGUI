@@ -3,7 +3,7 @@ from __future__ import annotations
 import os
 import tkinter as tk
 import warnings
-from typing import Any
+from typing import Any  # noqa
 
 import FreeSimpleGUI
 from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
@@ -941,7 +941,6 @@ class Element:
 
         try:
             from PIL import ImageGrab
-            from PIL import Image
         except:
             warnings.warn('Failed to import PIL. In a future version, this will raise an ImportError instead of returning None', DeprecationWarning, stacklevel=2)
             return None
@@ -1050,4 +1049,7 @@ from FreeSimpleGUI._utils import _create_error_message
 from FreeSimpleGUI._utils import _exit_mainloop
 
 from FreeSimpleGUI._utils import _error_popup_with_traceback
-from FreeSimpleGUI.window import Window
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from FreeSimpleGUI.window import Window
