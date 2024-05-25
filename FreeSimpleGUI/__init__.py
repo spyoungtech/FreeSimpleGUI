@@ -16414,9 +16414,6 @@ def main():
     set_options(force_modal_windows=forced_modal)
 
 
-
-
-
 def _optional_window_data(window):
     """
     A function to help with testing PySimpleGUI releases. Makes it easier to add a watermarked line to the bottom
@@ -16567,55 +16564,55 @@ _global_settings_get_ttk_scrollbar_info()
 _global_settings_get_watermark_info()
 
 _DEPRECATED_NAMES = {
-    "ChangeLookAndFeel": ("change_look_and_feel", change_look_and_feel),
-    "ConvertArgsToSingleString": ("convert_args_to_single_string", convert_args_to_single_string),
-    "EasyPrint": ("easy_print", easy_print),
-    "Print": ("easy_print", easy_print),
-    "eprint": ("easy_print", easy_print),
-    "sgprint": ("easy_print", easy_print),
-    "PrintClose": ("easy_print_close", easy_print_close),
-    "sgprint_close": ("easy_print_close", easy_print_close),
-    "EasyPrintClose": ("easy_print_close", easy_print_close),
-    "FillFormWithValues": ("fill_form_with_values", fill_form_with_values),
-    "GetComplimentaryHex": ("get_complimentary_hex", get_complimentary_hex),
-    "ListOfLookAndFeelValues": ("list_of_look_and_feel_values", list_of_look_and_feel_values),
-    "ObjToString": ("obj_to_string", obj_to_string),
-    "ObjToStringSingleObj": ("obj_to_string_single_obj", obj_to_string_single_obj),
-    "OneLineProgressMeter": ("one_line_progress_meter", one_line_progress_meter),
-    "OneLineProgressMeterCancel": ("one_line_progress_meter_cancel", one_line_progress_meter_cancel),
-    "Popup": ("popup", popup),
-    "PopupNoFrame": ("popup_no_titlebar", popup_no_titlebar),
-    "popup_no_frame": ("popup_no_titlebar", popup_no_titlebar),
-    "PopupNoBorder": ("popup_no_titlebar", popup_no_titlebar),
-    "popup_no_border": ("popup_no_titlebar", popup_no_titlebar),
-    "PopupAnnoying": ("popup_no_titlebar", popup_no_titlebar),
-    "popup_annoying": ("popup_no_titlebar", popup_no_titlebar),
-    "PopupAnimated": ("popup_animated", popup_animated),
-    "PopupAutoClose": ("popup_auto_close", popup_auto_close),
-    "PopupCancel": ("popup_cancel", popup_cancel),
-    "PopupError": ("popup_error", popup_error),
-    "PopupGetFile": ("popup_get_file", popup_get_file),
-    "PopupGetFolder": ("popup_get_folder", popup_get_folder),
-    "PopupGetText": ("popup_get_text", popup_get_text),
-    "PopupNoButtons": ("popup_no_buttons", popup_no_buttons),
-    "PopupNoTitlebar": ("popup_no_titlebar", popup_no_titlebar),
-    "PopupNoWait": ("popup_non_blocking", popup_non_blocking),
-    "popup_no_wait": ("popup_non_blocking", popup_non_blocking),
-    "PopupNonBlocking": ("popup_non_blocking", popup_non_blocking),
-    "PopupOK": ("popup_ok", popup_ok),
-    "PopupOKCancel": ("popup_ok_cancel", popup_ok_cancel),
-    "PopupQuick": ("popup_quick", popup_quick),
-    "PopupQuickMessage": ("popup_quick_message", popup_quick_message),
-    "PopupScrolled": ("popup_scrolled", popup_scrolled),
-    "PopupTimed": ("popup_timed", popup_auto_close),
-    "PopupYesNo": ("popup_yes_no", popup_yes_no),
-    "RGB": ("rgb", rgb),
-    "SetGlobalIcon": ("set_global_icon", set_global_icon),
-    "SetOptions": ("set_options", set_options),
-    "sprint": ("popup_scrolled", popup_scrolled),
-    "ScrolledTextBox": ("popup_scrolled", popup_scrolled),
-    "TimerStart": ("timer_start", timer_start),
-    "TimerStop": ("timer_stop", timer_stop),
+    'ChangeLookAndFeel': ('change_look_and_feel', change_look_and_feel),
+    'ConvertArgsToSingleString': ('convert_args_to_single_string', convert_args_to_single_string),
+    'EasyPrint': ('easy_print', easy_print),
+    'Print': ('easy_print', easy_print),
+    'eprint': ('easy_print', easy_print),
+    'sgprint': ('easy_print', easy_print),
+    'PrintClose': ('easy_print_close', easy_print_close),
+    'sgprint_close': ('easy_print_close', easy_print_close),
+    'EasyPrintClose': ('easy_print_close', easy_print_close),
+    'FillFormWithValues': ('fill_form_with_values', fill_form_with_values),
+    'GetComplimentaryHex': ('get_complimentary_hex', get_complimentary_hex),
+    'ListOfLookAndFeelValues': ('list_of_look_and_feel_values', list_of_look_and_feel_values),
+    'ObjToString': ('obj_to_string', obj_to_string),
+    'ObjToStringSingleObj': ('obj_to_string_single_obj', obj_to_string_single_obj),
+    'OneLineProgressMeter': ('one_line_progress_meter', one_line_progress_meter),
+    'OneLineProgressMeterCancel': ('one_line_progress_meter_cancel', one_line_progress_meter_cancel),
+    'Popup': ('popup', popup),
+    'PopupNoFrame': ('popup_no_titlebar', popup_no_titlebar),
+    'popup_no_frame': ('popup_no_titlebar', popup_no_titlebar),
+    'PopupNoBorder': ('popup_no_titlebar', popup_no_titlebar),
+    'popup_no_border': ('popup_no_titlebar', popup_no_titlebar),
+    'PopupAnnoying': ('popup_no_titlebar', popup_no_titlebar),
+    'popup_annoying': ('popup_no_titlebar', popup_no_titlebar),
+    'PopupAnimated': ('popup_animated', popup_animated),
+    'PopupAutoClose': ('popup_auto_close', popup_auto_close),
+    'PopupCancel': ('popup_cancel', popup_cancel),
+    'PopupError': ('popup_error', popup_error),
+    'PopupGetFile': ('popup_get_file', popup_get_file),
+    'PopupGetFolder': ('popup_get_folder', popup_get_folder),
+    'PopupGetText': ('popup_get_text', popup_get_text),
+    'PopupNoButtons': ('popup_no_buttons', popup_no_buttons),
+    'PopupNoTitlebar': ('popup_no_titlebar', popup_no_titlebar),
+    'PopupNoWait': ('popup_non_blocking', popup_non_blocking),
+    'popup_no_wait': ('popup_non_blocking', popup_non_blocking),
+    'PopupNonBlocking': ('popup_non_blocking', popup_non_blocking),
+    'PopupOK': ('popup_ok', popup_ok),
+    'PopupOKCancel': ('popup_ok_cancel', popup_ok_cancel),
+    'PopupQuick': ('popup_quick', popup_quick),
+    'PopupQuickMessage': ('popup_quick_message', popup_quick_message),
+    'PopupScrolled': ('popup_scrolled', popup_scrolled),
+    'PopupTimed': ('popup_timed', popup_auto_close),
+    'PopupYesNo': ('popup_yes_no', popup_yes_no),
+    'RGB': ('rgb', rgb),
+    'SetGlobalIcon': ('set_global_icon', set_global_icon),
+    'SetOptions': ('set_options', set_options),
+    'sprint': ('popup_scrolled', popup_scrolled),
+    'ScrolledTextBox': ('popup_scrolled', popup_scrolled),
+    'TimerStart': ('timer_start', timer_start),
+    'TimerStop': ('timer_stop', timer_stop),
 }
 
 
@@ -16645,6 +16642,3 @@ if __name__ == '__main__':
         exit(0)
     main()
     exit(0)
-
-
-
