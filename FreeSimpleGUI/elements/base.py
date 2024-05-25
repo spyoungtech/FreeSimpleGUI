@@ -943,7 +943,7 @@ class Element:
             from PIL import ImageGrab
             from PIL import Image
         except:
-            warnings.warn("Failed to import PIL. In a future version, this will become an exception, rather than returning None", DeprecationWarning, stacklevel=2)
+            warnings.warn('Failed to import PIL. In a future version, this will become an exception, rather than returning None', DeprecationWarning, stacklevel=2)
             return None
         try:
             # Add a little to the X direction if window has a titlebar

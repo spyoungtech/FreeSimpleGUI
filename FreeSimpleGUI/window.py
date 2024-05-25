@@ -2544,7 +2544,7 @@ class Window:
             from PIL import ImageGrab
             from PIL import Image
         except:
-            warnings.warn("Failed to import PIL. In a future version, this will become an exception, rather than returning None", DeprecationWarning, stacklevel=2)
+            warnings.warn('Failed to import PIL. In a future version, this will become an exception, rather than returning None', DeprecationWarning, stacklevel=2)
             print('FAILED TO IMPORT PIL!')
             return None
         try:

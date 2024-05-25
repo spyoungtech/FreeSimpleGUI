@@ -65,7 +65,6 @@ port = 'FreeSimpleGUI'
 name = 'FreeSimpleGui'
 
 
-
 warnings.simplefilter('always', UserWarning)
 
 g_time_start = 0
@@ -16721,6 +16720,7 @@ if __name__ == '__main__':
         exit(0)
     main()
     exit(0)
+
 
 def __getattr__(name):
     if name in ('pil_import_attempted', 'pil_imported'):
