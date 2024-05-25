@@ -16577,10 +16577,6 @@ from FreeSimpleGUI.elements.table import Table
 from FreeSimpleGUI.elements.text import Text
 from FreeSimpleGUI.elements.tree import Tree
 from FreeSimpleGUI.elements.tree import TreeData
-from FreeSimpleGUI.tray import SYSTEM_TRAY_MESSAGE_DISPLAY_DURATION_IN_MILLISECONDS
-from FreeSimpleGUI.tray import SYSTEM_TRAY_MESSAGE_FADE_IN_DURATION
-from FreeSimpleGUI.tray import SYSTEM_TRAY_MESSAGE_ICON_INFORMATION
-from FreeSimpleGUI.tray import SYSTEM_TRAY_MESSAGE_MAX_LINE_LENGTH
 from FreeSimpleGUI.tray import SystemTray
 from FreeSimpleGUI.window import Window
 from FreeSimpleGUI._utils import _error_popup_with_traceback
