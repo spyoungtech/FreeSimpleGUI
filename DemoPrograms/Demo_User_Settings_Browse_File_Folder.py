@@ -19,7 +19,7 @@ import FreeSimpleGUI as sg
 
     But, you also get the 2 history features - last entry used, list of previous choices.
 
-    If your window is not a 1-shot, add an event loop instead of a read with close paramter
+    If your window is not a 1-shot, add an event loop instead of a read with close parameter
 
     Copyright 2020 PySimpleGUI.org
 """

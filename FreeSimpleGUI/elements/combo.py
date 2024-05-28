@@ -5,10 +5,12 @@ import tkinter.font
 from tkinter import ttk
 
 import FreeSimpleGUI
-from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
-from FreeSimpleGUI import ELEM_TYPE_INPUT_COMBO
-from FreeSimpleGUI import Element
-from FreeSimpleGUI import theme_button_color
+from FreeSimpleGUI import (
+    COLOR_SYSTEM_DEFAULT,
+    ELEM_TYPE_INPUT_COMBO,
+    Element,
+    theme_button_color,
+)
 from FreeSimpleGUI._utils import _error_popup_with_traceback
 
 
@@ -66,7 +68,7 @@ class Combo(Element):
         :type button_arrow_color:       (str)
         :param bind_return_key:         If True, then the return key will cause a the Combo to generate an event when return key is pressed
         :type bind_return_key:          (bool)
-        :param change_submits:          DEPRICATED DO NOT USE. Use `enable_events` instead
+        :param change_submits:          DEPRECATED DO NOT USE. Use `enable_events` instead
         :type change_submits:           (bool)
         :param enable_events:           Turns on the element specific events. Combo event is when a choice is made
         :type enable_events:            (bool)
@@ -105,8 +107,16 @@ class Combo(Element):
         self.Disabled = disabled
         self.Readonly = readonly
         self.BindReturnKey = bind_return_key
-        bg = background_color if background_color else FreeSimpleGUI.DEFAULT_INPUT_ELEMENTS_COLOR
-        fg = text_color if text_color is not None else FreeSimpleGUI.DEFAULT_INPUT_TEXT_COLOR
+        bg = (
+            background_color
+            if background_color
+            else FreeSimpleGUI.DEFAULT_INPUT_ELEMENTS_COLOR
+        )
+        fg = (
+            text_color
+            if text_color is not None
+            else FreeSimpleGUI.DEFAULT_INPUT_TEXT_COLOR
+        )
         key = key if key is not None else k
         sz = size if size != (None, None) else s
         pad = pad if pad is not None else p
@@ -192,24 +202,30 @@ class Combo(Element):
             if isinstance(size, tuple) and len(size) == 1:
                 size = (size[0], 1)
 
-        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
+        if (
+            not self._widget_was_created()
+        ):  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback('Error in Combo.update - The window was closed')
+            _error_popup_with_traceback("Error in Combo.update - The window was closed")
             return
 
         if values is not None:
             try:
-                self.TKCombo['values'] = values
+                self.TKCombo["values"] = values
                 # self.TKCombo.current(0)       # don't set any value if a new set of values was made
             except:
                 pass
             self.Values = values
             if value is None:
-                self.TKCombo.set('')
+                self.TKCombo.set("")
             if size == (None, None):
-                max_line_len = max([len(str(line)) for line in self.Values]) if len(self.Values) else 0
+                max_line_len = (
+                    max([len(str(line)) for line in self.Values])
+                    if len(self.Values)
+                    else 0
+                )
                 if self.AutoSizeText is False:
                     width = self.Size[0]
                 else:
@@ -238,16 +254,16 @@ class Combo(Element):
                 pass
         if readonly:
             self.Readonly = True
-            self.TKCombo['state'] = 'readonly'
+            self.TKCombo["state"] = "readonly"
         elif readonly is False:
             self.Readonly = False
-            self.TKCombo['state'] = 'enable'
+            self.TKCombo["state"] = "enable"
         if disabled is True:
-            self.TKCombo['state'] = 'disable'
+            self.TKCombo["state"] = "disable"
         elif disabled is False and self.Readonly is True:
-            self.TKCombo['state'] = 'readonly'
+            self.TKCombo["state"] = "readonly"
         elif disabled is False and self.Readonly is False:
-            self.TKCombo['state'] = 'enable'
+            self.TKCombo["state"] = "enable"
         self.Disabled = disabled if disabled is not None else self.Disabled
 
         combostyle = self.ttk_style
@@ -256,11 +272,11 @@ class Combo(Element):
             combostyle.configure(style_name, foreground=text_color)
             combostyle.configure(style_name, selectforeground=text_color)
             combostyle.configure(style_name, insertcolor=text_color)
-            combostyle.map(style_name, fieldforeground=[('readonly', text_color)])
+            combostyle.map(style_name, fieldforeground=[("readonly", text_color)])
             self.TextColor = text_color
         if background_color is not None:
             combostyle.configure(style_name, selectbackground=background_color)
-            combostyle.map(style_name, fieldbackground=[('readonly', background_color)])
+            combostyle.map(style_name, fieldbackground=[("readonly", background_color)])
             combostyle.configure(style_name, fieldbackground=background_color)
             self.BackgroundColor = background_color
 
@@ -274,16 +290,21 @@ class Combo(Element):
             self.Font = font
             self.TKCombo.configure(font=font)
             self._dropdown_newfont = tkinter.font.Font(font=font)
-            self.ParentRowFrame.option_add('*TCombobox*Listbox*Font', self._dropdown_newfont)
+            self.ParentRowFrame.option_add(
+                "*TCombobox*Listbox*Font", self._dropdown_newfont
+            )
 
         # make tcl call to deal with colors for the drop-down formatting
         try:
-            if self.BackgroundColor not in (None, COLOR_SYSTEM_DEFAULT) and self.TextColor not in (
+            if self.BackgroundColor not in (
+                None,
+                COLOR_SYSTEM_DEFAULT,
+            ) and self.TextColor not in (
                 None,
                 COLOR_SYSTEM_DEFAULT,
             ):
                 self.Widget.tk.eval(
-                    '[ttk::combobox::PopdownWindow {}].f.l configure -foreground {} -background {} -selectforeground {} -selectbackground {} -font {}'.format(
+                    "[ttk::combobox::PopdownWindow {}].f.l configure -foreground {} -background {} -selectforeground {} -selectbackground {} -font {}".format(
                         self.Widget,
                         self.TextColor,
                         self.BackgroundColor,
@@ -317,10 +338,14 @@ class Combo(Element):
         :rtype:  Any | None
         """
         try:
-            if self.TKCombo.current() == -1:  # if the current value was not in the original list
+            if (
+                self.TKCombo.current() == -1
+            ):  # if the current value was not in the original list
                 value = self.TKCombo.get()  # then get the value typed in by user
             else:
-                value = self.Values[self.TKCombo.current()]  # get value from original list given index
+                value = self.Values[
+                    self.TKCombo.current()
+                ]  # get value from original list given index
         except:
             value = None  # only would happen if user closes window
         return value

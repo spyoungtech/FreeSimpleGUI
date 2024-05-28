@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 version = __version__ = (
-    '0.35.0.18.1 Unreleased\nMassive update of docstrings (thanks nngogol), default for slider tick interval set automatically now, margins added to Window but not yet hooked up, VSeparator added (spelling error), added Radio.reset_group and removed clearing all when one of them is cleared (recent change), added default key for one_line_progress_meter, auto-add keys to tables & trees, InputText element gets new disabled-readonly foreground and background color settings and also a readonly parameter, InputText gets border_width parameter, fixed up some docstrings, popup gets new image and any_key_closes parms, input type popups also get image parameter, error checks for trying to manipulate a window prior to finalize, added a dummy Element.expand method, added theme_add_new, added Window.set_title, updated to the latest themes from tktiner port, big styles update (thanks nngogol!), more Styles work, changed popup text layout to match tkinter port, fixed vertical alignment in row, added margin to some elements, renamed styles related variables, window margin support but be careful. Added back the truncated portion'
+    '0.35.0.18.1 Unreleased\nMassive update of docstrings (thanks nngogol), default for slider tick interval set automatically now, margins added to Window but not yet hooked up, VSeparator added (spelling error), added Radio.reset_group and removed clearing all when one of them is cleared (recent change), added default key for one_line_progress_meter, auto-add keys to tables & trees, InputText element gets new disabled-readonly foreground and background color settings and also a readonly parameter, InputText gets border_width parameter, fixed up some docstrings, popup gets new image and any_key_closes parms, input type popups also get image parameter, error checks for trying to manipulate a window prior to finalize, added a dummy Element.expand method, added theme_add_new, added Window.set_title, updated to the latest themes from tkinter port, big styles update (thanks nngogol!), more Styles work, changed popup text layout to match tkinter port, fixed vertical alignment in row, added margin to some elements, renamed styles related variables, window margin support but be careful. Added back the truncated portion'
 )
 
 __version__ = version.split()[0]  # For PEP 396 and PEP 345
@@ -191,7 +191,7 @@ DEFAULT_INPUT_TEXT_COLOR = COLOR_SYSTEM_DEFAULT
 DEFAULT_SCROLLBAR_COLOR = None
 
 # A transparent button is simply one that matches the background
-TRANSPARENT_BUTTON = 'This constant has been depricated. You must set your button background = background it is on for it to be transparent appearing'
+TRANSPARENT_BUTTON = 'This constant has been Deprecated. You must set your button background = background it is on for it to be transparent appearing'
 # --------------------------------------------------------------------------------
 # Progress Bar Relief Choices
 RELIEF_RAISED = 'raised'
@@ -527,7 +527,7 @@ class Element:
 
         # print(f'a_style = {a_style}')
         widget.setStyleSheet(a_style.build_css_string())
-        set_widget_visiblity(widget, visible)
+        set_widget_visibility(widget, visible)
 
     def set_stylesheet(self, stylesheet):
         """
@@ -581,7 +581,7 @@ class Element:
         """
         Makes it possible to "call" an already existing element.  When you do make the "call", it actually calls
         the Update method for the element.
-        Example:    If this text element was in yoiur layout:
+        Example:    If this text element was in your layout:
                     sg.Text('foo', key='T')
                     Then you can call the Update method for that element by writing:
                     window.FindElement('T')('new text value')
@@ -649,7 +649,7 @@ class InputText(Element):
         :type disabled_readonly_background_color: (str)
         :param disabled_readonly_text_color: If state is set to readonly or disabled, the color to use for the text
         :type disabled_readonly_text_color: (str)
-        :param change_submits: * DEPRICATED DO NOT USE. Use `enable_events` instead
+        :param change_submits: * DEPRECATED DO NOT USE. Use `enable_events` instead
         :type change_submits: (bool)
         :param enable_events: If True then changes to this element are immediately reported as an event. Use this instead of change_submits (Default = False)
         :type enable_events: (bool)
@@ -817,7 +817,7 @@ class Combo(Element):
         :type background_color: (str)
         :param text_color: color of the text
         :type text_color: (str)
-        :param change_submits: DEPRICATED DO NOT USE. Use `enable_events` instead
+        :param change_submits: DEPRECATED DO NOT USE. Use `enable_events` instead
         :type change_submits: (bool)
         :param enable_events: Turns on the element specific events. Combo event is when a choice is made
         :type enable_events: (bool)
@@ -1751,7 +1751,7 @@ class Multiline(Element):
 
     def print(self, *args, end=None, sep=None, text_color=None, background_color=None, autoscroll=True):
         """
-        Print like Python normally prints except route the output to a multline element and also add colors if desired
+        Print like Python normally prints except route the output to a Multiline element and also add colors if desired
 
         :param args: The arguments to print
         :type args: List[Any]
@@ -1921,7 +1921,7 @@ class MultilineOutput(Element):
 
     def print(self, *args, end=None, sep=None, text_color=None, background_color=None, autoscroll=True):
         """
-        Print like Python normally prints except route the output to a multline element and also add colors if desired
+        Print like Python normally prints except route the output to a Multiline element and also add colors if desired
 
         :param args: The arguments to print
         :type args: List[Any]
@@ -2953,7 +2953,7 @@ class Graph(Element):
         :type tooltip: (str)
         :param visible: set visibility state of the element (Default = True)
         :type visible: (bool)
-        :param change_submits: * DEPRICATED DO NOT USE. Use `enable_events` instead
+        :param change_submits: * DEPRECATED DO NOT USE. Use `enable_events` instead
         :type change_submits: (bool)
         :param enable_events: If True then clicks on the Graph are immediately reported as an event. Use this instead of change_submits
         :type enable_events: (bool)
@@ -3171,7 +3171,7 @@ class Graph(Element):
 
     def change_coordinates(self, graph_bottom_left, graph_top_right):
         """
-        Changes the corrdinate system to a new one.  The same 2 points in space are used to define the coorinate
+        Changes the coordinate system to a new one.  The same 2 points in space are used to define the coordinate
         system - the bottom left and the top right values of your graph.
 
         :param graph_bottom_left: Tuple[int, int] (x,y) The bottoms left corner of your coordinate system
@@ -3542,7 +3542,7 @@ class TabGroup(Element):
         :type background_color: (str)
         :param font: specifies the font family, size, etc
         :type font: Union[str, Tuple[str, int]]
-        :param change_submits: * DEPRICATED DO NOT USE. Use `enable_events` instead
+        :param change_submits: * DEPRECATED DO NOT USE. Use `enable_events` instead
         :type change_submits: (bool)
         :param enable_events: If True then switching tabs will generate an Event
         :type enable_events: (bool)
@@ -3550,7 +3550,7 @@ class TabGroup(Element):
         :type pad: (int, int) or ((int, int),(int,int)) or (int,(int,int)) or  ((int, int),int)
         :param border_width: width of border around element in pixels
         :type border_width: (int)
-        :param theme: DEPRICATED - You can only specify themes using set options or when window is created. It's not possible to do it on an element basis
+        :param theme: DEPRECATED - You can only specify themes using set options or when window is created. It's not possible to do it on an element basis
         :type theme: (enum)
         :param key: Value that uniquely identifies this element from all other elements. Used when Finding an element or in return values. Must be unique to the window
         :type key: (Any)
@@ -3706,7 +3706,7 @@ class Slider(Element):
         :type border_width: (int)
         :param relief: relief style. RELIEF_RAISED RELIEF_SUNKEN RELIEF_FLAT RELIEF_RIDGE RELIEF_GROOVE RELIEF_SOLID
         :type relief: (enum)
-        :param change_submits: * DEPRICATED DO NOT USE. Use `enable_events` instead
+        :param change_submits: * DEPRECATED DO NOT USE. Use `enable_events` instead
         :type change_submits: (bool)
         :param enable_events: If True then moving the slider will generate an Event
         :type enable_events: (bool)
@@ -5112,7 +5112,7 @@ class Window:
                 PopupError(
                     'Error creating layout',
                     'The layout specified has already been used',
-                    'You MUST start witha "clean", unused layout every time you create a window',
+                    'You MUST start with a "clean", unused layout every time you create a window',
                     'The offensive Element = ',
                     element,
                     'and has a key = ',
@@ -6025,7 +6025,7 @@ def create_style_from_font(font):
     ).replace('\n', '')
 
 
-def set_widget_visiblity(widget, visible):
+def set_widget_visibility(widget, visible):
     if visible is False:
         widget.setVisible(False)
     elif visible is True:
@@ -9778,7 +9778,7 @@ def cprint(
     There are also "aliases" for text_color, background_color and colors (t, b, c)
     t - An alias for color of the text (makes for shorter calls)
     b - An alias for the background_color parameter
-    c - Tuple[str, str] - "shorthand" way of specifying color. (foreground, backgrouned)
+    c - Tuple[str, str] - "shorthand" way of specifying color. (foreground, background)
     c - str - can also be a string of the format "foreground on background"  ("white on red")
 
     With the aliases it's possible to write the same print but in more compact ways:
@@ -9858,7 +9858,7 @@ def cprint(
 
 def _print_to_element(multiline_element, *args, end=None, sep=None, text_color=None, background_color=None, autoscroll=True):
     """
-    Print like Python normally prints except route the output to a multline element and also add colors if desired
+    Print like Python normally prints except route the output to a Multiline element and also add colors if desired
 
     :param multiline_element:  The multiline element to be output to
     :type multiline_element: (Multiline)

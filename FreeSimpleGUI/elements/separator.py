@@ -1,8 +1,6 @@
 from __future__ import annotations
 
-from FreeSimpleGUI import ELEM_TYPE_SEPARATOR
-from FreeSimpleGUI import Element
-from FreeSimpleGUI import theme_text_color
+from FreeSimpleGUI import ELEM_TYPE_SEPARATOR, Element, theme_text_color
 
 
 class VerticalSeparator(Element):
@@ -28,7 +26,7 @@ class VerticalSeparator(Element):
         pad = pad if pad is not None else p
         self.expand_x = None
         self.expand_y = None
-        self.Orientation = 'vertical'  # for now only vertical works
+        self.Orientation = "vertical"  # for now only vertical works
         self.color = color if color is not None else theme_text_color()
         super().__init__(ELEM_TYPE_SEPARATOR, pad=pad, key=key)
 
@@ -52,7 +50,7 @@ class HorizontalSeparator(Element):
         :type k:      str | int | tuple | object
         """
 
-        self.Orientation = 'horizontal'  # for now only vertical works
+        self.Orientation = "horizontal"  # for now only vertical works
         self.color = color if color is not None else theme_text_color()
         self.expand_x = True
         self.expand_y = None

@@ -5,7 +5,7 @@ import FreeSimpleGUI as sg
 
     The purpose of this demo is to teach you 5 unique PySimpleGUI constructs that when combined
     create a "Button" that highlights on mouseover regarless of the Operating System.
-    Because of how tktiner works, mouseover highlighting is inconsistent across operating systems for Buttons.
+    Because of how tkinter works, mouseover highlighting is inconsistent across operating systems for Buttons.
     This is one (dare I say "clever") way to get this effect in your program
 
     1. Binding the Enter and Leave tkinter events

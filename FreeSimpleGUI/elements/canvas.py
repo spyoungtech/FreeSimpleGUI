@@ -1,9 +1,7 @@
 from __future__ import annotations
 
 import FreeSimpleGUI
-from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
-from FreeSimpleGUI import ELEM_TYPE_CANVAS
-from FreeSimpleGUI import Element
+from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT, ELEM_TYPE_CANVAS, Element
 from FreeSimpleGUI._utils import _error_popup_with_traceback
 
 
@@ -59,7 +57,11 @@ class Canvas(Element):
         :type metadata:          (Any)
         """
 
-        self.BackgroundColor = background_color if background_color is not None else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
+        self.BackgroundColor = (
+            background_color
+            if background_color is not None
+            else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
+        )
         self._TKCanvas = self.Widget = canvas
         self.RightClickMenu = right_click_menu
         self.BorderWidth = border_width
@@ -90,11 +92,15 @@ class Canvas(Element):
         :type visible:           (bool)
         """
 
-        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
+        if (
+            not self._widget_was_created()
+        ):  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback('Error in Canvas.update - The window was closed')
+            _error_popup_with_traceback(
+                "Error in Canvas.update - The window was closed"
+            )
             return
 
         if background_color not in (None, COLOR_SYSTEM_DEFAULT):
@@ -109,14 +115,19 @@ class Canvas(Element):
     @property
     def tk_canvas(self):
         """
-        Returns the underlying tkiner Canvas widget
+        Returns the underlying tkinter Canvas widget
 
         :return: The tkinter canvas widget
         :rtype:  (tk.Canvas)
         """
         if self._TKCanvas is None:
-            print('*** Did you forget to call Finalize()? Your code should look something like: ***')
-            print('*** window = sg.Window("My Form", layout, finalize=True) ***')
+            print(
+                "*** Did you forget to call `Finalize()`? " +
+                "Your code should look something like: ***"
+            )
+            print(
+                '*** window = sg.Window("My Form", layout, finalize=True) ***'
+            )
         return self._TKCanvas
 
     TKCanvas = tk_canvas

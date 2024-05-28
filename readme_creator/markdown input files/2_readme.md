@@ -2333,7 +2333,7 @@ In non-tkinter ports you can set the specific element sizes in 2 ways.  One is t
 
 The other way is to use a new parameter, `size_px`.  This parameter allows you to specify the size directly in pixels.  A setting of `size_px=(300,200)` will create an Element that is 300 x 200 pixels.
 
-Additionally, you can also indicate pixels using the `size` parameter, **if the size exceeds the threshold for conversion.**  What does that mean?  It means if your width is > 20 (`DEFAULT_PIXEL_TO_CHARS_CUTOFF`), then it is assumed you're talking pixels, not characters.  However, some of the "normally large" Elements have a cutoff value of 100.  These include, for example, the `Multline` and `Output` elements.
+Additionally, you can also indicate pixels using the `size` parameter, **if the size exceeds the threshold for conversion.**  What does that mean?  It means if your width is > 20 (`DEFAULT_PIXEL_TO_CHARS_CUTOFF`), then it is assumed you're talking pixels, not characters.  However, some of the "normally large" Elements have a cutoff value of 100.  These include, for example, the `Multiline` and `Output` elements.
 
 If you're curious about the math used to do the character to pixels conversion, it's quite crude, but functional.  The conversion is completed with the help of this variable:
 
@@ -4661,7 +4661,7 @@ For example, if a `Multiline` element has the trough color for it's scrollbar de
 
 ## Scrollbar Parameter Names
 
-All functions and objects that have a scrollbar setting use the same names for the paramters:
+All functions and objects that have a scrollbar setting use the same names for the parameters:
 
 * sbar_trough_color
 * sbar_background_color
@@ -5727,7 +5727,7 @@ Either way you'll access it using the same `Window` variable `sg.Window.TKroot`
 Watch this space in the future for the more standardized variable name for this object.  It may be something like `Window.Widget` as the Elements use or something like `Window.GUIWindow`.
 
 
-## Binding tkiner "events"
+## Binding tkinter "events"
 
 If you wish to receive events directly from tkinter, but do it in a PySimpleGUI way, then you can do that and get those events returned to you via your standard `Window.read()` call.
 

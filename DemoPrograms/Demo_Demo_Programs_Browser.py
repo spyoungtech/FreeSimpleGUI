@@ -375,7 +375,7 @@ def settings_window():
     window.close()
     return settings_changed
 
-ML_KEY = '-ML-'         # Multline's key
+ML_KEY = '-ML-'         # Multiline's key
 
 # --------------------------------- Create the window ---------------------------------
 def make_window():

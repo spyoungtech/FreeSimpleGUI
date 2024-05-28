@@ -52,9 +52,15 @@ def _error_popup_with_traceback(title, *args, emoji=None):
         print('*** Error popup attempted but unable to parse error details ***')
         print(trace_details)
         return
-    filename = error_parts[0][error_parts[0].index('File ') + 5 :]
-    line_num = error_parts[1][error_parts[1].index('line ') + 5 :]
-    _error_popup_with_code(title, filename, line_num, error_message, *args, emoji=emoji)
+    filename = error_parts[
+        0
+    ][error_parts[0].index('File ') + 5:]
+    line_num = error_parts[
+        1
+    ][error_parts[1].index('line ') + 5:]
+    _error_popup_with_code(
+        title, filename, line_num, error_message, *args, emoji=emoji
+    )
 
 
 def _error_popup_with_code(title, filename, line_num, *args, emoji=None):
@@ -78,7 +84,7 @@ def _error_popup_with_code(title, filename, line_num, *args, emoji=None):
     lines = []
     for msg in args:
         if isinstance(msg, Exception):
-            lines += [[f'Additional Exception info pased in by PySimpleGUI or user: Error type is: {type(msg).__name__}']]
+            lines += [[f'Additional Exception info passed in by PySimpleGUI or user: Error type is: {type(msg).__name__}']]
             lines += [[f'In file {__file__} Line number {msg.__traceback__.tb_lineno}']]
             lines += [[f'{msg}']]
         else:
@@ -128,12 +134,14 @@ def _exit_mainloop(exiting_window):
         # print('** Exited window mainloop **')
 
 
-from FreeSimpleGUI import _random_error_emoji
-from FreeSimpleGUI import execute_editor
-from FreeSimpleGUI import execute_get_editor
-from FreeSimpleGUI import popup_quick_message
-from FreeSimpleGUI import SUPPRESS_ERROR_POPUPS
-from FreeSimpleGUI import WIN_CLOSED
+from FreeSimpleGUI import (
+    SUPPRESS_ERROR_POPUPS,
+    WIN_CLOSED,
+    _random_error_emoji,
+    execute_editor,
+    execute_get_editor,
+    popup_quick_message,
+)
 from FreeSimpleGUI.elements.button import Button
 from FreeSimpleGUI.elements.image import Image
 from FreeSimpleGUI.elements.text import Text

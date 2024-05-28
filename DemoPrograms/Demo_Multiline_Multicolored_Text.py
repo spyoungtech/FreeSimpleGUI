@@ -15,7 +15,7 @@ layout = [  [sg.Text('Demonstration of Multiline Element\'s ability to show mult
             [sg.B('Plain'), sg.Button('Text Blue Line'), sg.Button('Text Green Line')],
             [sg.Button('Background Blue Line'),sg.Button('Background Green Line'), sg.B('White on Green'), sg.B('Font Courier 12')]  ]
 
-window = sg.Window('Demonstration of Multicolored Multline Text', layout)
+window = sg.Window('Demonstration of Multicolored Multiline Text', layout)
 
 # print = lambda *args, **kwargs: window[MLINE_KEY].print(*args, **kwargs, text_color='red')
 mline:sg.Multiline = window[MLINE_KEY]

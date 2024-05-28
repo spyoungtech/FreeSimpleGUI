@@ -11,79 +11,79 @@ import threading
 import tkinter
 import tkinter as tk
 import warnings
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Tuple
+from typing import Any, Dict, List, Tuple
 
 import FreeSimpleGUI
-from FreeSimpleGUI import _BuildResults
-from FreeSimpleGUI import _Debugger
-from FreeSimpleGUI import _debugger_window_is_open
-from FreeSimpleGUI import _FindElementWithFocusInSubForm
-from FreeSimpleGUI import _get_hidden_master_root
-from FreeSimpleGUI import _global_settings_get_watermark_info
-from FreeSimpleGUI import _long_func_thread
-from FreeSimpleGUI import _refresh_debugger
-from FreeSimpleGUI import _TimerPeriodic
-from FreeSimpleGUI import BUTTON_TYPE_CALENDAR_CHOOSER
-from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
-from FreeSimpleGUI import ELEM_TYPE_BUTTON
-from FreeSimpleGUI import ELEM_TYPE_BUTTONMENU
-from FreeSimpleGUI import ELEM_TYPE_COLUMN
-from FreeSimpleGUI import ELEM_TYPE_FRAME
-from FreeSimpleGUI import ELEM_TYPE_GRAPH
-from FreeSimpleGUI import ELEM_TYPE_IMAGE
-from FreeSimpleGUI import ELEM_TYPE_INPUT_CHECKBOX
-from FreeSimpleGUI import ELEM_TYPE_INPUT_COMBO
-from FreeSimpleGUI import ELEM_TYPE_INPUT_LISTBOX
-from FreeSimpleGUI import ELEM_TYPE_INPUT_MULTILINE
-from FreeSimpleGUI import ELEM_TYPE_INPUT_OPTION_MENU
-from FreeSimpleGUI import ELEM_TYPE_INPUT_RADIO
-from FreeSimpleGUI import ELEM_TYPE_INPUT_SLIDER
-from FreeSimpleGUI import ELEM_TYPE_INPUT_SPIN
-from FreeSimpleGUI import ELEM_TYPE_INPUT_TEXT
-from FreeSimpleGUI import ELEM_TYPE_MENUBAR
-from FreeSimpleGUI import ELEM_TYPE_PANE
-from FreeSimpleGUI import ELEM_TYPE_PROGRESS_BAR
-from FreeSimpleGUI import ELEM_TYPE_SEPARATOR
-from FreeSimpleGUI import ELEM_TYPE_TAB
-from FreeSimpleGUI import ELEM_TYPE_TAB_GROUP
-from FreeSimpleGUI import ELEM_TYPE_TABLE
-from FreeSimpleGUI import ELEM_TYPE_TREE
-from FreeSimpleGUI import EMOJI_BASE64_KEY
-from FreeSimpleGUI import EVENT_TIMER
-from FreeSimpleGUI import fill_form_with_values
-from FreeSimpleGUI import GRAB_ANYWHERE_IGNORE_THESE_WIDGETS
-from FreeSimpleGUI import InitializeResults
-from FreeSimpleGUI import PackFormIntoFrame
-from FreeSimpleGUI import popup_error_with_traceback
-from FreeSimpleGUI import popup_get_date
-from FreeSimpleGUI import popup_quick_message
-from FreeSimpleGUI import pysimplegui_user_settings
-from FreeSimpleGUI import running_linux
-from FreeSimpleGUI import running_mac
-from FreeSimpleGUI import running_windows
-from FreeSimpleGUI import StartupTK
-from FreeSimpleGUI import theme_input_background_color
-from FreeSimpleGUI import theme_input_text_color
-from FreeSimpleGUI import theme_use_custom_titlebar
-from FreeSimpleGUI import TIMEOUT_KEY
-from FreeSimpleGUI import Titlebar
-from FreeSimpleGUI import TITLEBAR_CLOSE_KEY
-from FreeSimpleGUI import TITLEBAR_IMAGE_KEY
-from FreeSimpleGUI import TITLEBAR_MAXIMIZE_KEY
-from FreeSimpleGUI import TITLEBAR_METADATA_MARKER
-from FreeSimpleGUI import TITLEBAR_MINIMIZE_KEY
-from FreeSimpleGUI import TITLEBAR_TEXT_KEY
-from FreeSimpleGUI import TTKPartOverrides
-from FreeSimpleGUI import WINDOW_CLOSE_ATTEMPTED_EVENT
-from FreeSimpleGUI import WINDOW_CONFIG_EVENT
-from FreeSimpleGUI._utils import _error_popup_with_traceback
-from FreeSimpleGUI._utils import _exit_mainloop
+from FreeSimpleGUI import (
+    BUTTON_TYPE_CALENDAR_CHOOSER,
+    COLOR_SYSTEM_DEFAULT,
+    ELEM_TYPE_BUTTON,
+    ELEM_TYPE_BUTTONMENU,
+    ELEM_TYPE_COLUMN,
+    ELEM_TYPE_FRAME,
+    ELEM_TYPE_GRAPH,
+    ELEM_TYPE_IMAGE,
+    ELEM_TYPE_INPUT_CHECKBOX,
+    ELEM_TYPE_INPUT_COMBO,
+    ELEM_TYPE_INPUT_LISTBOX,
+    ELEM_TYPE_INPUT_MULTILINE,
+    ELEM_TYPE_INPUT_OPTION_MENU,
+    ELEM_TYPE_INPUT_RADIO,
+    ELEM_TYPE_INPUT_SLIDER,
+    ELEM_TYPE_INPUT_SPIN,
+    ELEM_TYPE_INPUT_TEXT,
+    ELEM_TYPE_MENUBAR,
+    ELEM_TYPE_PANE,
+    ELEM_TYPE_PROGRESS_BAR,
+    ELEM_TYPE_SEPARATOR,
+    ELEM_TYPE_TAB,
+    ELEM_TYPE_TAB_GROUP,
+    ELEM_TYPE_TABLE,
+    ELEM_TYPE_TREE,
+    EMOJI_BASE64_KEY,
+    EVENT_TIMER,
+    GRAB_ANYWHERE_IGNORE_THESE_WIDGETS,
+    TIMEOUT_KEY,
+    TITLEBAR_CLOSE_KEY,
+    TITLEBAR_IMAGE_KEY,
+    TITLEBAR_MAXIMIZE_KEY,
+    TITLEBAR_METADATA_MARKER,
+    TITLEBAR_MINIMIZE_KEY,
+    TITLEBAR_TEXT_KEY,
+    WINDOW_CLOSE_ATTEMPTED_EVENT,
+    WINDOW_CONFIG_EVENT,
+    InitializeResults,
+    PackFormIntoFrame,
+    StartupTK,
+    Titlebar,
+    TTKPartOverrides,
+    _BuildResults,
+    _Debugger,
+    _debugger_window_is_open,
+    _FindElementWithFocusInSubForm,
+    _get_hidden_master_root,
+    _global_settings_get_watermark_info,
+    _long_func_thread,
+    _refresh_debugger,
+    _TimerPeriodic,
+    fill_form_with_values,
+    popup_error_with_traceback,
+    popup_get_date,
+    popup_quick_message,
+    pysimplegui_user_settings,
+    running_linux,
+    running_mac,
+    running_windows,
+    theme_input_background_color,
+    theme_input_text_color,
+    theme_use_custom_titlebar,
+)
+from FreeSimpleGUI._utils import _error_popup_with_traceback, _exit_mainloop
 from FreeSimpleGUI.elements.base import Element
-from FreeSimpleGUI.elements.helpers import _simplified_dual_color_to_tuple
-from FreeSimpleGUI.elements.helpers import button_color_to_tuple
+from FreeSimpleGUI.elements.helpers import (
+    _simplified_dual_color_to_tuple,
+    button_color_to_tuple,
+)
 
 
 class Window:
@@ -108,7 +108,7 @@ class Window:
     _counter_for_ttk_widgets = 0
     _floating_debug_window_build_needed = False
     _main_debug_window_build_needed = False
-    # rereouted stdout info. List of tuples (window, element, previous destination)
+    # rerouted stdout info. List of tuples (window, element, previous destination)
     _rerouted_stdout_stack = []  # type: List[Tuple[Window, Element]]
     _rerouted_stderr_stack = []  # type: List[Tuple[Window, Element]]
     _original_stdout = None
@@ -199,7 +199,7 @@ class Window:
         :type relative_location:                     (int, int)
         :param location:                             (x,y) location, in pixels, to locate the upper left corner of the window on the screen. Default is to center on screen. None will not set any location meaning the OS will decide
         :type location:                              (int, int) or (None, None) or None
-        :param size:                                 (width, height) size in pixels for this window. Normally the window is autosized to fit contents, not set to an absolute size by the user. Try not to set this value. You risk, the contents being cut off, etc. Let the layout determine the window size instead
+        :param size:                                 (width, height) size in pixels for this window. Normally the window is auto-sized to fit contents, not set to an absolute size by the user. Try not to set this value. You risk, the contents being cut off, etc. Let the layout determine the window size instead
         :type size:                                  (int, int)
         :param element_padding:                      Default amount of padding to put around elements in window (left/right, top/bottom) or ((left, right), (top, bottom)), or an int. If an int, then it's converted into a tuple (int, int)
         :type element_padding:                       (int, int) or ((int, int),(int,int)) or int
@@ -223,7 +223,7 @@ class Window:
         :type icon:                                  (str | bytes)
         :param force_toplevel:                       If True will cause this window to skip the normal use of a hidden master window
         :type force_toplevel:                        (bool)
-        :param alpha_channel:                        Sets the opacity of the window. 0 = invisible 1 = completely visible. Values bewteen 0 & 1 will produce semi-transparent windows in SOME environments (The Raspberry Pi always has this value at 1 and cannot change.
+        :param alpha_channel:                        Sets the opacity of the window. 0 = invisible 1 = completely visible. Values between 0 & 1 will produce semi-transparent windows in SOME environments (The Raspberry Pi always has this value at 1 and cannot change.
         :type alpha_channel:                         (float)
         :param return_keyboard_events:               if True key presses on the keyboard will be returned as Events from Read calls
         :type return_keyboard_events:                (bool)
@@ -241,7 +241,7 @@ class Window:
         :type keep_on_top:                           (bool)
         :param resizable:                            If True, allows the user to resize the window. Note the not all Elements will change size or location when resizing.
         :type resizable:                             (bool)
-        :param disable_close:                        If True, the X button in the top right corner of the window will no work.  Use with caution and always give a way out toyour users
+        :param disable_close:                        If True, the X button in the top right corner of the window will no work.  Use with caution and always give a way out to your users
         :type disable_close:                         (bool)
         :param disable_minimize:                     if True the user won't be able to minimize window.  Good for taking over entire screen and staying that way.
         :type disable_minimize:                      (bool)
@@ -709,7 +709,7 @@ class Window:
         :type non_blocking:  (bool)
         """
         _error_popup_with_traceback(
-            'LayoutAndRead Depricated',
+            'LayoutAndRead Deprecated',
             'Wow!  You have been using PySimpleGUI for a very long time.',
             'The Window.LayoutAndRead call is no longer supported',
         )
@@ -729,7 +729,7 @@ class Window:
 
         :param non_blocking: if True, this is a non-blocking call
         :type non_blocking:  (bool)
-        :return:             Tuple[Any, Dict] The event, values turple that is returned from Read calls
+        :return:             Tuple[Any, Dict] The event, values tuple that is returned from Read calls
         :rtype:
         """
         self.Shown = True
@@ -781,35 +781,35 @@ class Window:
         :type pngbase64:  (bytes)
         """
         if type(icon) is bytes or pngbase64 is not None:
-            wicon = tkinter.PhotoImage(data=icon if icon is not None else pngbase64)
+            w_icon = tkinter.PhotoImage(data=icon if icon is not None else pngbase64)
             try:
-                self.TKroot.tk.call('wm', 'iconphoto', self.TKroot._w, wicon)
+                self.TKroot.tk.call('wm', 'iconphoto', self.TKroot._w, w_icon)
             except:
-                wicon = tkinter.PhotoImage(data=FreeSimpleGUI.DEFAULT_BASE64_ICON)
+                w_icon = tkinter.PhotoImage(data=FreeSimpleGUI.DEFAULT_BASE64_ICON)
                 try:
-                    self.TKroot.tk.call('wm', 'iconphoto', self.TKroot._w, wicon)
+                    self.TKroot.tk.call('wm', 'iconphoto', self.TKroot._w, w_icon)
                 except:
                     pass
-            self.WindowIcon = wicon
+            self.WindowIcon = w_icon
             return
 
-        wicon = icon
+        w_icon = icon
         try:
             self.TKroot.iconbitmap(icon)
         except:
             try:
-                wicon = tkinter.PhotoImage(file=icon)
-                self.TKroot.tk.call('wm', 'iconphoto', self.TKroot._w, wicon)
+                w_icon = tkinter.PhotoImage(file=icon)
+                self.TKroot.tk.call('wm', 'iconphoto', self.TKroot._w, w_icon)
             except:
                 try:
-                    wicon = tkinter.PhotoImage(data=FreeSimpleGUI.DEFAULT_BASE64_ICON)
+                    w_icon = tkinter.PhotoImage(data=FreeSimpleGUI.DEFAULT_BASE64_ICON)
                     try:
-                        self.TKroot.tk.call('wm', 'iconphoto', self.TKroot._w, wicon)
+                        self.TKroot.tk.call('wm', 'iconphoto', self.TKroot._w, w_icon)
                     except:
                         pass
                 except:
                     pass
-        self.WindowIcon = wicon
+        self.WindowIcon = w_icon
 
     def _GetElementAtLocation(self, location):
         """
@@ -838,7 +838,7 @@ class Window:
 
     def _AutoCloseAlarmCallback(self):
         """
-        Function that's called by tkinter when autoclode timer expires.  Closes the window
+        Function that's called by tkinter when the auto close timer expires.  Closes the window
 
         """
         try:
@@ -1014,7 +1014,7 @@ class Window:
             self.auto_close_timer_needs_starting = False
 
         timeout = int(timeout) if timeout is not None else None
-        if timeout == 0:  # timeout of zero runs the old readnonblocking
+        if timeout == 0:  # timeout of zero runs the old ReadNonBlocking
             event, values = self._ReadNonBlocking()
             if event is None:
                 event = timeout_key
@@ -1055,7 +1055,7 @@ class Window:
                 if self.AllKeysDict.get(self.LastButtonClicked, None):
                     if self.AllKeysDict.get(self.LastButtonClicked).Type != ELEM_TYPE_BUTTON:
                         self.LastButtonClickedWasRealtime = False  # stops from generating events until something changes
-                else:  # it is possible for the key to not be in the dicitonary because it has a modifier. If so, then clear the realtime button flag
+                else:  # it is possible for the key to not be in the dictionary because it has a modifier. If so, then clear the realtime button flag
                     self.LastButtonClickedWasRealtime = False  # stops from generating events until something changes
 
                 try:
@@ -1238,11 +1238,11 @@ class Window:
 
     def FindElement(self, key, silent_on_error=False):
         """
-        ** Warning ** This call will eventually be depricated. **
+        ** Warning ** This call will eventually be Deprecated. **
 
         It is suggested that you modify your code to use the recommended window[key] lookup or the PEP8 compliant window.find_element(key)
 
-        For now, you'll only see a message printed and the call will continue to funcation as before.
+        For now, you'll only see a message printed and the call will continue to function as before.
 
         :param key:             Used with window.find_element and with return values to uniquely identify this element
         :type key:              str | int | tuple | object
@@ -1283,7 +1283,7 @@ class Window:
         find_element = FindElement == Element == Find
         With find_element being the PEP8 compliant call that should be used.
 
-        Rememeber that this call will return None if no match is found which may cause your code to crash if not
+        Remember that this call will return None if no match is found which may cause your code to crash if not
         checked for.
 
         :param key:              Used with window.find_element and with return values to uniquely identify this element
@@ -1367,7 +1367,7 @@ class Window:
     def _BuildKeyDictForWindow(self, top_window, window, key_dict):
         """
         Loop through all Rows and all Container Elements for this window and create the keys for all of them.
-        Note that the calls are recursive as all pathes must be walked
+        Note that the calls are recursive as all paths must be walked
 
         :param top_window: The highest level of the window
         :type top_window:  (Window)
@@ -1425,7 +1425,7 @@ class Window:
                             if not FreeSimpleGUI.SUPPRESS_ERROR_POPUPS:
                                 _error_popup_with_traceback(
                                     'Duplicate key found in your layout',
-                                    f'Dupliate key: {element.Key}',
+                                    f'Duplicate key: {element.Key}',
                                     f'Is being replaced with: {str(element.Key) + str(self.UniqueKeyCounter)}',
                                     'The line of code above shows you which layout, but does not tell you exactly where the element was defined',
                                     f'The element type is {element.Type}',
@@ -1456,7 +1456,7 @@ class Window:
     def _build_element_list_for_form(self, top_window, window, elem_list):
         """
         Loop through all Rows and all Container Elements for this window and create a list
-        Note that the calls are recursive as all pathes must be walked
+        Note that the calls are recursive as all paths must be walked
 
         :param top_window: The highest level of the window
         :type top_window:  (Window)
@@ -1547,7 +1547,7 @@ class Window:
         """
         Recenter your window after it's been moved or the size changed.
 
-        This is a conveinence method. There are no tkinter calls involved, only pure PySimpleGUI API calls.
+        This is a convenience method. There are no tkinter calls involved, only pure PySimpleGUI API calls.
         """
         if not self._is_window_created('tried Window.move_to_center'):
             return
@@ -1793,7 +1793,10 @@ class Window:
         """
         self.LastButtonClicked = None
         self.FormRemainedOpen = True
-        self.LastKeyboardEvent = 'MouseWheel:Down' if event.delta < 0 or event.num == 5 else 'MouseWheel:Up'
+        if event.delta < 0 or event.num == 5:
+            self.LastKeyboardEvent = 'MouseWheel:Down'
+        else:
+            self.LastKeyboardEvent = 'MouseWheel:Up'
         _exit_mainloop(self)
 
     def _Close(self, without_event=False):
@@ -1825,12 +1828,14 @@ class Window:
         """
 
         try:
-            del Window._active_windows[self]  # will only be in the list if window was explicitly finalized
+            # will only be in the list if window was explicitly finalized
+            del Window._active_windows[self]
         except:
             pass
 
         try:
-            self.TKroot.update()  # On Linux must call update if the user closed with X or else won't actually close the window
+            # On Linux must call update if the user closed with X or else won't actually close the window
+            self.TKroot.update()
         except:
             pass
 
@@ -2535,7 +2540,7 @@ class Window:
         """
         Saves an image of the PySimpleGUI window provided into the filename provided
 
-        :param filename:        Optional filename to save screenshot to. If not included, the User Settinds are used to get the filename
+        :param filename:        Optional filename to save screenshot to. If not included, the User Settings are used to get the filename
         :return:                A PIL ImageGrab object that can be saved or manipulated
         :rtype:                 (PIL.ImageGrab | None)
         """
@@ -2550,7 +2555,7 @@ class Window:
             # Add a little to the X direction if window has a titlebar
             if not self.NoTitleBar:
                 pos = (pos[0] + 7, pos[1])
-            # Get size of wiondow
+            # Get size of the window
             size = self.current_size_accurate()
             # Get size of the titlebar
             titlebar_height = self.TKroot.winfo_rooty() - self.TKroot.winfo_y()
@@ -2604,7 +2609,7 @@ class Window:
         importANT - This method uses THREADS... this means you CANNOT make any FreeSimpleGUI calls from
         the function you provide with the exception of one function, Window.write_event_value.
 
-        :param func:    A lambda or a function name with no parms
+        :param func:    A lambda or a function name with no parameters
         :type func:     Any
         :param end_key: Optional key that will be generated when the function returns
         :type end_key:  (Any | None)
@@ -2694,7 +2699,7 @@ class Window:
 
     def _custom_titlebar_callback(self, key):
         """
-        One of the Custom Titlbar buttons was clicked
+        One of the Custom Titlebar buttons was clicked
         :param key:
         :return:
         """
@@ -2713,7 +2718,7 @@ class Window:
 
     def timer_start(self, frequency_ms, key=EVENT_TIMER, repeating=True):
         """
-        Starts a timer that gnerates Timer Events.  The default is to repeat the timer events until timer is stopped.
+        Starts a timer that generates Timer Events.  The default is to repeat the timer events until timer is stopped.
         You can provide your own key or a default key will be used.  The default key is defined
         with the constants EVENT_TIMER or TIMER_KEY.  They both equal the same value.
         The values dictionary will contain the timer ID that is returned from this function.
@@ -2867,6 +2872,5 @@ class Window:
     start_thread = perform_long_operation
 
 
-from FreeSimpleGUI.elements.column import Column
+from FreeSimpleGUI.elements.column import Column, TkScrollableFrame
 from FreeSimpleGUI.elements.error import ErrorElement
-from FreeSimpleGUI.elements.column import TkScrollableFrame

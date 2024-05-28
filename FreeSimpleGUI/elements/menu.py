@@ -3,14 +3,15 @@ from __future__ import annotations
 import copy
 import tkinter as tk
 
-from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
-from FreeSimpleGUI import ELEM_TYPE_MENUBAR
-from FreeSimpleGUI import MENU_DISABLED_CHARACTER
-from FreeSimpleGUI import MENU_SHORTCUT_CHARACTER
-from FreeSimpleGUI import theme_input_background_color
-from FreeSimpleGUI import theme_input_text_color
-from FreeSimpleGUI._utils import _error_popup_with_traceback
-from FreeSimpleGUI._utils import _exit_mainloop
+from FreeSimpleGUI import (
+    COLOR_SYSTEM_DEFAULT,
+    ELEM_TYPE_MENUBAR,
+    MENU_DISABLED_CHARACTER,
+    MENU_SHORTCUT_CHARACTER,
+    theme_input_background_color,
+    theme_input_text_color,
+)
+from FreeSimpleGUI._utils import _error_popup_with_traceback, _exit_mainloop
 from FreeSimpleGUI.elements.base import Element
 from FreeSimpleGUI.elements.helpers import AddMenuItem
 
@@ -22,12 +23,26 @@ class Menu(Element):
     Is a List of -  "Item String" + List
     Where Item String is what will be displayed on the Menubar itself.
     The List that follows the item represents the items that are shown then Menu item is clicked
-    Notice how an "entry" in a mennu can be a list which means it branches out and shows another menu, etc. (resursive)
-    menu_def = [['&File', ['!&Open', '&Save::savekey', '---', '&Properties', 'E&xit']],
-                ['!&Edit', ['!&Paste', ['Special', 'Normal', ], 'Undo'], ],
-                ['&Debugger', ['Popout', 'Launch Debugger']],
-                ['&Toolbar', ['Command &1', 'Command &2', 'Command &3', 'Command &4']],
-                ['&Help', '&About...'], ]
+    Notice how an "entry" in a menu can be a list which means it branches out and shows another menu, etc. (recursive)
+    ```python
+    menu_def = [
+        ["&File", ["!&Open", "&Save::savekey", "---", "&Properties", "E&xit"]],
+        [
+            "!&Edit",
+            [
+                "!&Paste",
+                [
+                    "Special",
+                    "Normal",
+                ],
+                "Undo",
+            ],
+        ],
+        ["&Debugger", ["Pop Out", "Launch Debugger"]],
+        ["&Toolbar", ["Command &1", "Command &2", "Command &3", "Command &4"]],
+        ["&Help", "&About..."],
+    ]
+    ```
     Important Note!  The colors, font, look of the Menubar itself cannot be changed, only the menus shown AFTER clicking the menubar
     can be changed.  If you want to change the style/colors the Menubar, then you will have to use the MenubarCustom element.
     Finally, "keys" can be added to entries so make them unique.  The "Save" entry has a key associated with it. You
@@ -83,10 +98,20 @@ class Menu(Element):
         :type metadata:                   (Any)
         """
 
-        self.BackgroundColor = background_color if background_color is not None else theme_input_background_color()
-        self.TextColor = text_color if text_color is not None else theme_input_text_color()
+        self.BackgroundColor = (
+            background_color
+            if background_color is not None
+            else theme_input_background_color()
+        )
+        self.TextColor = (
+            text_color if text_color is not None else theme_input_text_color()
+        )
 
-        self.DisabledTextColor = disabled_text_color if disabled_text_color is not None else COLOR_SYSTEM_DEFAULT
+        self.DisabledTextColor = (
+            disabled_text_color
+            if disabled_text_color is not None
+            else COLOR_SYSTEM_DEFAULT
+        )
         self.MenuDefinition = copy.deepcopy(menu_definition)
         self.Widget = self.TKMenu = None  # type: tk.Menu
         self.MenuItemChosen = None
@@ -139,23 +164,35 @@ class Menu(Element):
         :param visible:         control visibility of element
         :type visible:          (bool)
         """
-        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
+        if (
+            not self._widget_was_created()
+        ):  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback('Error in Menu.update - The window was closed')
+            _error_popup_with_traceback("Error in Menu.update - The window was closed")
             return
 
         if menu_definition is not None:
             self.MenuDefinition = copy.deepcopy(menu_definition)
             if self.TKMenu is None:  # if no menu exists, make one
-                self.TKMenu = tk.Menu(self.ParentForm.TKroot, tearoff=self.Tearoff, tearoffcommand=self._tearoff_menu_callback)  # create the menubar
+                self.TKMenu = tk.Menu(
+                    self.ParentForm.TKroot,
+                    tearoff=self.Tearoff,
+                    tearoffcommand=self._tearoff_menu_callback,
+                )  # create the menubar
             menubar = self.TKMenu
             # Delete all the menu items (assuming 10000 should be a high enough number to cover them all)
             menubar.delete(0, 10000)
-            self.Widget = self.TKMenu  # same the new menu so user can access to extend PySimpleGUI
+            self.Widget = (
+                self.TKMenu
+            )  # same the new menu so user can access to extend PySimpleGUI
             for menu_entry in self.MenuDefinition:
-                baritem = tk.Menu(menubar, tearoff=self.Tearoff, tearoffcommand=self._tearoff_menu_callback)
+                baritem = tk.Menu(
+                    menubar,
+                    tearoff=self.Tearoff,
+                    tearoffcommand=self._tearoff_menu_callback,
+                )
 
                 if self.BackgroundColor not in (COLOR_SYSTEM_DEFAULT, None):
                     baritem.config(bg=self.BackgroundColor)
@@ -171,19 +208,35 @@ class Menu(Element):
                 pos = menu_entry[0].find(MENU_SHORTCUT_CHARACTER)
                 # print(pos)
                 if pos != -1:
-                    if pos == 0 or menu_entry[0][pos - len(MENU_SHORTCUT_CHARACTER)] != '\\':
-                        menu_entry[0] = menu_entry[0][:pos] + menu_entry[0][pos + len(MENU_SHORTCUT_CHARACTER) :]
+                    if (
+                        pos == 0
+                        or menu_entry[0][pos - len(MENU_SHORTCUT_CHARACTER)] != "\\"
+                    ):
+                        menu_entry[0] = (
+                            menu_entry[0][:pos]
+                            + menu_entry[0][pos + len(MENU_SHORTCUT_CHARACTER) :]
+                        )
                 if menu_entry[0][0] == MENU_DISABLED_CHARACTER:
-                    menubar.add_cascade(label=menu_entry[0][len(MENU_DISABLED_CHARACTER) :], menu=baritem, underline=pos)
-                    menubar.entryconfig(menu_entry[0][len(MENU_DISABLED_CHARACTER) :], state='disabled')
+                    menubar.add_cascade(
+                        label=menu_entry[0][len(MENU_DISABLED_CHARACTER) :],
+                        menu=baritem,
+                        underline=pos,
+                    )
+                    menubar.entryconfig(
+                        menu_entry[0][len(MENU_DISABLED_CHARACTER) :], state="disabled"
+                    )
                 else:
-                    menubar.add_cascade(label=menu_entry[0], menu=baritem, underline=pos)
+                    menubar.add_cascade(
+                        label=menu_entry[0], menu=baritem, underline=pos
+                    )
 
                 if len(menu_entry) > 1:
                     AddMenuItem(baritem, menu_entry[1], self)
 
         if visible is False:
-            self.ParentForm.TKroot.configure(menu=[])  # this will cause the menubar to disappear
+            self.ParentForm.TKroot.configure(
+                menu=[]
+            )  # this will cause the menubar to disappear
         elif self.TKMenu is not None:
             self.ParentForm.TKroot.configure(menu=self.TKMenu)
         if visible is not None:

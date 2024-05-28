@@ -10,7 +10,7 @@ import FreeSimpleGUI as sg
     1. You can also specify the location when creating it by using the location parameter
     2. You can use set_options to set the location all windows will be created
 
-    This demo shows how to use the paramter to Window called relative_location.
+    This demo shows how to use the parameter to Window called relative_location.
 
     As the name suggests, it is a position relative to where it would normally be created.
 

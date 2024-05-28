@@ -3630,7 +3630,7 @@ UUhhhh..... @AyhamSaffar I should have asked permission I think.... maybe I shou
 
 I'm glad it wasn't a problem to show it.
 
-You've got a lot of reasons to be proud of this accomplishment!  I mean, just look at that window!  My head explodes thinking what it would have taken if written in ANY of the other GUI frameworks.  I'm not the best Python programmer (by a LONG ways) and I'm not the best tkinter developer either, but I know enough about both to know it would take a lot of code to duplicate what you built using tktiner directly.
+You've got a lot of reasons to be proud of this accomplishment!  I mean, just look at that window!  My head explodes thinking what it would have taken if written in ANY of the other GUI frameworks.  I'm not the best Python programmer (by a LONG ways) and I'm not the best tkinter developer either, but I know enough about both to know it would take a lot of code to duplicate what you built using tkinter directly.
 
 Your story is also really awesome.
 

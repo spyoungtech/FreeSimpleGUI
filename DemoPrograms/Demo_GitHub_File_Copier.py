@@ -147,7 +147,7 @@ def make_window():
     ]
 
     # ----- Full layout -----
-    ML_KEY = '-ML-'  # Multline's key
+    ML_KEY = '-ML-'  # Multiline's key
 
     layout = [[sg.vtop(sg.Column(left_col, element_justification='c')), sg.VSeperator(), sg.vtop(sg.Column(right_col, element_justification='c'))],
               [sg.HorizontalSeparator()],

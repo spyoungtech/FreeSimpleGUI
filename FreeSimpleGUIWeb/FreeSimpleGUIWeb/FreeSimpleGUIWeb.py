@@ -147,7 +147,7 @@ DEFAULT_SCROLLBAR_COLOR = None
 # DEFAULT_PROGRESS_BAR_COLOR = (PURPLES[1],PURPLES[0])    # a nice purple progress bar
 
 # A transparent button is simply one that matches the background
-TRANSPARENT_BUTTON = 'This constant has been depricated. You must set your button background = background it is on for it to be transparent appearing'
+TRANSPARENT_BUTTON = 'This constant has been Deprecated. You must set your button background = background it is on for it to be transparent appearing'
 # --------------------------------------------------------------------------------
 # Progress Bar Relief Choices
 RELIEF_RAISED = 'raised'
@@ -1200,7 +1200,7 @@ class Multiline(Element):
 
     def print(self, *args, end=None, sep=None, text_color=None, background_color=None):
         """
-        Print like Python normally prints except route the output to a multline element and also add colors if desired
+        Print like Python normally prints except route the output to a Multiline element and also add colors if desired
 
         :param args: List[Any] The arguments to print
         :param end: (str) The end char to use just like print uses
@@ -1324,7 +1324,7 @@ class MultilineOutput(Element):
 
     def print(self, *args, end=None, sep=None, text_color=None, background_color=None):
         """
-        Print like Python normally prints except route the output to a multline element and also add colors if desired
+        Print like Python normally prints except route the output to a Multiline element and also add colors if desired
 
         :param args: List[Any] The arguments to print
         :param end: (str) The end char to use just like print uses
@@ -2327,7 +2327,7 @@ class Graph(Element):
 
     def change_coordinates(self, graph_bottom_left, graph_top_right):
         """
-        Changes the corrdinate system to a new one.  The same 2 points in space are used to define the coorinate
+        Changes the coordinate system to a new one.  The same 2 points in space are used to define the coordinate
         system - the bottom left and the top right values of your graph.
 
         :param graph_bottom_left: Tuple[int, int] (x,y) The bottoms left corner of your coordinate system
@@ -7162,7 +7162,7 @@ def cprint(*args, end=None, sep=' ', text_color=None, t=None, background_color=N
     There are also "aliases" for text_color, background_color and colors (t, b, c)
     t - An alias for color of the text (makes for shorter calls)
     b - An alias for the background_color parameter
-    c - Tuple[str, str] - "shorthand" way of specifying color. (foreground, backgrouned)
+    c - Tuple[str, str] - "shorthand" way of specifying color. (foreground, background)
     c - str - can also be a string of the format "foreground on background"  ("white on red")
 
     With the aliases it's possible to write the same print but in more compact ways:
@@ -7240,7 +7240,7 @@ def cprint(*args, end=None, sep=' ', text_color=None, t=None, background_color=N
 # ------------------------------------------------------------------------------------------------ #
 def _print_to_element(multiline_element, *args, end=None, sep=None, text_color=None, background_color=None, autoscroll=True):
     """
-    Print like Python normally prints except route the output to a multline element and also add colors if desired
+    Print like Python normally prints except route the output to a Multiline element and also add colors if desired
 
     :param multiline_element:  The multiline element to be output to
     :type multiline_element: Multiline or MultilineOutput

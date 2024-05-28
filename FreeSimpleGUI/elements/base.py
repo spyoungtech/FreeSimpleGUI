@@ -1,54 +1,71 @@
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
+
+from FreeSimpleGUI._utils import (
+    _create_error_message,
+    _error_popup_with_traceback,
+    _exit_mainloop,
+)
+from FreeSimpleGUI.elements.helpers import AddMenuItem
+
+if TYPE_CHECKING:
+    from FreeSimpleGUI.window import Window
+
 import os
 import tkinter as tk
 import warnings
 from typing import Any  # noqa
 
 import FreeSimpleGUI
-from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
-from FreeSimpleGUI import ELEM_TYPE_BUTTON
-from FreeSimpleGUI import ELEM_TYPE_COLUMN
-from FreeSimpleGUI import ELEM_TYPE_FRAME
-from FreeSimpleGUI import ELEM_TYPE_GRAPH
-from FreeSimpleGUI import ELEM_TYPE_PANE
-from FreeSimpleGUI import ELEM_TYPE_TAB
-from FreeSimpleGUI import ELEM_TYPE_TAB_GROUP
-from FreeSimpleGUI import MENU_RIGHT_CLICK_DISABLED
-from FreeSimpleGUI import popup_error_with_traceback
-from FreeSimpleGUI import PSG_THEME_PART_BACKGROUND
-from FreeSimpleGUI import PSG_THEME_PART_BUTTON_BACKGROUND
-from FreeSimpleGUI import PSG_THEME_PART_BUTTON_TEXT
-from FreeSimpleGUI import PSG_THEME_PART_INPUT_BACKGROUND
-from FreeSimpleGUI import PSG_THEME_PART_INPUT_TEXT
-from FreeSimpleGUI import PSG_THEME_PART_SLIDER
-from FreeSimpleGUI import PSG_THEME_PART_TEXT
-from FreeSimpleGUI import pysimplegui_user_settings
-from FreeSimpleGUI import running_mac
-from FreeSimpleGUI import theme_background_color
-from FreeSimpleGUI import theme_button_color_background
-from FreeSimpleGUI import theme_button_color_text
-from FreeSimpleGUI import theme_input_background_color
-from FreeSimpleGUI import theme_input_text_color
-from FreeSimpleGUI import theme_slider_color
-from FreeSimpleGUI import theme_text_color
-from FreeSimpleGUI import TITLEBAR_CLOSE_KEY
-from FreeSimpleGUI import TITLEBAR_MAXIMIZE_KEY
-from FreeSimpleGUI import TITLEBAR_MINIMIZE_KEY
-from FreeSimpleGUI import ToolTip
-from FreeSimpleGUI import ttk_part_mapping_dict
-from FreeSimpleGUI import TTK_SCROLLBAR_PART_ARROW_BUTTON_ARROW_COLOR
-from FreeSimpleGUI import TTK_SCROLLBAR_PART_ARROW_WIDTH
-from FreeSimpleGUI import TTK_SCROLLBAR_PART_BACKGROUND_COLOR
-from FreeSimpleGUI import TTK_SCROLLBAR_PART_FRAME_COLOR
-from FreeSimpleGUI import TTK_SCROLLBAR_PART_RELIEF
-from FreeSimpleGUI import TTK_SCROLLBAR_PART_SCROLL_WIDTH
-from FreeSimpleGUI import TTK_SCROLLBAR_PART_TROUGH_COLOR
-from FreeSimpleGUI import TTKPartOverrides
+from FreeSimpleGUI import (
+    COLOR_SYSTEM_DEFAULT,
+    ELEM_TYPE_BUTTON,
+    ELEM_TYPE_COLUMN,
+    ELEM_TYPE_FRAME,
+    ELEM_TYPE_GRAPH,
+    ELEM_TYPE_PANE,
+    ELEM_TYPE_TAB,
+    ELEM_TYPE_TAB_GROUP,
+    MENU_RIGHT_CLICK_DISABLED,
+    PSG_THEME_PART_BACKGROUND,
+    PSG_THEME_PART_BUTTON_BACKGROUND,
+    PSG_THEME_PART_BUTTON_TEXT,
+    PSG_THEME_PART_INPUT_BACKGROUND,
+    PSG_THEME_PART_INPUT_TEXT,
+    PSG_THEME_PART_SLIDER,
+    PSG_THEME_PART_TEXT,
+    TITLEBAR_CLOSE_KEY,
+    TITLEBAR_MAXIMIZE_KEY,
+    TITLEBAR_MINIMIZE_KEY,
+    TTK_SCROLLBAR_PART_ARROW_BUTTON_ARROW_COLOR,
+    TTK_SCROLLBAR_PART_ARROW_WIDTH,
+    TTK_SCROLLBAR_PART_BACKGROUND_COLOR,
+    TTK_SCROLLBAR_PART_FRAME_COLOR,
+    TTK_SCROLLBAR_PART_RELIEF,
+    TTK_SCROLLBAR_PART_SCROLL_WIDTH,
+    TTK_SCROLLBAR_PART_TROUGH_COLOR,
+    ToolTip,
+    TTKPartOverrides,
+    popup_error_with_traceback,
+    pysimplegui_user_settings,
+    running_mac,
+    theme_background_color,
+    theme_button_color_background,
+    theme_button_color_text,
+    theme_input_background_color,
+    theme_input_text_color,
+    theme_slider_color,
+    theme_text_color,
+    ttk_part_mapping_dict,
+)
 
 
 class Element:
-    """The base class for all Elements. Holds the basic description of an Element like size and colors"""
+    """
+    The base class for all Elements.
+    Holds the basic description of an Element like size and colors
+    """
 
     def __init__(
         self,
@@ -72,7 +89,8 @@ class Element:
         sbar_relief=None,
     ):
         """
-        Element base class. Only used internally.  User will not create an Element object by itself
+        Element base class. Only used internally.
+        User will not create an Element object by itself
 
         :param type:                        The type of element. These constants all start with "ELEM_TYPE_"
         :type type:                         (int) (could be enum)
@@ -134,31 +152,51 @@ class Element:
         self.TKText = None
         self.TKEntry = None
         self.TKImage = None
-        self.ttk_style_name = ''  # The ttk style name (if this is a ttk widget)
+
+        # The ttk style name (if this is a ttk widget)
+        self.ttk_style_name = ""
+
         self.ttk_style = None  # The ttk Style object (if this is a ttk widget)
         self._metadata = None  # type: Any
 
         self.ParentForm = None  # type: Window
-        self.ParentContainer = None  # will be a Form, Column, or Frame element # UNBIND
+
+        # will be a Form, Column, or Frame element # UNBIND
+        self.ParentContainer = None
+
         self.TextInputDefault = None
         self.Position = (0, 0)  # Default position Row 0, Col 0
-        self.BackgroundColor = background_color if background_color is not None else FreeSimpleGUI.DEFAULT_ELEMENT_BACKGROUND_COLOR
-        self.TextColor = text_color if text_color is not None else FreeSimpleGUI.DEFAULT_ELEMENT_TEXT_COLOR
+        self.BackgroundColor = (
+            background_color
+            if background_color is not None
+            else FreeSimpleGUI.DEFAULT_ELEMENT_BACKGROUND_COLOR
+        )
+        self.TextColor = (
+            text_color
+            if text_color is not None
+            else FreeSimpleGUI.DEFAULT_ELEMENT_TEXT_COLOR
+        )
         self.Key = key  # dictionary key for return values
         self.Tooltip = tooltip
         self.TooltipObject = None
         self._visible = visible
         self.TKRightClickMenu = None
-        self.Widget = None  # Set when creating window. Has the main tkinter widget for element
+        self.Widget = (
+            # Set when creating window. Has the main tkinter widget for element
+            None
+        )
         self.Tearoff = False  # needed because of right click menu code
         self.ParentRowFrame = None  # type tk.Frame
         self.metadata = metadata
-        self.user_bind_dict = {}  # Used when user defines a tkinter binding using bind method - convert bind string to key modifier
+        self.user_bind_dict = (
+            # Used when user defines a tkinter binding using bind method - convert bind string to key modifier
+            {}
+        )  
         self.user_bind_event = None  # Used when user defines a tkinter binding using bind method - event data from tkinter
         # self.pad_used = (0, 0)  # the amount of pad used when was inserted into the layout
         self._popup_menu_location = (None, None)
         self.pack_settings = None
-        self.vsb_style_name = None  # ttk style name used for the verical scrollbar if one is attached to element
+        self.vsb_style_name = None  # ttk style name used for the vertical scrollbar if one is attached to element
         self.hsb_style_name = None  # ttk style name used for the horizontal scrollbar if one is attached to element
         self.vsb_style = None  # The ttk style used for the vertical scrollbar if one is attached to element
         self.hsb_style = None  # The ttk style used for the horizontal scrollbar if one is attached to element
@@ -240,15 +278,17 @@ class Element:
         if sbar_arrow_width is not None:
             self.scroll_arrow_width = sbar_arrow_width
         else:
-            self.scroll_arrow_width = ttk_part_mapping_dict[TTK_SCROLLBAR_PART_ARROW_WIDTH]
+            self.scroll_arrow_width = ttk_part_mapping_dict[
+                TTK_SCROLLBAR_PART_ARROW_WIDTH
+            ]
 
-        if not hasattr(self, 'DisabledTextColor'):
+        if not hasattr(self, "DisabledTextColor"):
             self.DisabledTextColor = None
-        if not hasattr(self, 'ItemFont'):
+        if not hasattr(self, "ItemFont"):
             self.ItemFont = None
-        if not hasattr(self, 'RightClickMenu'):
+        if not hasattr(self, "RightClickMenu"):
             self.RightClickMenu = None
-        if not hasattr(self, 'Disabled'):
+        if not hasattr(self, "Disabled"):
             self.Disabled = None  # in case the element hasn't defined this, add it here
 
     @property
@@ -308,11 +348,13 @@ class Element:
         """
         if self.Type == ELEM_TYPE_TAB_GROUP:
             try:
-                index = self.Widget.index(f'@{event.x},{event.y}')
-                tab = self.Widget.tab(index, 'text')
+                index = self.Widget.index(f"@{event.x},{event.y}")
+                tab = self.Widget.tab(index, "text")
                 key = self.find_key_from_tab_name(tab)
                 tab_element = self.ParentForm.key_dict[key]
-                if tab_element.RightClickMenu is None:  # if this tab didn't explicitly have a menu, then don't show anything
+                if (
+                    tab_element.RightClickMenu is None
+                ):  # if this tab didn't explicitly have a menu, then don't show anything
                     return
                 tab_element.TKRightClickMenu.tk_popup(event.x_root, event.y_root, 0)
                 self.TKRightClickMenu.grab_release()
@@ -330,7 +372,7 @@ class Element:
         The reason for this function is to relocate the torn-off menu. It will default to 0,0 otherwise
         This callback moves the right click menu window to the location of the current window
 
-        :param parent: information provided by tkinter - the parent of the Meny
+        :param parent: information provided by tkinter - the parent of the Menu
         :type parent:
         :param menu:   information provided by tkinter - the menu window
         :type menu:
@@ -341,7 +383,7 @@ class Element:
         else:
             winx, winy = self._popup_menu_location
         # self.ParentForm.TKroot.update()
-        self.ParentForm.TKroot.tk.call('wm', 'geometry', menu, f'+{winx}+{winy}')
+        self.ParentForm.TKroot.tk.call("wm", "geometry", menu, f"+{winx}+{winy}")
 
     def _MenuItemChosenCallback(self, item_chosen):  # TEXT Menu item callback
         """
@@ -406,7 +448,11 @@ class Element:
 
         """
         # If this is a minimize button for a custom titlebar, then minimize the window
-        if self.Key in (TITLEBAR_MINIMIZE_KEY, TITLEBAR_MAXIMIZE_KEY, TITLEBAR_CLOSE_KEY):
+        if self.Key in (
+            TITLEBAR_MINIMIZE_KEY,
+            TITLEBAR_MAXIMIZE_KEY,
+            TITLEBAR_CLOSE_KEY,
+        ):
             self.ParentForm._custom_titlebar_callback(self.Key)
         self._generic_callback_handler(self.DisplayText)
         return
@@ -433,7 +479,7 @@ class Element:
 
     def _generic_callback_handler(self, alternative_to_key=None, force_key_to_be=None):
         """
-        Peforms the actions that were in many of the callback functions previously.  Combined so that it's
+        Performs the actions that were in many of the callback functions previously.  Combined so that it's
         easier to modify and is in 1 place now
 
         :param event:            From tkinter and is not used
@@ -462,7 +508,7 @@ class Element:
         :type event:
 
         """
-        self._generic_callback_handler('')
+        self._generic_callback_handler("")
 
     def _ComboboxSelectHandler(self, event):
         """
@@ -471,7 +517,7 @@ class Element:
         :type event:
 
         """
-        self._generic_callback_handler('')
+        self._generic_callback_handler("")
 
     def _SpinboxSelectHandler(self, event=None):
         """
@@ -481,19 +527,19 @@ class Element:
         :param event: Event data passed in by tkinter (not used)
         :type event:
         """
-        self._generic_callback_handler('')
+        self._generic_callback_handler("")
 
     def _RadioHandler(self):
         """
         Internal callback for when a radio button is selected and enable events was set for radio
         """
-        self._generic_callback_handler('')
+        self._generic_callback_handler("")
 
     def _CheckboxHandler(self):
         """
-        Internal callback for when a checkbnox is selected and enable events was set for checkbox
+        Internal callback for when a checkbox is selected and enable events was set for checkbox
         """
-        self._generic_callback_handler('')
+        self._generic_callback_handler("")
 
     def _TabGroupSelectHandler(self, event):
         """
@@ -502,11 +548,11 @@ class Element:
         :param event: Event data passed in by tkinter (not used)
         :type event:
         """
-        self._generic_callback_handler('')
+        self._generic_callback_handler("")
 
     def _KeyboardHandler(self, event):
         """
-        Internal callback for when a key is pressed andd return keyboard events was set for window
+        Internal callback for when a key is pressed and return keyboard events was set for window
 
         :param event: Event data passed in by tkinter (not used)
         :type event:
@@ -515,7 +561,7 @@ class Element:
         # if the element is disabled, ignore the event
         if self.Disabled:
             return
-        self._generic_callback_handler('')
+        self._generic_callback_handler("")
 
     def _ClickHandler(self, event):
         """
@@ -524,7 +570,7 @@ class Element:
         :param event: Event data passed in by tkinter (not used)
         :type event:
         """
-        self._generic_callback_handler('')
+        self._generic_callback_handler("")
 
     def _this_elements_window_closed(self, quick_check=True):
         if self.ParentForm is not None:
@@ -543,7 +589,7 @@ class Element:
         :param propagate:   If True then tkinter will be told to propagate the event to the element
         :type propagate:    (bool)
         """
-        key_suffix = self.user_bind_dict.get(bind_string, '')
+        key_suffix = self.user_bind_dict.get(bind_string, "")
         self.user_bind_event = event
         if self.Type == ELEM_TYPE_GRAPH:
             self._update_position_for_returned_values(event)
@@ -551,14 +597,17 @@ class Element:
             if isinstance(self.Key, str):
                 key = self.Key + str(key_suffix)
             else:
-                key = (self.Key, key_suffix)  # old way (pre 2021) was to make a brand new tuple
+                key = (
+                    self.Key,
+                    key_suffix,
+                )  # old way (pre 2021) was to make a brand new tuple
                 # key = self.Key + (key_suffix,)   # in 2021 tried this. It will break existing applications though - if key is a tuple, add one more item
         else:
             key = bind_string
 
         self._generic_callback_handler(force_key_to_be=key)
 
-        return 'break' if propagate is not True else None
+        return "break" if propagate is not True else None
 
     def bind(self, bind_string, key_modifier, propagate=True):
         """
@@ -571,11 +620,16 @@ class Element:
         :param propagate:    If True then tkinter will be told to propagate the event to the element
         :type propagate:     (bool)
         """
-        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
+        if (
+            not self._widget_was_created()
+        ):  # if widget hasn't been created yet, then don't allow
             return
 
         try:
-            self.Widget.bind(bind_string, lambda evt: self._user_bind_callback(bind_string, evt, propagate))
+            self.Widget.bind(
+                bind_string,
+                lambda evt: self._user_bind_callback(bind_string, evt, propagate),
+            )
         except Exception:
             self.Widget.unbind_all(bind_string)
             return
@@ -588,7 +642,9 @@ class Element:
         :param bind_string: The string tkinter expected in its bind function
         :type bind_string:  (str)
         """
-        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
+        if (
+            not self._widget_was_created()
+        ):  # if widget hasn't been created yet, then don't allow
             return
         self.Widget.unbind(bind_string)
         self.user_bind_dict.pop(bind_string, None)
@@ -607,7 +663,9 @@ class Element:
             except:
                 pass
 
-        self.TooltipObject = ToolTip(self.Widget, text=tooltip_text, timeout=FreeSimpleGUI.DEFAULT_TOOLTIP_TIME)
+        self.TooltipObject = ToolTip(
+            self.Widget, text=tooltip_text, timeout=FreeSimpleGUI.DEFAULT_TOOLTIP_TIME
+        )
 
     def set_focus(self, force=False):
         """
@@ -616,7 +674,9 @@ class Element:
         :param force: if True will call focus_force otherwise calls focus_set
         :type force:  bool
         """
-        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
+        if (
+            not self._widget_was_created()
+        ):  # if widget hasn't been created yet, then don't allow
             return
         try:
             if force:
@@ -624,7 +684,9 @@ class Element:
             else:
                 self.Widget.focus_set()
         except Exception as e:
-            _error_popup_with_traceback("Exception blocking focus. Check your element's Widget", e)
+            _error_popup_with_traceback(
+                "Exception blocking focus. Check your element's Widget", e
+            )
 
     def block_focus(self, block=True):
         """
@@ -636,7 +698,9 @@ class Element:
         :param block: if True the element will not get focus via the keyboard
         :type block:  bool
         """
-        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
+        if (
+            not self._widget_was_created()
+        ):  # if widget hasn't been created yet, then don't allow
             return
         try:
             self.ParentForm.TKroot.focus_force()
@@ -645,7 +709,9 @@ class Element:
             else:
                 self.Widget.configure(takefocus=1)
         except Exception as e:
-            _error_popup_with_traceback("Exception blocking focus. Check your element's Widget", e)
+            _error_popup_with_traceback(
+                "Exception blocking focus. Check your element's Widget", e
+            )
 
     def get_next_focus(self):
         """
@@ -654,14 +720,18 @@ class Element:
         :return:    Element that will get focus after this one
         :rtype:     (Element)
         """
-        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
+        if (
+            not self._widget_was_created()
+        ):  # if widget hasn't been created yet, then don't allow
             return None
 
         try:
             next_widget_focus = self.widget.tk_focusNext()
             return self.ParentForm.widget_to_element(next_widget_focus)
         except Exception as e:
-            _error_popup_with_traceback("Exception getting next focus. Check your element's Widget", e)
+            _error_popup_with_traceback(
+                "Exception getting next focus. Check your element's Widget", e
+            )
 
     def get_previous_focus(self):
         """
@@ -670,13 +740,17 @@ class Element:
         :return:    Element that should get the focus before this one
         :rtype:     (Element)
         """
-        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
+        if (
+            not self._widget_was_created()
+        ):  # if widget hasn't been created yet, then don't allow
             return None
         try:
             next_widget_focus = self.widget.tk_focusPrev()  # tkinter.Widget
             return self.ParentForm.widget_to_element(next_widget_focus)
         except Exception as e:
-            _error_popup_with_traceback("Exception getting previous focus. Check your element's Widget", e)
+            _error_popup_with_traceback(
+                "Exception getting previous focus. Check your element's Widget", e
+            )
 
     def set_size(self, size=(None, None)):
         """
@@ -690,7 +764,7 @@ class Element:
             if size[0] is not None:
                 self.Widget.config(width=size[0])
         except:
-            print('Warning, error setting width on element with key=', self.Key)
+            print("Warning, error setting width on element with key=", self.Key)
         try:
             if size[1] is not None:
                 self.Widget.config(height=size[1])
@@ -698,7 +772,7 @@ class Element:
             try:
                 self.Widget.config(length=size[1])
             except:
-                print('Warning, error setting height on element with key=', self.Key)
+                print("Warning, error setting height on element with key=", self.Key)
 
         if self.Type == ELEM_TYPE_GRAPH:
             self.CanvasSize = size
@@ -713,7 +787,7 @@ class Element:
             w = self.Widget.winfo_width()
             h = self.Widget.winfo_height()
         except:
-            print('Warning, error getting size of element', self.Key)
+            print("Warning, error getting size of element", self.Key)
             w = h = None
         return w, h
 
@@ -725,17 +799,17 @@ class Element:
         try:
             self.ParentRowFrame.pack_forget()
         except:
-            print('Warning, error hiding element row for key =', self.Key)
+            print("Warning, error hiding element row for key =", self.Key)
 
     def unhide_row(self):
         """
-        Unhides (makes visible again) the row container that the Element is located on.
+        Unhide (makes visible again) the row container that the Element is located on.
         Note that it will re-appear at the bottom of the window / container, most likely.
         """
         try:
             self.ParentRowFrame.pack()
         except:
-            print('Warning, error hiding element row for key =', self.Key)
+            print("Warning, error hiding element row for key =", self.Key)
 
     def expand(self, expand_x=False, expand_y=False, expand_row=True):
         """
@@ -783,18 +857,18 @@ class Element:
             try:
                 self.Widget.config(cursor=cursor)
             except Exception as e:
-                print('Warning bad cursor specified ', cursor)
+                print("Warning bad cursor specified ", cursor)
                 print(e)
         if cursor_color is not None:
             try:
                 self.Widget.config(insertbackground=cursor_color)
             except Exception as e:
-                print('Warning bad cursor color', cursor_color)
+                print("Warning bad cursor color", cursor_color)
                 print(e)
 
     def set_vscroll_position(self, percent_from_top):
         """
-        Attempts to set the vertical scroll postition for an element's Widget
+        Attempts to set the vertical scroll position for an element's Widget
         :param percent_from_top: From 0 to 1.0, the percentage from the top to move scrollbar to
         :type percent_from_top:  (float)
         """
@@ -806,7 +880,7 @@ class Element:
         try:
             widget.yview_moveto(percent_from_top)
         except Exception as e:
-            print('Warning setting the vertical scroll (yview_moveto failed)')
+            print("Warning setting the vertical scroll (yview_moveto failed)")
             print(e)
 
     def _widget_was_created(self):
@@ -823,14 +897,16 @@ class Element:
                 return False
 
             warnings.warn(
-                'You cannot Update element with key = {} until the window.read() is called or set finalize=True when creating window'.format(self.Key),
+                "You cannot Update element with key = {} until the window.read() is called or set finalize=True when creating window".format(
+                    self.Key
+                ),
                 UserWarning,
             )
             if not FreeSimpleGUI.SUPPRESS_ERROR_POPUPS:
                 _error_popup_with_traceback(
-                    f'Unable to complete operation on element with key {self.Key}',
-                    'You cannot perform operations (such as calling update) on an Element until:',
-                    ' window.read() is called or finalize=True when Window created.',
+                    f"Unable to complete operation on element with key {self.Key}",
+                    "You cannot perform operations (such as calling update) on an Element until:",
+                    " window.read() is called or finalize=True when Window created.",
                     'Adding a "finalize=True" parameter to your Window creation will likely fix this.',
                     _create_error_message(),
                 )
@@ -841,27 +917,27 @@ class Element:
         Turns on Grab Anywhere functionality AFTER a window has been created.  Don't try on a window that's not yet
         been Finalized or Read.
         """
-        self.Widget.bind('<Control-Button-1>', self.ParentForm._StartMove)
-        self.Widget.bind('<Control-ButtonRelease-1>', self.ParentForm._StopMove)
-        self.Widget.bind('<Control-B1-Motion>', self.ParentForm._OnMotion)
+        self.Widget.bind("<Control-Button-1>", self.ParentForm._StartMove)
+        self.Widget.bind("<Control-ButtonRelease-1>", self.ParentForm._StopMove)
+        self.Widget.bind("<Control-B1-Motion>", self.ParentForm._OnMotion)
 
     def _grab_anywhere_on(self):
         """
         Turns on Grab Anywhere functionality AFTER a window has been created.  Don't try on a window that's not yet
         been Finalized or Read.
         """
-        self.Widget.bind('<ButtonPress-1>', self.ParentForm._StartMove)
-        self.Widget.bind('<ButtonRelease-1>', self.ParentForm._StopMove)
-        self.Widget.bind('<B1-Motion>', self.ParentForm._OnMotion)
+        self.Widget.bind("<ButtonPress-1>", self.ParentForm._StartMove)
+        self.Widget.bind("<ButtonRelease-1>", self.ParentForm._StopMove)
+        self.Widget.bind("<B1-Motion>", self.ParentForm._OnMotion)
 
     def _grab_anywhere_off(self):
         """
         Turns off Grab Anywhere functionality AFTER a window has been created.  Don't try on a window that's not yet
         been Finalized or Read.
         """
-        self.Widget.unbind('<ButtonPress-1>')
-        self.Widget.unbind('<ButtonRelease-1>')
-        self.Widget.unbind('<B1-Motion>')
+        self.Widget.unbind("<ButtonPress-1>")
+        self.Widget.unbind("<ButtonRelease-1>")
+        self.Widget.unbind("<B1-Motion>")
 
     def grab_anywhere_exclude(self):
         """
@@ -873,7 +949,7 @@ class Element:
     def grab_anywhere_include(self):
         """
         Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example 
         """
         self.ParentForm._grab_anywhere_include_these_list.append(self.Widget)
 
@@ -903,38 +979,65 @@ class Element:
                 tearoffcommand=self._tearoff_menu_callback,
             )
 
-            if self.ParentForm.right_click_menu_background_color not in (COLOR_SYSTEM_DEFAULT, None):
+            if self.ParentForm.right_click_menu_background_color not in (
+                COLOR_SYSTEM_DEFAULT,
+                None,
+            ):
                 top_menu.config(bg=self.ParentForm.right_click_menu_background_color)
-            if self.ParentForm.right_click_menu_text_color not in (COLOR_SYSTEM_DEFAULT, None):
+            if self.ParentForm.right_click_menu_text_color not in (
+                COLOR_SYSTEM_DEFAULT,
+                None,
+            ):
                 top_menu.config(fg=self.ParentForm.right_click_menu_text_color)
-            if self.ParentForm.right_click_menu_disabled_text_color not in (COLOR_SYSTEM_DEFAULT, None):
-                top_menu.config(disabledforeground=self.ParentForm.right_click_menu_disabled_text_color)
+            if self.ParentForm.right_click_menu_disabled_text_color not in (
+                COLOR_SYSTEM_DEFAULT,
+                None,
+            ):
+                top_menu.config(
+                    disabledforeground=self.ParentForm.right_click_menu_disabled_text_color
+                )
             if self.ParentForm.right_click_menu_font is not None:
                 top_menu.config(font=self.ParentForm.right_click_menu_font)
 
-            if self.ParentForm.right_click_menu_selected_colors[0] not in (COLOR_SYSTEM_DEFAULT, None):
-                top_menu.config(activeforeground=self.ParentForm.right_click_menu_selected_colors[0])
-            if self.ParentForm.right_click_menu_selected_colors[1] not in (COLOR_SYSTEM_DEFAULT, None):
-                top_menu.config(activebackground=self.ParentForm.right_click_menu_selected_colors[1])
+            if self.ParentForm.right_click_menu_selected_colors[0] not in (
+                COLOR_SYSTEM_DEFAULT,
+                None,
+            ):
+                top_menu.config(
+                    activeforeground=self.ParentForm.right_click_menu_selected_colors[0]
+                )
+            if self.ParentForm.right_click_menu_selected_colors[1] not in (
+                COLOR_SYSTEM_DEFAULT,
+                None,
+            ):
+                top_menu.config(
+                    activebackground=self.ParentForm.right_click_menu_selected_colors[1]
+                )
             AddMenuItem(top_menu, menu[1], self, right_click_menu=True)
             self.TKRightClickMenu = top_menu
-            if self.ParentForm.RightClickMenu:  # if the top level has a right click menu, then setup a callback for the Window itself
+            if (
+                self.ParentForm.RightClickMenu
+            ):  # if the top level has a right click menu, then setup a callback for the Window itself
                 if self.ParentForm.TKRightClickMenu is None:
                     self.ParentForm.TKRightClickMenu = top_menu
                     if running_mac():
-                        self.ParentForm.TKroot.bind('<ButtonRelease-2>', self.ParentForm._RightClickMenuCallback)
+                        self.ParentForm.TKroot.bind(
+                            "<ButtonRelease-2>", self.ParentForm._RightClickMenuCallback
+                        )
                     else:
-                        self.ParentForm.TKroot.bind('<ButtonRelease-3>', self.ParentForm._RightClickMenuCallback)
+                        self.ParentForm.TKroot.bind(
+                            "<ButtonRelease-3>", self.ParentForm._RightClickMenuCallback
+                        )
             if running_mac():
-                self.Widget.bind('<ButtonRelease-2>', self._RightClickMenuCallback)
+                self.Widget.bind("<ButtonRelease-2>", self._RightClickMenuCallback)
             else:
-                self.Widget.bind('<ButtonRelease-3>', self._RightClickMenuCallback)
+                self.Widget.bind("<ButtonRelease-3>", self._RightClickMenuCallback)
 
     def save_element_screenshot_to_disk(self, filename=None):
         """
         Saves an image of the PySimpleGUI window provided into the filename provided
 
-        :param filename:        Optional filename to save screenshot to. If not included, the User Settinds are used to get the filename
+        :param filename:        Optional filename to save screenshot to. If not included, the User Settings are used to get the filename
         :return:                A PIL ImageGrab object that can be saved or manipulated
         :rtype:                 (PIL.ImageGrab | None)
         """
@@ -942,7 +1045,11 @@ class Element:
         try:
             from PIL import ImageGrab
         except:
-            warnings.warn('Failed to import PIL. In a future version, this will raise an ImportError instead of returning None', DeprecationWarning, stacklevel=2)
+            warnings.warn(
+                "Failed to import PIL. In a future version, this will raise an ImportError instead of returning None",
+                DeprecationWarning,
+                stacklevel=2,
+            )
             return None
         try:
             # Add a little to the X direction if window has a titlebar
@@ -957,13 +1064,17 @@ class Element:
             # Save the grabbed image to disk
         except Exception as e:
             # print(e)
-            popup_error_with_traceback('Screen capture failure', 'Error happened while trying to save screencapture of an element', e)
+            popup_error_with_traceback(
+                "Screen capture failure",
+                "Error happened while trying to save screen capture of an element",
+                e,
+            )
             return None
 
         # return grab
         if filename is None:
-            folder = pysimplegui_user_settings.get('-screenshots folder-', '')
-            filename = pysimplegui_user_settings.get('-screenshots filename-', '')
+            folder = pysimplegui_user_settings.get("-screenshots folder-", "")
+            filename = pysimplegui_user_settings.get("-screenshots filename-", "")
             full_filename = os.path.join(folder, filename)
         else:
             full_filename = filename
@@ -971,11 +1082,15 @@ class Element:
             try:
                 grab.save(full_filename)
             except Exception as e:
-                popup_error_with_traceback('Screen capture failure', 'Error happened while trying to save screencapture', e)
+                popup_error_with_traceback(
+                    "Screen capture failure",
+                    "Error happened while trying to save a screen capture",
+                    e,
+                )
         else:
             popup_error_with_traceback(
-                'Screen capture failure',
-                'You have attempted a screen capture but have not set up a good filename to save to',
+                "Screen capture failure",
+                "You have attempted a screen capture but have not set up a good filename to save to",
             )
         return grab
 
@@ -1002,14 +1117,14 @@ class Element:
 
     def _pack_restore_settings(self, alternate_widget=None):
         """
-        Restores a previously packated widget which will make it visible again.
+        Restores a previously packaged widget which will make it visible again.
         If no settings were saved, then the widget is assumed to have not been unpacked and will not try to pack it again
 
         :param alternate_widget:   Widget to use that's different than the one defined in Element.Widget. These are usually Frame widgets
         :type alternate_widget:    (tk.Widget)
         """
 
-        # if there are no saved pack settings, then assume it hasnb't been packaed before. The request will be ignored
+        # if there are no saved pack settings, then assume it hasn't been packed before. The request will be ignored
         if self.pack_settings is None:
             return
 
@@ -1019,37 +1134,41 @@ class Element:
 
     def update(self, *args, **kwargs):
         """
-        A dummy update call.  This will only be called if an element hasn't implemented an update method
-        It is provided here for docstring purposes.  If you got here by browing code via PyCharm, know
-        that this is not the function that will be called.  Your actual element's update method will be called.
+        A dummy update call.
+        This will only be called if an element hasn't implemented an update method.
+        It is provided here for docstring purposes.
+        If you got here by borrowing code via PyCharm,
+        know that this is not the function that will be called.
+        Your actual element's update method will be called.
 
-        If you call update, you must call window.refresh if you want the change to happen prior to your next
-        window.read() call. Normally uou don't do this as the window.read call is likely going to happen next.
+        If you call update, you must call `window.refresh()`
+        if you want the change to happen prior
+        to your next `window.read()` call.
+        Normally uou don't do this as the `window.read()`
+        call is likely going to happen next.
         """
-        print('* Base Element Class update was called. Your element does not seem to have an update method')
+        print(
+            "* Base Element Class update was called. " +
+            "Your element does not seem to have an update method"
+        )
 
     def __call__(self, *args, **kwargs):
         """
-        Makes it possible to "call" an already existing element.  When you do make the "call", it actually calls
+        Makes it possible to "call" an already existing element.
+        When you do make the "call", it actually calls
         the Update method for the element.
-        Example:    If this text element was in yoiur layout:
-                    sg.Text('foo', key='T')
-                    Then you can call the Update method for that element by writing:
-                    window.find_element('T')('new text value')
+        Example:
+            If this text element was in your layout:
+            ```python
+            sg.Text('foo', key='T')
+            ```
+            Then you can call the update method for that element by writing:
+            ```python
+            window.find_element('T')('new text value')
+            ```
         """
         return self.update(*args, **kwargs)
 
     SetTooltip = set_tooltip
     SetFocus = set_focus
 
-
-from FreeSimpleGUI.elements.helpers import AddMenuItem
-
-from FreeSimpleGUI._utils import _create_error_message
-from FreeSimpleGUI._utils import _exit_mainloop
-
-from FreeSimpleGUI._utils import _error_popup_with_traceback
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from FreeSimpleGUI.window import Window

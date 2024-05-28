@@ -1857,7 +1857,7 @@ Since you may not be able to always have access to the window when printing, esp
 
 Let's try the first option, adding the element onto the front of an existing `print` statement as well as using the color parameters.
 
-The most basic form of converting your exiting `print` into a `Multline` based `print` is to add the same element-lookup code that you would use when calling an element's `update` method.  Generically, that conversion looks like this:
+The most basic form of converting your exiting `print` into a `Multiline` based `print` is to add the same element-lookup code that you would use when calling an element's `update` method.  Generically, that conversion looks like this:
 
 ```python
 print('Testing 1 2 3')
@@ -1868,7 +1868,7 @@ If our Multiline's key is '-ML-' then the expression to look the element up is:
 window['-ML-']
 ```
 
-Combing the two transforms the original print to a `Multline` element print:
+Combing the two transforms the original print to a `Multiline` element print:
 ```python
 window['-ML-'].print('Testing 1 2 3')
 ```
@@ -1922,7 +1922,7 @@ There are a number of tricks and techniques burried in this Recpie so study it c
 
 ### 3B Redefining `print` to Print to `Multiline`
 
-If you want to use the `Multline` element as the destination for your print, but you don't want to go through your code and modify every print statement by adding an element lookup, then you can simply redefine your call to `print` to either be a function that adds that multline element onto the print for you or a lambda expression if you want to make it a single line of code.  Yes, it's not suggested to use a lambda expression by assignment to a vairable, but sometimes it may be easier to understand.  Find the right balanace for you and ryour projct.
+If you want to use the `Multiline` element as the destination for your print, but you don't want to go through your code and modify every print statement by adding an element lookup, then you can simply redefine your call to `print` to either be a function that adds that Multiline element onto the print for you or a lambda expression if you want to make it a single line of code.  Yes, it's not suggested to use a lambda expression by assignment to a vairable, but sometimes it may be easier to understand.  Find the right balanace for you and ryour projct.
 
 
 If you were to use a funciton, then your code my look like this:
@@ -1982,12 +1982,12 @@ window.close()
 
 This was made available to the tkinter port in version 4.25.0.
 
-The eaiest way to make this happen is using parmaters when creating the `Multline` Element
+The eaiest way to make this happen is using parmaters when creating the `Multiline` Element
 
 * reroute_stdout
 * reroute_stderr
 
-If you wish to reroute stdout / stderr after you've already created (and finalized) the Multline, then you can call `reroute_stdout_to_here` to reroute stdeout and `reroute_stderr_to_here` to reroute stderr.
+If you wish to reroute stdout / stderr after you've already created (and finalized) the Multiline, then you can call `reroute_stdout_to_here` to reroute stdeout and `reroute_stderr_to_here` to reroute stderr.
 
 To restore the old values back, be sure and call `restore_stdout` and `restore_stderr`
 
@@ -2067,7 +2067,7 @@ import FreeSimpleGUI as sg
 
     There are FOUR different ways to indicate the color, from verbose to the most minimal are:
     1. Specify text_color and background_color in the cprint call
-    2. Specify t, b paramters when calling cprint
+    2. Specify t, b parameters when calling cprint
     3. Specify c/colors parameter a tuple with (text color, background color)
     4. Specify c/colors parameter as a string "text on background"  e.g.  "white on red"
 
@@ -2123,7 +2123,7 @@ if __name__ == '__main__':
 
 ## Recipe Printing - #4B/4 using `cprint` with Multiline Parameters (PySimpleGUI version 4.25.0+)
 
-Beginning in verison 4.25.0 of the tkinter port you'll find new parameters for the Multline Element that makes the job of re-routihn your output much easier.  Rather than calling the `cprint_set_output_destination` function, you will use the `Multline` element's initial parameters to both setup the routing of the print output, but also mark the element as being a write-only element.  You can set the parameter `write_only` to True in order to make this a write-only Multiline.
+Beginning in verison 4.25.0 of the tkinter port you'll find new parameters for the Multiline Element that makes the job of re-routihn your output much easier.  Rather than calling the `cprint_set_output_destination` function, you will use the `Multiline` element's initial parameters to both setup the routing of the print output, but also mark the element as being a write-only element.  You can set the parameter `write_only` to True in order to make this a write-only Multiline.
 
 The new parameters you'll be interested in are:
 
@@ -2133,7 +2133,7 @@ The new parameters you'll be interested in are:
 
 This will cut out the call previously required to set up the routing.  You will be setting up the routing through the Multiline creation ifself.
 
-You will continue to be able to manually route stdout and stderr to the Multline uning the `reroute_stdout_to_here` call.  Sorry about the wordiness of the call, but you're probably only going to have one in your code.  So it didn't seem so bad to have something descriptive enough that you won't need a comment.
+You will continue to be able to manually route stdout and stderr to the Multiline uning the `reroute_stdout_to_here` call.  Sorry about the wordiness of the call, but you're probably only going to have one in your code.  So it didn't seem so bad to have something descriptive enough that you won't need a comment.
 
 
 ### Automatic Refresh

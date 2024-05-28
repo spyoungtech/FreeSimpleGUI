@@ -4063,7 +4063,7 @@ In non-tkinter ports you can set the specific element sizes in 2 ways.  One is t
 
 The other way is to use a new parameter, `size_px`.  This parameter allows you to specify the size directly in pixels.  A setting of `size_px=(300,200)` will create an Element that is 300 x 200 pixels.
 
-Additionally, you can also indicate pixels using the `size` parameter, **if the size exceeds the threshold for conversion.**  What does that mean?  It means if your width is > 20 (`DEFAULT_PIXEL_TO_CHARS_CUTOFF`), then it is assumed you're talking pixels, not characters.  However, some of the "normally large" Elements have a cutoff value of 100.  These include, for example, the `Multline` and `Output` elements.
+Additionally, you can also indicate pixels using the `size` parameter, **if the size exceeds the threshold for conversion.**  What does that mean?  It means if your width is > 20 (`DEFAULT_PIXEL_TO_CHARS_CUTOFF`), then it is assumed you're talking pixels, not characters.  However, some of the "normally large" Elements have a cutoff value of 100.  These include, for example, the `Multiline` and `Output` elements.
 
 If you're curious about the math used to do the character to pixels conversion, it's quite crude, but functional.  The conversion is completed with the help of this variable:
 
@@ -6237,7 +6237,7 @@ For example, if a `Multiline` element has the trough color for it's scrollbar de
 
 ## Scrollbar Parameter Names
 
-All functions and objects that have a scrollbar setting use the same names for the paramters:
+All functions and objects that have a scrollbar setting use the same names for the parameters:
 
 * sbar_trough_color
 * sbar_background_color
@@ -7258,7 +7258,7 @@ Either way you'll access it using the same `Window` variable `sg.Window.TKroot`
 
 Watch this space in the future for the more standardized variable name for this object.  It may be something like `Window.Widget` as the Elements use or something like `Window.GUIWindow`.
 
-## Binding tkiner "events"
+## Binding tkinter "events"
 
 If you wish to receive events directly from tkinter, but do it in a PySimpleGUI way, then you can do that and get those events returned to you via your standard `Window.read()` call.
 
@@ -7974,7 +7974,7 @@ Emergency patch release... going out same day as previous release
 * Listbox.Update - set_to_index parameter will select a single items
 * Menus can be updated!
 * Menus have an entry in the return values
-* LayoutAndRead depricated
+* LayoutAndRead Deprecated
 * Multi-window support continues (X detection)
 * PopupScrolled now has a location parameter
 * row_height parameter to Table Element
@@ -7988,19 +7988,19 @@ Emergency patch release... going out same day as previous release
 * Default progress bar length changed to shorter
 * Master window and tracking of num open windows moved from global to Window class variable
 * Element visibility setting (when created and when Updating element)
-* Input text visiblity
-* Combo visiblity
+* Input text visibility
+* Combo visibility
 * Combo replaces InputCombo as the primary class name
 * Option menu visibility
-* Listbox visiblity
+* Listbox visibility
 * Listbox new SetFocus method
 * Radio visibility
 * Checkbox visibility
-* Spin visiblity
+* Spin visibility
 * Spin new Get method returns current value
-* Multiline visiblity
+* Multiline visibility
 * Text visibility
-* StatusBar visiblity
+* StatusBar visibility
 * Output visibility
 * Button visibility
 * Button SetFocus
@@ -8019,7 +8019,7 @@ Emergency patch release... going out same day as previous release
 * Menu visibility - Not functional
 * Table visibility
 * Table - new num_rows parm for Update - changes number of visible rows
-* Tree visiblity
+* Tree visibility
 * Window - New element_padding parameter will get padding for entire window
 * OneLineProgressMeter - Completely REPLACED the implementation
 * OneLineProgressMeter - can get reason for the cancellation (cancel button versus X)
@@ -8298,7 +8298,7 @@ Long time coming.  Docstrings continue to be a focus.
 * TabGroup.Layout returns self now for chaining
 * Column.Layout returns self now for chaining
 * Menu.Update menu_definition is now optional to allow for changing visibility only
-* Added inivisiblity support for menu bars
+* Added inivisibility support for menu bars
 * Table.Update supports setting alternating row color and row_colors (list of rows and the color to set)
 * Set window.TimeoutKey to TIMEOUT_KEY initially
 * Window - check for types for title (should be string) and layout (should be list) and warns user if not correct
@@ -8343,7 +8343,7 @@ MORE Docstring and main doc updates!
 	* Should provide 100% PEP with these alone for most PySimpleGUI programs
 * Added finding focus across ALL elements by using the .Widget member variable
 * Fixed sizing Columns!  NOW they will finally be the size specified
-* Fixed not using the initialdir paramter in PopupGetFile if the no_window option is set
+* Fixed not using the initialdir parameter in PopupGetFile if the no_window option is set
 
 ## 4.3 PySimpleGUI Release 22-Aug-2019
 
@@ -8526,7 +8526,7 @@ Print in color!
 * New global variables:
 	* CURRENT_LOOK_AND_FEEL - The current look and feel setting in use. Starts out as "Default"
 	* BROWSE_FILES_DELIMITER - Defaults to ";"  It is the string placed between entries returned from a FilesBrowse button
-	* TRANSPARENT_BUTTON - Depricated - was being used incorrectly as it was a relic from the early days. It's value was a color of gray
+	* TRANSPARENT_BUTTON - Deprecated - was being used incorrectly as it was a relic from the early days. It's value was a color of gray
 * Window - gentle reminder if you don't choose a look and feel for your window. It's easy to stop them. Add a change_look_and_feel line
 * Test harness uses a debug window so don't be shocked when 2 windows appear when running PySimpleGUI by itself
 	* Prints the "Event" in Green on White text
@@ -9030,7 +9030,7 @@ Custom titlebar capabilities (several new features required)
 Better Alignment
 Calendar button works again
 
-* Window.visiblity_changed now refreshes the window
+* Window.visibility_changed now refreshes the window
 * Added Column.contents_changed which will update the scrollbar so corrently match the contents
 * Separators expand only in 1 direction now
 * Added 8 SYMBOLS:
@@ -9114,7 +9114,7 @@ User Settings class, write_event_value fixes, Menus get colors, Mac no_titlebar 
 	* New create parameters - background color, text color, disabled text color, item font
 	* Fixed problem with button always being flat
 * Menu (Menubar) - Color changes
-	* New create paramters - text color, disabled text color.
+	* New create parameters - text color, disabled text color.
 	* Hooked up background color parameter that was already there but not functional
 * write_event_value - fixed race conditions
 	* Window.read() and read_all_windows() now checks the thread queue for events before starting tkinter's mainloop in case events are queued
@@ -9519,7 +9519,7 @@ Window.ding() - because FUN is the #1 goal
 	* replaces the need to perform:   window['-MULTILINE KEY-'].expand(True, True, True)
 	* Defaults to FALSE to be backward compatible
 * popup_scrolled
-	* changed to be resizable by default and expands the multline too
+	* changed to be resizable by default and expands the Multiline too
 	* if no_titlebar is set, then a Sizegrip will be added, unless no_sizerip parm = True
 * easy_print(sg.Print)
 	* changed to be resizable by default and exands the multiline too
@@ -10108,7 +10108,7 @@ Test Harness and Settings Windows fit on small screens better
 * `Output` Element - implementation changed to use the Multiline Element.  No one should be impacted unless you were using some internal object details that was not published.  I still suggest using the `Multiline` element instead so that you can access much more functionality.
 * Tab errors now use the popup errors with traceback
 * `Column` Element
-	* Fixed scrollwheel not working correctly when expand paramters used. Scrolls the canvas now not the frame.
+	* Fixed scrollwheel not working correctly when expand parameters used. Scrolls the canvas now not the frame.
 	* New `size_subsample_width` & `size_subsample_height` parameteres
 		* Gives much more control over the sizing of SCROLLABLE columns.  Previously the size was set to 1/2 the required height and the full required width.
 		* The defaults are backward compatible (size_subsample_width=1, size_subsample_height=2)

@@ -6,7 +6,7 @@ import FreeSimpleGUI as sg
     Watermarking windows can be done in 4.60.0.160 and greater.  It's a very simple mechanism for now.
 
     The option is normally set in the Global Settings control panel.  However, you can "Force" the watermark
-    on all windows by setting the Window paramter watermark=True on any window you create and from then on
+    on all windows by setting the Window parameter watermark=True on any window you create and from then on
     all windows will have the watermark.
 
     Copyright 2023 PySimpleGUI

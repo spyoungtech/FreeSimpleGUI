@@ -3,10 +3,8 @@ from __future__ import annotations
 import tkinter as tk
 
 import FreeSimpleGUI
-from FreeSimpleGUI import ELEM_TYPE_INPUT_SLIDER
-from FreeSimpleGUI import Element
-from FreeSimpleGUI._utils import _error_popup_with_traceback
-from FreeSimpleGUI._utils import _exit_mainloop
+from FreeSimpleGUI import ELEM_TYPE_INPUT_SLIDER, Element
+from FreeSimpleGUI._utils import _error_popup_with_traceback, _exit_mainloop
 
 
 class Slider(Element):
@@ -60,7 +58,7 @@ class Slider(Element):
         :type border_width:            (int)
         :param relief:                 relief style. Use constants - RELIEF_RAISED RELIEF_SUNKEN RELIEF_FLAT RELIEF_RIDGE RELIEF_GROOVE RELIEF_SOLID
         :type relief:                  str | None
-        :param change_submits:         * DEPRICATED DO NOT USE. Use `enable_events` instead
+        :param change_submits:         * DEPRECATED DO NOT USE. Use `enable_events` instead
         :type change_submits:          (bool)
         :param enable_events:          If True then moving the slider will generate an Event
         :type enable_events:           (bool)
@@ -101,8 +99,12 @@ class Slider(Element):
         self.TKScale = self.Widget = None  # type: tk.Scale
         self.Range = (1, 10) if range == (None, None) else range
         self.DefaultValue = self.Range[0] if default_value is None else default_value
-        self.Orientation = orientation if orientation else FreeSimpleGUI.DEFAULT_SLIDER_ORIENTATION
-        self.BorderWidth = border_width if border_width else FreeSimpleGUI.DEFAULT_SLIDER_BORDER_WIDTH
+        self.Orientation = (
+            orientation if orientation else FreeSimpleGUI.DEFAULT_SLIDER_ORIENTATION
+        )
+        self.BorderWidth = (
+            border_width if border_width else FreeSimpleGUI.DEFAULT_SLIDER_BORDER_WIDTH
+        )
         self.Relief = relief if relief else FreeSimpleGUI.DEFAULT_SLIDER_RELIEF
         self.Resolution = 1 if resolution is None else resolution
         self.ChangeSubmits = change_submits or enable_events
@@ -113,7 +115,7 @@ class Slider(Element):
         sz = size if size != (None, None) else s
         temp_size = sz
         if temp_size == (None, None):
-            temp_size = (20, 20) if self.Orientation.startswith('h') else (8, 20)
+            temp_size = (20, 20) if self.Orientation.startswith("h") else (8, 20)
         key = key if key is not None else k
         pad = pad if pad is not None else p
         self.expand_x = expand_x
@@ -152,11 +154,15 @@ class Slider(Element):
         :param visible:  control visibility of element
         :type visible:   (bool)
         """
-        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
+        if (
+            not self._widget_was_created()
+        ):  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback('Error in Slider.update - The window was closed')
+            _error_popup_with_traceback(
+                "Error in Slider.update - The window was closed"
+            )
             return
 
         if range != (None, None):
@@ -168,9 +174,9 @@ class Slider(Element):
                 pass
             self.DefaultValue = value
         if disabled is True:
-            self.TKScale['state'] = 'disabled'
+            self.TKScale["state"] = "disabled"
         elif disabled is False:
-            self.TKScale['state'] = 'normal'
+            self.TKScale["state"] = "normal"
         self.Disabled = disabled if disabled is not None else self.Disabled
 
         if visible is False:
@@ -192,7 +198,7 @@ class Slider(Element):
         if self.Key is not None:
             self.ParentForm.LastButtonClicked = self.Key
         else:
-            self.ParentForm.LastButtonClicked = ''
+            self.ParentForm.LastButtonClicked = ""
         self.ParentForm.FormRemainedOpen = True
         _exit_mainloop(self.ParentForm)
 

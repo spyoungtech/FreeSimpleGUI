@@ -11,7 +11,7 @@ import FreeSimpleGUI as sg
 
     There are FOUR different ways to indicate the color, from verbose to the most minimal are:
     1. Specify text_color and background_color in the cprint call
-    2. Specify t, b paramters when calling cprint
+    2. Specify t, b parameters when calling cprint
     3. Specify c/colors parameter a tuple with (text color, background color)
     4. Specify c/colors parameter as a string "text on background"  e.g.  "white on red"
 

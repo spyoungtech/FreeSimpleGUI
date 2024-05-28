@@ -1,21 +1,23 @@
 #!/usr/bin/python3
+
+import datetime
+import os
+import pickle
+import sys
+import textwrap
+import time
+import types
+from random import randint
+
+import wx
+import wx.adv
+import wx.lib.inspection
+import wx.lib.scrolledpanel
+from wx.lib.embeddedimage import PyEmbeddedImage
 version = __version__ = '0.17.1.5 Unreleased\n VSeparator added (spelling error), Radio.reset_group added and removed the clearing all when one cleared, added default key for one_line_progress_meter, auto-add keys to tables & trees, added theme_add_new'
 
 port = 'PySimpleGUIWx'
 
-import sys
-import wx
-import wx.adv
-import wx.lib.inspection
-from wx.lib.embeddedimage import PyEmbeddedImage
-import wx.lib.scrolledpanel
-import types
-import datetime
-import textwrap
-import pickle
-import os
-import time
-from random import randint
 
 RUN_INSPECTION_TOOL = False
 
@@ -141,7 +143,7 @@ DEFAULT_SCROLLBAR_COLOR = None
 # DEFAULT_PROGRESS_BAR_COLOR = (PURPLES[1],PURPLES[0])    # a nice purple progress bar
 
 # A transparent button is simply one that matches the background
-TRANSPARENT_BUTTON = 'This constant has been depricated. You must set your button background = background it is on for it to be transparent appearing'
+TRANSPARENT_BUTTON = 'This constant has been Deprecated. You must set your button background = background it is on for it to be transparent appearing'
 # --------------------------------------------------------------------------------
 # Progress Bar Relief Choices
 RELIEF_RAISED = 'raised'
@@ -510,7 +512,7 @@ class Element:
         """
         Makes it possible to "call" an already existing element.  When you do make the "call", it actually calls
         the Update method for the element.
-        Example:    If this text element was in yoiur layout:
+        Example:    If this text element was in your layout:
                     sg.Text('foo', key='T')
                     Then you can call the Update method for that element by writing:
                     window.FindElement('T')('new text value')
@@ -2217,7 +2219,7 @@ class Graph(Element):
 
     def change_coordinates(self, graph_bottom_left, graph_top_right):
         """
-        Changes the corrdinate system to a new one.  The same 2 points in space are used to define the coorinate
+        Changes the coordinate system to a new one.  The same 2 points in space are used to define the coordinate
         system - the bottom left and the top right values of your graph.
 
         :param graph_bottom_left: Tuple[int, int] (x,y) The bottoms left corner of your coordinate system

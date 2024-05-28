@@ -6,31 +6,32 @@ import warnings
 from tkinter import ttk
 
 import FreeSimpleGUI
-from FreeSimpleGUI import BROWSE_FILES_DELIMITER
-from FreeSimpleGUI import BUTTON_DISABLED_MEANS_IGNORE
-from FreeSimpleGUI import BUTTON_TYPE_BROWSE_FILE
-from FreeSimpleGUI import BUTTON_TYPE_BROWSE_FILES
-from FreeSimpleGUI import BUTTON_TYPE_BROWSE_FOLDER
-from FreeSimpleGUI import BUTTON_TYPE_CALENDAR_CHOOSER
-from FreeSimpleGUI import BUTTON_TYPE_CLOSES_WIN
-from FreeSimpleGUI import BUTTON_TYPE_CLOSES_WIN_ONLY
-from FreeSimpleGUI import BUTTON_TYPE_COLOR_CHOOSER
-from FreeSimpleGUI import BUTTON_TYPE_READ_FORM
-from FreeSimpleGUI import BUTTON_TYPE_SAVEAS_FILE
-from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
-from FreeSimpleGUI import ELEM_TYPE_BUTTON
-from FreeSimpleGUI import ELEM_TYPE_BUTTONMENU
-from FreeSimpleGUI import FILE_TYPES_ALL_FILES
-from FreeSimpleGUI import MENU_SHORTCUT_CHARACTER
-from FreeSimpleGUI import running_mac
-from FreeSimpleGUI import theme_background_color
-from FreeSimpleGUI import theme_button_color
-from FreeSimpleGUI import theme_input_background_color
-from FreeSimpleGUI import theme_input_text_color
-from FreeSimpleGUI import ThisRow
+from FreeSimpleGUI import (
+    BROWSE_FILES_DELIMITER,
+    BUTTON_DISABLED_MEANS_IGNORE,
+    BUTTON_TYPE_BROWSE_FILE,
+    BUTTON_TYPE_BROWSE_FILES,
+    BUTTON_TYPE_BROWSE_FOLDER,
+    BUTTON_TYPE_CALENDAR_CHOOSER,
+    BUTTON_TYPE_CLOSES_WIN,
+    BUTTON_TYPE_CLOSES_WIN_ONLY,
+    BUTTON_TYPE_COLOR_CHOOSER,
+    BUTTON_TYPE_READ_FORM,
+    BUTTON_TYPE_SAVEAS_FILE,
+    COLOR_SYSTEM_DEFAULT,
+    ELEM_TYPE_BUTTON,
+    ELEM_TYPE_BUTTONMENU,
+    FILE_TYPES_ALL_FILES,
+    MENU_SHORTCUT_CHARACTER,
+    ThisRow,
+    running_mac,
+    theme_background_color,
+    theme_button_color,
+    theme_input_background_color,
+    theme_input_text_color,
+)
 from FreeSimpleGUI.elements.base import Element
-from FreeSimpleGUI.elements.helpers import AddMenuItem
-from FreeSimpleGUI.elements.helpers import button_color_to_tuple
+from FreeSimpleGUI.elements.helpers import AddMenuItem, button_color_to_tuple
 
 
 class Button(Element):
@@ -40,13 +41,13 @@ class Button(Element):
 
     def __init__(
         self,
-        button_text='',
+        button_text="",
         button_type=BUTTON_TYPE_READ_FORM,
         target=(None, None),
         tooltip=None,
         file_types=FILE_TYPES_ALL_FILES,
         initial_folder=None,
-        default_extension='',
+        default_extension="",
         disabled=False,
         change_submits=False,
         enable_events=False,
@@ -157,9 +158,16 @@ class Button(Element):
 
         self.AutoSizeButton = auto_size_button
         self.BType = button_type
-        if file_types is not None and len(file_types) == 2 and isinstance(file_types[0], str) and isinstance(file_types[1], str):
+        if (
+            file_types is not None
+            and len(file_types) == 2
+            and isinstance(file_types[0], str)
+            and isinstance(file_types[1], str)
+        ):
             warnings.warn(
-                'file_types parameter not correctly specified. This parameter is a LIST of TUPLES. You have passed (str,str) rather than ((str, str),). Fixing it for you this time.\nchanging {} to {}\nPlease correct your code'.format(file_types, ((file_types[0], file_types[1]),)),
+                "file_types parameter not correctly specified. This parameter is a LIST of TUPLES. You have passed (str,str) rather than ((str, str),). Fixing it for you this time.\nchanging {} to {}\nPlease correct your code".format(
+                    file_types, ((file_types[0], file_types[1]),)
+                ),
                 UserWarning,
             )
             file_types = ((file_types[0], file_types[1]),)
@@ -171,7 +179,11 @@ class Button(Element):
         # Button colors can be a tuple (text, background) or a string with format "text on background"
         self.ButtonColor = button_color_to_tuple(button_color)
 
-        self.DisabledButtonColor = button_color_to_tuple(disabled_button_color) if disabled_button_color is not None else (None, None)
+        self.DisabledButtonColor = (
+            button_color_to_tuple(disabled_button_color)
+            if disabled_button_color is not None
+            else (None, None)
+        )
         if image_source is not None:
             if isinstance(image_source, bytes):
                 image_data = image_source
@@ -183,7 +195,11 @@ class Button(Element):
         self.ImageSubsample = image_subsample
         self.zoom = int(image_zoom) if image_zoom is not None else None
         self.UserData = None
-        self.BorderWidth = border_width if border_width is not None else FreeSimpleGUI.DEFAULT_BORDER_WIDTH
+        self.BorderWidth = (
+            border_width
+            if border_width is not None
+            else FreeSimpleGUI.DEFAULT_BORDER_WIDTH
+        )
         self.BindReturnKey = bind_return_key
         self.Focus = focus
         self.TKCal = None
@@ -196,15 +212,19 @@ class Button(Element):
         self.calendar_begin_at_sunday_plus = 0
         self.calendar_month_names = None
         self.calendar_day_abbreviations = None
-        self.calendar_title = ''
-        self.calendar_selection = ''
+        self.calendar_title = ""
+        self.calendar_selection = ""
         self.default_button = None
         self.InitialFolder = initial_folder
         self.DefaultExtension = default_extension
         self.Disabled = disabled
         self.ChangeSubmits = change_submits or enable_events
         self.UseTtkButtons = use_ttk_buttons
-        self._files_delimiter = BROWSE_FILES_DELIMITER  # used by the file browse button. used when multiple files are selected by user
+
+        # used by the file browse button.
+        # used when multiple files are selected by user
+        self._files_delimiter = BROWSE_FILES_DELIMITER
+
         if use_ttk_buttons is None and running_mac():
             self.UseTtkButtons = True
 
@@ -213,10 +233,15 @@ class Button(Element):
             if FreeSimpleGUI.DEFAULT_USE_BUTTON_SHORTCUTS is True:
                 pos = _key.find(MENU_SHORTCUT_CHARACTER)
                 if pos != -1:
-                    if pos < len(MENU_SHORTCUT_CHARACTER) or _key[pos - len(MENU_SHORTCUT_CHARACTER)] != '\\':
+                    if (
+                        pos < len(MENU_SHORTCUT_CHARACTER)
+                        or _key[pos - len(MENU_SHORTCUT_CHARACTER)] != "\\"
+                    ):
                         _key = _key[:pos] + _key[pos + len(MENU_SHORTCUT_CHARACTER) :]
                     else:
-                        _key = _key.replace('\\' + MENU_SHORTCUT_CHARACTER, MENU_SHORTCUT_CHARACTER)
+                        _key = _key.replace(
+                            "\\" + MENU_SHORTCUT_CHARACTER, MENU_SHORTCUT_CHARACTER
+                        )
         else:
             _key = key if key is not None else k
         if highlight_colors is not None:
@@ -235,30 +260,48 @@ class Button(Element):
         self.expand_y = expand_y
 
         sz = size if size != (None, None) else s
-        super().__init__(ELEM_TYPE_BUTTON, size=sz, font=font, pad=pad, key=_key, tooltip=tooltip, visible=visible, metadata=metadata)
+        super().__init__(
+            ELEM_TYPE_BUTTON,
+            size=sz,
+            font=font,
+            pad=pad,
+            key=_key,
+            tooltip=tooltip,
+            visible=visible,
+            metadata=metadata,
+        )
         return
 
     def _compute_highlight_colors(self):
         """
-        Determines the color to use to indicate the button has focus. This setting is only used by Linux.
+        Determines the color to use to indicate the button has focus.
+        This setting is only used by Linux.
+
         :return: Pair of colors. (Highlight, Highlight Background)
         :rtype:  (str, str)
         """
         highlight_color = highlight_background = COLOR_SYSTEM_DEFAULT
-        if self.ButtonColor != COLOR_SYSTEM_DEFAULT and theme_background_color() != COLOR_SYSTEM_DEFAULT:
+        if (
+            self.ButtonColor != COLOR_SYSTEM_DEFAULT
+            and theme_background_color() != COLOR_SYSTEM_DEFAULT
+        ):
             highlight_background = theme_background_color()
-        if self.ButtonColor != COLOR_SYSTEM_DEFAULT and self.ButtonColor[0] != COLOR_SYSTEM_DEFAULT:
+        if (
+            self.ButtonColor != COLOR_SYSTEM_DEFAULT
+            and self.ButtonColor[0] != COLOR_SYSTEM_DEFAULT
+        ):
             if self.ButtonColor[0] != theme_background_color():
                 highlight_color = self.ButtonColor[0]
             else:
-                highlight_color = 'red'
+                highlight_color = "red"
         return (highlight_color, highlight_background)
 
         # Realtime button release callback
 
     def ButtonReleaseCallBack(self, parm):
         """
-        Not a user callable function.  Called by tkinter when a "realtime" button is released
+        Not a user callable function.
+        Called by tkinter when a "realtime" button is released
 
         :param parm: the event info from tkinter
         :type parm:
@@ -270,7 +313,8 @@ class Button(Element):
     # Realtime button callback
     def ButtonPressCallBack(self, parm):
         """
-        Not a user callable method. Callback called by tkinter when a "realtime" button is pressed
+        Not a user callable method.
+        Callback called by tkinter when a "realtime" button is pressed
 
         :param parm: Event info passed in by tkinter
         :type parm:
@@ -334,10 +378,14 @@ class Button(Element):
         filetypes = FILE_TYPES_ALL_FILES if self.FileTypes is None else self.FileTypes
 
         if self.BType == BUTTON_TYPE_BROWSE_FOLDER:
-            if running_mac():  # macs don't like seeing the parent window (go firgure)
-                folder_name = tk.filedialog.askdirectory(initialdir=self.InitialFolder)  # show the 'get folder' dialog box
+            if running_mac():  # macs don't like seeing the parent window (go figure)
+                folder_name = tk.filedialog.askdirectory(
+                    initialdir=self.InitialFolder
+                )  # show the 'get folder' dialog box
             else:
-                folder_name = tk.filedialog.askdirectory(initialdir=self.InitialFolder, parent=self.ParentForm.TKroot)  # show the 'get folder' dialog box
+                folder_name = tk.filedialog.askdirectory(
+                    initialdir=self.InitialFolder, parent=self.ParentForm.TKroot
+                )  # show the 'get folder' dialog box
             if folder_name:
                 try:
                     strvar.set(folder_name)
@@ -349,13 +397,25 @@ class Button(Element):
         elif self.BType == BUTTON_TYPE_BROWSE_FILE:
             if running_mac():
                 # Workaround for the "*.*" issue on Mac
-                is_all = [(x, y) for (x, y) in filetypes if all(ch in '* .' for ch in y)]
-                if not len(set(filetypes)) > 1 and (len(is_all) != 0 or filetypes == FILE_TYPES_ALL_FILES):
-                    file_name = tk.filedialog.askopenfilename(initialdir=self.InitialFolder)
+                is_all = [
+                    (x, y) for (x, y) in filetypes if all(ch in "* ." for ch in y)
+                ]
+                if not len(set(filetypes)) > 1 and (
+                    len(is_all) != 0 or filetypes == FILE_TYPES_ALL_FILES
+                ):
+                    file_name = tk.filedialog.askopenfilename(
+                        initialdir=self.InitialFolder
+                    )
                 else:
-                    file_name = tk.filedialog.askopenfilename(initialdir=self.InitialFolder, filetypes=filetypes)  # show the 'get file' dialog box
+                    file_name = tk.filedialog.askopenfilename(
+                        initialdir=self.InitialFolder, filetypes=filetypes
+                    )  # show the 'get file' dialog box
             else:
-                file_name = tk.filedialog.askopenfilename(filetypes=filetypes, initialdir=self.InitialFolder, parent=self.ParentForm.TKroot)  # show the 'get file' dialog box
+                file_name = tk.filedialog.askopenfilename(
+                    filetypes=filetypes,
+                    initialdir=self.InitialFolder,
+                    parent=self.ParentForm.TKroot,
+                )  # show the 'get file' dialog box
 
             if file_name:
                 strvar.set(file_name)
@@ -363,7 +423,9 @@ class Button(Element):
             else:  # if "cancel" button clicked, don't generate an event
                 should_submit_window = False
         elif self.BType == BUTTON_TYPE_COLOR_CHOOSER:
-            color = tk.colorchooser.askcolor(parent=self.ParentForm.TKroot, color=self.default_color)  # show the 'get file' dialog box
+            color = tk.colorchooser.askcolor(
+                parent=self.ParentForm.TKroot, color=self.default_color
+            )  # show the 'get file' dialog box
             color = color[1]  # save only the #RRGGBB portion
             if color is not None:
                 strvar.set(color)
@@ -371,13 +433,25 @@ class Button(Element):
         elif self.BType == BUTTON_TYPE_BROWSE_FILES:
             if running_mac():
                 # Workaround for the "*.*" issue on Mac
-                is_all = [(x, y) for (x, y) in filetypes if all(ch in '* .' for ch in y)]
-                if not len(set(filetypes)) > 1 and (len(is_all) != 0 or filetypes == FILE_TYPES_ALL_FILES):
-                    file_name = tk.filedialog.askopenfilenames(initialdir=self.InitialFolder)
+                is_all = [
+                    (x, y) for (x, y) in filetypes if all(ch in "* ." for ch in y)
+                ]
+                if not len(set(filetypes)) > 1 and (
+                    len(is_all) != 0 or filetypes == FILE_TYPES_ALL_FILES
+                ):
+                    file_name = tk.filedialog.askopenfilenames(
+                        initialdir=self.InitialFolder
+                    )
                 else:
-                    file_name = tk.filedialog.askopenfilenames(filetypes=filetypes, initialdir=self.InitialFolder)
+                    file_name = tk.filedialog.askopenfilenames(
+                        filetypes=filetypes, initialdir=self.InitialFolder
+                    )
             else:
-                file_name = tk.filedialog.askopenfilenames(filetypes=filetypes, initialdir=self.InitialFolder, parent=self.ParentForm.TKroot)
+                file_name = tk.filedialog.askopenfilenames(
+                    filetypes=filetypes,
+                    initialdir=self.InitialFolder,
+                    parent=self.ParentForm.TKroot,
+                )
 
             if file_name:
                 file_name = self._files_delimiter.join(file_name)  # normally a ';'
@@ -389,11 +463,22 @@ class Button(Element):
             # show the 'get file' dialog box
             if running_mac():
                 # Workaround for the "*.*" issue on Mac
-                is_all = [(x, y) for (x, y) in filetypes if all(ch in '* .' for ch in y)]
-                if not len(set(filetypes)) > 1 and (len(is_all) != 0 or filetypes == FILE_TYPES_ALL_FILES):
-                    file_name = tk.filedialog.asksaveasfilename(defaultextension=self.DefaultExtension, initialdir=self.InitialFolder)
+                is_all = [
+                    (x, y) for (x, y) in filetypes if all(ch in "* ." for ch in y)
+                ]
+                if not len(set(filetypes)) > 1 and (
+                    len(is_all) != 0 or filetypes == FILE_TYPES_ALL_FILES
+                ):
+                    file_name = tk.filedialog.asksaveasfilename(
+                        defaultextension=self.DefaultExtension,
+                        initialdir=self.InitialFolder,
+                    )
                 else:
-                    file_name = tk.filedialog.asksaveasfilename(filetypes=filetypes, defaultextension=self.DefaultExtension, initialdir=self.InitialFolder)
+                    file_name = tk.filedialog.asksaveasfilename(
+                        filetypes=filetypes,
+                        defaultextension=self.DefaultExtension,
+                        initialdir=self.InitialFolder,
+                    )
             else:
                 file_name = tk.filedialog.asksaveasfilename(
                     filetypes=filetypes,
@@ -407,7 +492,9 @@ class Button(Element):
                 self.TKStringVar.set(file_name)
             else:  # if "cancel" button clicked, don't generate an event
                 should_submit_window = False
-        elif self.BType == BUTTON_TYPE_CLOSES_WIN:  # this is a return type button so GET RESULTS and destroy window
+        elif (
+            self.BType == BUTTON_TYPE_CLOSES_WIN
+        ):  # this is a return type button so GET RESULTS and destroy window
             # first, get the results table built
             # modify the Results table in the parent FlexForm object
             if self.Key is not None:
@@ -421,7 +508,9 @@ class Button(Element):
             if self.ParentForm.NonBlocking:
                 self.ParentForm.TKroot.destroy()
                 Window._DecrementOpenCount()
-        elif self.BType == BUTTON_TYPE_READ_FORM:  # LEAVE THE WINDOW OPEN!! DO NOT CLOSE
+        elif (
+            self.BType == BUTTON_TYPE_READ_FORM
+        ):  # LEAVE THE WINDOW OPEN!! DO NOT CLOSE
             # This is a PLAIN BUTTON
             # first, get the results table built
             # modify the Results table in the parent FlexForm object
@@ -431,18 +520,24 @@ class Button(Element):
                 self.ParentForm.LastButtonClicked = self.ButtonText
             self.ParentForm.FormRemainedOpen = True
             _exit_mainloop(self.ParentForm)
-        elif self.BType == BUTTON_TYPE_CLOSES_WIN_ONLY:  # special kind of button that does not exit main loop
+        elif (
+            self.BType == BUTTON_TYPE_CLOSES_WIN_ONLY
+        ):  # special kind of button that does not exit main loop
             self.ParentForm._Close(without_event=True)
             self.ParentForm.TKroot.destroy()  # close the window with tkinter
             Window._DecrementOpenCount()
-        elif self.BType == BUTTON_TYPE_CALENDAR_CHOOSER:  # this is a return type button so GET RESULTS and destroy window
+        elif (
+            self.BType == BUTTON_TYPE_CALENDAR_CHOOSER
+        ):  # this is a return type button so GET RESULTS and destroy window
             # ------------ new chooser code -------------
-            self.ParentForm.LastButtonClicked = self.Key  # key should have been generated already if not set by user
+            self.ParentForm.LastButtonClicked = (
+                self.Key
+            )  # key should have been generated already if not set by user
             self.ParentForm.FormRemainedOpen = True
             should_submit_window = False
             _exit_mainloop(self.ParentForm)
         # elif self.BType == BUTTON_TYPE_SHOW_DEBUGGER:
-        # **** DEPRICATED *****
+        # **** DEPRECATED *****
         # if self.ParentForm.DebuggerEnabled:
         # show_debugger_popout_window()
 
@@ -500,11 +595,15 @@ class Button(Element):
         :type image_size:             (int, int)
         """
 
-        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
+        if (
+            not self._widget_was_created()
+        ):  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback('Error in Button.update - The window was closed')
+            _error_popup_with_traceback(
+                "Error in Button.update - The window was closed"
+            )
             return
 
         if image_source is not None:
@@ -514,7 +613,9 @@ class Button(Element):
                 image_filename = image_source
 
         if self.UseTtkButtons:
-            style_name = self.ttk_style_name  # created when made initial window (in the pack)
+            style_name = (
+                self.ttk_style_name
+            )  # created when made initial window (in the pack)
             # style_name = str(self.Key) + 'custombutton.TButton'
             button_style = ttk.Style()
         if text is not None:
@@ -522,10 +623,17 @@ class Button(Element):
             if FreeSimpleGUI.DEFAULT_USE_BUTTON_SHORTCUTS is True:
                 pos = btext.find(MENU_SHORTCUT_CHARACTER)
                 if pos != -1:
-                    if pos < len(MENU_SHORTCUT_CHARACTER) or btext[pos - len(MENU_SHORTCUT_CHARACTER)] != '\\':
-                        btext = btext[:pos] + btext[pos + len(MENU_SHORTCUT_CHARACTER) :]
+                    if (
+                        pos < len(MENU_SHORTCUT_CHARACTER)
+                        or btext[pos - len(MENU_SHORTCUT_CHARACTER)] != "\\"
+                    ):
+                        btext = (
+                            btext[:pos] + btext[pos + len(MENU_SHORTCUT_CHARACTER) :]
+                        )
                     else:
-                        btext = btext.replace('\\' + MENU_SHORTCUT_CHARACTER, MENU_SHORTCUT_CHARACTER)
+                        btext = btext.replace(
+                            "\\" + MENU_SHORTCUT_CHARACTER, MENU_SHORTCUT_CHARACTER
+                        )
                         pos = -1
                 if pos != -1:
                     self.TKButton.config(underline=pos)
@@ -545,11 +653,11 @@ class Button(Element):
                     self.TKButton.config(background=bc[1], activeforeground=bc[1])
             self.ButtonColor = bc
         if disabled is True:
-            self.TKButton['state'] = 'disabled'
+            self.TKButton["state"] = "disabled"
         elif disabled is False:
-            self.TKButton['state'] = 'normal'
+            self.TKButton["state"] = "normal"
         elif disabled == BUTTON_DISABLED_MEANS_IGNORE:
-            self.TKButton['state'] = 'normal'
+            self.TKButton["state"] = "normal"
         self.Disabled = disabled if disabled is not None else self.Disabled
 
         if image_data is not None:
@@ -563,7 +671,9 @@ class Button(Element):
             else:
                 width, height = image.width(), image.height()
             if self.UseTtkButtons:
-                button_style.configure(style_name, image=image, width=width, height=height)
+                button_style.configure(
+                    style_name, image=image, width=width, height=height
+                )
             else:
                 self.TKButton.config(image=image, width=width, height=height)
             self.TKButton.image = image
@@ -578,25 +688,44 @@ class Button(Element):
             else:
                 width, height = image.width(), image.height()
             if self.UseTtkButtons:
-                button_style.configure(style_name, image=image, width=width, height=height)
+                button_style.configure(
+                    style_name, image=image, width=width, height=height
+                )
             else:
-                self.TKButton.config(highlightthickness=0, image=image, width=width, height=height)
+                self.TKButton.config(
+                    highlightthickness=0, image=image, width=width, height=height
+                )
             self.TKButton.image = image
         if visible is False:
             self._pack_forget_save_settings()
         elif visible is True:
             self._pack_restore_settings()
-        if disabled_button_color != (None, None) and disabled_button_color != COLOR_SYSTEM_DEFAULT:
+        if (
+            disabled_button_color != (None, None)
+            and disabled_button_color != COLOR_SYSTEM_DEFAULT
+        ):
             if not self.UseTtkButtons:
-                self.TKButton['disabledforeground'] = disabled_button_color[0]
+                self.TKButton["disabledforeground"] = disabled_button_color[0]
             else:
                 if disabled_button_color[0] is not None:
-                    button_style.map(style_name, foreground=[('disabled', disabled_button_color[0])])
+                    button_style.map(
+                        style_name, foreground=[("disabled", disabled_button_color[0])]
+                    )
                 if disabled_button_color[1] is not None:
-                    button_style.map(style_name, background=[('disabled', disabled_button_color[1])])
+                    button_style.map(
+                        style_name, background=[("disabled", disabled_button_color[1])]
+                    )
             self.DisabledButtonColor = (
-                disabled_button_color[0] if disabled_button_color[0] is not None else self.DisabledButtonColor[0],
-                disabled_button_color[1] if disabled_button_color[1] is not None else self.DisabledButtonColor[1],
+                (
+                    disabled_button_color[0]
+                    if disabled_button_color[0] is not None
+                    else self.DisabledButtonColor[0]
+                ),
+                (
+                    disabled_button_color[1]
+                    if disabled_button_color[1] is not None
+                    else self.DisabledButtonColor[1]
+                ),
             )
 
         if visible is not None:
@@ -619,7 +748,7 @@ class Button(Element):
         try:
             self.TKButton.invoke()
         except:
-            print('Exception clicking button')
+            print("Exception clicking button")
 
     Click = click
     GetText = get_text
@@ -729,18 +858,35 @@ class ButtonMenu(Element):
         self.AutoSizeButton = auto_size_button
         self.ButtonText = button_text
         self.ButtonColor = button_color_to_tuple(button_color)
-        self.BackgroundColor = background_color if background_color is not None else theme_input_background_color()
-        self.TextColor = text_color if text_color is not None else theme_input_text_color()
-        self.DisabledTextColor = disabled_text_color if disabled_text_color is not None else COLOR_SYSTEM_DEFAULT
+        self.BackgroundColor = (
+            background_color
+            if background_color is not None
+            else theme_input_background_color()
+        )
+        self.TextColor = (
+            text_color if text_color is not None else theme_input_text_color()
+        )
+        self.DisabledTextColor = (
+            disabled_text_color
+            if disabled_text_color is not None
+            else COLOR_SYSTEM_DEFAULT
+        )
         self.ItemFont = item_font
-        self.BorderWidth = border_width if border_width is not None else FreeSimpleGUI.DEFAULT_BORDER_WIDTH
+        self.BorderWidth = (
+            border_width
+            if border_width is not None
+            else FreeSimpleGUI.DEFAULT_BORDER_WIDTH
+        )
         if image_source is not None:
             if isinstance(image_source, str):
                 image_filename = image_source
             elif isinstance(image_source, bytes):
                 image_data = image_source
             else:
-                warnings.warn(f'ButtonMenu element - image_source is not a valid type: {type(image_source)}', UserWarning)
+                warnings.warn(
+                    f"ButtonMenu element - image_source is not a valid type: {type(image_source)}",
+                    UserWarning,
+                )
 
         self.ImageFilename = image_filename
         self.ImageData = image_data
@@ -775,7 +921,9 @@ class ButtonMenu(Element):
         )
         self.Tearoff = tearoff
 
-    def _MenuItemChosenCallback(self, item_chosen):  # ButtonMenu Menu Item Chosen Callback
+    def _MenuItemChosenCallback(
+        self, item_chosen
+    ):  # ButtonMenu Menu Item Chosen Callback
         """
         Not a user callable function.  Called by tkinter when an item is chosen from the menu.
 
@@ -826,16 +974,25 @@ class ButtonMenu(Element):
         :type button_color:     (str, str) | str
         """
 
-        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
+        if (
+            not self._widget_was_created()
+        ):  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback('Error in ButtonMenu.update - The window was closed')
+            _error_popup_with_traceback(
+                "Error in ButtonMenu.update - The window was closed"
+            )
             return
 
         if menu_definition is not None:
             self.MenuDefinition = copy.deepcopy(menu_definition)
-            top_menu = self.TKMenu = tk.Menu(self.TKButtonMenu, tearoff=self.Tearoff, font=self.ItemFont, tearoffcommand=self._tearoff_menu_callback)
+            top_menu = self.TKMenu = tk.Menu(
+                self.TKButtonMenu,
+                tearoff=self.Tearoff,
+                font=self.ItemFont,
+                tearoffcommand=self._tearoff_menu_callback,
+            )
 
             if self.BackgroundColor not in (COLOR_SYSTEM_DEFAULT, None):
                 top_menu.config(bg=self.BackgroundColor)
@@ -856,7 +1013,7 @@ class ButtonMenu(Element):
                     filename = image_source
                 else:
                     warnings.warn(
-                        f'ButtonMenu element - image_source is not a valid type: {type(image_source)}',
+                        f"ButtonMenu element - image_source is not a valid type: {type(image_source)}",
                         UserWarning,
                     )
             image = None
@@ -886,7 +1043,9 @@ class ButtonMenu(Element):
                 else:
                     width, height = image_size
 
-                self.TKButtonMenu.config(image=image, compound=tk.CENTER, width=width, height=height)
+                self.TKButtonMenu.config(
+                    image=image, compound=tk.CENTER, width=width, height=height
+                )
                 self.TKButtonMenu.image = image
         if button_text is not None:
             self.TKButtonMenu.configure(text=button_text)
@@ -913,7 +1072,7 @@ class ButtonMenu(Element):
         try:
             self.TKMenu.invoke(1)
         except:
-            print('Exception clicking button')
+            print("Exception clicking button")
 
     Update = update
     Click = click

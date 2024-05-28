@@ -8,7 +8,7 @@ import inspect
 
     If you've seen the Udemy course, then you saw this tool used in the element lessons
 
-    The Pink parameter signify the "Common" paramters that are shared among many of the elements
+    The Pink parameter signify the "Common" parameters that are shared among many of the elements
 
     Copyright 2022 PySimpleGUI Project
 """

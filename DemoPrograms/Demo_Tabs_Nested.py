@@ -31,7 +31,7 @@ tab_layout8 = [[sg.Text('This is inside of a tab')]]
 tab_group = sg.TabGroup([[sg.Tab('Tab 7', tab_layout7), sg.Tab('Tab 8', tab_layout8)]])
 
 tab5_layout = [[sg.Text('Watch this window')],
-                [sg.Output(size=(40,5))]]       # generally better to use a Multline, but for super-simple examples, Output is OK
+                [sg.Output(size=(40,5))]]       # generally better to use a Multiline, but for super-simple examples, Output is OK
 tab6_layout = [[sg.Text('This is inside tab 6')],
                [sg.Text('How about a second row of stuff in tab 6?'), tab_group]]
 

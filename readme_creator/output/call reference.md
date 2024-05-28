@@ -253,7 +253,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -710,7 +710,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -1104,7 +1104,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -1195,7 +1195,7 @@ Parameter Descriptions:
 
 #### property: tk_canvas
 
-Returns the underlying tkiner Canvas widget
+Returns the underlying tkinter Canvas widget
 
 |Type|Name|Meaning|
 |---|---|---|
@@ -1283,7 +1283,7 @@ Parameter Descriptions:
 
 #### property: TKCanvas
 
-Returns the underlying tkiner Canvas widget
+Returns the underlying tkinter Canvas widget
 
 |Type|Name|Meaning|
 |---|---|---|
@@ -1455,7 +1455,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -1895,7 +1895,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -2217,7 +2217,7 @@ Parameter Descriptions:
 |                                      str                                       | button_background_color | The color of the background of the button on the combo box |
 |                                      str                                       |   button_arrow_color    | The color of the arrow on the button on the combo box |
 |                                      bool                                      |     bind_return_key     | If True, then the return key will cause a the Combo to generate an event when return key is pressed |
-|                                      bool                                      |     change_submits      | DEPRICATED DO NOT USE. Use `enable_events` instead |
+|                                      bool                                      |     change_submits      | DEPRECATED DO NOT USE. Use `enable_events` instead |
 |                                      bool                                      |      enable_events      | Turns on the element specific events. Combo event is when a choice is made |
 |                                      bool                                      | enable_per_char_events  | Enables generation of events for every character that's input. This is like the Input element's events |
 |                                      bool                                      |        disabled         | set disable state for element |
@@ -2340,7 +2340,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -2655,7 +2655,7 @@ Parameter Descriptions:
 |                                      str                                       |   background_color    | background color of the Frame |
 |                                      enum                                      |    title_location     | location to place the text title. Choices include: TITLE_LOCATION_TOP TITLE_LOCATION_BOTTOM TITLE_LOCATION_LEFT TITLE_LOCATION_RIGHT TITLE_LOCATION_TOP_LEFT TITLE_LOCATION_TOP_RIGHT TITLE_LOCATION_BOTTOM_LEFT TITLE_LOCATION_BOTTOM_RIGHT |
 |                                      enum                                      |        relief         | relief style. Values are same as other elements with reliefs. Choices include RELIEF_RAISED RELIEF_SUNKEN RELIEF_FLAT RELIEF_RIDGE RELIEF_GROOVE RELIEF_SOLID |
-|                                   (int, int)                                   |         size          | (width, height) Sets an initial hard-coded size for the Frame. This used to be a problem, but was fixed in 4.53.0 and works better than Columns when using the size paramter |
+|                                   (int, int)                                   |         size          | (width, height) Sets an initial hard-coded size for the Frame. This used to be a problem, but was fixed in 4.53.0 and works better than Columns when using the size parameter |
 |                       (int, int)  or (None, None) or int                       |           s           | Same as size parameter. It's an alias. If EITHER of them are set, then the one that's set will be used. If BOTH are set, size will be used |
 |                       (str or (str, int[, str]) or None)                       |         font          | specifies the font family, size, etc. for the TITLE. Tuple or Single string format 'name size styles'. Styles: italic * roman bold normal underline overstrike |
 | (int, int or (int, int),(int,int) or int,(int,int)) or  ((int, int),int) or int |          pad          | Amount of padding to put around element in pixels (left/right, top/bottom) or ((left, right), (top, bottom)) or an int. If an int, then it's converted into a tuple (int, int) |
@@ -2783,7 +2783,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -3092,7 +3092,7 @@ Parameter Descriptions:
 |                                      str                                       | background_color  | background color of the drawing area |
 | (int, int or (int, int),(int,int) or int,(int,int)) or  ((int, int),int) or int |        pad        | Amount of padding to put around element in pixels (left/right, top/bottom) or ((left, right), (top, bottom)) or an int. If an int, then it's converted into a tuple (int, int) |
 | (int, int or (int, int),(int,int) or int,(int,int)) or  ((int, int),int) or int |         p         | Same as pad parameter. It's an alias. If EITHER of them are set, then the one that's set will be used. If BOTH are set, pad will be used |
-|                                      bool                                      |  change_submits   | * DEPRICATED DO NOT USE. Use `enable_events` instead |
+|                                      bool                                      |  change_submits   | * DEPRECATED DO NOT USE. Use `enable_events` instead |
 |                                      bool                                      |   drag_submits    | if True and Events are enabled for the Graph, will report Events any time the mouse moves while button down. When the mouse button is released, you'll get an event = graph key + '+UP' (if key is a string.. if not a string, it'll be made into a tuple) |
 |                                      bool                                      |   enable_events   | If True then clicks on the Graph are immediately reported as an event. Use this instead of change_submits |
 |                                      bool                                      |   motion_events   | If True then if no button is down and the mouse is moved, an event is generated with key = graph key + '+MOVE' (if key is a string, it not a string then a tuple is returned) |
@@ -3180,7 +3180,7 @@ Parameter Descriptions:
 
 ### change_coordinates
 
-Changes the corrdinate system to a new one.  The same 2 points in space are used to define the coorinate
+Changes the coordinate system to a new one.  The same 2 points in space are used to define the coordinate
 system - the bottom left and the top right values of your graph.
 
 ```
@@ -3238,7 +3238,7 @@ Parameter Descriptions:
 
 ### draw_circle
 
-Draws a circle, cenetered at the location provided.  Can set the fill and outline colors
+Draws a circle, centered at the location provided.  Can set the fill and outline colors
 
 ```
 draw_circle(center_location,
@@ -3297,7 +3297,7 @@ Parameter Descriptions:
 | (int, int) or Tuple[float, float] |  point_to  | Ending point for line |
 |               str                |   color    | Color of the line |
 |               int                |   width    | width of line in pixels |
-| int or None | **RETURN** | id returned from tktiner or None if user closed the window. id is used when you
+| int or None | **RETURN** | id returned from tkinter or None if user closed the window. id is used when you
 
 ### draw_oval
 
@@ -3317,7 +3317,7 @@ Parameter Descriptions:
 |--|--|--|
 | (int, int) or Tuple[float, float] |   top_left   | the top left point of bounding rectangle |
 | (int, int) or Tuple[float, float] | bottom_right | the bottom right point of bounding rectangle |
-|               str                |  fill_color  | color of the interrior |
+|               str                |  fill_color  | color of the interior |
 |               str                |  line_color  | color of outline of oval |
 |               int                |  line_width  | width of the line around the oval, the outline, in pixels |
 | int or None | **RETURN** | id returned from tkinter that you'll need if you want to manipulate the oval
@@ -3508,7 +3508,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -3676,7 +3676,7 @@ Parameter Descriptions:
 
 #### property: tk_canvas
 
-Returns the underlying tkiner Canvas widget
+Returns the underlying tkinter Canvas widget
 
 |Type|Name|Meaning|
 |---|---|---|
@@ -3811,7 +3811,7 @@ Parameter Descriptions:
 
 ### DrawCircle
 
-Draws a circle, cenetered at the location provided.  Can set the fill and outline colors
+Draws a circle, centered at the location provided.  Can set the fill and outline colors
 
 ```
 DrawCircle(center_location,
@@ -3870,7 +3870,7 @@ Parameter Descriptions:
 | (int, int) or Tuple[float, float] |  point_to  | Ending point for line |
 |               str                |   color    | Color of the line |
 |               int                |   width    | width of line in pixels |
-| int or None | **RETURN** | id returned from tktiner or None if user closed the window. id is used when you
+| int or None | **RETURN** | id returned from tkinter or None if user closed the window. id is used when you
 
 ### DrawOval
 
@@ -3890,7 +3890,7 @@ Parameter Descriptions:
 |--|--|--|
 | (int, int) or Tuple[float, float] |   top_left   | the top left point of bounding rectangle |
 | (int, int) or Tuple[float, float] | bottom_right | the bottom right point of bounding rectangle |
-|               str                |  fill_color  | color of the interrior |
+|               str                |  fill_color  | color of the interior |
 |               str                |  line_color  | color of outline of oval |
 |               int                |  line_width  | width of the line around the oval, the outline, in pixels |
 | int or None | **RETURN** | id returned from tkinter that you'll need if you want to manipulate the oval
@@ -4119,7 +4119,7 @@ Parameter Descriptions:
 
 #### property: TKCanvas
 
-Returns the underlying tkiner Canvas widget
+Returns the underlying tkinter Canvas widget
 
 |Type|Name|Meaning|
 |---|---|---|
@@ -4245,7 +4245,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -4569,7 +4569,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -4915,7 +4915,7 @@ Parameter Descriptions:
 |                       (str or (str, int[, str]) or None)                       |                font                | specifies the font family, size. Tuple or Single string format 'name size styles'. Styles: italic * roman bold normal underline overstrike |
 |                                      str                                       |              tooltip               | text, that will appear when mouse hovers over the element |
 |                                      int                                       |            border_width            | width of border around element in pixels |
-|                                      bool                                      |           change_submits           | * DEPRICATED DO NOT USE. Use `enable_events` instead |
+|                                      bool                                      |           change_submits           | * DEPRECATED DO NOT USE. Use `enable_events` instead |
 |                                      bool                                      |           enable_events            | If True then changes to this element are immediately reported as an event. Use this instead of change_submits (Default = False) |
 |                                      bool                                      |            do_not_clear            | If False then the field will be set to blank after ANY event (button, any event) (Default = True) |
 |                         str or int or tuple or object                          |                key                 | Value that uniquely identifies this element from all other elements. Used when Finding an element or in return values. Must be unique to the window |
@@ -5041,7 +5041,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -5112,7 +5112,7 @@ Parameter Descriptions:
 
 ### set_ibeam_color
 
-Sets the color of the I-Beam that is used to "insert" characters. This is oftens called a "Cursor" by
+Sets the color of the I-Beam that is used to "insert" characters. This is often called a "Cursor" by
 many users.  To keep from being confused with tkinter's definition of cursor (the mouse pointer), the term
 ibeam is used in this case.
 
@@ -5401,7 +5401,7 @@ Parameter Descriptions:
 |                                      str                                       |      background_color      | color of background |
 |                                      str                                       |         text_color         | color of the text |
 |                                      str                                       | highlight_background_color | color of the background when an item is selected. Defaults to normal text color (a reverse look) |
-|                                      str                                       |    highlight_text_color    | color of the text when an item is selected. Defaults to the normal background color (a rerverse look) |
+|                                      str                                       |    highlight_text_color    | color of the text when an item is selected. Defaults to the normal background color (a reverse look) |
 |                                      str                                       |     sbar_trough_color      | Scrollbar color of the trough |
 |                                      str                                       |   sbar_background_color    | Scrollbar color of the background of the arrow buttons at the ends AND the color of the "thumb" (the thing you grab and slide). Switches to arrow color when mouse is over |
 |                                      str                                       |      sbar_arrow_color      | Scrollbar color of the arrow at the ends of the scrollbar (it looks like a button). Switches to background color when mouse is over |
@@ -5547,7 +5547,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -5892,7 +5892,7 @@ Parameter Descriptions:
     Is a List of -  "Item String" + List
     Where Item String is what will be displayed on the Menubar itself.
     The List that follows the item represents the items that are shown then Menu item is clicked
-    Notice how an "entry" in a mennu can be a list which means it branches out and shows another menu, etc. (resursive)
+    Notice how an "entry" in a mennu can be a list which means it branches out and shows another menu, etc. (recursive)
     menu_def = [['&File', ['!&Open', '&Save::savekey', '---', '&Properties', 'E&xit']],
                 ['!&Edit', ['!&Paste', ['Special', 'Normal', ], 'Undo'], ],
                 ['&Debugger', ['Popout', 'Launch Debugger']],
@@ -6036,7 +6036,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -6515,7 +6515,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -6539,7 +6539,7 @@ colors -(str, str) or str.  A combined text/background color definition in a sin
 There are also "aliases" for text_color, background_color and colors (t, b, c)
 t - An alias for color of the text (makes for shorter calls)
 b - An alias for the background_color parameter
-c - (str, str) - "shorthand" way of specifying color. (foreground, backgrouned)
+c - (str, str) - "shorthand" way of specifying color. (foreground, background)
 c - str - can also be a string of the format "foreground on background"  ("white on red")
 
 With the aliases it's possible to write the same print but in more compact ways:
@@ -6598,7 +6598,7 @@ reroute_stdout_to_here()
 
 ### restore_stderr
 
-Restore a previously re-reouted stderr back to the original destination
+Restore a previously re-routed stderr back to the original destination
 
 ```python
 restore_stderr()
@@ -6606,7 +6606,7 @@ restore_stderr()
 
 ### restore_stdout
 
-Restore a previously re-reouted stdout back to the original destination
+Restore a previously re-routed stdout back to the original destination
 
 ```python
 restore_stdout()
@@ -6668,7 +6668,7 @@ Parameter Descriptions:
 
 ### set_ibeam_color
 
-Sets the color of the I-Beam that is used to "insert" characters. This is oftens called a "Cursor" by
+Sets the color of the I-Beam that is used to "insert" characters. This is often called a "Cursor" by
 many users.  To keep from being confused with tkinter's definition of cursor (the mouse pointer), the term
 ibeam is used in this case.
 
@@ -6783,8 +6783,8 @@ Parameter Descriptions:
 | (str or (str, int[, str]) or None) |            font            | specifies the font family, size, etc. Tuple or Single string format 'name size styles'. Styles: italic * roman bold normal underline overstrike for the entire element |
 |                str                 |         text_color         | color of the text |
 |                str                 |      background_color      | color of background |
-|                str                 |    text_color_for_value    | color of the new text being added (the value paramter) |
-|                str                 | background_color_for_value | color of the new background of the text being added (the value paramter) |
+|                str                 |    text_color_for_value    | color of the new text being added (the value parameter) |
+|                str                 | background_color_for_value | color of the new background of the text being added (the value parameter) |
 |                bool                |          visible           | set visibility state of the element |
 |                bool                |         autoscroll         | if True then contents of element are scrolled down when new text is added to the end |
 |                str                 |       justification        | text justification. left, right, center. Can use single characters l, r, c. Sets only for this value, not entire element |
@@ -6890,8 +6890,8 @@ Parameter Descriptions:
 | (str or (str, int[, str]) or None) |            font            | specifies the font family, size, etc. Tuple or Single string format 'name size styles'. Styles: italic * roman bold normal underline overstrike for the entire element |
 |                str                 |         text_color         | color of the text |
 |                str                 |      background_color      | color of background |
-|                str                 |    text_color_for_value    | color of the new text being added (the value paramter) |
-|                str                 | background_color_for_value | color of the new background of the text being added (the value paramter) |
+|                str                 |    text_color_for_value    | color of the new text being added (the value parameter) |
+|                str                 | background_color_for_value | color of the new background of the text being added (the value parameter) |
 |                bool                |          visible           | set visibility state of the element |
 |                bool                |         autoscroll         | if True then contents of element are scrolled down when new text is added to the end |
 |                str                 |       justification        | text justification. left, right, center. Can use single characters l, r, c. Sets only for this value, not entire element |
@@ -7044,7 +7044,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -7309,7 +7309,7 @@ Now based on the `Multiline` element
         reroute_cprint = True
         write_only = True
 
-    If you choose to use a Multiline element to replace an Output element, be sure an turn on the write_only paramter in the Multiline
+    If you choose to use a Multiline element to replace an Output element, be sure an turn on the write_only parameter in the Multiline
     so that an item is not included in the values dictionary on every window.read call
 
 ```
@@ -7468,7 +7468,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -7640,8 +7640,8 @@ Parameter Descriptions:
 | (str or (str, int[, str]) or None) |            font            | specifies the font family, size, etc. Tuple or Single string format 'name size styles'. Styles: italic * roman bold normal underline overstrike for the entire element |
 |                str                 |         text_color         | color of the text |
 |                str                 |      background_color      | color of background |
-|                str                 |    text_color_for_value    | color of the new text being added (the value paramter) |
-|                str                 | background_color_for_value | color of the new background of the text being added (the value paramter) |
+|                str                 |    text_color_for_value    | color of the new text being added (the value parameter) |
+|                str                 | background_color_for_value | color of the new background of the text being added (the value parameter) |
 |                bool                |          visible           | set visibility state of the element |
 |                bool                |         autoscroll         | if True then contents of element are scrolled down when new text is added to the end |
 |                str                 |       justification        | text justification. left, right, center. Can use single characters l, r, c. Sets only for this value, not entire element |
@@ -7747,8 +7747,8 @@ Parameter Descriptions:
 | (str or (str, int[, str]) or None) |            font            | specifies the font family, size, etc. Tuple or Single string format 'name size styles'. Styles: italic * roman bold normal underline overstrike for the entire element |
 |                str                 |         text_color         | color of the text |
 |                str                 |      background_color      | color of background |
-|                str                 |    text_color_for_value    | color of the new text being added (the value paramter) |
-|                str                 | background_color_for_value | color of the new background of the text being added (the value paramter) |
+|                str                 |    text_color_for_value    | color of the new text being added (the value parameter) |
+|                str                 | background_color_for_value | color of the new background of the text being added (the value parameter) |
 |                bool                |          visible           | set visibility state of the element |
 |                bool                |         autoscroll         | if True then contents of element are scrolled down when new text is added to the end |
 |                str                 |       justification        | text justification. left, right, center. Can use single characters l, r, c. Sets only for this value, not entire element |
@@ -7898,7 +7898,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -8245,7 +8245,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -8710,7 +8710,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -9105,7 +9105,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -9321,7 +9321,7 @@ Parameter Descriptions:
 |                                      bool                                      | disable_number_display | if True no number will be displayed by the Slider Element |
 |                                      int                                       |      border_width      | width of border around element in pixels |
 |                                  str or None                                   |         relief         | relief style. Use constants - RELIEF_RAISED RELIEF_SUNKEN RELIEF_FLAT RELIEF_RIDGE RELIEF_GROOVE RELIEF_SOLID |
-|                                      bool                                      |     change_submits     | * DEPRICATED DO NOT USE. Use `enable_events` instead |
+|                                      bool                                      |     change_submits     | * DEPRECATED DO NOT USE. Use `enable_events` instead |
 |                                      bool                                      |     enable_events      | If True then moving the slider will generate an Event |
 |                                      bool                                      |        disabled        | set disable state for element |
 |                                   (int, int)                                   |          size          | (l=length chars/rows, w=width pixels) |
@@ -9436,7 +9436,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -9834,7 +9834,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -9905,7 +9905,7 @@ Parameter Descriptions:
 
 ### set_ibeam_color
 
-Sets the color of the I-Beam that is used to "insert" characters. This is oftens called a "Cursor" by
+Sets the color of the I-Beam that is used to "insert" characters. This is often called a "Cursor" by
 many users.  To keep from being confused with tkinter's definition of cursor (the mouse pointer), the term
 ibeam is used in this case.
 
@@ -10252,7 +10252,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -10651,7 +10651,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -10983,13 +10983,13 @@ Parameter Descriptions:
 |                                      str                                       |     background_color      | color of background area that tabs are located on |
 |                                      str                                       |        focus_color        | color of focus indicator on the tabs |
 |                       (str or (str, int[, str]) or None)                       |           font            | specifies the font family, size, etc. Tuple or Single string format 'name size styles'. Styles: italic * roman bold normal underline overstrike |
-|                                      bool                                      |      change_submits       | * DEPRICATED DO NOT USE. Use `enable_events` instead |
+|                                      bool                                      |      change_submits       | * DEPRECATED DO NOT USE. Use `enable_events` instead |
 |                                      bool                                      |       enable_events       | If True then switching tabs will generate an Event |
 | (int, int or (int, int),(int,int) or int,(int,int)) or  ((int, int),int) or int |            pad            | Amount of padding to put around element in pixels (left/right, top/bottom) or ((left, right), (top, bottom)) or an int. If an int, then it's converted into a tuple (int, int) |
 | (int, int or (int, int),(int,int) or int,(int,int)) or  ((int, int),int) or int |             p             | Same as pad parameter. It's an alias. If EITHER of them are set, then the one that's set will be used. If BOTH are set, pad will be used |
 |                                      int                                       |       border_width        | width of border around element in pixels |
 |                                      int                                       |     tab_border_width      | width of border around the tabs |
-|                                      enum                                      |           theme           | DEPRICATED - You can only specify themes using set options or when window is created. It's not possible to do it on an element basis |
+|                                      enum                                      |           theme           | DEPRECATED - You can only specify themes using set options or when window is created. It's not possible to do it on an element basis |
 |                         str or int or tuple or object                          |            key            | Value that uniquely identifies this element from all other elements. Used when Finding an element or in return values. Must be unique to the window |
 |                         str or int or tuple or object                          |             k             | Same as the Key. You can use either k or key. Which ever is set will be used. |
 |                             (intorNone, intorNone)                             |           size            | (width, height) w=pixels-wide, h=pixels-high. Either item in tuple can be None to indicate use the computed value and set only 1 direction |
@@ -10998,7 +10998,7 @@ Parameter Descriptions:
 |                         List[List[ List[str] or str ]]                         |     right_click_menu      | A list of lists of Menu items to show when this element is right clicked. See user docs for exact format. |
 |                                      bool                                      |         expand_x          | If True the element will automatically expand in the X direction to fill available space |
 |                                      bool                                      |         expand_y          | If True the element will automatically expand in the Y direction to fill available space |
-|                                      bool                                      |          visible          | DEPRECATED - Should you need to control visiblity for the TabGroup as a whole, place it into a Column element |
+|                                      bool                                      |          visible          | DEPRECATED - Should you need to control visibility for the TabGroup as a whole, place it into a Column element |
 |                                      Any                                       |         metadata          | User metadata that can be set to ANYTHING |
 
 ### add_tab
@@ -11141,7 +11141,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -11530,7 +11530,7 @@ Parameter Descriptions:
 
 ### get
 
-Get the selected rows using tktiner's selection method.  Returns a list of the selected rows.
+Get the selected rows using tkinter's selection method.  Returns a list of the selected rows.
 
 `get()`
 
@@ -11580,7 +11580,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -11760,7 +11760,7 @@ The following methods are here for backwards compatibility reference.  You will 
 
 ### Get
 
-Get the selected rows using tktiner's selection method.  Returns a list of the selected rows.
+Get the selected rows using tkinter's selection method.  Returns a list of the selected rows.
 
 `Get()`
 
@@ -11989,7 +11989,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -12496,7 +12496,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -12922,7 +12922,7 @@ grab_anywhere_exclude()
 ### grab_anywhere_include
 
 Includes this element in the grab_anywhere feature
-        This will allow you to make a Multline element drag a window for example
+        This will allow you to make a Multiline element drag a window for example
 
 ```python
 grab_anywhere_include()
@@ -13695,7 +13695,7 @@ Parameter Descriptions:
 
 Recenter your window after it's been moved or the size changed.
 
-        This is a conveinence method. There are no tkinter calls involved, only pure PySimpleGUI API calls.
+        This is a convenience method. There are no tkinter calls involved, only pure PySimpleGUI API calls.
 
 ```python
 move_to_center()
@@ -13970,7 +13970,7 @@ Returns a list of currently active timers for a window
 
 ### timer_start
 
-Starts a timer that gnerates Timer Events.  The default is to repeat the timer events until timer is stopped.
+Starts a timer that generates Timer Events.  The default is to repeat the timer events until timer is stopped.
 You can provide your own key or a default key will be used.  The default key is defined
 with the constants EVENT_TIMER or TIMER_KEY.  They both equal the same value.
 The values dictionary will contain the timer ID that is returned from this function.
@@ -14359,7 +14359,7 @@ Parameter Descriptions:
 
 ### FindElement
 
-** Warning ** This call will eventually be depricated. **
+** Warning ** This call will eventually be Deprecated. **
 
 It is suggested that you modify your code to use the recommended window[key] lookup or the PEP8 compliant window.find_element(key)
 
@@ -14646,7 +14646,7 @@ Pin's an element provided into a layout so that when it's made invisible and vis
  The element you want to pin is the element that you'll be making visibile/invisible.
 
 The pin helper function also causes containers to shrink to fit the contents correct after something inside
- has changed visiblity.  Note that setting a hardcoded size on your window can impact this ability to shrink.
+ has changed visibility.  Note that setting a hardcoded size on your window can impact this ability to shrink.
 
 ```
 pin(elem,
@@ -16187,7 +16187,7 @@ Parameter Descriptions:
 |                                      bool                                      |     expand_y     | If True Element will expand in the Vertical directions |
 | (Button) | **RETURN** | Button created
 
-DEPRICATED
+DEPRECATED
 
 This button should not be used.  Instead explicitly close your windows by calling window.close() or by using
 the close parameter in window.read
@@ -16244,7 +16244,7 @@ Parameter Descriptions:
 |                                      bool                                      |     expand_y     | If True Element will expand in the Vertical directions |
 | (Button) | **RETURN** | returns a button
 
-DEPRICATED
+DEPRECATED
 
 This button should not be used.  Instead explicitly close your windows by calling window.close() or by using
 the close parameter in window.read
@@ -16311,7 +16311,7 @@ In addition to the normal text and background colors, you can use a "colors" tup
 The "colors" or "c" parameter defines both the text and background in a single parm.
 It can be a tuple or a single single. Both text and background colors need to be specified
 colors -(str, str) or str.  A combined text/background color definition in a single parameter
-c - (str, str) - Colors tuple has format (foreground, backgrouned)
+c - (str, str) - Colors tuple has format (foreground, background)
 c - str - can also be a string of the format "foreground on background"  ("white on red")
 
 ```
@@ -16377,7 +16377,7 @@ In addition to the normal text and background colors, you can use a "colors" tup
 The "colors" or "c" parameter defines both the text and background in a single parm.
 It can be a tuple or a single single. Both text and background colors need to be specified
 colors -(str, str) or str.  A combined text/background color definition in a single parameter
-c - (str, str) - Colors tuple has format (foreground, backgrouned)
+c - (str, str) - Colors tuple has format (foreground, background)
 c - str - can also be a string of the format "foreground on background"  ("white on red")
 
 ```
@@ -16437,7 +16437,7 @@ In addition to the normal text and background colors, you can use a "colors" tup
 The "colors" or "c" parameter defines both the text and background in a single parm.
 It can be a tuple or a single single. Both text and background colors need to be specified
 colors -(str, str) or str.  A combined text/background color definition in a single parameter
-c - (str, str) - Colors tuple has format (foreground, backgrouned)
+c - (str, str) - Colors tuple has format (foreground, background)
 c - str - can also be a string of the format "foreground on background"  ("white on red")
 
 ```
@@ -16503,7 +16503,7 @@ In addition to the normal text and background colors, you can use a "colors" tup
 The "colors" or "c" parameter defines both the text and background in a single parm.
 It can be a tuple or a single single. Both text and background colors need to be specified
 colors -(str, str) or str.  A combined text/background color definition in a single parameter
-c - (str, str) - Colors tuple has format (foreground, backgrouned)
+c - (str, str) - Colors tuple has format (foreground, background)
 c - str - can also be a string of the format "foreground on background"  ("white on red")
 
 ```
@@ -16569,7 +16569,7 @@ In addition to the normal text and background colors, you can use a "colors" tup
 The "colors" or "c" parameter defines both the text and background in a single parm.
 It can be a tuple or a single single. Both text and background colors need to be specified
 colors -(str, str) or str.  A combined text/background color definition in a single parameter
-c - (str, str) - Colors tuple has format (foreground, backgrouned)
+c - (str, str) - Colors tuple has format (foreground, background)
 c - str - can also be a string of the format "foreground on background"  ("white on red")
 
 ```
@@ -16649,7 +16649,7 @@ colors -(str, str) or str.  A combined text/background color definition in a sin
 There are also "aliases" for text_color, background_color and colors (t, b, c)
  t - An alias for color of the text (makes for shorter calls)
 b - An alias for the background_color parameter
-c - (str, str) - "shorthand" way of specifying color. (foreground, backgrouned)
+c - (str, str) - "shorthand" way of specifying color. (foreground, background)
 c - str - can also be a string of the format "foreground on background"  ("white on red")
 
 With the aliases it's possible to write the same print but in more compact ways:
@@ -19461,7 +19461,7 @@ Parameter Descriptions:
 
 ### delete_file
 
-Deltes the filename and path for your settings file.  Either paramter can be optional.
+Deltes the filename and path for your settings file.  Either parameter can be optional.
 If you don't choose a path, one is provided for you that is OS specific
 Windows path default = users/name/AppData/Local/PySimpleGUI/settings.
 If you don't choose a filename, your application's filename + '.json' will be used
@@ -19544,7 +19544,7 @@ Note that you can display the dictionary in text format by printing the object i
 
 ### get_filename
 
-Sets the filename and path for your settings file.  Either paramter can be optional.
+Sets the filename and path for your settings file.  Either parameter can be optional.
 
 If you don't choose a path, one is provided for you that is OS specific
 Windows path default = users/name/AppData/Local/PySimpleGUI/settings.
@@ -19709,7 +19709,7 @@ Parameter Descriptions:
 | Any  |       key       | Setting to be saved. Can be any valid dictionary key type (hashable) |
 | bool | silent_on_error | Determines if an error popup should be shown if an error occurs. Overrides the silent onf effort setting from initialization |
 
-Deltes the filename and path for your settings file.  Either paramter can be optional.
+Deltes the filename and path for your settings file.  Either parameter can be optional.
 If you don't choose a path, one is provided for you that is OS specific
 Windows path default = users/name/AppData/Local/PySimpleGUI/settings.
 If you don't choose a filename, your application's filename + '.json' will be used
@@ -19744,7 +19744,7 @@ Parameter Descriptions:
 | str |   path   | Path to the file. Defaults to a specific folder depending on the operating system |
 | (bool) | **RETURN** | True if the file exists
 
-Sets the filename and path for your settings file.  Either paramter can be optional.
+Sets the filename and path for your settings file.  Either parameter can be optional.
 
 If you don't choose a path, one is provided for you that is OS specific
 Windows path default = users/name/AppData/Local/PySimpleGUI/settings.
@@ -19909,7 +19909,7 @@ Parameter Descriptions:
 
 The global settings has a setting called -   "-explorer program-"
 It defines the program to run when this function is called.
-The optional folder paramter specified which path should be opened.
+The optional folder parameter specified which path should be opened.
 
 ```
 execute_file_explorer(folder_to_open = "")
@@ -19951,7 +19951,7 @@ Parameter Descriptions:
 
 Executes a Python file.
 The interpreter to use is chosen based on this priority order:
-1. interpreter_command paramter
+1. interpreter_command parameter
 2. global setting "-python command-"
 3. the interpreter running running PySimpleGUI
 

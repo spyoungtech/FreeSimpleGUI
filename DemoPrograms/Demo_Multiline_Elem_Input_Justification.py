@@ -1,5 +1,5 @@
 """
-    Multline Element - Input Justification
+    Multiline Element - Input Justification
 
     The justification of text for the Multiline element defaults to Left Justified
     Because of the way tkinter's widget works, setting the justification when creating the element
@@ -11,7 +11,7 @@
         * Enable events on the multiline
         * Add 2 lines of code to your event loop
             * If get mline element event
-                * Set the contents of the multline to be the correct justificaiton
+                * Set the contents of the Multiline to be the correct justification
 
     Copyright 2021 PySimpleGUI
 """
@@ -33,7 +33,7 @@ def main():
         event, values = window.read()
         if event == sg.WIN_CLOSED or event == 'Exit':
             break
-        # Get desired justication from radio buttons. You don't need this if you know your justification already
+        # Get desired justification from radio buttons. You don't need this if you know your justification already
         justification = 'l' if values['-L-'] else 'r' if values['-R-'] else 'c'
 
         # This is the important bit of code. It sets the current contents of the multiline to be the correct justification
