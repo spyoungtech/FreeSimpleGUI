@@ -4,11 +4,9 @@ import sys
 import tkinter as tk
 
 import FreeSimpleGUI
-from FreeSimpleGUI import (
-    COLOR_SYSTEM_DEFAULT,
-    ELEM_TYPE_INPUT_MULTILINE,
-    _print_to_element,
-)
+from FreeSimpleGUI import _print_to_element
+from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
+from FreeSimpleGUI import ELEM_TYPE_INPUT_MULTILINE
 from FreeSimpleGUI._utils import _error_popup_with_traceback
 from FreeSimpleGUI.elements.base import Element
 from FreeSimpleGUI.window import Window
@@ -23,7 +21,7 @@ class Multiline(Element):
 
     def __init__(
         self,
-        default_text="",
+        default_text='',
         enter_submits=False,
         disabled=False,
         autoscroll=False,
@@ -167,29 +165,17 @@ class Multiline(Element):
 
         self.DefaultText = str(default_text)
         self.EnterSubmits = enter_submits
-        bg = (
-            background_color
-            if background_color
-            else FreeSimpleGUI.DEFAULT_INPUT_ELEMENTS_COLOR
-        )
+        bg = background_color if background_color else FreeSimpleGUI.DEFAULT_INPUT_ELEMENTS_COLOR
         self.Focus = focus
         self.do_not_clear = do_not_clear
-        fg = (
-            text_color
-            if text_color is not None
-            else FreeSimpleGUI.DEFAULT_INPUT_TEXT_COLOR
-        )
+        fg = text_color if text_color is not None else FreeSimpleGUI.DEFAULT_INPUT_TEXT_COLOR
         self.selected_text_color = selected_text_color
         self.selected_background_color = selected_background_color
         self.Autoscroll = autoscroll
         self.Disabled = disabled
         self.ChangeSubmits = change_submits or enable_events
         self.RightClickMenu = right_click_menu
-        self.BorderWidth = (
-            border_width
-            if border_width is not None
-            else FreeSimpleGUI.DEFAULT_BORDER_WIDTH
-        )
+        self.BorderWidth = border_width if border_width is not None else FreeSimpleGUI.DEFAULT_BORDER_WIDTH
         self.TagCounter = 0
         self.TKText = self.Widget = None  # type: tk.Text
         self.element_frame = None  # type: tk.Frame
@@ -200,10 +186,8 @@ class Multiline(Element):
         key = key if key is not None else k
         self.reroute_cprint = reroute_cprint
         self.echo_stdout_stderr = echo_stdout_stderr
-        self.Justification = "left" if justification is None else justification
-        self.justification_tag = self.just_center_tag = self.just_left_tag = (
-            self.just_right_tag
-        ) = None
+        self.Justification = 'left' if justification is None else justification
+        self.justification_tag = self.just_center_tag = self.just_left_tag = self.just_right_tag = None
         pad = pad if pad is not None else p
         self.expand_x = expand_x
         self.expand_y = expand_y
@@ -288,9 +272,7 @@ class Multiline(Element):
         :type font_for_value:              str | (str, int)
         """
 
-        if (
-            not self._widget_was_created()
-        ):  # if widget hasn't been created yet, then don't allow
+        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
@@ -302,69 +284,53 @@ class Multiline(Element):
         current_scroll_position = self.TKText.yview()[1]
 
         if justification is not None:
-            if justification.startswith("l"):
-                just_tag = "left"
-            if justification.startswith("r"):
-                just_tag = "right"
-            if justification.startswith("c"):
-                just_tag = "center"
+            if justification.startswith('l'):
+                just_tag = 'left'
+            if justification.startswith('r'):
+                just_tag = 'right'
+            if justification.startswith('c'):
+                just_tag = 'center'
         else:
             just_tag = self.justification_tag
 
         tag = None
         if value is not None:
             value = str(value)
-            if (
-                background_color_for_value is not None
-                or text_color_for_value is not None
-                or font_for_value is not None
-            ):
+            if background_color_for_value is not None or text_color_for_value is not None or font_for_value is not None:
                 try:
-                    tag = (
-                        "Multiline("
-                        + str(text_color_for_value)
-                        + ","
-                        + str(background_color_for_value)
-                        + ","
-                        + str(font_for_value)
-                        + ")"
-                    )
+                    tag = 'Multiline(' + str(text_color_for_value) + ',' + str(background_color_for_value) + ',' + str(font_for_value) + ')'
                     if tag not in self.tags:
                         self.tags.add(tag)
                     if background_color_for_value is not None:
-                        self.TKText.tag_configure(
-                            tag, background=background_color_for_value
-                        )
+                        self.TKText.tag_configure(tag, background=background_color_for_value)
                     if text_color_for_value is not None:
                         self.TKText.tag_configure(tag, foreground=text_color_for_value)
                     if font_for_value is not None:
                         self.TKText.tag_configure(tag, font=font_for_value)
                 except Exception as e:
-                    print("* Multiline.update - bad color likely specified:", e)
+                    print('* Multiline.update - bad color likely specified:', e)
             if self.Disabled:
-                self.TKText.configure(state="normal")
+                self.TKText.configure(state='normal')
             try:
                 if not append:
-                    self.TKText.delete("1.0", tk.END)
+                    self.TKText.delete('1.0', tk.END)
                 if tag is not None or just_tag is not None:
                     self.TKText.insert(tk.END, value, (just_tag, tag))
                 else:
                     self.TKText.insert(tk.END, value)
             except Exception as e:
-                print("* Error setting multiline *", e)
+                print('* Error setting multiline *', e)
             if self.Disabled:
-                self.TKText.configure(state="disabled")
+                self.TKText.configure(state='disabled')
             self.DefaultText = value
 
         if self.Autoscroll:
-            if not self.auto_scroll_only_at_bottom or (
-                self.auto_scroll_only_at_bottom and current_scroll_position == 1.0
-            ):
+            if not self.auto_scroll_only_at_bottom or (self.auto_scroll_only_at_bottom and current_scroll_position == 1.0):
                 self.TKText.see(tk.END)
         if disabled is True:
-            self.TKText.configure(state="disabled")
+            self.TKText.configure(state='disabled')
         elif disabled is False:
-            self.TKText.configure(state="normal")
+            self.TKText.configure(state='normal')
         self.Disabled = disabled if disabled is not None else self.Disabled
 
         if background_color not in (None, COLOR_SYSTEM_DEFAULT):
@@ -465,15 +431,13 @@ class Multiline(Element):
                 kw_text_color = dual_color[0]
                 kw_background_color = dual_color[1]
             elif isinstance(dual_color, str):
-                if (
-                    " on " in dual_color
-                ):  # if has "on" in the string, then have both text and background
-                    kw_text_color = dual_color.split(" on ")[0]
-                    kw_background_color = dual_color.split(" on ")[1]
+                if ' on ' in dual_color:  # if has "on" in the string, then have both text and background
+                    kw_text_color = dual_color.split(' on ')[0]
+                    kw_background_color = dual_color.split(' on ')[1]
                 else:  # if no "on" then assume the color string is just the text color
                     kw_text_color = dual_color
         except Exception as e:
-            print("* multiline print warning * you messed up with color formatting", e)
+            print('* multiline print warning * you messed up with color formatting', e)
 
         _print_to_element(
             self,
@@ -563,10 +527,10 @@ class Multiline(Element):
                 self.Widget.config(insertbackground=ibeam_color)
             except Exception:
                 _error_popup_with_traceback(
-                    "Error setting I-Beam color in set_ibeam_color",
-                    "The element has a key:",
+                    'Error setting I-Beam color in set_ibeam_color',
+                    'The element has a key:',
                     self.Key,
-                    "The color passed in was:",
+                    'The color passed in was:',
                     ibeam_color,
                 )
 

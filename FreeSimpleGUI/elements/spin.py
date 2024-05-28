@@ -3,8 +3,10 @@ from __future__ import annotations
 import tkinter as tk
 
 import FreeSimpleGUI
-from FreeSimpleGUI import ELEM_TYPE_INPUT_SPIN, Element
-from FreeSimpleGUI._utils import _error_popup_with_traceback, _exit_mainloop
+from FreeSimpleGUI import ELEM_TYPE_INPUT_SPIN
+from FreeSimpleGUI import Element
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+from FreeSimpleGUI._utils import _exit_mainloop
 
 
 class Spin(Element):
@@ -100,16 +102,8 @@ class Spin(Element):
         self.BindReturnKey = bind_return_key
         self.wrap = wrap
 
-        bg = (
-            background_color
-            if background_color
-            else FreeSimpleGUI.DEFAULT_INPUT_ELEMENTS_COLOR
-        )
-        fg = (
-            text_color
-            if text_color is not None
-            else FreeSimpleGUI.DEFAULT_INPUT_TEXT_COLOR
-        )
+        bg = background_color if background_color else FreeSimpleGUI.DEFAULT_INPUT_ELEMENTS_COLOR
+        fg = text_color if text_color is not None else FreeSimpleGUI.DEFAULT_INPUT_TEXT_COLOR
         key = key if key is not None else k
         sz = size if size != (None, None) else s
         pad = pad if pad is not None else p
@@ -131,9 +125,7 @@ class Spin(Element):
         )
         return
 
-    def update(
-        self, value=None, values=None, disabled=None, readonly=None, visible=None
-    ):
+    def update(self, value=None, values=None, disabled=None, readonly=None, visible=None):
         """
         Changes some of the settings for the Spin Element. Must call `Window.Read` or `Window.Finalize` prior
         Note that the state can be in 3 states only.... enabled, disabled, readonly even
@@ -158,13 +150,11 @@ class Spin(Element):
         :type visible:   (bool)
         """
 
-        if (
-            not self._widget_was_created()
-        ):  # if widget hasn't been created yet, then don't allow
+        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback("Error in Spin.update - The window was closed")
+            _error_popup_with_traceback('Error in Spin.update - The window was closed')
             return
 
         if values is not None:
@@ -181,17 +171,17 @@ class Spin(Element):
 
         if readonly is True:
             self.Readonly = True
-            self.TKSpinBox["state"] = "readonly"
+            self.TKSpinBox['state'] = 'readonly'
         elif readonly is False:
             self.Readonly = False
-            self.TKSpinBox["state"] = "normal"
+            self.TKSpinBox['state'] = 'normal'
         if disabled is True:
-            self.TKSpinBox["state"] = "disable"
+            self.TKSpinBox['state'] = 'disable'
         elif disabled is False:
             if self.Readonly:
-                self.TKSpinBox["state"] = "readonly"
+                self.TKSpinBox['state'] = 'readonly'
             else:
-                self.TKSpinBox["state"] = "normal"
+                self.TKSpinBox['state'] = 'normal'
         self.Disabled = disabled if disabled is not None else self.Disabled
 
         if visible is False:
@@ -212,7 +202,7 @@ class Spin(Element):
         if self.Key is not None:
             self.ParentForm.LastButtonClicked = self.Key
         else:
-            self.ParentForm.LastButtonClicked = ""
+            self.ParentForm.LastButtonClicked = ''
         self.ParentForm.FormRemainedOpen = True
         _exit_mainloop(self.ParentForm)
         # if self.ParentForm.CurrentlyRunningMainloop:
@@ -235,10 +225,10 @@ class Spin(Element):
                 self.Widget.config(insertbackground=ibeam_color)
             except Exception:
                 _error_popup_with_traceback(
-                    "Error setting I-Beam color in set_ibeam_color",
-                    "The element has a key:",
+                    'Error setting I-Beam color in set_ibeam_color',
+                    'The element has a key:',
                     self.Key,
-                    "The color passed in was:",
+                    'The color passed in was:',
                     ibeam_color,
                 )
 

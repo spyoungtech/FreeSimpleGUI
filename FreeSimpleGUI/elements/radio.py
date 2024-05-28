@@ -2,16 +2,14 @@ from __future__ import annotations
 
 import tkinter as tk  # noqa
 
-from FreeSimpleGUI import (
-    COLOR_SYSTEM_DEFAULT,
-    ELEM_TYPE_INPUT_RADIO,
-    Element,
-    _hex_to_hsl,
-    _hsl_to_rgb,
-    rgb,
-    theme_background_color,
-    theme_text_color,
-)
+from FreeSimpleGUI import _hex_to_hsl
+from FreeSimpleGUI import _hsl_to_rgb
+from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
+from FreeSimpleGUI import ELEM_TYPE_INPUT_RADIO
+from FreeSimpleGUI import Element
+from FreeSimpleGUI import rgb
+from FreeSimpleGUI import theme_background_color
+from FreeSimpleGUI import theme_text_color
 from FreeSimpleGUI._utils import _error_popup_with_traceback
 
 
@@ -109,13 +107,9 @@ class Radio(Element):
             # ---- compute color of circle background ---
             try:  # something in here will fail if a color is not specified in Hex
                 text_hsl = _hex_to_hsl(self.TextColor)
-                background_hsl = _hex_to_hsl(
-                    background_color if background_color else theme_background_color()
-                )
+                background_hsl = _hex_to_hsl(background_color if background_color else theme_background_color())
                 l_delta = abs(text_hsl[2] - background_hsl[2]) / 10
-                if (
-                    text_hsl[2] > background_hsl[2]
-                ):  # if the text is "lighter" than the background then make background darker
+                if text_hsl[2] > background_hsl[2]:  # if the text is "lighter" than the background then make background darker
                     bg_rbg = _hsl_to_rgb(
                         background_hsl[0],
                         background_hsl[1],
@@ -129,9 +123,7 @@ class Radio(Element):
                     )
                 self.CircleBackgroundColor = rgb(*bg_rbg)
             except:
-                self.CircleBackgroundColor = (
-                    background_color if background_color else theme_background_color()
-                )
+                self.CircleBackgroundColor = background_color if background_color else theme_background_color()
         else:
             self.CircleBackgroundColor = circle_color
         self.ChangeSubmits = change_submits or enable_events
@@ -191,13 +183,11 @@ class Radio(Element):
         :type visible:           (bool)
         """
 
-        if (
-            not self._widget_was_created()
-        ):  # if widget hasn't been created yet, then don't allow
+        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback("Error in Radio.update - The window was closed")
+            _error_popup_with_traceback('Error in Radio.update - The window was closed')
             return
 
         if value is not None:
@@ -208,7 +198,7 @@ class Radio(Element):
                     if self.TKIntVar.get() == self.EncodedRadioValue:
                         self.TKIntVar.set(0)
             except:
-                print("Error updating Radio")
+                print('Error updating Radio')
             self.InitialState = value
         if text is not None:
             self.Text = str(text)
@@ -222,27 +212,14 @@ class Radio(Element):
 
         if circle_color not in (None, COLOR_SYSTEM_DEFAULT):
             self.CircleBackgroundColor = circle_color
-            self.TKRadio.configure(
-                selectcolor=self.CircleBackgroundColor
-            )  # The background of the radio button
+            self.TKRadio.configure(selectcolor=self.CircleBackgroundColor)  # The background of the radio button
         elif text_color or background_color:
-            if (
-                self.TextColor not in (None, COLOR_SYSTEM_DEFAULT)
-                and self.BackgroundColor not in (None, COLOR_SYSTEM_DEFAULT)
-                and self.TextColor.startswith("#")
-                and self.BackgroundColor.startswith("#")
-            ):
+            if self.TextColor not in (None, COLOR_SYSTEM_DEFAULT) and self.BackgroundColor not in (None, COLOR_SYSTEM_DEFAULT) and self.TextColor.startswith('#') and self.BackgroundColor.startswith('#'):
                 # ---- compute color of circle background ---
                 text_hsl = _hex_to_hsl(self.TextColor)
-                background_hsl = _hex_to_hsl(
-                    self.BackgroundColor
-                    if self.BackgroundColor
-                    else theme_background_color()
-                )
+                background_hsl = _hex_to_hsl(self.BackgroundColor if self.BackgroundColor else theme_background_color())
                 l_delta = abs(text_hsl[2] - background_hsl[2]) / 10
-                if (
-                    text_hsl[2] > background_hsl[2]
-                ):  # if the text is "lighter" than the background then make background darker
+                if text_hsl[2] > background_hsl[2]:  # if the text is "lighter" than the background then make background darker
                     bg_rbg = _hsl_to_rgb(
                         background_hsl[0],
                         background_hsl[1],
@@ -255,14 +232,12 @@ class Radio(Element):
                         background_hsl[2] + l_delta,
                     )
                 self.CircleBackgroundColor = rgb(*bg_rbg)
-                self.TKRadio.configure(
-                    selectcolor=self.CircleBackgroundColor
-                )  # The background of the checkbox
+                self.TKRadio.configure(selectcolor=self.CircleBackgroundColor)  # The background of the checkbox
 
         if disabled is True:
-            self.TKRadio["state"] = "disabled"
+            self.TKRadio['state'] = 'disabled'
         elif disabled is False:
-            self.TKRadio["state"] = "normal"
+            self.TKRadio['state'] = 'normal'
         self.Disabled = disabled if disabled is not None else self.Disabled
 
         if visible is False:

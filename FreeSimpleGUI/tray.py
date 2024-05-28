@@ -3,19 +3,17 @@ from __future__ import annotations
 import textwrap
 import tkinter as tk
 
-from FreeSimpleGUI import (
-    EVENT_SYSTEM_TRAY_ICON_ACTIVATED,  # = '__ACTIVATED__'
-    EVENT_SYSTEM_TRAY_ICON_DOUBLE_CLICKED,  # = '__DOUBLE_CLICKED__'
-    EVENT_SYSTEM_TRAY_MESSAGE_CLICKED,  # = '__MESSAGE_CLICKED__'
-    SYSTEM_TRAY_MESSAGE_DISPLAY_DURATION_IN_MILLISECONDS,  # = 3000  # how long to display the window
-    SYSTEM_TRAY_MESSAGE_FADE_IN_DURATION,  # = 1000  # how long to fade in / fade out the window
-    SYSTEM_TRAY_MESSAGE_MAX_LINE_LENGTH,  # = 50
-    SYSTEM_TRAY_MESSAGE_TEXT_COLOR,  # = '#ffffff'
-    SYSTEM_TRAY_MESSAGE_WIN_COLOR,  # = '#282828'
-    SYSTEM_TRAY_WIN_MARGINS,  # = 160, 60  # from right edge of screen, from bottom of screen
-    TEXT_LOCATION_TOP_LEFT,
-    TIMEOUT_KEY,
-)
+from FreeSimpleGUI import EVENT_SYSTEM_TRAY_ICON_ACTIVATED
+from FreeSimpleGUI import EVENT_SYSTEM_TRAY_ICON_DOUBLE_CLICKED
+from FreeSimpleGUI import EVENT_SYSTEM_TRAY_MESSAGE_CLICKED
+from FreeSimpleGUI import SYSTEM_TRAY_MESSAGE_DISPLAY_DURATION_IN_MILLISECONDS
+from FreeSimpleGUI import SYSTEM_TRAY_MESSAGE_FADE_IN_DURATION
+from FreeSimpleGUI import SYSTEM_TRAY_MESSAGE_MAX_LINE_LENGTH
+from FreeSimpleGUI import SYSTEM_TRAY_MESSAGE_TEXT_COLOR
+from FreeSimpleGUI import SYSTEM_TRAY_MESSAGE_WIN_COLOR
+from FreeSimpleGUI import SYSTEM_TRAY_WIN_MARGINS
+from FreeSimpleGUI import TEXT_LOCATION_TOP_LEFT
+from FreeSimpleGUI import TIMEOUT_KEY
 from FreeSimpleGUI.elements.graph import Graph
 from FreeSimpleGUI.elements.helpers import AddMenuItem
 from FreeSimpleGUI.elements.image import Image

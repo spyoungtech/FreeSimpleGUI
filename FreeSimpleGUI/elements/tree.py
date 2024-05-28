@@ -2,16 +2,17 @@ from __future__ import annotations
 
 import tkinter as tk
 from tkinter import ttk
-from typing import Any, Dict, List
+from typing import Any
+from typing import Dict
+from typing import List
 
 import FreeSimpleGUI
-from FreeSimpleGUI import (
-    ELEM_TYPE_TREE,
-    LOOK_AND_FEEL_TABLE,
-    Element,
-    theme_button_color,
-)
-from FreeSimpleGUI._utils import _error_popup_with_traceback, _exit_mainloop
+from FreeSimpleGUI import ELEM_TYPE_TREE
+from FreeSimpleGUI import Element
+from FreeSimpleGUI import LOOK_AND_FEEL_TABLE
+from FreeSimpleGUI import theme_button_color
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+from FreeSimpleGUI._utils import _exit_mainloop
 
 
 class Tree(Element):
@@ -29,7 +30,7 @@ class Tree(Element):
         visible_column_map=None,
         col_widths=None,
         col0_width=10,
-        col0_heading="",
+        col0_heading='',
         def_col_width=10,
         auto_size_columns=True,
         max_col_width=20,
@@ -39,7 +40,7 @@ class Tree(Element):
         enable_events=False,
         click_toggles_select=None,
         font=None,
-        justification="right",
+        justification='right',
         text_color=None,
         border_width=None,
         background_color=None,
@@ -175,22 +176,10 @@ class Tree(Element):
         self.MaxColumnWidth = max_col_width
         self.DefaultColumnWidth = def_col_width
         self.AutoSizeColumns = auto_size_columns
-        self.BackgroundColor = (
-            background_color
-            if background_color is not None
-            else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
-        )
+        self.BackgroundColor = background_color if background_color is not None else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
         self.TextColor = text_color
-        self.HeaderTextColor = (
-            header_text_color
-            if header_text_color is not None
-            else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]["TEXT_INPUT"]
-        )
-        self.HeaderBackgroundColor = (
-            header_background_color
-            if header_background_color is not None
-            else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]["INPUT"]
-        )
+        self.HeaderTextColor = header_text_color if header_text_color is not None else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]['TEXT_INPUT']
+        self.HeaderBackgroundColor = header_background_color if header_background_color is not None else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]['INPUT']
         self.HeaderBorderWidth = header_border_width
         self.BorderWidth = border_width
         self.HeaderRelief = header_relief
@@ -201,10 +190,10 @@ class Tree(Element):
         else:
             try:
                 if isinstance(selected_row_colors, str):
-                    selected_row_colors = selected_row_colors.split(" on ")
+                    selected_row_colors = selected_row_colors.split(' on ')
             except Exception as e:
                 print(
-                    "* Table Element Warning * you messed up with color formatting of Selected Row Color",
+                    '* Table Element Warning * you messed up with color formatting of Selected Row Color',
                     e,
                 )
         self.SelectedRowColors = selected_row_colors
@@ -226,8 +215,8 @@ class Tree(Element):
         self.RightClickMenu = right_click_menu
         self.RowHeight = row_height
         self.IconList = {}
-        self.IdToKey = {"": ""}
-        self.KeyToID = {"": ""}
+        self.IdToKey = {'': ''}
+        self.KeyToID = {'': ''}
         key = key if key is not None else k
         pad = pad if pad is not None else p
         self.expand_x = expand_x
@@ -275,7 +264,7 @@ class Tree(Element):
             if self.Key is not None:
                 self.ParentForm.LastButtonClicked = self.Key
             else:
-                self.ParentForm.LastButtonClicked = ""
+                self.ParentForm.LastButtonClicked = ''
             self.ParentForm.FormRemainedOpen = True
             _exit_mainloop(self.ParentForm)
 
@@ -286,7 +275,7 @@ class Tree(Element):
         :param node: The node to insert.  Will insert all nodes from starting point downward, recursively
         :type node:  (TreeData)
         """
-        if node.key != "":
+        if node.key != '':
             if node.icon:
                 try:
                     if node.icon not in self.image_dict:
@@ -301,7 +290,7 @@ class Tree(Element):
                     node.photo = photo
                     id = self.TKTreeview.insert(
                         self.KeyToID[node.parent],
-                        "end",
+                        'end',
                         iid=None,
                         text=node.text,
                         values=node.values,
@@ -315,7 +304,7 @@ class Tree(Element):
             else:
                 id = self.TKTreeview.insert(
                     self.KeyToID[node.parent],
-                    "end",
+                    'end',
                     iid=None,
                     text=node.text,
                     values=node.values,
@@ -327,9 +316,7 @@ class Tree(Element):
         for node in node.children:
             self.add_treeview_data(node)
 
-    def update(
-        self, values=None, key=None, value=None, text=None, icon=None, visible=None
-    ):
+    def update(self, values=None, key=None, value=None, text=None, icon=None, visible=None):
         """
         Changes some of the settings for the Tree Element. Must call `Window.Read` or `Window.Finalize` prior
 
@@ -352,13 +339,11 @@ class Tree(Element):
         :param visible: control visibility of element
         :type visible:  (bool)
         """
-        if (
-            not self._widget_was_created()
-        ):  # if widget hasn't been created yet, then don't allow
+        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback("Error in Tree.update - The window was closed")
+            _error_popup_with_traceback('Error in Tree.update - The window was closed')
             return
 
         if values is not None:
@@ -368,8 +353,8 @@ class Tree(Element):
                 self.TKTreeview.delete(i)
             children = self.TKTreeview.get_children()
             self.TreeData = values
-            self.IdToKey = {"": ""}
-            self.KeyToID = {"": ""}
+            self.IdToKey = {'': ''}
+            self.KeyToID = {'': ''}
             self.add_treeview_data(self.TreeData.root_node)
             self.SelectedRows = []
         if key is not None:
@@ -378,7 +363,7 @@ class Tree(Element):
                     break
             else:
                 id = None
-                print("** Key not found **")
+                print('** Key not found **')
         else:
             id = None
         if id:
@@ -394,9 +379,7 @@ class Tree(Element):
                     else:
                         photo = tk.PhotoImage(file=icon)
                     self.TKTreeview.item(id, image=photo)
-                    self.IconList[key] = (
-                        photo  # save so that it's not deleted (save reference)
-                    )
+                    self.IconList[key] = photo  # save so that it's not deleted (save reference)
                 except:
                     pass
             # item = self.TKTreeview.item(id)
@@ -456,8 +439,8 @@ class TreeData:
         Instantiate the object, initializes the Tree Data, creates a root node for you
         """
         self.tree_dict = {}  # type: Dict[str, TreeData.Node]
-        self.root_node = self.Node("", "", "root", [], None)  # The root node
-        self.tree_dict[""] = self.root_node  # Start the tree out with the root node
+        self.root_node = self.Node('', '', 'root', [], None)  # The root node
+        self.tree_dict[''] = self.root_node  # Start the tree out with the root node
 
     def _AddNode(self, key, node):
         """
@@ -510,19 +493,6 @@ class TreeData:
         :param level: The indentation level for string formatting
         :type level:  (int)
         """
-        return "\n".join(
-            [
-                str(node.key)
-                + " : "
-                + str(node.text)
-                + " [ "
-                + ", ".join([str(v) for v in node.values])
-                + " ]"
-            ]
-            + [
-                " " * 4 * level + self._NodeStr(child, level + 1)
-                for child in node.children
-            ]
-        )
+        return '\n'.join([str(node.key) + ' : ' + str(node.text) + ' [ ' + ', '.join([str(v) for v in node.values]) + ' ]'] + [' ' * 4 * level + self._NodeStr(child, level + 1) for child in node.children])
 
     Insert = insert

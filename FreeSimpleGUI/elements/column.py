@@ -4,13 +4,11 @@ import tkinter as tk
 import warnings
 
 import FreeSimpleGUI
-from FreeSimpleGUI import (
-    ELEM_TYPE_COLUMN,
-    VarHolder,
-    _make_ttk_scrollbar,
-    _random_error_emoji,
-    popup_error,
-)
+from FreeSimpleGUI import _make_ttk_scrollbar
+from FreeSimpleGUI import _random_error_emoji
+from FreeSimpleGUI import ELEM_TYPE_COLUMN
+from FreeSimpleGUI import popup_error
+from FreeSimpleGUI import VarHolder
 from FreeSimpleGUI._utils import _error_popup_with_traceback
 from FreeSimpleGUI.elements.base import Element
 
@@ -31,7 +29,7 @@ class TkFixedFrame(tk.Frame):
 
         self.canvas = tk.Canvas(self)
 
-        self.canvas.pack(side="left", fill="both", expand=True)
+        self.canvas.pack(side='left', fill='both', expand=True)
 
         # reset the view
         self.canvas.xview_moveto(0)
@@ -39,9 +37,7 @@ class TkFixedFrame(tk.Frame):
 
         # create a frame inside the canvas which will be scrolled with it
         self.TKFrame = tk.Frame(self.canvas, **kwargs)
-        self.frame_id = self.canvas.create_window(
-            0, 0, window=self.TKFrame, anchor="nw"
-        )
+        self.frame_id = self.canvas.create_window(0, 0, window=self.TKFrame, anchor='nw')
         self.canvas.config(borderwidth=0, highlightthickness=0)
         self.TKFrame.config(borderwidth=0, highlightthickness=0)
         self.config(borderwidth=0, highlightthickness=0)
@@ -68,18 +64,18 @@ class TkScrollableFrame(tk.Frame):
         element.Widget = self.canvas
         # Okay, we're gonna make a list. Containing the y-min, x-min, y-max, and x-max of the frame
         element.element_frame = self
-        _make_ttk_scrollbar(element, "v", window)
+        _make_ttk_scrollbar(element, 'v', window)
         # element.vsb = tk.Scrollbar(self, orient=tk.VERTICAL)
-        element.vsb.pack(side="right", fill="y", expand="false")
+        element.vsb.pack(side='right', fill='y', expand='false')
 
         if not vertical_only:
-            _make_ttk_scrollbar(element, "h", window)
+            _make_ttk_scrollbar(element, 'h', window)
             # self.hscrollbar = tk.Scrollbar(self, orient=tk.HORIZONTAL)
-            element.hsb.pack(side="bottom", fill="x", expand="false")
+            element.hsb.pack(side='bottom', fill='x', expand='false')
             self.canvas.config(xscrollcommand=element.hsb.set)
 
         self.canvas.config(yscrollcommand=element.vsb.set)
-        self.canvas.pack(side="left", fill="both", expand=True)
+        self.canvas.pack(side='left', fill='both', expand=True)
         element.vsb.config(command=self.canvas.yview)
         if not vertical_only:
             element.hsb.config(command=self.canvas.xview)
@@ -90,9 +86,7 @@ class TkScrollableFrame(tk.Frame):
 
         # create a frame inside the canvas which will be scrolled with it
         self.TKFrame = tk.Frame(self.canvas, **kwargs)
-        self.frame_id = self.canvas.create_window(
-            0, 0, window=self.TKFrame, anchor="nw"
-        )
+        self.frame_id = self.canvas.create_window(0, 0, window=self.TKFrame, anchor='nw')
         self.canvas.config(borderwidth=0, highlightthickness=0)
         self.TKFrame.config(borderwidth=0, highlightthickness=0)
         self.config(borderwidth=0, highlightthickness=0)
@@ -100,26 +94,26 @@ class TkScrollableFrame(tk.Frame):
         # Canvas can be: master, canvas, TKFrame
 
         self.unhookMouseWheel(None)
-        self.canvas.bind("<Enter>", self.hookMouseWheel)
-        self.canvas.bind("<Leave>", self.unhookMouseWheel)
-        self.bind("<Configure>", self.set_scrollregion)
+        self.canvas.bind('<Enter>', self.hookMouseWheel)
+        self.canvas.bind('<Leave>', self.unhookMouseWheel)
+        self.bind('<Configure>', self.set_scrollregion)
 
     def hookMouseWheel(self, e):
         # print("enter")
         VarHolder.canvas_holder = self.canvas
-        self.canvas.bind_all("<4>", self.yscroll, add="+")
-        self.canvas.bind_all("<5>", self.yscroll, add="+")
-        self.canvas.bind_all("<MouseWheel>", self.yscroll, add="+")
-        self.canvas.bind_all("<Shift-MouseWheel>", self.xscroll, add="+")
+        self.canvas.bind_all('<4>', self.yscroll, add='+')
+        self.canvas.bind_all('<5>', self.yscroll, add='+')
+        self.canvas.bind_all('<MouseWheel>', self.yscroll, add='+')
+        self.canvas.bind_all('<Shift-MouseWheel>', self.xscroll, add='+')
 
     # Chr0nic
     def unhookMouseWheel(self, e):
         # print("leave")
         VarHolder.canvas_holder = None
-        self.canvas.unbind_all("<4>")
-        self.canvas.unbind_all("<5>")
-        self.canvas.unbind_all("<MouseWheel>")
-        self.canvas.unbind_all("<Shift-MouseWheel>")
+        self.canvas.unbind_all('<4>')
+        self.canvas.unbind_all('<5>')
+        self.canvas.unbind_all('<MouseWheel>')
+        self.canvas.unbind_all('<Shift-MouseWheel>')
 
     def resize_frame(self, e):
         self.canvas.itemconfig(self.frame_id, height=e.height, width=e.width)
@@ -128,26 +122,26 @@ class TkScrollableFrame(tk.Frame):
         if self.canvas.yview() == (0.0, 1.0):
             return
         if event.num == 5 or event.delta < 0:
-            self.canvas.yview_scroll(1, "unit")
+            self.canvas.yview_scroll(1, 'unit')
         elif event.num == 4 or event.delta > 0:
-            self.canvas.yview_scroll(-1, "unit")
+            self.canvas.yview_scroll(-1, 'unit')
 
     def xscroll(self, event):
         if event.num == 5 or event.delta < 0:
-            self.canvas.xview_scroll(1, "unit")
+            self.canvas.xview_scroll(1, 'unit')
         elif event.num == 4 or event.delta > 0:
-            self.canvas.xview_scroll(-1, "unit")
+            self.canvas.xview_scroll(-1, 'unit')
 
     def bind_mouse_scroll(self, parent, mode):
         # ~~ Windows only
-        parent.bind("<MouseWheel>", mode)
+        parent.bind('<MouseWheel>', mode)
         # ~~ Unix only
-        parent.bind("<Button-4>", mode)
-        parent.bind("<Button-5>", mode)
+        parent.bind('<Button-4>', mode)
+        parent.bind('<Button-5>', mode)
 
     def set_scrollregion(self, event=None):
         """Set the scroll region on the canvas"""
-        self.canvas.configure(scrollregion=self.canvas.bbox("all"))
+        self.canvas.configure(scrollregion=self.canvas.bbox('all'))
 
 
 class Column(Element):
@@ -259,11 +253,7 @@ class Column(Element):
         self.VerticalScrollOnly = vertical_scroll_only
 
         self.RightClickMenu = right_click_menu
-        bg = (
-            background_color
-            if background_color is not None
-            else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
-        )
+        bg = background_color if background_color is not None else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
         self.ContainerElemementNumber = Window._GetAContainerNumber()
         self.ElementJustification = element_justification
         self.Justification = justification
@@ -308,47 +298,45 @@ class Column(Element):
         CurrentRowNumber = NumRows  # this row's number
         CurrentRow = []  # start with a blank row and build up
         # -------------------------  Add the elements to a row  ------------------------- #
-        for i, element in enumerate(
-            args
-        ):  # Loop through list of elements and add them to the row
+        for i, element in enumerate(args):  # Loop through list of elements and add them to the row
             if type(element) is list:
                 popup_error(
-                    "Error creating Column layout",
-                    "Layout has a LIST instead of an ELEMENT",
-                    "This sometimes means you have a badly placed ]",
-                    "The offensive list is:",
+                    'Error creating Column layout',
+                    'Layout has a LIST instead of an ELEMENT',
+                    'This sometimes means you have a badly placed ]',
+                    'The offensive list is:',
                     element,
-                    "This list will be stripped from your layout",
+                    'This list will be stripped from your layout',
                     keep_on_top=True,
                     image=_random_error_emoji(),
                 )
                 continue
             elif callable(element) and not isinstance(element, Element):
                 popup_error(
-                    "Error creating Column layout",
-                    "Layout has a FUNCTION instead of an ELEMENT",
-                    "This likely means you are missing () from your layout",
-                    "The offensive list is:",
+                    'Error creating Column layout',
+                    'Layout has a FUNCTION instead of an ELEMENT',
+                    'This likely means you are missing () from your layout',
+                    'The offensive list is:',
                     element,
-                    "This item will be stripped from your layout",
+                    'This item will be stripped from your layout',
                     keep_on_top=True,
                     image=_random_error_emoji(),
                 )
                 continue
             if element.ParentContainer is not None:
                 warnings.warn(
-                    "*** YOU ARE ATTEMPTING TO REUSE AN ELEMENT IN YOUR LAYOUT! Once placed in a layout, an element cannot be used in another layout. ***",
+                    '*** YOU ARE ATTEMPTING TO REUSE AN ELEMENT IN YOUR LAYOUT! Once placed in a layout, an element cannot be used in another layout. ***',
                     UserWarning,
                 )
                 popup_error(
-                    "Error creating Column layout",
-                    "The layout specified has already been used",
+                    'Error creating Column layout',
+                    'The layout specified has already been used',
                     'You MUST start with a "clean", unused layout every time you create a window',
-                    "The offensive Element = ",
+                    'The offensive Element = ',
                     element,
-                    "and has a key = ",
+                    'and has a key = ',
                     element.Key,
-                    "This item will be stripped from your layout",
+                    'This item will be stripped from your layout',
                     'Hint - try printing your layout and matching the IDs "print(layout)"',
                     keep_on_top=True,
                     image=_random_error_emoji(),
@@ -377,12 +365,12 @@ class Column(Element):
                 iter(row)
             except TypeError:
                 popup_error(
-                    "Error creating Column layout",
-                    "Your row is not an iterable (e.g. a list)",
+                    'Error creating Column layout',
+                    'Your row is not an iterable (e.g. a list)',
                     f"Instead of a list, the type found was {type(row)}",
-                    "The offensive row = ",
+                    'The offensive row = ',
                     row,
-                    "This item will be stripped from your layout",
+                    'This item will be stripped from your layout',
                     keep_on_top=True,
                     image=_random_error_emoji(),
                 )
@@ -418,15 +406,11 @@ class Column(Element):
         :param visible: control visibility of element
         :type visible:  (bool)
         """
-        if (
-            not self._widget_was_created()
-        ):  # if widget hasn't been created yet, then don't allow
+        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback(
-                "Error in Column.update - The window was closed"
-            )
+            _error_popup_with_traceback('Error in Column.update - The window was closed')
             return
 
         if visible is False:
@@ -448,7 +432,7 @@ class Column(Element):
         layout is extended for the Column, then this method needs to be called so that the new scroll area
         is computed to match the new contents.
         """
-        self.TKColFrame.canvas.config(scrollregion=self.TKColFrame.canvas.bbox("all"))
+        self.TKColFrame.canvas.config(scrollregion=self.TKColFrame.canvas.bbox('all'))
 
     AddRow = add_row
     Layout = layout

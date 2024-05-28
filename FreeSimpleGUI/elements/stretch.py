@@ -14,9 +14,7 @@ def Push(background_color=None):
     :type background_color:  (str)
     :return:                 (Text)
     """
-    return Text(
-        font="_ 1", background_color=background_color, pad=(0, 0), expand_x=True
-    )
+    return Text(font='_ 1', background_color=background_color, pad=(0, 0), expand_x=True)
 
 
 def VPush(background_color=None):
@@ -27,9 +25,4 @@ def VPush(background_color=None):
     :type background_color:  (str)
     :return:                 (Text)
     """
-    return Text(
-        font="_ 1",
-        background_color=background_color,
-        pad=(0, 0),
-        expand_y=True
-    )
+    return Text(font='_ 1', background_color=background_color, pad=(0, 0), expand_y=True)

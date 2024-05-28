@@ -31,9 +31,7 @@ class ErrorElement(Element):
         :return:                returns 'self' so call can be chained
         :rtype:                 (ErrorElement)
         """
-        print(
-            "** Your update is being ignored because you supplied a bad key earlier **"
-        )
+        print('** Your update is being ignored because you supplied a bad key earlier **')
         return self
 
     def get(self):
@@ -43,7 +41,7 @@ class ErrorElement(Element):
         :return: A warning text string.
         :rtype:  (str)
         """
-        return "This is NOT a valid Element!\nSTOP trying to do things with it or I will have to crash at some point!"
+        return 'This is NOT a valid Element!\nSTOP trying to do things with it or I will have to crash at some point!'
 
     Get = get
     Update = update

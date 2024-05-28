@@ -30,21 +30,13 @@ def AddMenuItem(
         if not is_sub_menu and not skip:
             pos = sub_menu_info.find(MENU_SHORTCUT_CHARACTER)
             if pos != -1:
-                if (
-                    pos < len(MENU_SHORTCUT_CHARACTER)
-                    or sub_menu_info[pos - len(MENU_SHORTCUT_CHARACTER)] != "\\"
-                ):
-                    sub_menu_info = (
-                        sub_menu_info[:pos]
-                        + sub_menu_info[pos + len(MENU_SHORTCUT_CHARACTER) :]
-                    )
-            if sub_menu_info == "---":
-                top_menu.add("separator")
+                if pos < len(MENU_SHORTCUT_CHARACTER) or sub_menu_info[pos - len(MENU_SHORTCUT_CHARACTER)] != '\\':
+                    sub_menu_info = sub_menu_info[:pos] + sub_menu_info[pos + len(MENU_SHORTCUT_CHARACTER) :]
+            if sub_menu_info == '---':
+                top_menu.add('separator')
             else:
                 try:
-                    item_without_key = sub_menu_info[
-                        : sub_menu_info.index(MENU_KEY_SEPARATOR)
-                    ]
+                    item_without_key = sub_menu_info[: sub_menu_info.index(MENU_KEY_SEPARATOR)]
                 except:
                     item_without_key = sub_menu_info
 
@@ -56,7 +48,7 @@ def AddMenuItem(
                     )
                     top_menu.entryconfig(
                         item_without_key[len(MENU_DISABLED_CHARACTER) :],
-                        state="disabled",
+                        state='disabled',
                     )
                 else:
                     top_menu.add_command(
@@ -79,24 +71,18 @@ def AddMenuItem(
                             None,
                         ):
                             new_menu.config(bg=window.right_click_menu_background_color)
-                            new_menu.config(
-                                activeforeground=window.right_click_menu_background_color
-                            )
+                            new_menu.config(activeforeground=window.right_click_menu_background_color)
                         if window.right_click_menu_text_color not in (
                             COLOR_SYSTEM_DEFAULT,
                             None,
                         ):
                             new_menu.config(fg=window.right_click_menu_text_color)
-                            new_menu.config(
-                                activebackground=window.right_click_menu_text_color
-                            )
+                            new_menu.config(activebackground=window.right_click_menu_text_color)
                         if window.right_click_menu_disabled_text_color not in (
                             COLOR_SYSTEM_DEFAULT,
                             None,
                         ):
-                            new_menu.config(
-                                disabledforeground=window.right_click_menu_disabled_text_color
-                            )
+                            new_menu.config(disabledforeground=window.right_click_menu_disabled_text_color)
                         if window.right_click_menu_font is not None:
                             new_menu.config(font=window.right_click_menu_font)
                     else:
@@ -112,34 +98,23 @@ def AddMenuItem(
                             COLOR_SYSTEM_DEFAULT,
                             None,
                         ):
-                            new_menu.config(
-                                disabledforeground=element.DisabledTextColor
-                            )
+                            new_menu.config(disabledforeground=element.DisabledTextColor)
                         if element.ItemFont is not None:
                             new_menu.config(font=element.ItemFont)
                     return_val = new_menu
                     pos = sub_menu_info[i].find(MENU_SHORTCUT_CHARACTER)
                     if pos != -1:
-                        if (
-                            pos < len(MENU_SHORTCUT_CHARACTER)
-                            or sub_menu_info[i][pos - len(MENU_SHORTCUT_CHARACTER)]
-                            != "\\"
-                        ):
-                            sub_menu_info[i] = (
-                                sub_menu_info[i][:pos]
-                                + sub_menu_info[i][pos + len(MENU_SHORTCUT_CHARACTER) :]
-                            )
+                        if pos < len(MENU_SHORTCUT_CHARACTER) or sub_menu_info[i][pos - len(MENU_SHORTCUT_CHARACTER)] != '\\':
+                            sub_menu_info[i] = sub_menu_info[i][:pos] + sub_menu_info[i][pos + len(MENU_SHORTCUT_CHARACTER) :]
                     if sub_menu_info[i][0] == MENU_DISABLED_CHARACTER:
                         top_menu.add_cascade(
                             label=sub_menu_info[i][len(MENU_DISABLED_CHARACTER) :],
                             menu=new_menu,
                             underline=pos,
-                            state="disabled",
+                            state='disabled',
                         )
                     else:
-                        top_menu.add_cascade(
-                            label=sub_menu_info[i], menu=new_menu, underline=pos
-                        )
+                        top_menu.add_cascade(label=sub_menu_info[i], menu=new_menu, underline=pos)
                     AddMenuItem(
                         new_menu,
                         sub_menu_info[i + 1],
@@ -149,9 +124,7 @@ def AddMenuItem(
                     )
                     i += 1  # skip the next one
                 else:
-                    AddMenuItem(
-                        top_menu, item, element, right_click_menu=right_click_menu
-                    )
+                    AddMenuItem(top_menu, item, element, right_click_menu=right_click_menu)
             else:
                 AddMenuItem(top_menu, item, element, right_click_menu=right_click_menu)
             i += 1
@@ -173,15 +146,11 @@ def button_color_to_tuple(color_tuple_or_string, default=(None, None)):
     :rtype:                       str | (str, str)
     """
     if default == (None, None):
-        color_tuple = _simplified_dual_color_to_tuple(
-            color_tuple_or_string, default=theme_button_color()
-        )
+        color_tuple = _simplified_dual_color_to_tuple(color_tuple_or_string, default=theme_button_color())
     elif color_tuple_or_string == COLOR_SYSTEM_DEFAULT:
         color_tuple = (COLOR_SYSTEM_DEFAULT, COLOR_SYSTEM_DEFAULT)
     else:
-        color_tuple = _simplified_dual_color_to_tuple(
-            color_tuple_or_string, default=default
-        )
+        color_tuple = _simplified_dual_color_to_tuple(color_tuple_or_string, default=default)
 
     return color_tuple
 
@@ -213,12 +182,12 @@ def _simplified_dual_color_to_tuple(color_tuple_or_string, default=(None, None))
                 background_color = color_tuple_or_string[0] or default[1]
         elif isinstance(color_tuple_or_string, str):
             color_tuple_or_string = color_tuple_or_string.lower()
-            split_colors = color_tuple_or_string.split(" on ")
+            split_colors = color_tuple_or_string.split(' on ')
             if len(split_colors) >= 2:
                 text_color = split_colors[0].strip() or default[0]
                 background_color = split_colors[1].strip() or default[1]
             elif len(split_colors) == 1:
-                split_colors = color_tuple_or_string.split("on")
+                split_colors = color_tuple_or_string.split('on')
                 if len(split_colors) == 1:
                     text_color, background_color = default[0], split_colors[0].strip()
                 else:
@@ -231,31 +200,29 @@ def _simplified_dual_color_to_tuple(color_tuple_or_string, default=(None, None))
         else:
             if not SUPPRESS_ERROR_POPUPS:
                 _error_popup_with_traceback(
-                    "** Badly formatted dual-color... not a tuple nor string **",
+                    '** Badly formatted dual-color... not a tuple nor string **',
                     color_tuple_or_string,
                 )
             else:
                 print(
-                    "** Badly formatted dual-color... not a tuple nor string **",
+                    '** Badly formatted dual-color... not a tuple nor string **',
                     color_tuple_or_string,
                 )
             text_color, background_color = default
     except Exception as e:
         if not SUPPRESS_ERROR_POPUPS:
-            _error_popup_with_traceback(
-                "** Badly formatted button color **", color_tuple_or_string, e
-            )
+            _error_popup_with_traceback('** Badly formatted button color **', color_tuple_or_string, e)
         else:
             print(
-                "** Badly formatted button color... not a tuple nor string **",
+                '** Badly formatted button color... not a tuple nor string **',
                 color_tuple_or_string,
                 e,
             )
         text_color, background_color = default
     if isinstance(text_color, int):
-        text_color = "#%06X" % text_color
+        text_color = '#%06X' % text_color
     if isinstance(background_color, int):
-        background_color = "#%06X" % background_color
+        background_color = '#%06X' % background_color
     # print('converted button color', color_tuple_or_string, 'to', (text_color, background_color))
 
     return (text_color, background_color)

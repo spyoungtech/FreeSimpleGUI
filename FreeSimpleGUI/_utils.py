@@ -52,15 +52,9 @@ def _error_popup_with_traceback(title, *args, emoji=None):
         print('*** Error popup attempted but unable to parse error details ***')
         print(trace_details)
         return
-    filename = error_parts[
-        0
-    ][error_parts[0].index('File ') + 5:]
-    line_num = error_parts[
-        1
-    ][error_parts[1].index('line ') + 5:]
-    _error_popup_with_code(
-        title, filename, line_num, error_message, *args, emoji=emoji
-    )
+    filename = error_parts[0][error_parts[0].index('File ') + 5 :]
+    line_num = error_parts[1][error_parts[1].index('line ') + 5 :]
+    _error_popup_with_code(title, filename, line_num, error_message, *args, emoji=emoji)
 
 
 def _error_popup_with_code(title, filename, line_num, *args, emoji=None):

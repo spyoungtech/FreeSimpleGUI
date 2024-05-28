@@ -3,7 +3,9 @@ from __future__ import annotations
 import tkinter.font
 
 import FreeSimpleGUI
-from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT, ELEM_TYPE_TEXT, _get_hidden_master_root
+from FreeSimpleGUI import _get_hidden_master_root
+from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
+from FreeSimpleGUI import ELEM_TYPE_TEXT
 from FreeSimpleGUI._utils import _error_popup_with_traceback
 from FreeSimpleGUI.elements.base import Element
 
@@ -15,7 +17,7 @@ class Text(Element):
 
     def __init__(
         self,
-        text="",
+        text='',
         size=(None, None),
         s=(None, None),
         auto_size_text=None,
@@ -150,13 +152,11 @@ class Text(Element):
         :type visible:           (bool)
         """
 
-        if (
-            not self._widget_was_created()
-        ):  # if widget hasn't been created yet, then don't allow
+        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback("Error in Text.update - The window was closed")
+            _error_popup_with_traceback('Error in Text.update - The window was closed')
             return
 
         if value is not None:
@@ -185,7 +185,7 @@ class Text(Element):
         try:
             text = self.TKStringVar.get()
         except:
-            text = ""
+            text = ''
         return text
 
     @classmethod
@@ -205,7 +205,7 @@ class Text(Element):
         return fonts
 
     @classmethod
-    def char_width_in_pixels(cls, font, character="W"):
+    def char_width_in_pixels(cls, font, character='W'):
         """
         Get the with of the character "W" in pixels for the font being passed in or
         the character of your choosing if "W" is not a good representative character.
@@ -223,11 +223,9 @@ class Text(Element):
 
         size = 0
         try:
-            size = tkinter.font.Font(font=font).measure(
-                character
-            )  # single character width
+            size = tkinter.font.Font(font=font).measure(character)  # single character width
         except Exception as e:
-            _error_popup_with_traceback("Exception retrieving char width in pixels", e)
+            _error_popup_with_traceback('Exception retrieving char width in pixels', e)
 
         return size
 
@@ -248,9 +246,9 @@ class Text(Element):
 
         size = 0
         try:
-            size = tkinter.font.Font(font=font).metrics("linespace")
+            size = tkinter.font.Font(font=font).metrics('linespace')
         except Exception as e:
-            _error_popup_with_traceback("Exception retrieving char height in pixels", e)
+            _error_popup_with_traceback('Exception retrieving char height in pixels', e)
 
         return size
 
@@ -274,9 +272,7 @@ class Text(Element):
         try:
             size = tkinter.font.Font(font=font).measure(string)  # string's  width
         except Exception as e:
-            _error_popup_with_traceback(
-                "Exception retrieving string width in pixels", e
-            )
+            _error_popup_with_traceback('Exception retrieving string width in pixels', e)
 
         return size
 
@@ -312,10 +308,10 @@ class Text(Element):
         :param font:              specifies the  font family, size, etc. Tuple or Single string format 'name size styles'. Styles: italic * roman bold normal underline overstrike for the value being updated
         :type font:               str | (str, int)
         """
-        end_str = str(end) if end is not None else "\n"
-        sep_str = str(sep) if sep is not None else " "
+        end_str = str(end) if end is not None else '\n'
+        sep_str = str(sep) if sep is not None else ' '
 
-        outstring = ""
+        outstring = ''
         num_args = len(args)
         for i, arg in enumerate(args):
             outstring += str(arg)
@@ -405,15 +401,13 @@ class Text(Element):
                 kw_text_color = dual_color[0]
                 kw_background_color = dual_color[1]
             elif isinstance(dual_color, str):
-                if (
-                    " on " in dual_color
-                ):  # if has "on" in the string, then have both text and background
-                    kw_text_color = dual_color.split(" on ")[0]
-                    kw_background_color = dual_color.split(" on ")[1]
+                if ' on ' in dual_color:  # if has "on" in the string, then have both text and background
+                    kw_text_color = dual_color.split(' on ')[0]
+                    kw_background_color = dual_color.split(' on ')[1]
                 else:  # if no "on" then assume the color string is just the text color
                     kw_text_color = dual_color
         except Exception as e:
-            print("* multiline print warning * you messed up with color formatting", e)
+            print('* multiline print warning * you messed up with color formatting', e)
 
         self._print_to_element(
             *args,

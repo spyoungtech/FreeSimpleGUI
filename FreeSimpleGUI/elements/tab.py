@@ -5,19 +5,17 @@ import warnings
 from tkinter import ttk
 
 import FreeSimpleGUI
-from FreeSimpleGUI import (
-    COLOR_SYSTEM_DEFAULT,
-    ELEM_TYPE_TAB,
-    ELEM_TYPE_TAB_GROUP,
-    LOOK_AND_FEEL_TABLE,
-    Element,
-    PackFormIntoFrame,
-    ToolTip,
-    _add_right_click_menu,
-    _random_error_emoji,
-    popup_error,
-    popup_error_with_traceback,
-)
+from FreeSimpleGUI import _add_right_click_menu
+from FreeSimpleGUI import _random_error_emoji
+from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
+from FreeSimpleGUI import ELEM_TYPE_TAB
+from FreeSimpleGUI import ELEM_TYPE_TAB_GROUP
+from FreeSimpleGUI import Element
+from FreeSimpleGUI import LOOK_AND_FEEL_TABLE
+from FreeSimpleGUI import PackFormIntoFrame
+from FreeSimpleGUI import popup_error
+from FreeSimpleGUI import popup_error_with_traceback
+from FreeSimpleGUI import ToolTip
 from FreeSimpleGUI._utils import _error_popup_with_traceback
 from FreeSimpleGUI.window import Window
 
@@ -46,7 +44,7 @@ class Tab(Element):
         expand_x=False,
         expand_y=False,
         visible=True,
-        element_justification="left",
+        element_justification='left',
         image_source=None,
         image_subsample=None,
         image_zoom=None,
@@ -127,11 +125,7 @@ class Tab(Element):
         self.Disabled = disabled
         self.ParentNotebook = None
         self.TabID = None
-        self.BackgroundColor = (
-            background_color
-            if background_color is not None
-            else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
-        )
+        self.BackgroundColor = background_color if background_color is not None else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
         self.RightClickMenu = right_click_menu
         self.ContainerElemementNumber = Window._GetAContainerNumber()
         self.ElementJustification = element_justification
@@ -166,43 +160,41 @@ class Tab(Element):
         CurrentRowNumber = NumRows  # this row's number
         CurrentRow = []  # start with a blank row and build up
         # -------------------------  Add the elements to a row  ------------------------- #
-        for i, element in enumerate(
-            args
-        ):  # Loop through list of elements and add them to the row
+        for i, element in enumerate(args):  # Loop through list of elements and add them to the row
             if type(element) is list:
                 popup_error_with_traceback(
-                    "Error creating Tab layout",
-                    "Layout has a LIST instead of an ELEMENT",
-                    "This sometimes means you have a badly placed ]",
-                    "The offensive list is:",
+                    'Error creating Tab layout',
+                    'Layout has a LIST instead of an ELEMENT',
+                    'This sometimes means you have a badly placed ]',
+                    'The offensive list is:',
                     element,
-                    "This list will be stripped from your layout",
+                    'This list will be stripped from your layout',
                 )
                 continue
             elif callable(element) and not isinstance(element, Element):
                 popup_error_with_traceback(
-                    "Error creating Tab layout",
-                    "Layout has a FUNCTION instead of an ELEMENT",
-                    "This likely means you are missing () from your layout",
-                    "The offensive list is:",
+                    'Error creating Tab layout',
+                    'Layout has a FUNCTION instead of an ELEMENT',
+                    'This likely means you are missing () from your layout',
+                    'The offensive list is:',
                     element,
-                    "This item will be stripped from your layout",
+                    'This item will be stripped from your layout',
                 )
                 continue
             if element.ParentContainer is not None:
                 warnings.warn(
-                    "*** YOU ARE ATTEMPTING TO REUSE AN ELEMENT IN YOUR LAYOUT! Once placed in a layout, an element cannot be used in another layout. ***",
+                    '*** YOU ARE ATTEMPTING TO REUSE AN ELEMENT IN YOUR LAYOUT! Once placed in a layout, an element cannot be used in another layout. ***',
                     UserWarning,
                 )
                 popup_error_with_traceback(
-                    "Error creating Tab layout",
-                    "The layout specified has already been used",
+                    'Error creating Tab layout',
+                    'The layout specified has already been used',
                     'You MUST start with a "clean", unused layout every time you create a window',
-                    "The offensive Element = ",
+                    'The offensive Element = ',
                     element,
-                    "and has a key = ",
+                    'and has a key = ',
                     element.Key,
-                    "This item will be stripped from your layout",
+                    'This item will be stripped from your layout',
                     'Hint - try printing your layout and matching the IDs "print(layout)"',
                 )
                 continue
@@ -229,12 +221,12 @@ class Tab(Element):
                 iter(row)
             except TypeError:
                 popup_error(
-                    "Error creating Tab layout",
-                    "Your row is not an iterable (e.g. a list)",
+                    'Error creating Tab layout',
+                    'Your row is not an iterable (e.g. a list)',
                     f"Instead of a list, the type found was {type(row)}",
-                    "The offensive row = ",
+                    'The offensive row = ',
                     row,
-                    "This item will be stripped from your layout",
+                    'This item will be stripped from your layout',
                     keep_on_top=True,
                     image=_random_error_emoji(),
                 )
@@ -259,22 +251,20 @@ class Tab(Element):
         :param visible:  control visibility of element
         :type visible:   (bool)
         """
-        if (
-            not self._widget_was_created()
-        ):  # if widget hasn't been created yet, then don't allow
+        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback("Error in Tab.update - The window was closed")
+            _error_popup_with_traceback('Error in Tab.update - The window was closed')
             return
 
-        state = "normal"
+        state = 'normal'
         if disabled is not None:
             self.Disabled = disabled
             if disabled:
-                state = "disabled"
+                state = 'disabled'
         if visible is False:
-            state = "hidden"
+            state = 'hidden'
         if visible is not None:
             self._visible = visible
 
@@ -412,42 +402,20 @@ class TabGroup(Element):
         self.ReturnValuesDictionary = {}
         self.DictionaryKeyCounter = 0
         self.ParentWindow = None
-        self.SelectedTitleColor = (
-            selected_title_color
-            if selected_title_color is not None
-            else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]["TEXT"]
-        )
-        self.SelectedBackgroundColor = (
-            selected_background_color
-            if selected_background_color is not None
-            else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]["BACKGROUND"]
-        )
-        title_color = (
-            title_color
-            if title_color is not None
-            else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]["TEXT_INPUT"]
-        )
-        self.TabBackgroundColor = (
-            tab_background_color
-            if tab_background_color is not None
-            else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]["INPUT"]
-        )
+        self.SelectedTitleColor = selected_title_color if selected_title_color is not None else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]['TEXT']
+        self.SelectedBackgroundColor = selected_background_color if selected_background_color is not None else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]['BACKGROUND']
+        title_color = title_color if title_color is not None else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]['TEXT_INPUT']
+        self.TabBackgroundColor = tab_background_color if tab_background_color is not None else LOOK_AND_FEEL_TABLE[FreeSimpleGUI.CURRENT_LOOK_AND_FEEL]['INPUT']
         self.Rows = []
         self.TKNotebook = None  # type: ttk.Notebook
         self.Widget = None  # type: ttk.Notebook
-        self.tab_index_to_key = (
-            {}
-        )  # has a list of the tabs in the notebook and their associated key
+        self.tab_index_to_key = {}  # has a list of the tabs in the notebook and their associated key
         self.TabCount = 0
         self.BorderWidth = border_width
-        self.BackgroundColor = (
-            background_color
-            if background_color is not None
-            else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
-        )
+        self.BackgroundColor = background_color if background_color is not None else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
         self.ChangeSubmits = change_submits or enable_events
         self.TabLocation = tab_location
-        self.ElementJustification = "left"
+        self.ElementJustification = 'left'
         self.RightClickMenu = right_click_menu
         self.TabBorderWidth = tab_border_width
         self.FocusColor = focus_color
@@ -486,47 +454,45 @@ class TabGroup(Element):
         CurrentRowNumber = NumRows  # this row's number
         CurrentRow = []  # start with a blank row and build up
         # -------------------------  Add the elements to a row  ------------------------- #
-        for i, element in enumerate(
-            args
-        ):  # Loop through list of elements and add them to the row
+        for i, element in enumerate(args):  # Loop through list of elements and add them to the row
             if type(element) is list:
                 popup_error(
-                    "Error creating Tab layout",
-                    "Layout has a LIST instead of an ELEMENT",
-                    "This sometimes means you have a badly placed ]",
-                    "The offensive list is:",
+                    'Error creating Tab layout',
+                    'Layout has a LIST instead of an ELEMENT',
+                    'This sometimes means you have a badly placed ]',
+                    'The offensive list is:',
                     element,
-                    "This list will be stripped from your layout",
+                    'This list will be stripped from your layout',
                     keep_on_top=True,
                     image=_random_error_emoji(),
                 )
                 continue
             elif callable(element) and not isinstance(element, Element):
                 popup_error(
-                    "Error creating Tab layout",
-                    "Layout has a FUNCTION instead of an ELEMENT",
-                    "This likely means you are missing () from your layout",
-                    "The offensive list is:",
+                    'Error creating Tab layout',
+                    'Layout has a FUNCTION instead of an ELEMENT',
+                    'This likely means you are missing () from your layout',
+                    'The offensive list is:',
                     element,
-                    "This item will be stripped from your layout",
+                    'This item will be stripped from your layout',
                     keep_on_top=True,
                     image=_random_error_emoji(),
                 )
                 continue
             if element.ParentContainer is not None:
                 warnings.warn(
-                    "*** YOU ARE ATTEMPTING TO REUSE AN ELEMENT IN YOUR LAYOUT! Once placed in a layout, an element cannot be used in another layout. ***",
+                    '*** YOU ARE ATTEMPTING TO REUSE AN ELEMENT IN YOUR LAYOUT! Once placed in a layout, an element cannot be used in another layout. ***',
                     UserWarning,
                 )
                 popup_error(
-                    "Error creating Tab layout",
-                    "The layout specified has already been used",
+                    'Error creating Tab layout',
+                    'The layout specified has already been used',
                     'You MUST start with a "clean", unused layout every time you create a window',
-                    "The offensive Element = ",
+                    'The offensive Element = ',
                     element,
-                    "and has a key = ",
+                    'and has a key = ',
                     element.Key,
-                    "This item will be stripped from your layout",
+                    'This item will be stripped from your layout',
                     'Hint - try printing your layout and matching the IDs "print(layout)"',
                     keep_on_top=True,
                     image=_random_error_emoji(),
@@ -554,12 +520,12 @@ class TabGroup(Element):
                 iter(row)
             except TypeError:
                 popup_error(
-                    "Error creating Tab layout",
-                    "Your row is not an iterable (e.g. a list)",
+                    'Error creating Tab layout',
+                    'Your row is not an iterable (e.g. a list)',
                     f"Instead of a list, the type found was {type(row)}",
-                    "The offensive row = ",
+                    'The offensive row = ',
                     row,
-                    "This item will be stripped from your layout",
+                    'This item will be stripped from your layout',
                     keep_on_top=True,
                     image=_random_error_emoji(),
                 )
@@ -604,7 +570,7 @@ class TabGroup(Element):
         :rtype:     key | None
         """
         try:
-            current_index = self.TKNotebook.index("current")
+            current_index = self.TKNotebook.index('current')
             key = self.tab_index_to_key.get(current_index, None)
         except:
             key = None
@@ -623,7 +589,7 @@ class TabGroup(Element):
         """
 
         try:
-            current_index = self.TKNotebook.index("current")
+            current_index = self.TKNotebook.index('current')
             key = self.tab_index_to_key.get(current_index, None)
         except:
             key = None
@@ -665,10 +631,10 @@ class TabGroup(Element):
         except Exception as e:
             photo = None
             _error_popup_with_traceback(
-                "Your Window has an Tab Element with an IMAGE problem",
-                "The traceback will show you the Window with the problem layout",
+                'Your Window has an Tab Element with an IMAGE problem',
+                'The traceback will show you the Window with the problem layout',
                 f"Look in this Window's layout for an Image tab_element that has a key of {tab_element.Key}",
-                "The error occuring is:",
+                'The error occuring is:',
                 e,
             )
 
@@ -687,11 +653,11 @@ class TabGroup(Element):
             tab_element.tktext_label = tk.Label(tab_element.ParentRowFrame, bd=0)
         # ------------------- end of imagey-stuff -------------------
 
-        state = "normal"
+        state = 'normal'
         if tab_element.Disabled:
-            state = "disabled"
+            state = 'disabled'
         if tab_element.visible is False:
-            state = "hidden"
+            state = 'hidden'
         if photo is not None:
             self.TKNotebook.add(
                 tab_element.TKFrame,
@@ -701,17 +667,12 @@ class TabGroup(Element):
                 image=photo,
             )
         else:
-            self.TKNotebook.add(
-                tab_element.TKFrame, text=tab_element.Title, state=state
-            )
+            self.TKNotebook.add(tab_element.TKFrame, text=tab_element.Title, state=state)
         tab_element.ParentNotebook = self.TKNotebook
         tab_element.TabID = self.TabCount
         tab_element.ParentForm = self.ParentForm
         self.TabCount += 1
-        if (
-            tab_element.BackgroundColor != COLOR_SYSTEM_DEFAULT
-            and tab_element.BackgroundColor is not None
-        ):
+        if tab_element.BackgroundColor != COLOR_SYSTEM_DEFAULT and tab_element.BackgroundColor is not None:
             tab_element.TKFrame.configure(
                 background=tab_element.BackgroundColor,
                 highlightbackground=tab_element.BackgroundColor,
@@ -734,15 +695,11 @@ class TabGroup(Element):
         :param visible:  control visibility of element
         :type visible:   (bool)
         """
-        if (
-            not self._widget_was_created()
-        ):  # if widget hasn't been created yet, then don't allow
+        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback(
-                "Error in TabGroup.update - The window was closed"
-            )
+            _error_popup_with_traceback('Error in TabGroup.update - The window was closed')
             return
 
         if visible is False:

@@ -2,26 +2,22 @@ from __future__ import annotations
 
 import tkinter as tk
 import warnings
-from typing import (
-    Any,  # noqa
-    List,  # noqa
-)
+from typing import Any
+from typing import List
 
 import FreeSimpleGUI
-from FreeSimpleGUI import (
-    ELEM_TYPE_INPUT_LISTBOX,
-    LISTBOX_SELECT_MODE_BROWSE,
-    LISTBOX_SELECT_MODE_EXTENDED,
-    LISTBOX_SELECT_MODE_MULTIPLE,
-    LISTBOX_SELECT_MODE_SINGLE,
-    SELECT_MODE_BROWSE,
-    SELECT_MODE_EXTENDED,
-    SELECT_MODE_MULTIPLE,
-    SELECT_MODE_SINGLE,
-    Element,
-    theme_input_background_color,
-    theme_input_text_color,
-)
+from FreeSimpleGUI import ELEM_TYPE_INPUT_LISTBOX
+from FreeSimpleGUI import Element
+from FreeSimpleGUI import LISTBOX_SELECT_MODE_BROWSE
+from FreeSimpleGUI import LISTBOX_SELECT_MODE_EXTENDED
+from FreeSimpleGUI import LISTBOX_SELECT_MODE_MULTIPLE
+from FreeSimpleGUI import LISTBOX_SELECT_MODE_SINGLE
+from FreeSimpleGUI import SELECT_MODE_BROWSE
+from FreeSimpleGUI import SELECT_MODE_EXTENDED
+from FreeSimpleGUI import SELECT_MODE_MULTIPLE
+from FreeSimpleGUI import SELECT_MODE_SINGLE
+from FreeSimpleGUI import theme_input_background_color
+from FreeSimpleGUI import theme_input_text_color
 from FreeSimpleGUI._utils import _error_popup_with_traceback
 
 
@@ -144,8 +140,8 @@ class Listbox(Element):
 
         if values is None:
             _error_popup_with_traceback(
-                "Error in your Listbox definition - The values parameter cannot be None",
-                "Use an empty list if you want no values in your Listbox",
+                'Error in your Listbox definition - The values parameter cannot be None',
+                'Use an empty list if you want no values in your Listbox',
             )
 
         self.Values = values
@@ -164,18 +160,10 @@ class Listbox(Element):
             self.SelectMode = SELECT_MODE_SINGLE
         else:
             self.SelectMode = FreeSimpleGUI.DEFAULT_LISTBOX_SELECT_MODE
-        bg = (
-            background_color
-            if background_color is not None
-            else theme_input_background_color()
-        )
+        bg = background_color if background_color is not None else theme_input_background_color()
         fg = text_color if text_color is not None else theme_input_text_color()
-        self.HighlightBackgroundColor = (
-            highlight_background_color if highlight_background_color is not None else fg
-        )
-        self.HighlightTextColor = (
-            highlight_text_color if highlight_text_color is not None else bg
-        )
+        self.HighlightBackgroundColor = highlight_background_color if highlight_background_color is not None else fg
+        self.HighlightTextColor = highlight_text_color if highlight_text_color is not None else bg
         self.RightClickMenu = right_click_menu
         self.vsb = None  # type: tk.Scrollbar or None
         self.hsb = None  # type: tk.Scrollbar | None
@@ -242,48 +230,38 @@ class Listbox(Element):
         :type visible:          (bool)
         """
 
-        if (
-            not self._widget_was_created()
-        ):  # if widget hasn't been created yet, then don't allow
+        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback(
-                "Error in Listbox.update - The window was closed"
-            )
+            _error_popup_with_traceback('Error in Listbox.update - The window was closed')
             return
 
         if disabled is True:
-            self.TKListbox.configure(state="disabled")
+            self.TKListbox.configure(state='disabled')
         elif disabled is False:
-            self.TKListbox.configure(state="normal")
+            self.TKListbox.configure(state='normal')
         self.Disabled = disabled if disabled is not None else self.Disabled
 
         if values is not None:
-            self.TKListbox.delete(0, "end")
+            self.TKListbox.delete(0, 'end')
             for item in list(values):
                 self.TKListbox.insert(tk.END, item)
             # self.TKListbox.selection_set(0, 0)
             self.Values = list(values)
         if set_to_index is not None:
-            self.TKListbox.selection_clear(
-                0, len(self.Values)
-            )  # clear all listbox selections
+            self.TKListbox.selection_clear(0, len(self.Values))  # clear all listbox selections
             if type(set_to_index) in (tuple, list):
                 for i in set_to_index:
                     try:
                         self.TKListbox.selection_set(i, i)
                     except:
-                        warnings.warn(
-                            f"* Listbox Update selection_set failed with index {set_to_index}*"
-                        )
+                        warnings.warn(f"* Listbox Update selection_set failed with index {set_to_index}*")
             else:
                 try:
                     self.TKListbox.selection_set(set_to_index, set_to_index)
                 except:
-                    warnings.warn(
-                        f"* Listbox Update selection_set failed with index {set_to_index}*"
-                    )
+                    warnings.warn(f"* Listbox Update selection_set failed with index {set_to_index}*")
         if visible is False:
             self._pack_forget_save_settings(self.element_frame)
         elif visible is True:
@@ -294,7 +272,7 @@ class Listbox(Element):
             try:
                 self.TKListbox.config(selectmode=select_mode)
             except:
-                print("Listbox.update error trying to change mode to: ", select_mode)
+                print('Listbox.update error trying to change mode to: ', select_mode)
         if visible is not None:
             self._visible = visible
 
@@ -350,9 +328,7 @@ class Listbox(Element):
             value = []
         return value
 
-    def select_index(
-        self, index, highlight_text_color=None, highlight_background_color=None
-    ):
+    def select_index(self, index, highlight_text_color=None, highlight_background_color=None):
         """
         Selects an index while providing capability to setting the selected color for the index to specific text/background color
 
@@ -364,23 +340,15 @@ class Listbox(Element):
         :type  highlight_background_color:  (str)
         """
 
-        if (
-            not self._widget_was_created()
-        ):  # if widget hasn't been created yet, then don't allow
+        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback(
-                "Error in Listbox.select_item - The window was closed"
-            )
+            _error_popup_with_traceback('Error in Listbox.select_item - The window was closed')
             return
 
         if index >= len(self.Values):
-            _error_popup_with_traceback(
-                "Index {} is out of range for Listbox.select_index. Max allowed index is {}.".format(
-                    index, len(self.Values) - 1
-                )
-            )
+            _error_popup_with_traceback('Index {} is out of range for Listbox.select_index. Max allowed index is {}.'.format(index, len(self.Values) - 1))
             return
 
         self.TKListbox.selection_set(index, index)
@@ -413,23 +381,15 @@ class Listbox(Element):
         :type  highlight_background_color: (str)
         """
 
-        if (
-            not self._widget_was_created()
-        ):  # if widget hasn't been created yet, then don't allow
+        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback(
-                "Error in Listbox.set_item_color - The window was closed"
-            )
+            _error_popup_with_traceback('Error in Listbox.set_item_color - The window was closed')
             return
 
         if index >= len(self.Values):
-            _error_popup_with_traceback(
-                "Index {} is out of range for Listbox.set_index_color. Max allowed index is {}.".format(
-                    index, len(self.Values) - 1
-                )
-            )
+            _error_popup_with_traceback('Index {} is out of range for Listbox.set_index_color. Max allowed index is {}.'.format(index, len(self.Values) - 1))
             return
 
         if text_color is not None:

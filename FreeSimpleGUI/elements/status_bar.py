@@ -3,12 +3,10 @@ from __future__ import annotations
 import tkinter as tk
 
 import FreeSimpleGUI
-from FreeSimpleGUI import (
-    COLOR_SYSTEM_DEFAULT,
-    ELEM_TYPE_STATUSBAR,
-    RELIEF_SUNKEN,
-    Element,
-)
+from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
+from FreeSimpleGUI import ELEM_TYPE_STATUSBAR
+from FreeSimpleGUI import Element
+from FreeSimpleGUI import RELIEF_SUNKEN
 from FreeSimpleGUI._utils import _error_popup_with_traceback
 
 
@@ -147,15 +145,11 @@ class StatusBar(Element):
         :type visible:           (bool)
         """
 
-        if (
-            not self._widget_was_created()
-        ):  # if widget hasn't been created yet, then don't allow
+        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback(
-                "Error in StatusBar.update - The window was closed"
-            )
+            _error_popup_with_traceback('Error in StatusBar.update - The window was closed')
             return
 
         if value is not None:

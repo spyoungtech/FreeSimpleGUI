@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 import datetime
 import os
 import pickle
@@ -9,11 +8,11 @@ import time
 import types
 from random import randint
 
-import wx
 import wx.adv
 import wx.lib.inspection
 import wx.lib.scrolledpanel
 from wx.lib.embeddedimage import PyEmbeddedImage
+
 version = __version__ = '0.17.1.5 Unreleased\n VSeparator added (spelling error), Radio.reset_group added and removed the clearing all when one cleared, added default key for one_line_progress_meter, auto-add keys to tables & trees, added theme_add_new'
 
 port = 'PySimpleGUIWx'

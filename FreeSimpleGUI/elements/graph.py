@@ -3,13 +3,12 @@ from __future__ import annotations
 import tkinter as tk
 from math import floor
 
-from FreeSimpleGUI import (
-    COLOR_SYSTEM_DEFAULT,
-    ELEM_TYPE_GRAPH,
-    TEXT_LOCATION_CENTER,
-    Element,
-)
-from FreeSimpleGUI._utils import _error_popup_with_traceback, _exit_mainloop
+from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
+from FreeSimpleGUI import ELEM_TYPE_GRAPH
+from FreeSimpleGUI import Element
+from FreeSimpleGUI import TEXT_LOCATION_CENTER
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+from FreeSimpleGUI._utils import _exit_mainloop
 
 
 class Graph(Element):
@@ -19,22 +18,22 @@ class Graph(Element):
     with the element using your own coordinate system.
     This is an important point!!
     YOU define where the location is for (0,0).
-    
+
     Want (0,0) to be in the middle of the graph like a math 4-quadrant graph?
     No problem!
-    
+
     Set your lower left corner to be (-100,-100)
     and your upper right to be (100,100)
     and you've got yourself a graph with (0,0) at the center.
-    
+
     One of THE coolest of the Elements.
-    
+
     You can also use float values.
     To do so, be sure and set the `float_values` parameter.
-    
+
     Mouse click and drag events are possible
     and return the (x,y) coordinates of the mouse
-    
+
     Drawing primitives return an "id" that is referenced
     when you want to operation on that item (e.g. to erase it)
     """
@@ -181,7 +180,7 @@ class Graph(Element):
         else:
             return floor(new_x), floor(new_y)
 
-    def draw_line(self, point_from, point_to, color="black", width=1):
+    def draw_line(self, point_from, point_to, color='black', width=1):
         """
         Draws a line from one point to another point using USER'S coordinates. Can set the color and width of line
         :param point_from: Starting point for line
@@ -197,25 +196,19 @@ class Graph(Element):
         """
         if point_from == (None, None):
             return
-        converted_point_from = self._convert_xy_to_canvas_xy(
-            point_from[0], point_from[1]
-        )
+        converted_point_from = self._convert_xy_to_canvas_xy(point_from[0], point_from[1])
         converted_point_to = self._convert_xy_to_canvas_xy(point_to[0], point_to[1])
         if self._TKCanvas2 is None:
-            print(
-                "*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***"
-            )
-            print("Call Window.Finalize() prior to this operation")
+            print('*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***')
+            print('Call Window.Finalize() prior to this operation')
             return None
         try:  # in case window was closed with an X
-            id = self._TKCanvas2.create_line(
-                converted_point_from, converted_point_to, width=width, fill=color
-            )
+            id = self._TKCanvas2.create_line(converted_point_from, converted_point_to, width=width, fill=color)
         except:
             id = None
         return id
 
-    def draw_lines(self, points, color="black", width=1):
+    def draw_lines(self, points, color='black', width=1):
         """
         Draw a series of lines given list of points
 
@@ -228,22 +221,18 @@ class Graph(Element):
         :return:       id returned from tkinter or None if user closed the window. id is used when you
         :rtype:        int | None
         """
-        converted_points = [
-            self._convert_xy_to_canvas_xy(point[0], point[1]) for point in points
-        ]
+        converted_points = [self._convert_xy_to_canvas_xy(point[0], point[1]) for point in points]
 
         try:  # in case window was closed with an X
             id = self._TKCanvas2.create_line(*converted_points, width=width, fill=color)
         except:
             if self._TKCanvas2 is None:
-                print(
-                    "*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***"
-                )
-                print("Call Window.Finalize() prior to this operation")
+                print('*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***')
+                print('Call Window.Finalize() prior to this operation')
             id = None
         return id
 
-    def draw_point(self, point, size=2, color="black"):
+    def draw_point(self, point, size=2, color='black'):
         """
         Draws a "dot" at the point you specify using the USER'S coordinate system
         :param point: Center location using USER'S coordinate system
@@ -261,10 +250,8 @@ class Graph(Element):
         size_converted = self._convert_xy_to_canvas_xy(point[0] + size, point[1])
         size = size_converted[0] - converted_point[0]
         if self._TKCanvas2 is None:
-            print(
-                "*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***"
-            )
-            print("Call Window.Finalize() prior to this operation")
+            print('*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***')
+            print('Call Window.Finalize() prior to this operation')
             return None
         try:  # needed in case window was closed with an X
             point1 = converted_point[0] - size // 2, converted_point[1] - size // 2
@@ -282,9 +269,7 @@ class Graph(Element):
             id = None
         return id
 
-    def draw_circle(
-        self, center_location, radius, fill_color=None, line_color="black", line_width=1
-    ):
+    def draw_circle(self, center_location, radius, fill_color=None, line_color='black', line_width=1):
         """
         Draws a circle, centered at the location provided.  Can set the fill and outline colors
         :param center_location: Center location using USER'S coordinate system
@@ -302,19 +287,13 @@ class Graph(Element):
         """
         if center_location == (None, None):
             return
-        converted_point = self._convert_xy_to_canvas_xy(
-            center_location[0], center_location[1]
-        )
-        radius_converted = self._convert_xy_to_canvas_xy(
-            center_location[0] + radius, center_location[1]
-        )
+        converted_point = self._convert_xy_to_canvas_xy(center_location[0], center_location[1])
+        radius_converted = self._convert_xy_to_canvas_xy(center_location[0] + radius, center_location[1])
         radius = radius_converted[0] - converted_point[0]
         # radius = radius_converted[1]-5
         if self._TKCanvas2 is None:
-            print(
-                "*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***"
-            )
-            print("Call Window.Finalize() prior to this operation")
+            print('*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***')
+            print('Call Window.Finalize() prior to this operation')
             return None
         try:  # needed in case the window was closed with an X
             id = self._TKCanvas2.create_oval(
@@ -330,9 +309,7 @@ class Graph(Element):
             id = None
         return id
 
-    def draw_oval(
-        self, top_left, bottom_right, fill_color=None, line_color=None, line_width=1
-    ):
+    def draw_oval(self, top_left, bottom_right, fill_color=None, line_color=None, line_width=1):
         """
         Draws an oval based on coordinates in user coordinate system. Provide the location of a "bounding rectangle"
         :param top_left:     the top left point of bounding rectangle
@@ -349,14 +326,10 @@ class Graph(Element):
         :rtype:              int | None
         """
         converted_top_left = self._convert_xy_to_canvas_xy(top_left[0], top_left[1])
-        converted_bottom_right = self._convert_xy_to_canvas_xy(
-            bottom_right[0], bottom_right[1]
-        )
+        converted_bottom_right = self._convert_xy_to_canvas_xy(bottom_right[0], bottom_right[1])
         if self._TKCanvas2 is None:
-            print(
-                "*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***"
-            )
-            print("Call Window.Finalize() prior to this operation")
+            print('*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***')
+            print('Call Window.Finalize() prior to this operation')
             return None
         try:  # in case windows close with X
             id = self._TKCanvas2.create_oval(
@@ -380,7 +353,7 @@ class Graph(Element):
         extent,
         start_angle,
         style=None,
-        arc_color="black",
+        arc_color='black',
         line_width=1,
         fill_color=None,
     ):
@@ -404,15 +377,11 @@ class Graph(Element):
         :rtype:              int | None
         """
         converted_top_left = self._convert_xy_to_canvas_xy(top_left[0], top_left[1])
-        converted_bottom_right = self._convert_xy_to_canvas_xy(
-            bottom_right[0], bottom_right[1]
-        )
+        converted_bottom_right = self._convert_xy_to_canvas_xy(bottom_right[0], bottom_right[1])
         tk_style = tk.PIESLICE if style is None else style
         if self._TKCanvas2 is None:
-            print(
-                "*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***"
-            )
-            print("Call Window.Finalize() prior to this operation")
+            print('*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***')
+            print('Call Window.Finalize() prior to this operation')
             return None
         try:  # in case closed with X
             id = self._TKCanvas2.create_arc(
@@ -428,13 +397,11 @@ class Graph(Element):
                 fill=fill_color,
             )
         except Exception as e:
-            print("Error encountered drawing arc.", e)
+            print('Error encountered drawing arc.', e)
             id = None
         return id
 
-    def draw_rectangle(
-        self, top_left, bottom_right, fill_color=None, line_color=None, line_width=None
-    ):
+    def draw_rectangle(self, top_left, bottom_right, fill_color=None, line_color=None, line_width=None):
         """
         Draw a rectangle given 2 points. Can control the line and fill colors
 
@@ -453,14 +420,10 @@ class Graph(Element):
         """
 
         converted_top_left = self._convert_xy_to_canvas_xy(top_left[0], top_left[1])
-        converted_bottom_right = self._convert_xy_to_canvas_xy(
-            bottom_right[0], bottom_right[1]
-        )
+        converted_bottom_right = self._convert_xy_to_canvas_xy(bottom_right[0], bottom_right[1])
         if self._TKCanvas2 is None:
-            print(
-                "*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***"
-            )
-            print("Call Window.Finalize() prior to this operation")
+            print('*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***')
+            print('Call Window.Finalize() prior to this operation')
             return None
         if line_width is None:
             line_width = 1
@@ -494,19 +457,13 @@ class Graph(Element):
         :rtype:            int | None
         """
 
-        converted_points = [
-            self._convert_xy_to_canvas_xy(point[0], point[1]) for point in points
-        ]
+        converted_points = [self._convert_xy_to_canvas_xy(point[0], point[1]) for point in points]
         if self._TKCanvas2 is None:
-            print(
-                "*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***"
-            )
-            print("Call Window.Finalize() prior to this operation")
+            print('*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***')
+            print('Call Window.Finalize() prior to this operation')
             return None
         try:  # in case closed with X
-            id = self._TKCanvas2.create_polygon(
-                converted_points, fill=fill_color, outline=line_color, width=line_width
-            )
+            id = self._TKCanvas2.create_polygon(converted_points, fill=fill_color, outline=line_color, width=line_width)
         except:
             id = None
         return id
@@ -515,7 +472,7 @@ class Graph(Element):
         self,
         text,
         location,
-        color="black",
+        color='black',
         font=None,
         angle=0,
         text_location=TEXT_LOCATION_CENTER,
@@ -543,10 +500,8 @@ class Graph(Element):
             return
         converted_point = self._convert_xy_to_canvas_xy(location[0], location[1])
         if self._TKCanvas2 is None:
-            print(
-                "*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***"
-            )
-            print("Call Window.Finalize() prior to this operation")
+            print('*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***')
+            print('Call Window.Finalize() prior to this operation')
             return None
         try:  # in case closed with X
             id = self._TKCanvas2.create_text(
@@ -587,15 +542,11 @@ class Graph(Element):
                 return None  # an error likely means the window has closed so exit
         converted_point = self._convert_xy_to_canvas_xy(location[0], location[1])
         if self._TKCanvas2 is None:
-            print(
-                "*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***"
-            )
-            print("Call Window.Finalize() prior to this operation")
+            print('*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***')
+            print('Call Window.Finalize() prior to this operation')
             return None
         try:  # in case closed with X
-            id = self._TKCanvas2.create_image(
-                converted_point, image=image, anchor=tk.NW
-            )
+            id = self._TKCanvas2.create_image(converted_point, image=image, anchor=tk.NW)
             self.Images[id] = image
         except:
             id = None
@@ -606,14 +557,12 @@ class Graph(Element):
         Erase the Graph - Removes all figures previously "drawn" using the Graph methods (e.g. DrawText)
         """
         if self._TKCanvas2 is None:
-            print(
-                "*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***"
-            )
-            print("Call Window.Finalize() prior to this operation")
+            print('*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***')
+            print('Call Window.Finalize() prior to this operation')
             return None
         self.Images = {}
         try:  # in case window was closed with X
-            self._TKCanvas2.delete("all")
+            self._TKCanvas2.delete('all')
         except:
             pass
 
@@ -629,9 +578,7 @@ class Graph(Element):
         except:
             print(f"DeleteFigure - bad ID {id}")
         try:
-            del self.Images[
-                id
-            ]  # in case was an image. If wasn't an image, then will get exception
+            del self.Images[id]  # in case was an image. If wasn't an image, then will get exception
         except:
             pass
 
@@ -650,13 +597,11 @@ class Graph(Element):
         :param visible:          control visibility of element
         :type visible:           (bool)
         """
-        if (
-            not self._widget_was_created()
-        ):  # if widget hasn't been created yet, then don't allow
+        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback("Error in Graph.update - The window was closed")
+            _error_popup_with_traceback('Error in Graph.update - The window was closed')
             return
 
         if background_color is not None and background_color != COLOR_SYSTEM_DEFAULT:
@@ -686,12 +631,10 @@ class Graph(Element):
             shift_converted[1] - zero_converted[1],
         )
         if self._TKCanvas2 is None:
-            print(
-                "*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***"
-            )
-            print("Call Window.Finalize() prior to this operation")
+            print('*** WARNING - The Graph element has not been finalized and cannot be drawn upon ***')
+            print('Call Window.Finalize() prior to this operation')
             return None
-        self._TKCanvas2.move("all", shift_amount[0], shift_amount[1])
+        self._TKCanvas2.move('all', shift_amount[0], shift_amount[1])
 
     def move_figure(self, figure, x_direction, y_direction):
         """
@@ -711,7 +654,7 @@ class Graph(Element):
             shift_converted[1] - zero_converted[1],
         )
         if figure is None:
-            print("* move_figure warning - your figure is None *")
+            print('* move_figure warning - your figure is None *')
             return None
         self._TKCanvas2.move(figure, shift_amount[0], shift_amount[1])
 
@@ -732,15 +675,11 @@ class Graph(Element):
         shift_converted = self._convert_xy_to_canvas_xy(x, y)
         # shift_amount = (shift_converted[0] - zero_converted[0], shift_converted[1] - zero_converted[1])
         if figure is None:
-            print(
-                "*** WARNING - Your figure is None. It most likely means your did not Finalize your Window ***"
-            )
-            print("Call Window.Finalize() prior to all graph operations")
+            print('*** WARNING - Your figure is None. It most likely means your did not Finalize your Window ***')
+            print('Call Window.Finalize() prior to all graph operations')
             return None
         xy = self._TKCanvas2.coords(figure)
-        self._TKCanvas2.move(
-            figure, shift_converted[0] - xy[0], shift_converted[1] - xy[1]
-        )
+        self._TKCanvas2.move(figure, shift_converted[0] - xy[0], shift_converted[1] - xy[1])
 
     def send_figure_to_back(self, figure):
         """
@@ -749,9 +688,7 @@ class Graph(Element):
         :param figure: value returned by tkinter when creating the figure / drawing
         :type figure:  (int)
         """
-        self.TKCanvas.tag_lower(
-            figure
-        )  # move figure to the "bottom" of all other figure
+        self.TKCanvas.tag_lower(figure)  # move figure to the "bottom" of all other figure
 
     def bring_figure_to_front(self, figure):
         """
@@ -811,9 +748,7 @@ class Graph(Element):
         :rtype:  (tk.Canvas)
         """
         if self._TKCanvas2 is None:
-            print(
-                "*** Did you forget to call Finalize()? Your code should look something like: ***"
-            )
+            print('*** Did you forget to call Finalize()? Your code should look something like: ***')
             print('*** form = sg.Window("My Form").Layout(layout).Finalize() ***')
         return self._TKCanvas2
 
@@ -832,18 +767,14 @@ class Graph(Element):
         if self.Key is not None:
             self.ParentForm.LastButtonClicked = self.Key
         else:
-            self.ParentForm.LastButtonClicked = (
-                "__GRAPH__"  # need to put something rather than None
-            )
+            self.ParentForm.LastButtonClicked = '__GRAPH__'  # need to put something rather than None
         _exit_mainloop(self.ParentForm)
         if isinstance(self.ParentForm.LastButtonClicked, str):
-            self.ParentForm.LastButtonClicked = (
-                self.ParentForm.LastButtonClicked + "+UP"
-            )
+            self.ParentForm.LastButtonClicked = self.ParentForm.LastButtonClicked + '+UP'
         else:
             self.ParentForm.LastButtonClicked = (
                 self.ParentForm.LastButtonClicked,
-                "+UP",
+                '+UP',
             )
         self.MouseButtonDown = False
 
@@ -861,9 +792,7 @@ class Graph(Element):
         if self.Key is not None:
             self.ParentForm.LastButtonClicked = self.Key
         else:
-            self.ParentForm.LastButtonClicked = (
-                "__GRAPH__"  # need to put something rather than None
-            )
+            self.ParentForm.LastButtonClicked = '__GRAPH__'  # need to put something rather than None
         _exit_mainloop(self.ParentForm)
         self.MouseButtonDown = True
 
@@ -903,18 +832,14 @@ class Graph(Element):
         if self.Key is not None:
             self.ParentForm.LastButtonClicked = self.Key
         else:
-            self.ParentForm.LastButtonClicked = (
-                "__GRAPH__"  # need to put something rather than None
-            )
+            self.ParentForm.LastButtonClicked = '__GRAPH__'  # need to put something rather than None
         if self.motion_events and not self.MouseButtonDown:
             if isinstance(self.ParentForm.LastButtonClicked, str):
-                self.ParentForm.LastButtonClicked = (
-                    self.ParentForm.LastButtonClicked + "+MOVE"
-                )
+                self.ParentForm.LastButtonClicked = self.ParentForm.LastButtonClicked + '+MOVE'
             else:
                 self.ParentForm.LastButtonClicked = (
                     self.ParentForm.LastButtonClicked,
-                    "+MOVE",
+                    '+MOVE',
                 )
         _exit_mainloop(self.ParentForm)
 

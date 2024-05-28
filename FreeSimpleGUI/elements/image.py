@@ -93,7 +93,7 @@ class Image(Element):
         self.Widget = self.tktext_label = None  # type: tk.Label
         self.BackgroundColor = background_color
         if data is None and filename is None:
-            self.Filename = ""
+            self.Filename = ''
         self.EnableEvents = enable_events
         self.RightClickMenu = right_click_menu
         self.AnimatedFrames = None
@@ -159,13 +159,11 @@ class Image(Element):
         :type visible:   (bool)
         """
 
-        if (
-            not self._widget_was_created()
-        ):  # if widget hasn't been created yet, then don't allow
+        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback("Error in Image.update - The window was closed")
+            _error_popup_with_traceback('Error in Image.update - The window was closed')
             return
 
         if source is not None:
@@ -188,7 +186,7 @@ class Image(Element):
                 if zoom is not None:
                     image = image.zoom(int(zoom))
             except Exception as e:
-                _error_popup_with_traceback("Exception updating Image element", e)
+                _error_popup_with_traceback('Exception updating Image element', e)
 
         elif data is not None:
             # if type(data) is bytes:
@@ -203,7 +201,7 @@ class Image(Element):
                 # return  # an error likely means the window has closed so exit
 
         if image is not None:
-            self.tktext_label.configure(image="")  # clear previous image
+            self.tktext_label.configure(image='')  # clear previous image
             if self.tktext_label.image is not None:
                 del self.tktext_label.image
             if type(image) is not bytes:
@@ -216,7 +214,7 @@ class Image(Element):
             try:  # sometimes crashes if user closed with X
                 self.tktext_label.configure(image=image, width=width, height=height)
             except Exception as e:
-                _error_popup_with_traceback("Exception updating Image element", e)
+                _error_popup_with_traceback('Exception updating Image element', e)
             self.tktext_label.image = image
         if visible is False:
             self._pack_forget_save_settings()
@@ -224,15 +222,10 @@ class Image(Element):
             self._pack_restore_settings()
 
         # if everything is set to None, then delete the image
-        if (
-            filename is None
-            and image is None
-            and visible is None
-            and size == (None, None)
-        ):
+        if filename is None and image is None and visible is None and size == (None, None):
             # Using a try because the image may have been previously deleted and don't want an error if that's happened
             try:
-                self.tktext_label.configure(image="", width=1, height=1, bd=0)
+                self.tktext_label.configure(image='', width=1, height=1, bd=0)
                 self.tktext_label.image = None
             except:
                 pass
@@ -261,23 +254,17 @@ class Image(Element):
             for i in range(1000):
                 if type(source) is not bytes:
                     try:
-                        self.AnimatedFrames.append(
-                            tk.PhotoImage(file=source, format="gif -index %i" % (i))
-                        )
+                        self.AnimatedFrames.append(tk.PhotoImage(file=source, format='gif -index %i' % (i)))
                     except Exception:
                         break
                 else:
                     try:
-                        self.AnimatedFrames.append(
-                            tk.PhotoImage(data=source, format="gif -index %i" % (i))
-                        )
+                        self.AnimatedFrames.append(tk.PhotoImage(data=source, format='gif -index %i' % (i)))
                     except Exception:
                         break
             self.TotalAnimatedFrames = len(self.AnimatedFrames)
             self.LastFrameTime = time.time()
-            self.CurrentFrameNumber = (
-                -1
-            )  # start at -1 because it is incremented before every frame is shown
+            self.CurrentFrameNumber = -1  # start at -1 because it is incremented before every frame is shown
         # show the frame
 
         now = time.time()
@@ -285,22 +272,16 @@ class Image(Element):
         if time_between_frames:
             if (now - self.LastFrameTime) * 1000 > time_between_frames:
                 self.LastFrameTime = now
-                self.CurrentFrameNumber = (
-                    self.CurrentFrameNumber + 1
-                ) % self.TotalAnimatedFrames
+                self.CurrentFrameNumber = (self.CurrentFrameNumber + 1) % self.TotalAnimatedFrames
             else:  # don't reshow the frame again if not time for new frame
                 return
         else:
-            self.CurrentFrameNumber = (
-                self.CurrentFrameNumber + 1
-            ) % self.TotalAnimatedFrames
+            self.CurrentFrameNumber = (self.CurrentFrameNumber + 1) % self.TotalAnimatedFrames
         image = self.AnimatedFrames[self.CurrentFrameNumber]
         try:  # needed in case the window was closed with an "X"
-            self.tktext_label.configure(
-                image=image, width=image.width(), heigh=image.height()
-            )
+            self.tktext_label.configure(image=image, width=image.width(), heigh=image.height())
         except Exception as e:
-            print("Exception in update_animation", e)
+            print('Exception in update_animation', e)
 
     def update_animation_no_buffering(self, source, time_between_frames=0):
         """
@@ -330,17 +311,13 @@ class Image(Element):
         while True:
             if type(source) is not bytes:
                 try:
-                    self.image = tk.PhotoImage(
-                        file=source, format="gif -index %i" % (self.frame_num)
-                    )
+                    self.image = tk.PhotoImage(file=source, format='gif -index %i' % (self.frame_num))
                     self.frame_num += 1
                 except:
                     self.frame_num = 0
             else:
                 try:
-                    self.image = tk.PhotoImage(
-                        data=source, format="gif -index %i" % (self.frame_num)
-                    )
+                    self.image = tk.PhotoImage(data=source, format='gif -index %i' % (self.frame_num))
                     self.frame_num += 1
                 except:
                     self.frame_num = 0
@@ -348,9 +325,7 @@ class Image(Element):
                 break
 
         try:  # needed in case the window was closed with an "X"
-            self.tktext_label.configure(
-                image=self.image, width=self.image.width(), heigh=self.image.height()
-            )
+            self.tktext_label.configure(image=self.image, width=self.image.width(), heigh=self.image.height())
 
         except:
             pass

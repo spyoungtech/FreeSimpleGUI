@@ -3,7 +3,8 @@ from __future__ import annotations
 import tkinter as tk
 
 import FreeSimpleGUI
-from FreeSimpleGUI import ELEM_TYPE_INPUT_OPTION_MENU, Element
+from FreeSimpleGUI import ELEM_TYPE_INPUT_OPTION_MENU
+from FreeSimpleGUI import Element
 from FreeSimpleGUI._utils import _error_popup_with_traceback
 
 
@@ -76,16 +77,8 @@ class OptionMenu(Element):
         self.DefaultValue = default_value
         self.Widget = self.TKOptionMenu = None  # type: tk.OptionMenu
         self.Disabled = disabled
-        bg = (
-            background_color
-            if background_color
-            else FreeSimpleGUI.DEFAULT_INPUT_ELEMENTS_COLOR
-        )
-        fg = (
-            text_color
-            if text_color is not None
-            else FreeSimpleGUI.DEFAULT_INPUT_TEXT_COLOR
-        )
+        bg = background_color if background_color else FreeSimpleGUI.DEFAULT_INPUT_ELEMENTS_COLOR
+        fg = text_color if text_color is not None else FreeSimpleGUI.DEFAULT_INPUT_TEXT_COLOR
         key = key if key is not None else k
         sz = size if size != (None, None) else s
         pad = pad if pad is not None else p
@@ -105,9 +98,7 @@ class OptionMenu(Element):
             metadata=metadata,
         )
 
-    def update(
-        self, value=None, values=None, disabled=None, visible=None, size=(None, None)
-    ):
+    def update(self, value=None, values=None, disabled=None, visible=None, size=(None, None)):
         """
         Changes some of the settings for the OptionMenu Element. Must call `Window.Read` or `Window.Finalize` prior
 
@@ -128,36 +119,26 @@ class OptionMenu(Element):
         :param size:     (width, height) size in characters (wide), height is ignored and present to be consistent with other elements
         :type size:      (int, int) (width, UNUSED)
         """
-        if (
-            not self._widget_was_created()
-        ):  # if widget hasn't been created yet, then don't allow
+        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback(
-                "Error in OptionMenu.update - The window was closed"
-            )
+            _error_popup_with_traceback('Error in OptionMenu.update - The window was closed')
             return
 
         if values is not None:
             self.Values = values
-            self.TKOptionMenu["menu"].delete(0, "end")
+            self.TKOptionMenu['menu'].delete(0, 'end')
 
             # Insert list of new options (tk._setit hooks them up to var)
             # self.TKStringVar.set(self.Values[0])
             for new_value in self.Values:
-                self.TKOptionMenu["menu"].add_command(
-                    label=new_value, command=tk._setit(self.TKStringVar, new_value)
-                )
+                self.TKOptionMenu['menu'].add_command(label=new_value, command=tk._setit(self.TKStringVar, new_value))
             if value is None:
-                self.TKStringVar.set("")
+                self.TKStringVar.set('')
 
             if size == (None, None):
-                max_line_len = (
-                    max([len(str(line)) for line in self.Values])
-                    if len(self.Values)
-                    else 0
-                )
+                max_line_len = max([len(str(line)) for line in self.Values]) if len(self.Values) else 0
                 if self.AutoSizeText is False:
                     width = self.Size[0]
                 else:
@@ -171,9 +152,9 @@ class OptionMenu(Element):
             self.TKStringVar.set(value)
 
         if disabled is True:
-            self.TKOptionMenu["state"] = "disabled"
+            self.TKOptionMenu['state'] = 'disabled'
         elif disabled is False:
-            self.TKOptionMenu["state"] = "normal"
+            self.TKOptionMenu['state'] = 'normal'
         self.Disabled = disabled if disabled is not None else self.Disabled
         if visible is False:
             self._pack_forget_save_settings()

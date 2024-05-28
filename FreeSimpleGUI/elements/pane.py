@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import FreeSimpleGUI
-from FreeSimpleGUI import ELEM_TYPE_PANE, RELIEF_RAISED, Element
+from FreeSimpleGUI import ELEM_TYPE_PANE
+from FreeSimpleGUI import Element
+from FreeSimpleGUI import RELIEF_RAISED
 from FreeSimpleGUI._utils import _error_popup_with_traceback
 
 
@@ -18,7 +20,7 @@ class Pane(Element):
         s=(None, None),
         pad=None,
         p=None,
-        orientation="vertical",
+        orientation='vertical',
         show_handle=True,
         relief=RELIEF_RAISED,
         handle_size=None,
@@ -82,11 +84,7 @@ class Pane(Element):
         self.Relief = relief
         self.HandleSize = handle_size or 8
         self.BorderDepth = border_width
-        bg = (
-            background_color
-            if background_color is not None
-            else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
-        )
+        bg = background_color if background_color is not None else FreeSimpleGUI.DEFAULT_BACKGROUND_COLOR
 
         self.Rows = [pane_list]
         key = key if key is not None else k
@@ -119,13 +117,11 @@ class Pane(Element):
         :param visible: control visibility of element
         :type visible:  (bool)
         """
-        if (
-            not self._widget_was_created()
-        ):  # if widget hasn't been created yet, then don't allow
+        if not self._widget_was_created():  # if widget hasn't been created yet, then don't allow
             return
 
         if self._this_elements_window_closed():
-            _error_popup_with_traceback("Error in Pane.update - The window was closed")
+            _error_popup_with_traceback('Error in Pane.update - The window was closed')
             return
 
         if visible is False:

@@ -1,6 +1,8 @@
 from __future__ import annotations
 
-from FreeSimpleGUI import ELEM_TYPE_SIZEGRIP, Element, theme_background_color
+from FreeSimpleGUI import ELEM_TYPE_SIZEGRIP
+from FreeSimpleGUI import Element
+from FreeSimpleGUI import theme_background_color
 
 
 class Sizegrip(Element):
