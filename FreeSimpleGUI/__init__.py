@@ -9109,6 +9109,7 @@ def theme_previewer(columns=12, scrollable=False, scroll_area_size=(None, None),
     """
     Displays a "Quick Reference Window" showing all of the different Look and Feel settings that are available.
     They are sorted alphabetically.  The legacy color names are mixed in, but otherwise they are sorted into Dark and Light halves
+    If one of the "OK" buttons are pressed then that theme name is returned.
 
     :param columns:          The number of themes to display per row
     :type columns:           int
@@ -9138,10 +9139,10 @@ def theme_previewer(columns=12, scrollable=False, scroll_area_size=(None, None),
 
     win_bg = 'black'
 
-    def sample_layout():
+    def sample_layout(theme_name):
         return [
             [Text('Text element'), InputText('Input data here', size=(10, 1))],
-            [Button('Ok'), Button('Disabled', disabled=True), Slider((1, 10), orientation='h', size=(5, 15))],
+            [Button('Ok', key=f"choose_{theme_name}", tooltip=f"Choose {theme_name}"), Button('Disabled', disabled=True), Slider((1, 10), orientation='h', size=(5, 15))],
         ]
 
     names = list_of_look_and_feel_values()
@@ -9161,7 +9162,7 @@ def theme_previewer(columns=12, scrollable=False, scroll_area_size=(None, None),
         if not count % columns:
             col_layout += [row]
             row = []
-        row += [Frame(theme_name, sample_layout() if not web else [[T(theme_name)]] + sample_layout(), pad=(2, 2))]
+        row += [Frame(theme_name, sample_layout(theme_name) if not web else [[T(theme_name)]] + sample_layout(theme_name), pad=(2, 2))]
     if row:
         col_layout += [row]
 
@@ -9188,8 +9189,10 @@ def theme_previewer(columns=12, scrollable=False, scroll_area_size=(None, None),
         modal=True,
     )
     window['-COL-'].expand(True, True, True)  # needed so that col will expand with the window
-    window.read(close=True)
+    event, values = window.read(close=True)
     theme(current_theme)
+    if event and event.startswith('choose_'):
+        return event[7:]
 
 
 preview_all_look_and_feel_themes = theme_previewer
