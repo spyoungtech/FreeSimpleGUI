@@ -14207,19 +14207,21 @@ def _refresh_debugger():
     # frame = inspect.currentframe()
     # frame = inspect.currentframe().f_back
 
-    frame, *others = inspect.stack()[1]
     try:
-        debugger.locals = frame.f_back.f_locals
-        debugger.globals = frame.f_back.f_globals
-    finally:
-        del frame
-    if debugger.popout_window:
-        rc = debugger._refresh_floating_window()
-    if debugger.watcher_window:
-        rc = debugger._refresh_main_debugger_window(debugger.locals, debugger.globals)
-    Window._read_call_from_debugger = False
-    return rc
-
+        frame, *others = inspect.stack()[1]
+        try:
+            debugger.locals = frame.f_back.f_locals
+            debugger.globals = frame.f_back.f_globals
+        finally:
+            del frame
+        if debugger.popout_window:
+            rc = debugger._refresh_floating_window()
+        if debugger.watcher_window:
+            rc = debugger._refresh_main_debugger_window(debugger.locals, debugger.globals)
+        Window._read_call_from_debugger = False
+        return rc
+    except:
+        return None
 
 def _debugger_window_is_open():
     """
