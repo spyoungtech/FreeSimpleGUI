@@ -14223,6 +14223,7 @@ def _refresh_debugger():
     except:
         return None
 
+
 def _debugger_window_is_open():
     """
     Determines if one of the debugger window is currently open
