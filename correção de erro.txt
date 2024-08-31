@@ -25,5 +25,5 @@ Successfully installed remi-2022.7.27
 
   ------
 pip install FreeSimpleGUIWeb==1.0.0.0 remi==2022.7.27 distlib==0.3.8 setuptools==74.0.0
-  
-  
+
+
