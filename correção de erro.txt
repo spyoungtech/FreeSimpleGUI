@@ -1,0 +1,29 @@
+https://github.com/PySimpleGUI/PySimpleGUI/issues/4119#issuecomment-861806375
+
+import html
+unescape = html.unescape
+
+
+
+----
+$ pip install --upgrade remi
+Requirement already satisfied: remi in c:\users\carlo\pycharmprojects\pythonproject\.venv\lib\site-packages (2020.3.10)
+Collecting remi
+  Downloading remi-2022.7.27-py3-none-any.whl.metadata (14 kB)
+Downloading remi-2022.7.27-py3-none-any.whl (930 kB)
+   ---------------------------------------- 930.9/930.9 kB 2.0 MB/s eta 0:00:00
+Installing collected packages: remi
+  Attempting uninstall: remi
+    Found existing installation: remi 2020.3.10
+    Uninstalling remi-2020.3.10:
+      Successfully uninstalled remi-2020.3.10
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+freesimpleguiweb 1.0.0 requires remi<=2020.3.10, but you have remi 2022.7.27 which is incompatible.
+Successfully installed remi-2022.7.27
+
+
+
+  ------
+pip install FreeSimpleGUIWeb==1.0.0.0 remi==2022.7.27 distlib==0.3.8 setuptools==74.0.0
+  
+  
