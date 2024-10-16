@@ -11,7 +11,7 @@ repos:
     -   id: double-quote-string-fixer
         files: ^(FreeSimpleGUI(?:Qt|Web|Wx)?)/(?!Demo).*\.py
 -   repo: https://github.com/asottile/reorder-python-imports
-    rev: v3.13.0
+    rev: v3.14.0
     hooks:
     -   id: reorder-python-imports
         files: ^(FreeSimpleGUI(?:Qt|Web|Wx)?)/(?!Demo).*\.py
