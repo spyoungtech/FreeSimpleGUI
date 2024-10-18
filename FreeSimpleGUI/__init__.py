@@ -12557,7 +12557,7 @@ class UserSettings:
                 os.makedirs(self.path)
             with open(self.full_filename, 'w') as f:
                 if not self.use_config_file:
-                    json.dump(self.dict, f)
+                    json.dump(self.dict, f, indent=4)
                 else:
                     self.config.write(f)
         except Exception as e:
