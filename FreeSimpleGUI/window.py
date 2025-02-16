@@ -1087,7 +1087,7 @@ class Window:
                 Window._root_running_mainloop.mainloop()
             except:
                 print('**** EXITING ****')
-                exit(-1)
+                sys.exit(-1)
             # print('Out main')
             self.CurrentlyRunningMainloop = False
             # if self.LastButtonClicked != TIMEOUT_KEY:
