@@ -2467,7 +2467,10 @@ class Window:
 
         if self.thread_strvar is None:
             self.thread_strvar = tk.StringVar()
-            self.thread_strvar.trace('w', self._window_tkvar_changed_callback)
+            if tk.TkVersion < 9:
+                self.thread_strvar.trace('w', self._window_tkvar_changed_callback)
+            else:
+                self.thread_strvar.trace_add('write', self._window_tkvar_changed_callback)
 
     def write_event_value(self, key, value):
         """
