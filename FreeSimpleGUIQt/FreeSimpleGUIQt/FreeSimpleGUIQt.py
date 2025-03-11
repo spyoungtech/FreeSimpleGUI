@@ -31,7 +31,7 @@ except:
 # Copyright 2020 PySimpleGUI.org
 
 
-from PySide2.QtWidgets import (
+from PySide6.QtWidgets import (
     QApplication,
     QLabel,
     QWidget,
@@ -44,7 +44,7 @@ from PySide2.QtWidgets import (
     QDial,
     QTableWidget,
 )
-from PySide2.QtWidgets import (
+from PySide6.QtWidgets import (
     QSlider,
     QCheckBox,
     QRadioButton,
@@ -55,7 +55,7 @@ from PySide2.QtWidgets import (
     QDialog,
     QAbstractItemView,
 )
-from PySide2.QtWidgets import (
+from PySide6.QtWidgets import (
     QSpacerItem,
     QFrame,
     QGroupBox,
@@ -72,22 +72,22 @@ from PySide2.QtWidgets import (
     QTreeWidgetItemIterator,
     QProgressBar,
 )
-from PySide2.QtWidgets import (
+from PySide6.QtWidgets import (
     QTableWidgetItem,
     QGraphicsView,
     QGraphicsScene,
     QGraphicsItemGroup,
     QMenu,
     QMenuBar,
-    QAction,
     QSystemTrayIcon,
     QColorDialog,
 )
-from PySide2.QtGui import QPainter, QPixmap, QPen, QColor, QBrush, QPainterPath, QFont, QImage, QIcon
-from PySide2.QtCore import Qt, QEvent, QSize
-import PySide2.QtGui as QtGui
-import PySide2.QtCore as QtCore
-import PySide2.QtWidgets as QtWidgets
+from PySide6.QtGui import QPainter, QPixmap, QPen, QColor, QBrush, QPainterPath, QFont, QImage, QIcon, QAction
+
+from PySide6.QtCore import Qt, QEvent, QSize
+import PySide6.QtGui as QtGui
+import PySide6.QtCore as QtCore
+import PySide6.QtWidgets as QtWidgets
 
 using_pyqt5 = False
 
