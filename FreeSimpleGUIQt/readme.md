@@ -14,9 +14,8 @@ Welcome to the Alpha Release of FreeSimpleGUI for Qt!
 
 You can use the exact same code that you are running on the older, tkinter, version of FreeSimpleGUI.
 
-FreeSimpleGUIQt uses **PySide2** OR **PyQt5** for access to Qt.  **PyQt5 has been having  a number of problems recently however so tread lightly.**
+FreeSimpleGUIQt uses **PySide6** as of version 2.0.0 -- Version 1.0 used PySide2
 
-## To minimize potential problems and broken features, if at all possible, use pyside2 instead of PyQt5.
 
 ## Porting your FreeSimpleGUI code to FreeSimpleGUIQt
 
@@ -46,18 +45,11 @@ Fonts should be in the format (font family, size).  You can use the older string
 
  pip3 install --upgrade --no-cache-dir FreeSimpleGUIQt
 
-### Installing PySide2 for Python 3
+### PySide dependency
 
-It is _highly_ recommended that you use PySide2.  The code will attempt to use PyQt5 is pyside2 isn't found.  PyQt5 is **not** recommended.
-
-To install Pyside2:
-
-```pip install PySide2```
-
-
-**PyQt5 is no longer supported.  Only PySide2 is supported**
-
-Too many differences were causing a lot of headaches.  Supporting just 1 Qt port is difficult enough.  Parsing out the differences between pyside2 and pyqt5 was simply getting to be too much
+As of version 2.0.0 this project depends on PySide6, which in turn requires Python3.9 or greater. Version 1.0 of this project 
+used PySide2, which supports Python versions up to 3.10. The correct version of FreeSimpleGUIQt and respective 
+required version of PySide will be installed automatically when you install `FreeSimpleGUIQt` using `pip`.
 
 
 
@@ -77,10 +69,6 @@ Here is the window you should see:
 ![image](https://user-images.githubusercontent.com/46163555/71421852-7c6ad400-264b-11ea-9adc-15f6aa4248e8.png)
 
 
-
-
-## Prerequisites Python 3
-PySide2 or PyQt5   (experimental)
 
 
 ## Using  - Python 3
