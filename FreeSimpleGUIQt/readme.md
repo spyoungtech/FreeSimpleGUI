@@ -47,8 +47,8 @@ Fonts should be in the format (font family, size).  You can use the older string
 
 ### PySide dependency
 
-As of version 2.0.0 this project depends on PySide6, which in turn requires Python3.9 or greater. Version 1.0 of this project 
-used PySide2, which supports Python versions up to 3.10. The correct version of FreeSimpleGUIQt and respective 
+As of version 2.0.0 this project depends on PySide6, which in turn requires Python3.9 or greater. Version 1.0 of this project
+used PySide2, which supports Python versions up to 3.10. The correct version of FreeSimpleGUIQt and respective
 required version of PySide will be installed automatically when you install `FreeSimpleGUIQt` using `pip`.
 
 
