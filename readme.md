@@ -23,6 +23,8 @@ To migrate from PySimpleGUI:
 
 If you encounter any issues or have any questions, please feel welcome to [open an issue](https://github.com/spyoungtech/FreeSimpleGUI/issues/new).
 
+Documentation for FreeSimpleGUI is available at: https://freesimplegui.readthedocs.io/en/latest/. FreeSimpleGUI.org is still in progress.
+
 ### Contributions
 
 Contributions are welcome! Contributions can be made via pull request. Ideally, please try to make sure there is an open [issue](https://github.com/spyoungtech/FreeSimpleGUI/issues) associated with your pull request first or create one if necessary.
