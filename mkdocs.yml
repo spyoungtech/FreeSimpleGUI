@@ -1,4 +1,4 @@
-site_name: PySimpleGUI
+site_name: FreeSimpleGUI
 theme:
     name: mkdocs
     custom_dir: docs_modification/
