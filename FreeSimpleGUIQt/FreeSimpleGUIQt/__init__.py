@@ -5342,7 +5342,7 @@ class Window:
             self.QTApplication.processEvents()  # refresh the window
         if 0:  # TODO add window closed with X logic
             self.TKrootDestroyed = True
-            _my_windows.Decrement()
+            #_my_windows.Decrement() # undefined
             # print("read failed")
             # return None, None
         return BuildResults(self, False, self)
@@ -13422,6 +13422,7 @@ def PopupOK(
     grab_anywhere=False,
     keep_on_top=False,
     location=(None, None),
+    image=None
 ):
     """
     Display Popup with OK button only
