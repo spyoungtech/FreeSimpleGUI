@@ -82,9 +82,10 @@ from PySide6.QtWidgets import (
     QSystemTrayIcon,
     QColorDialog,
 )
+# ToDo import all here or just use QtGui.bla for all, etc.
 from PySide6.QtGui import QPainter, QPixmap, QPen, QColor, QBrush, QPainterPath, QFont, QImage, QIcon, QAction
-
 from PySide6.QtCore import Qt, QEvent, QSize
+
 import PySide6.QtGui as QtGui
 import PySide6.QtCore as QtCore
 import PySide6.QtWidgets as QtWidgets
@@ -4534,55 +4535,78 @@ class Tree(Element):
         #     if self.ParentForm.CurrentlyRunningMainloop:
         #         self.ParentForm.TKroot.quit()
 
-    def Update(self, values=None, key=None, value=None, text=None, visible=None):
+    def add_treeview_data(self, node=None, widget=None):
+        """ make tree from treedata
+            
+            Note: cannot happen in __init__ because the widget is not created yet,
+                only in packformintoframe and self.update()
+        """
+        # print(f'Inserting {node.key} under parent {node.parent}')
+
+        if node is None and widget is None:
+            # create root
+            node = self.TreeData.root_node
+            widget = self.QT_QTreeWidget
+            child = widget
+        else:
+            # create child
+            child = QTreeWidgetItem(widget)
+            child.setText(0, str(node.text))
+        
+        if node.key:
+            key = node.key
+        else:
+            # not recommended
+            key = None
+
+        # optional
+        if node.values:
+            values = node.values
+        else:
+            values = None
+
+        UserData = dict(key=key, values=values)
+    
+        if hasattr(child, "setData"):
+            child.setData(0, Qt.UserRole, UserData)
+            #child.setData(1, Qt.UserRole, otherData)
+            
+            # this is how readouts in your event loop event work,
+            #   given you have a sg.Tree('TREE') in your layout,
+            #   which is populated by treedata with keys and values via treedata.insert,
+            #   and something like `e_values = window.read(), if event == 'TREE'`
+            #   tree_name = node.data(0, Qt.DisplayRole)
+            #   UserData = (node.data(0, Qt.UserRole))
+            #   UserData["key"], UserData["values"]
+        
+        if type(node.icon) is bytes:
+            ba = QtCore.QByteArray.fromBase64(node.icon)
+            pixmap = QtGui.QPixmap()
+            pixmap.loadFromData(ba)
+            qicon = QIcon(pixmap)
+            child.setIcon(0, qicon)
+        elif node.icon is not None:
+            qicon = QIcon(node.icon)
+            child.setIcon(0, qicon)
+        for node in node.children:
+            self.add_treeview_data(node, child)
+        return # None
+
+    def Update(self, values=None, visible=None, **kwargs):
+        """ Update the tree with new treedata
+        
+            for legacy compatibility, allow unused, unspecified kwargs
+        """
         if values is not None:
             self.TreeData = values
             self.SelectedRows = []
-            # self.QT_QTreeWidget = QTreeWidget()
-            TreeWidgetItems = QTreeWidgetItemIterator(self.QT_QTreeWidget)
 
-            for item in TreeWidgetItems:
-                item2 = item.value()
-                self.QT_QTreeWidget.removeItemWidget(item2, 0)
+            # clear
+            self.QT_QTreeWidget.clear()
 
-            # def add_treeview_data(node, widget):
-            #     # print(f'Inserting {node.key} under parent {node.parent}')
-            #     child = QTreeWidgetItem(widget)
-            #     if node.key != '':
-            #         child.setText(0, str(node.text))
-            #         # child.setData(0,0,node.values)
-            #         if node.icon is not None:
-            #             qicon = QIcon(node.icon)
-            #             child.setIcon(0, qicon)
-            #     for node in node.children:
-            #         add_treeview_data(node, child)
+            # redo entire tree
+            self.add_treeview_data()
 
-            def add_treeview_data(node, widget):
-                # print(f'Inserting {node.key} under parent {node.parent}')
-                if node != self.TreeData.root_node:
-                    child = QTreeWidgetItem(widget)
-                    child.setText(0, str(node.text))
-                else:
-                    child = widget
-                # if node.key != '':
-                # child.setData(0,0,node.values)
-                if type(node.icon) is bytes:
-                    ba = QtCore.QByteArray.fromBase64(node.icon)
-                    pixmap = QtGui.QPixmap()
-                    pixmap.loadFromData(ba)
-                    qicon = QIcon(pixmap)
-                    child.setIcon(0, qicon)
-                elif node.icon is not None:
-                    qicon = QIcon(node.icon)
-                    child.setIcon(0, qicon)
-                for node in node.children:
-                    add_treeview_data(node, child)
-                return
-
-            add_treeview_data(self.TreeData.root_node, self.QT_QTreeWidget)
-
-        if key is not None:
-            pass
         super().Update(self.QT_QTreeWidget, visible=visible)
 
         return self
@@ -8980,31 +9004,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
                             width = element.DefaultColumnWidth
                     # treeview.column(heading, width=width * CharWidthInPixels(), anchor=anchor)
 
-                def add_treeview_data(node, widget):
-                    # print(f'Inserting {node.key} under parent {node.parent}')
-                    child = widget
-                    if node != element.TreeData.root_node:
-                        child = QTreeWidgetItem(widget)
-                        child.setText(0, str(node.text))
-                    # if node.key != '':
-                    # child.setData(0,0,node.values)
-                    if type(node.icon) is bytes:
-                        ba = QtCore.QByteArray.fromBase64(node.icon)
-                        pixmap = QtGui.QPixmap()
-                        pixmap.loadFromData(ba)
-                        qicon = QIcon(pixmap)
-                        child.setIcon(0, qicon)
-                    elif node.icon is not None:
-                        qicon = QIcon(node.icon)
-                        child.setIcon(0, qicon)
-
-                    for node in node.children:
-                        add_treeview_data(node, child)
-
-                # for node in element.TreeData.root_node.children:
-                #     add_treeview_data(node, element.QT_QTreeWidget)
-
-                add_treeview_data(element.TreeData.root_node, element.QT_QTreeWidget)
+                element.add_treeview_data()
 
                 # === style ===
                 style = QtStyle('QTreeWidget')
