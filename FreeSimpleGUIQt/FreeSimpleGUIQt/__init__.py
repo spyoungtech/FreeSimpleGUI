@@ -9198,8 +9198,11 @@ def StartupTK(window):
 
     window.QT_QMainWindow.installEventFilter(window.QT_QMainWindow)
 
-    window.QTApplication.setActiveWindow(window.QT_QMainWindow)
-
+    if not using_pyqt5:
+        window.QT_QMainWindow.activateWindow()
+    else:
+        window.QTApplication.setActiveWindow(window.QT_QMainWindow)
+    
     flags = Qt.WindowFlags()
     if window.NoTitleBar:
         flags |= Qt.FramelessWindowHint
