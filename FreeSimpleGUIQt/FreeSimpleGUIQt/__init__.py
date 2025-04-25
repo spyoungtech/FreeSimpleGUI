@@ -87,30 +87,10 @@ from PySide6.QtWidgets import (
 )
 
 # QtGui
-from PySide6.QtGui import (
-    QPainter,
-    QPixmap,
-    QPen,
-    QColor,
-    QBrush,
-    QPainterPath,
-    QFont,
-    QImage,
-    QIcon,
-    QAction,
-    QTextCursor
-)
+from PySide6.QtGui import QPainter, QPixmap, QPen, QColor, QBrush, QPainterPath, QFont, QImage, QIcon, QAction, QTextCursor
 
 # QtCore
-from PySide6.QtCore import (
-    Qt,
-    QEvent,
-    QSize,
-    QByteArray,
-    QRect,
-    QTimer
-)
-
+from PySide6.QtCore import Qt, QEvent, QSize, QByteArray, QRect, QTimer
 
 
 using_pyqt5 = False
@@ -4559,10 +4539,10 @@ class Tree(Element):
         #         self.ParentForm.TKroot.quit()
 
     def add_treeview_data(self, node=None, widget=None):
-        """ make tree from treedata
-            
-            Note: cannot happen in __init__ because the widget is not created yet,
-                only in packformintoframe and self.update()
+        """make tree from treedata
+
+        Note: cannot happen in __init__ because the widget is not created yet,
+            only in packformintoframe and self.update()
         """
         # print(f'Inserting {node.key} under parent {node.parent}')
 
@@ -4575,7 +4555,7 @@ class Tree(Element):
             # create child
             child = QTreeWidgetItem(widget)
             child.setText(0, str(node.text))
-        
+
         if node.key:
             key = node.key
         else:
@@ -4589,11 +4569,11 @@ class Tree(Element):
             values = None
 
         UserData = dict(key=key, values=values)
-    
-        if hasattr(child, "setData"):
+
+        if hasattr(child, 'setData'):
             child.setData(0, Qt.UserRole, UserData)
-            #child.setData(1, Qt.UserRole, otherData)
-            
+            # child.setData(1, Qt.UserRole, otherData)
+
             # this is how readouts in your event loop event work,
             #   given you have a sg.Tree('TREE') in your layout,
             #   which is populated by treedata with keys and values via treedata.insert,
@@ -4601,7 +4581,7 @@ class Tree(Element):
             #   tree_name = node.data(0, Qt.DisplayRole)
             #   UserData = (node.data(0, Qt.UserRole))
             #   UserData["key"], UserData["values"]
-        
+
         if type(node.icon) is bytes:
             ba = QByteArray.fromBase64(node.icon)
             pixmap = QPixmap()
@@ -4613,12 +4593,12 @@ class Tree(Element):
             child.setIcon(0, qicon)
         for node in node.children:
             self.add_treeview_data(node, child)
-        return # None
+        return  # None
 
     def Update(self, values=None, visible=None, **kwargs):
-        """ Update the tree with new treedata
-        
-            for legacy compatibility, allow unused, unspecified kwargs
+        """Update the tree with new treedata
+
+        for legacy compatibility, allow unused, unspecified kwargs
         """
         if values is not None:
             self.TreeData = values
@@ -4665,14 +4645,16 @@ class TreeData(object):
         parent_node._Add(node)
 
     def delete(self, key):
-        """ delete individual node and all children
+        """delete individual node and all children
 
-            origin: https://github.com/PySimpleGUI/PySimpleGUI/issues/2514 by https://github.com/deajan
+        origin: https://github.com/PySimpleGUI/PySimpleGUI/issues/2514 by https://github.com/deajan
         """
         if key == '':
             return False
         node = self.tree_dict[key]
-        key_list = [key, ]
+        key_list = [
+            key,
+        ]
         parent_node = self.tree_dict[node.parent]
         parent_node.children.remove(node)
         while key_list != []:
@@ -5408,7 +5390,7 @@ class Window:
             self.QTApplication.processEvents()  # refresh the window
         if 0:  # TODO add window closed with X logic
             self.TKrootDestroyed = True
-            #_my_windows.Decrement() # undefined
+            # _my_windows.Decrement() # undefined
             # print("read failed")
             # return None, None
         return BuildResults(self, False, self)
@@ -9202,7 +9184,7 @@ def StartupTK(window):
         window.QT_QMainWindow.activateWindow()
     else:
         window.QTApplication.setActiveWindow(window.QT_QMainWindow)
-    
+
     flags = Qt.WindowFlags()
     if window.NoTitleBar:
         flags |= Qt.FramelessWindowHint
@@ -13451,24 +13433,7 @@ def PopupCancel(
 
 
 # --------------------------- PopupOK ---------------------------
-def PopupOK(
-    *args,
-    title=None,
-    button_color=None,
-    background_color=None,
-    text_color=None,
-    auto_close=False,
-    auto_close_duration=None,
-    non_blocking=False,
-    icon=DEFAULT_WINDOW_ICON,
-    line_width=None,
-    font=None,
-    no_titlebar=False,
-    grab_anywhere=False,
-    keep_on_top=False,
-    location=(None, None),
-    image=None
-):
+def PopupOK(*args, title=None, button_color=None, background_color=None, text_color=None, auto_close=False, auto_close_duration=None, non_blocking=False, icon=DEFAULT_WINDOW_ICON, line_width=None, font=None, no_titlebar=False, grab_anywhere=False, keep_on_top=False, location=(None, None), image=None):
     """
     Display Popup with OK button only
     :param *args:  Variable number of your arguments.  Load up the call with stuff to see!
