@@ -1147,7 +1147,7 @@ class Listbox(Element):
         for index, value in enumerate(self.Values):
             item = self.QT_ListWidget.item(index)
             if value in values:
-                self.QT_ListWidget.setItemSelected(item, True)
+                item.setSelected(True)
 
     def GetListValues(self):
         return self.Values
@@ -8215,7 +8215,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
                 for index, value in enumerate(element.Values):
                     item = element.QT_ListWidget.item(index)
                     if element.DefaultValues is not None and value in element.DefaultValues:
-                        element.QT_ListWidget.setItemSelected(item, True)
+                        item.setSelected(True)
 
                 if element.Tooltip:
                     element.QT_ListWidget.setToolTip(element.Tooltip)
@@ -14173,7 +14173,7 @@ def main():
 
     layout = [
         [Menu(menu_def, key='_REALMENU_', background_color='white')],
-        [Text('You are running the PySimpleGUI.py file itself', font=('ANY', 15, 'Bold'), text_color='yellow')],
+        [Text('You are running the FreeSimpleGuiQT.py file itself as a demo', font=('ANY', 15, 'Bold'), text_color='yellow')],
         [Text('You should be importing it rather than running it', font='ANY 15')],
         [Text('VERSION {}'.format(ver), size=(85, 1), text_color='yellow', font='ANY 18')],
         # [Image(data_base64=logo, tooltip='Image', click_submits=True, key='_IMAGE_'),
