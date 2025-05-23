@@ -493,9 +493,9 @@ class Multiline(Element):
         try:
             self.update(txt, append=True)
             if self.echo_stdout_stderr:
-                if hasattr(Window, "_original_stdout") and Window._original_stdout:
+                if hasattr(Window, '_original_stdout') and Window._original_stdout:
                     Window._original_stdout.write(txt)
-                elif hasattr(Window, "_original_stderr") and Window._original_stderr:
+                elif hasattr(Window, '_original_stderr') and Window._original_stderr:
                     Window._original_stderr.write(txt)
         except:
             pass
