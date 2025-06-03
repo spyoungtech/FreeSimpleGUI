@@ -484,19 +484,19 @@ class Multiline(Element):
 
     def write(self, txt):
         """
-        Called by Python (not tkinter?) when stdout or stderr wants to write
+        Called by Python when stdout or stderr has been redirected and wants to write
+        Mirrors output to the console if echo_stdout_stderr is enabled
 
         :param txt: text of output
         :type txt:  (str)
         """
         try:
             self.update(txt, append=True)
-            # if need to echo, then send the same text to the destinatoin that isn't thesame as this one
             if self.echo_stdout_stderr:
-                if sys.stdout != self:
-                    sys.stdout.write(txt)
-                elif sys.stderr != self:
-                    sys.stderr.write(txt)
+                if hasattr(Window, '_original_stdout') and Window._original_stdout:
+                    Window._original_stdout.write(txt)
+                elif hasattr(Window, '_original_stderr') and Window._original_stderr:
+                    Window._original_stderr.write(txt)
         except:
             pass
 
