@@ -29,7 +29,7 @@ def _create_error_message():
 
 
 def _error_popup_with_traceback(title, *args, emoji=None):
-    if SUPPRESS_ERROR_POPUPS:
+    if FreeSimpleGUI.SUPPRESS_ERROR_POPUPS:
         return
     trace_details = traceback.format_stack()
     error_message = ''
@@ -128,11 +128,11 @@ def _exit_mainloop(exiting_window):
         # print('** Exited window mainloop **')
 
 
+import FreeSimpleGUI
 from FreeSimpleGUI import _random_error_emoji
 from FreeSimpleGUI import execute_editor
 from FreeSimpleGUI import execute_get_editor
 from FreeSimpleGUI import popup_quick_message
-from FreeSimpleGUI import SUPPRESS_ERROR_POPUPS
 from FreeSimpleGUI import WIN_CLOSED
 from FreeSimpleGUI.elements.button import Button
 from FreeSimpleGUI.elements.image import Image
