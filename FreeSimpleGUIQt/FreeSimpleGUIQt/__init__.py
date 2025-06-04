@@ -30,7 +30,7 @@ except:
 # Copyright 2024 FreeSimpleGui authors
 # Copyright 2020 PySimpleGUI.org
 
-
+# QWidgets
 from PySide6.QtWidgets import (
     QApplication,
     QLabel,
@@ -77,17 +77,21 @@ from PySide6.QtWidgets import (
     QGraphicsView,
     QGraphicsScene,
     QGraphicsItemGroup,
+    QGraphicsEllipseItem,
     QMenu,
     QMenuBar,
     QSystemTrayIcon,
     QColorDialog,
+    QAbstractScrollArea,
+    QScrollArea,
 )
-from PySide6.QtGui import QPainter, QPixmap, QPen, QColor, QBrush, QPainterPath, QFont, QImage, QIcon, QAction
 
-from PySide6.QtCore import Qt, QEvent, QSize
-import PySide6.QtGui as QtGui
-import PySide6.QtCore as QtCore
-import PySide6.QtWidgets as QtWidgets
+# QtGui
+from PySide6.QtGui import QPainter, QPixmap, QPen, QColor, QBrush, QPainterPath, QFont, QImage, QIcon, QAction, QTextCursor
+
+# QtCore
+from PySide6.QtCore import Qt, QEvent, QSize, QByteArray, QRect, QTimer
+
 
 using_pyqt5 = False
 
@@ -754,7 +758,7 @@ class InputText(Element):
             # to dupliate this
             # self.ValueWasChanged = True
         if select:
-            self.QT_QLineEdit.setSelection(0, QtGui.QTextCursor.End)
+            self.QT_QLineEdit.setSelection(0, QTextCursor.End)
         super().Update(self.QT_QLineEdit, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
     def Get(self):
@@ -1146,7 +1150,7 @@ class Listbox(Element):
         for index, value in enumerate(self.Values):
             item = self.QT_ListWidget.item(index)
             if value in values:
-                self.QT_ListWidget.setItemSelected(item, True)
+                item.setSelected(True)
 
     def GetListValues(self):
         return self.Values
@@ -1728,7 +1732,7 @@ class Multiline(Element):
                 self.QT_TextEdit.setTextBackgroundColor(background_color_for_value)
             self.QT_TextEdit.insertPlainText(str(value))
             if self.Autoscroll or autoscroll and autoscroll is not False:
-                self.QT_TextEdit.moveCursor(QtGui.QTextCursor.End)
+                self.QT_TextEdit.moveCursor(QTextCursor.End)
             if text_color_for_value is not None:
                 self.QT_TextEdit.setTextColor(self.TextColor)
             if background_color_for_value is not None:
@@ -1907,13 +1911,13 @@ class MultilineOutput(Element):
             self.QT_TextBrowser.setText(str(value))
         elif value is not None and append:
             self.QT_TextBrowser.insertPlainText(str(value))
-            # self.QT_TextBrowser.moveCursor(QtGui.QTextCursor.End)
+            # self.QT_TextBrowser.moveCursor(QTextCursor.End)
         if disabled == True:
             self.QT_TextBrowser.setDisabled(True)
         elif disabled == False:
             self.QT_TextBrowser.setDisabled(False)
         if self.Autoscroll or autoscroll and autoscroll is not False:
-            self.QT_TextBrowser.moveCursor(QtGui.QTextCursor.End)
+            self.QT_TextBrowser.moveCursor(QTextCursor.End)
         super().Update(self.QT_TextBrowser, background_color=background_color, text_color=text_color, font=font, visible=visible)
 
     def Get(self):
@@ -2161,7 +2165,7 @@ class Output(Element):
         :param m:
         :return:
         """
-        self.QT_TextBrowser.moveCursor(QtGui.QTextCursor.End)
+        self.QT_TextBrowser.moveCursor(QTextCursor.End)
         self.QT_TextBrowser.insertPlainText(str(m))
 
         # if self.my_stdout:
@@ -2834,22 +2838,22 @@ class Image(Element):
         if filename is not None:
             qlabel = self.QT_QLabel
             qlabel.setText('')
-            w = QtGui.QPixmap(filename).width()
-            h = QtGui.QPixmap(filename).height()
-            qlabel.setGeometry(QtCore.QRect(0, 0, w, h))
-            qlabel.setPixmap(QtGui.QPixmap(filename))
+            w = QPixmap(filename).width()
+            h = QPixmap(filename).height()
+            qlabel.setGeometry(QRect(0, 0, w, h))
+            qlabel.setPixmap(QPixmap(filename))
         elif data is not None:
             qlabel = self.QT_QLabel
             qlabel.setText('')
-            ba = QtCore.QByteArray.fromRawData(data)
-            pixmap = QtGui.QPixmap()
+            ba = QByteArray.fromRawData(data)
+            pixmap = QPixmap()
             pixmap.loadFromData(ba)
             qlabel.setPixmap(pixmap)
         elif data_base64 is not None:
             qlabel = self.QT_QLabel
             qlabel.setText('')
-            ba = QtCore.QByteArray.fromBase64(data_base64)
-            pixmap = QtGui.QPixmap()
+            ba = QByteArray.fromBase64(data_base64)
+            pixmap = QPixmap()
             pixmap.loadFromData(ba)
             qlabel.setPixmap(pixmap)
         super().Update(self.QT_QLabel, visible=visible)
@@ -3040,7 +3044,7 @@ class Graph(Element):
         return circle_id  # type: QGraphicsEllipseItem
 
     def RelocateFigure(self, id, x, y):
-        id = id  # type: QtWidgets.QGraphicsEllipseItem
+        id = id  # type: QGraphicsEllipseItem
         converted_point = self._convert_xy_to_canvas_xy(x, y)
         id.setX(converted_point[0])
         id.setY(converted_point[1])
@@ -4534,55 +4538,78 @@ class Tree(Element):
         #     if self.ParentForm.CurrentlyRunningMainloop:
         #         self.ParentForm.TKroot.quit()
 
-    def Update(self, values=None, key=None, value=None, text=None, visible=None):
+    def add_treeview_data(self, node=None, widget=None):
+        """make tree from treedata
+
+        Note: cannot happen in __init__ because the widget is not created yet,
+            only in packformintoframe and self.update()
+        """
+        # print(f'Inserting {node.key} under parent {node.parent}')
+
+        if node is None and widget is None:
+            # create root
+            node = self.TreeData.root_node
+            widget = self.QT_QTreeWidget
+            child = widget
+        else:
+            # create child
+            child = QTreeWidgetItem(widget)
+            child.setText(0, str(node.text))
+
+        if node.key:
+            key = node.key
+        else:
+            # not recommended
+            key = None
+
+        # optional
+        if node.values:
+            values = node.values
+        else:
+            values = None
+
+        UserData = dict(key=key, values=values)
+
+        if hasattr(child, 'setData'):
+            child.setData(0, Qt.UserRole, UserData)
+            # child.setData(1, Qt.UserRole, otherData)
+
+            # this is how readouts in your event loop event work,
+            #   given you have a sg.Tree('TREE') in your layout,
+            #   which is populated by treedata with keys and values via treedata.insert,
+            #   and something like `e_values = window.read(), if event == 'TREE'`
+            #   tree_name = node.data(0, Qt.DisplayRole)
+            #   UserData = (node.data(0, Qt.UserRole))
+            #   UserData["key"], UserData["values"]
+
+        if type(node.icon) is bytes:
+            ba = QByteArray.fromBase64(node.icon)
+            pixmap = QPixmap()
+            pixmap.loadFromData(ba)
+            qicon = QIcon(pixmap)
+            child.setIcon(0, qicon)
+        elif node.icon is not None:
+            qicon = QIcon(node.icon)
+            child.setIcon(0, qicon)
+        for node in node.children:
+            self.add_treeview_data(node, child)
+        return  # None
+
+    def Update(self, values=None, visible=None, **kwargs):
+        """Update the tree with new treedata
+
+        for legacy compatibility, allow unused, unspecified kwargs
+        """
         if values is not None:
             self.TreeData = values
             self.SelectedRows = []
-            # self.QT_QTreeWidget = QTreeWidget()
-            TreeWidgetItems = QTreeWidgetItemIterator(self.QT_QTreeWidget)
 
-            for item in TreeWidgetItems:
-                item2 = item.value()
-                self.QT_QTreeWidget.removeItemWidget(item2, 0)
+            # clear
+            self.QT_QTreeWidget.clear()
 
-            # def add_treeview_data(node, widget):
-            #     # print(f'Inserting {node.key} under parent {node.parent}')
-            #     child = QTreeWidgetItem(widget)
-            #     if node.key != '':
-            #         child.setText(0, str(node.text))
-            #         # child.setData(0,0,node.values)
-            #         if node.icon is not None:
-            #             qicon = QIcon(node.icon)
-            #             child.setIcon(0, qicon)
-            #     for node in node.children:
-            #         add_treeview_data(node, child)
+            # redo entire tree
+            self.add_treeview_data()
 
-            def add_treeview_data(node, widget):
-                # print(f'Inserting {node.key} under parent {node.parent}')
-                if node != self.TreeData.root_node:
-                    child = QTreeWidgetItem(widget)
-                    child.setText(0, str(node.text))
-                else:
-                    child = widget
-                # if node.key != '':
-                # child.setData(0,0,node.values)
-                if type(node.icon) is bytes:
-                    ba = QtCore.QByteArray.fromBase64(node.icon)
-                    pixmap = QtGui.QPixmap()
-                    pixmap.loadFromData(ba)
-                    qicon = QIcon(pixmap)
-                    child.setIcon(0, qicon)
-                elif node.icon is not None:
-                    qicon = QIcon(node.icon)
-                    child.setIcon(0, qicon)
-                for node in node.children:
-                    add_treeview_data(node, child)
-                return
-
-            add_treeview_data(self.TreeData.root_node, self.QT_QTreeWidget)
-
-        if key is not None:
-            pass
         super().Update(self.QT_QTreeWidget, visible=visible)
 
         return self
@@ -4616,6 +4643,27 @@ class TreeData(object):
         self.tree_dict[key] = node
         parent_node = self.tree_dict[parent]
         parent_node._Add(node)
+
+    def delete(self, key):
+        """delete individual node and all children
+
+        origin: https://github.com/PySimpleGUI/PySimpleGUI/issues/2514 by https://github.com/deajan
+        """
+        if key == '':
+            return False
+        node = self.tree_dict[key]
+        key_list = [
+            key,
+        ]
+        parent_node = self.tree_dict[node.parent]
+        parent_node.children.remove(node)
+        while key_list != []:
+            temp = []
+            for item in key_list:
+                temp += self.tree_dict[item].children
+                del self.tree_dict[item]
+            key_list = temp
+        return True
 
     def __repr__(self):
         return self._NodeStr(self.root_node, 1)
@@ -4708,13 +4756,13 @@ class SystemTray:
         if filename is not None:
             qicon = QIcon(filename)
         elif data is not None:
-            ba = QtCore.QByteArray.fromRawData(data)
-            pixmap = QtGui.QPixmap()
+            ba = QByteArray.fromRawData(data)
+            pixmap = QPixmap()
             pixmap.loadFromData(ba)
             qicon = QIcon(pixmap)
         elif data_base64 is not None:
-            ba = QtCore.QByteArray.fromBase64(data_base64)
-            pixmap = QtGui.QPixmap()
+            ba = QByteArray.fromBase64(data_base64)
+            pixmap = QPixmap()
             pixmap.loadFromData(ba)
             qicon = QIcon(pixmap)
         if qicon is None:
@@ -4802,13 +4850,13 @@ class SystemTray:
         if filename is not None:
             qicon = QIcon(filename)
         elif data is not None:
-            ba = QtCore.QByteArray.fromRawData(data)
-            pixmap = QtGui.QPixmap()
+            ba = QByteArray.fromRawData(data)
+            pixmap = QPixmap()
             pixmap.loadFromData(ba)
             qicon = QIcon(pixmap)
         elif data_base64 is not None:
-            ba = QtCore.QByteArray.fromBase64(data_base64)
-            pixmap = QtGui.QPixmap()
+            ba = QByteArray.fromBase64(data_base64)
+            pixmap = QPixmap()
             pixmap.loadFromData(ba)
             qicon = QIcon(pixmap)
 
@@ -4864,13 +4912,13 @@ class SystemTray:
         if filename is not None:
             qicon = QIcon(filename)
         elif data is not None:
-            ba = QtCore.QByteArray.fromRawData(data)
-            pixmap = QtGui.QPixmap()
+            ba = QByteArray.fromRawData(data)
+            pixmap = QPixmap()
             pixmap.loadFromData(ba)
             qicon = QIcon(pixmap)
         elif data_base64 is not None:
-            ba = QtCore.QByteArray.fromBase64(data_base64)
-            pixmap = QtGui.QPixmap()
+            ba = QByteArray.fromBase64(data_base64)
+            pixmap = QPixmap()
             pixmap.loadFromData(ba)
             qicon = QIcon(pixmap)
         if qicon is not None:
@@ -5342,7 +5390,7 @@ class Window:
             self.QTApplication.processEvents()  # refresh the window
         if 0:  # TODO add window closed with X logic
             self.TKrootDestroyed = True
-            _my_windows.Decrement()
+            # _my_windows.Decrement() # undefined
             # print("read failed")
             # return None, None
         return BuildResults(self, False, self)
@@ -7882,7 +7930,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
                 # column_widget = QWidget()
                 column_widget = QGroupBox()
                 element.Widget = element.QT_QGroupBox = column_widget
-                # column_widget.setFrameShape(QtWidgets.QFrame.NoFrame)
+                # column_widget.setFrameShape(QFrame.NoFrame)
 
                 # === style ===
                 style = QtStyle('QGroupBox')
@@ -7900,7 +7948,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
 
                 scroll = None
                 if element.Scrollable and (element_size[0] is not None or element_size[1] is not None):
-                    scroll = QtWidgets.QScrollArea()
+                    scroll = QScrollArea()
                     scroll.setWidget(column_widget)
                     if element_size[0] is not None:
                         scroll.setFixedWidth(element_size[0])
@@ -7990,11 +8038,11 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
                         element.QT_QPushButton.setFixedHeight(element_size[1])
 
                 if element.ImageFilename is not None:
-                    element.QT_QPushButton.setIcon(QtGui.QPixmap(element.ImageFilename))
-                    element.QT_QPushButton.setIconSize(QtGui.QPixmap(element.ImageFilename).rect().size())
+                    element.QT_QPushButton.setIcon(QPixmap(element.ImageFilename))
+                    element.QT_QPushButton.setIconSize(QPixmap(element.ImageFilename).rect().size())
                 if element.ImageData:
-                    ba = QtCore.QByteArray.fromBase64(element.ImageData)
-                    pixmap = QtGui.QPixmap()
+                    ba = QByteArray.fromBase64(element.ImageData)
+                    pixmap = QPixmap()
                     pixmap.loadFromData(ba)
                     element.QT_QPushButton.setIcon(pixmap)
                     element.QT_QPushButton.setIconSize(pixmap.rect().size())
@@ -8172,7 +8220,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
                 for index, value in enumerate(element.Values):
                     item = element.QT_ListWidget.item(index)
                     if element.DefaultValues is not None and value in element.DefaultValues:
-                        element.QT_ListWidget.setItemSelected(item, True)
+                        item.setSelected(True)
 
                 if element.Tooltip:
                     element.QT_ListWidget.setToolTip(element.Tooltip)
@@ -8223,7 +8271,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
                     toplevel_win.FocusElement = element.QT_TextEdit
 
                 element.QT_TextEdit.setText(str(default_text))
-                element.QT_TextEdit.moveCursor(QtGui.QTextCursor.End)
+                element.QT_TextEdit.moveCursor(QTextCursor.End)
                 if element.Tooltip:
                     element.QT_TextEdit.setToolTip(element.Tooltip)
                 # qt_row_layout.setContentsMargins(*full_element_pad)
@@ -8257,7 +8305,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
                         element.QT_TextBrowser.setFixedHeight(element_size[1])
 
                 element.QT_TextBrowser.insertPlainText(default_text)
-                element.QT_TextBrowser.moveCursor(QtGui.QTextCursor.End)
+                element.QT_TextBrowser.moveCursor(QTextCursor.End)
                 if element.Tooltip:
                     element.QT_TextBrowser.setToolTip(element.Tooltip)
                 # qt_row_layout.setContentsMargins(*full_element_pad)
@@ -8310,7 +8358,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
                 element.QT_QProgressBar.setMaximum(element.MaxValue)
                 element.QT_QProgressBar.setValue(element.StartValue)
                 if element.Orientation.lower().startswith('v'):
-                    element.QT_QProgressBar.setOrientation(QtCore.Qt.Vertical)
+                    element.QT_QProgressBar.setOrientation(Qt.Vertical)
 
                 # === style ===
                 style = QtStyle('QProgressBar')
@@ -8449,7 +8497,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
                     if element_size[1] is not None:
                         element.QT_TextBrowser.setFixedHeight(element_size[1])
 
-                element.QT_TextBrowser.moveCursor(QtGui.QTextCursor.End)
+                element.QT_TextBrowser.moveCursor(QTextCursor.End)
                 element._reroute_stdout()
                 if element.Tooltip:
                     element.QT_TextBrowser.setToolTip(element.Tooltip)
@@ -8462,20 +8510,20 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
                 element.Widget = element.QT_QLabel = qlabel = QLabel()
                 if element.Filename is not None:
                     qlabel.setText('')
-                    w = QtGui.QPixmap(element.Filename).width()
-                    h = QtGui.QPixmap(element.Filename).height()
-                    qlabel.setGeometry(QtCore.QRect(0, 0, w, h))
-                    qlabel.setPixmap(QtGui.QPixmap(element.Filename))
+                    w = QPixmap(element.Filename).width()
+                    h = QPixmap(element.Filename).height()
+                    qlabel.setGeometry(QRect(0, 0, w, h))
+                    qlabel.setPixmap(QPixmap(element.Filename))
                 elif element.Data is not None:
                     qlabel.setText('')
-                    ba = QtCore.QByteArray.fromRawData(element.Data)
-                    pixmap = QtGui.QPixmap()
+                    ba = QByteArray.fromRawData(element.Data)
+                    pixmap = QPixmap()
                     pixmap.loadFromData(ba)
                     qlabel.setPixmap(pixmap)
                 elif element.DataBase64:
                     qlabel.setText('')
-                    ba = QtCore.QByteArray.fromBase64(element.DataBase64)
-                    pixmap = QtGui.QPixmap()
+                    ba = QByteArray.fromBase64(element.DataBase64)
+                    pixmap = QPixmap()
                     pixmap.loadFromData(ba)
                     qlabel.setPixmap(pixmap)
 
@@ -8591,8 +8639,8 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
                         element.QT_QPushButton.setFixedHeight(element_size[1])
 
                 if element.ImageData:
-                    ba = QtCore.QByteArray.fromBase64(element.ImageData)
-                    pixmap = QtGui.QPixmap()
+                    ba = QByteArray.fromBase64(element.ImageData)
+                    pixmap = QPixmap()
                     pixmap.loadFromData(ba)
                     element.QT_QPushButton.setIcon(pixmap)
                     element.QT_QPushButton.setIconSize(pixmap.rect().size())
@@ -8722,7 +8770,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
             elif element_type == ELEM_TYPE_TAB:
                 element.Widget = tab_widget = QWidget()
                 element.QT_QWidget = tab_widget
-                # tab_widget.setFrameShape(QtWidgets.QFrame.NoFrame)
+                # tab_widget.setFrameShape(QFrame.NoFrame)
 
                 # === style ===
                 style = QtStyle('QTabWidget')
@@ -8780,18 +8828,18 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
 
                 if element.TabLocation is not None:
                     position_dict = {
-                        'left': QtWidgets.QTabWidget.TabPosition.West,
-                        'right': QtWidgets.QTabWidget.TabPosition.East,
-                        'top': QtWidgets.QTabWidget.TabPosition.North,
-                        'bottom': QtWidgets.QTabWidget.TabPosition.South,
-                        'lefttop': QtWidgets.QTabWidget.TabPosition.North,
-                        'leftbottom': QtWidgets.QTabWidget.TabPosition.South,
-                        'righttop': QtWidgets.QTabWidget.TabPosition.North,
-                        'rightbottom': QtWidgets.QTabWidget.TabPosition.South,
-                        'bottomleft': QtWidgets.QTabWidget.TabPosition.South,
-                        'bottomright': QtWidgets.QTabWidget.TabPosition.South,
-                        'topleft': QtWidgets.QTabWidget.TabPosition.North,
-                        'topright': QtWidgets.QTabWidget.TabPosition.North,
+                        'left': QTabWidget.TabPosition.West,
+                        'right': QTabWidget.TabPosition.East,
+                        'top': QTabWidget.TabPosition.North,
+                        'bottom': QTabWidget.TabPosition.South,
+                        'lefttop': QTabWidget.TabPosition.North,
+                        'leftbottom': QTabWidget.TabPosition.South,
+                        'righttop': QTabWidget.TabPosition.North,
+                        'rightbottom': QTabWidget.TabPosition.South,
+                        'bottomleft': QTabWidget.TabPosition.South,
+                        'bottomright': QTabWidget.TabPosition.South,
+                        'topleft': QTabWidget.TabPosition.North,
+                        'topright': QTabWidget.TabPosition.North,
                     }
                     try:
                         element.Widget.setTabPosition(position_dict[element.TabLocation])
@@ -8943,7 +8991,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
                     element.QT_TableWidget.setHorizontalHeaderLabels(element.ColumnHeadings)
 
                 element.QT_TableWidget.installEventFilter(element.QT_TableWidget)
-                element.QT_TableWidget.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+                element.QT_TableWidget.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
                 if element.Tooltip:
                     element.QT_TableWidget.setToolTip(element.Tooltip)
                 if not element.Visible:
@@ -8980,31 +9028,7 @@ def PackFormIntoFrame(container_elem, containing_frame, toplevel_win):
                             width = element.DefaultColumnWidth
                     # treeview.column(heading, width=width * CharWidthInPixels(), anchor=anchor)
 
-                def add_treeview_data(node, widget):
-                    # print(f'Inserting {node.key} under parent {node.parent}')
-                    child = widget
-                    if node != element.TreeData.root_node:
-                        child = QTreeWidgetItem(widget)
-                        child.setText(0, str(node.text))
-                    # if node.key != '':
-                    # child.setData(0,0,node.values)
-                    if type(node.icon) is bytes:
-                        ba = QtCore.QByteArray.fromBase64(node.icon)
-                        pixmap = QtGui.QPixmap()
-                        pixmap.loadFromData(ba)
-                        qicon = QIcon(pixmap)
-                        child.setIcon(0, qicon)
-                    elif node.icon is not None:
-                        qicon = QIcon(node.icon)
-                        child.setIcon(0, qicon)
-
-                    for node in node.children:
-                        add_treeview_data(node, child)
-
-                # for node in element.TreeData.root_node.children:
-                #     add_treeview_data(node, element.QT_QTreeWidget)
-
-                add_treeview_data(element.TreeData.root_node, element.QT_QTreeWidget)
+                element.add_treeview_data()
 
                 # === style ===
                 style = QtStyle('QTreeWidget')
@@ -9104,21 +9128,21 @@ def ConvertFlexToTK(window):
 
 
 def start_window_read_timer(window, amount):
-    timer = QtCore.QTimer()
+    timer = QTimer()
     timer.timeout.connect(window._timer_timeout)
     timer.start(amount)
     return timer
 
 
 def start_systray_read_timer(tray, amount):
-    timer = QtCore.QTimer()
+    timer = QTimer()
     timer.timeout.connect(tray._timer_timeout)
     timer.start(amount)
     return timer
 
 
 def start_window_autoclose_timer(window, amount):
-    timer = QtCore.QTimer()
+    timer = QTimer()
     window.autoclose_timer = timer
     timer.timeout.connect(window._autoclose_timer_callback)
     timer.start(amount)
@@ -9156,12 +9180,15 @@ def StartupTK(window):
 
     window.QT_QMainWindow.installEventFilter(window.QT_QMainWindow)
 
-    window.QTApplication.setActiveWindow(window.QT_QMainWindow)
+    if not using_pyqt5:
+        window.QT_QMainWindow.activateWindow()
+    else:
+        window.QTApplication.setActiveWindow(window.QT_QMainWindow)
 
-    flags = QtCore.Qt.WindowFlags()
+    flags = Qt.WindowFlags()
     if window.NoTitleBar:
         flags |= Qt.FramelessWindowHint
-        flags |= QtCore.Qt.Tool
+        flags |= Qt.Tool
     if window.KeepOnTop:
         flags |= Qt.WindowStaysOnTopHint
 
@@ -9171,13 +9198,13 @@ def StartupTK(window):
         window.QT_QMainWindow.setWindowOpacity(window.AlphaChannel)
     if window.WindowIcon is not None:
         if type(window.WindowIcon) is bytes:
-            ba = QtCore.QByteArray.fromBase64(window.WindowIcon)
-            pixmap = QtGui.QPixmap()
+            ba = QByteArray.fromBase64(window.WindowIcon)
+            pixmap = QPixmap()
             pixmap.loadFromData(ba)
             qicon = QIcon(pixmap)
             window.QT_QMainWindow.setWindowIcon(qicon)
         else:
-            window.QT_QMainWindow.setWindowIcon(QtGui.QIcon(window.WindowIcon))
+            window.QT_QMainWindow.setWindowIcon(QIcon(window.WindowIcon))
     if window.DisableMinimize:
         window.QT_QMainWindow.setWindowFlags(window.QT_QMainWindow.windowFlags() & ~Qt.WindowMinimizeButtonHint)
         window.QT_QMainWindow.setWindowFlags(window.QT_QMainWindow.windowFlags() & ~Qt.WindowMaximizeButtonHint)
@@ -9217,11 +9244,11 @@ def StartupTK(window):
     if window.BackgroundImage is not None:
         qlabel = QLabel(window.QTWindow)
         qlabel.setText('')
-        w = QtGui.QPixmap(window.BackgroundImage).width()
-        h = QtGui.QPixmap(window.BackgroundImage).height()
-        qlabel.setGeometry(QtCore.QRect(0, 0, w, h))
+        w = QPixmap(window.BackgroundImage).width()
+        h = QPixmap(window.BackgroundImage).height()
+        qlabel.setGeometry(QRect(0, 0, w, h))
         # qlabel.setGeometry(window.QTWindow.geometry())
-        qlabel.setPixmap(QtGui.QPixmap(window.BackgroundImage))
+        qlabel.setPixmap(QPixmap(window.BackgroundImage))
         # style += 'background-image: url(%s);' % window.BackgroundImage
 
     window.QT_QMainWindow.setWindowTitle(window.Title)
@@ -13406,23 +13433,7 @@ def PopupCancel(
 
 
 # --------------------------- PopupOK ---------------------------
-def PopupOK(
-    *args,
-    title=None,
-    button_color=None,
-    background_color=None,
-    text_color=None,
-    auto_close=False,
-    auto_close_duration=None,
-    non_blocking=False,
-    icon=DEFAULT_WINDOW_ICON,
-    line_width=None,
-    font=None,
-    no_titlebar=False,
-    grab_anywhere=False,
-    keep_on_top=False,
-    location=(None, None),
-):
+def PopupOK(*args, title=None, button_color=None, background_color=None, text_color=None, auto_close=False, auto_close_duration=None, non_blocking=False, icon=DEFAULT_WINDOW_ICON, line_width=None, font=None, no_titlebar=False, grab_anywhere=False, keep_on_top=False, location=(None, None), image=None):
     """
     Display Popup with OK button only
     :param *args:  Variable number of your arguments.  Load up the call with stuff to see!
@@ -14153,7 +14164,7 @@ def main():
 
     layout = [
         [Menu(menu_def, key='_REALMENU_', background_color='white')],
-        [Text('You are running the PySimpleGUI.py file itself', font=('ANY', 15, 'Bold'), text_color='yellow')],
+        [Text('You are running the FreeSimpleGuiQT.py file itself as a demo', font=('ANY', 15, 'Bold'), text_color='yellow')],
         [Text('You should be importing it rather than running it', font='ANY 15')],
         [Text('VERSION {}'.format(ver), size=(85, 1), text_color='yellow', font='ANY 18')],
         # [Image(data_base64=logo, tooltip='Image', click_submits=True, key='_IMAGE_'),
