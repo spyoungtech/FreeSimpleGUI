@@ -881,7 +881,7 @@ DEFAULT_USER_SETTINGS_PYSIMPLEGUI_FILENAME = '_PySimpleGUI_settings_global_.json
 # ====================================================================== #
 # One-liner functions that are handy as f_ck                             #
 # ====================================================================== #
-def rgb(red, green, blue):
+def rgb(red: int, green: int, blue: int) -> str:
     """
     Given integer values of Red, Green, Blue, return a color string "#RRGGBB"
     :param red:   Red portion from 0 to 255
@@ -1072,7 +1072,7 @@ class ToolTip:
     This is an INTERNALLY USED only class.  Users should not refer to this class at all.
     """
 
-    def __init__(self, widget, text, timeout=DEFAULT_TOOLTIP_TIME):
+    def __init__(self, widget, text: str, timeout: int = DEFAULT_TOOLTIP_TIME) -> None:
         """
         :param widget:  The tkinter widget
         :type widget:   widget type varies
@@ -1092,7 +1092,7 @@ class ToolTip:
         self.widget.bind('<Leave>', self.leave)
         self.widget.bind('<ButtonPress>', self.leave)
 
-    def enter(self, event=None):
+    def enter(self, event=None) -> None:
         """
         Called by tkinter when mouse enters a widget
         :param event: from tkinter.  Has x,y coordinates of mouse
@@ -1103,7 +1103,7 @@ class ToolTip:
         self.y = event.y
         self.schedule()
 
-    def leave(self, event=None):
+    def leave(self, event=None) -> None:
         """
         Called by tktiner when mouse exits a widget
         :param event: from tkinter.  Event info that's not used by function.
@@ -1113,14 +1113,14 @@ class ToolTip:
         self.unschedule()
         self.hidetip()
 
-    def schedule(self):
+    def schedule(self) -> None:
         """
         Schedule a timer to time how long mouse is hovering
         """
         self.unschedule()
         self.id = self.widget.after(self.timeout, self.showtip)
 
-    def unschedule(self):
+    def unschedule(self) -> None:
         """
         Cancel timer used to time mouse hover
         """
@@ -1128,7 +1128,7 @@ class ToolTip:
             self.widget.after_cancel(self.id)
         self.id = None
 
-    def showtip(self):
+    def showtip(self) -> None:
         """
         Creates a topoltip window with the tooltip text inside of it
         """
@@ -1160,7 +1160,7 @@ class ToolTip:
             label.config(font=TOOLTIP_FONT)
         label.pack()
 
-    def hidetip(self):
+    def hidetip(self) -> None:
         """
         Destroy the tooltip window
         """
@@ -1170,7 +1170,7 @@ class ToolTip:
 
 
 class _TimerPeriodic:
-    id_counter = 1
+    id_counter: int = 1
     # Dictionary containing the active timers.  Format is {id : _TimerPeriodic object}
     active_timers = {}  # type: dict[int:_TimerPeriodic]
 
@@ -1183,16 +1183,16 @@ class _TimerPeriodic:
         :param repeating:       If True then the timer will run, repeatedly sending events, until stopped
         :type repeating:        bool
         """
-        self.window = window
-        self.frequency_ms = frequency_ms
-        self.repeating = repeating
+        self.window: Window = window
+        self.frequency_ms: int = frequency_ms
+        self.repeating: bool = repeating
         self.key = key
-        self.id = _TimerPeriodic.id_counter
+        self.id: int = _TimerPeriodic.id_counter
         _TimerPeriodic.id_counter += 1
         self.start()
 
     @classmethod
-    def stop_timer_with_id(cls, timer_id):
+    def stop_timer_with_id(cls, timer_id: int):
         """
         Not user callable!
         :return: A simple counter that makes each container element unique
@@ -1203,7 +1203,7 @@ class _TimerPeriodic:
             timer.stop()
 
     @classmethod
-    def stop_all_timers_for_window(cls, window: Window):
+    def stop_all_timers_for_window(cls, window: Window) -> None:
         """
         Stops all timers for a given window
         :param window:      The window to stop timers for
@@ -1229,7 +1229,7 @@ class _TimerPeriodic:
 
         return timers
 
-    def timer_thread(self):
+    def timer_thread(self) -> None:
         """
         The thread that sends events to the window.  Runs either once or in a loop until timer is stopped
         """
@@ -1248,7 +1248,7 @@ class _TimerPeriodic:
                 del _TimerPeriodic.active_timers[self.id]
                 return
 
-    def start(self):
+    def start(self) -> None:
         """
         Starts a timer by starting a timer thread
         Adds timer to the list of active timers
@@ -1258,14 +1258,14 @@ class _TimerPeriodic:
         self.thread.start()
         _TimerPeriodic.active_timers[self.id] = self
 
-    def stop(self):
+    def stop(self) -> None:
         """
         Stops a timer
         """
         self.running = False
 
 
-def _long_func_thread(window, end_key, original_func):
+def _long_func_thread(window: Window, end_key, original_func) -> None:
     """
     Used to run long operations on the user's behalf. Called by the window object
 
@@ -1282,7 +1282,7 @@ def _long_func_thread(window, end_key, original_func):
         window.write_event_value(end_key, return_value)
 
 
-def _timeout_alarm_callback_hidden():
+def _timeout_alarm_callback_hidden() -> None:
     """
     Read Timeout Alarm callback. Will kick a mainloop call out of the tkinter event loop and cause it to return
     """
@@ -1298,7 +1298,7 @@ def _timeout_alarm_callback_hidden():
     Window._window_that_exited = None
 
 
-def read_all_windows(timeout=None, timeout_key=TIMEOUT_KEY):
+def read_all_windows(timeout: Optional[int] = None, timeout_key=TIMEOUT_KEY):
     """
     Reads all windows that are "active" when the call is made. "Active" means that it's been finalized or read.
     If a window has not been finalized then it will not be considered an "active window"
@@ -1390,7 +1390,7 @@ def read_all_windows(timeout=None, timeout_key=TIMEOUT_KEY):
 
 
 # ------------------------- A fake Element... the Pad Element ------------------------- #
-def Sizer(h_pixels=0, v_pixels=0):
+def Sizer(h_pixels: int = 0, v_pixels: int = 0):
     """
     "Pushes" out the size of whatever it is placed inside of.  This includes Columns, Frames, Tabs and Windows
 
@@ -1405,7 +1405,7 @@ def Sizer(h_pixels=0, v_pixels=0):
     return Canvas(size=(0, 0), pad=((h_pixels, 0), (v_pixels, 0)))
 
 
-def pin(elem, vertical_alignment=None, shrink=True, expand_x=None, expand_y=None):
+def pin(elem: Element, vertical_alignment=None, shrink: bool = True, expand_x: Optional[bool] = None, expand_y: Optional[bool] = None):
     """
     Pin's an element provided into a layout so that when it's made invisible and visible again, it will
      be in the correct place.  Otherwise it will be placed at the end of its containing window/column.
@@ -7971,7 +7971,7 @@ CPRINT_DESTINATION_WINDOW = None
 CPRINT_DESTINATION_MULTILINE_ELMENT_KEY = None
 
 
-def cprint_set_output_destination(window, multiline_key):
+def cprint_set_output_destination(window: Window, multiline_key):
     """
     Sets up the color print (cprint) output destination
     :param window:        The window that the cprint call will route the output to
@@ -11696,16 +11696,16 @@ def popup_get_text(
 
 
 def popup_get_date(
-    start_mon=None,
-    start_day=None,
-    start_year=None,
-    begin_at_sunday_plus=0,
-    no_titlebar=True,
-    title='Choose Date',
-    keep_on_top=True,
+    start_mon: Optional[int] = None,
+    start_day: Optional[int] = None,
+    start_year: Optional[int] = None,
+    begin_at_sunday_plus: int = 0,
+    no_titlebar: bool = True,
+    title: str = 'Choose Date',
+    keep_on_top: bool = True,
     location=(None, None),
     relative_location=(None, None),
-    close_when_chosen=False,
+    close_when_chosen: bool = False,
     icon=None,
     locale=None,
     month_names=None,
@@ -11713,8 +11713,8 @@ def popup_get_date(
     day_font='TkFixedFont 9',
     mon_year_font='TkFixedFont 10',
     arrow_font='TkFixedFont 7',
-    modal=True,
-):
+    modal: bool = True,
+) -> Optional[int, int, int]:
     """
     Display a calendar window, get the user's choice, return as a tuple (mon, day, year)
 
@@ -11775,7 +11775,7 @@ def popup_get_date(
         cur_day = cur_day
     cur_year = start_year or cur_year
 
-    def update_days(window, month, year, begin_at_sunday_plus):
+    def update_days(window: Window, month: int, year: int, begin_at_sunday_plus):
         [window[(week, day)].update('') for day in range(7) for week in range(6)]
         weeks = calendar.monthcalendar(year, month)
         month_days = list(itertools.chain.from_iterable([[0 for _ in range(8 - begin_at_sunday_plus)]] + weeks))
@@ -11938,21 +11938,21 @@ def popup_get_date(
 
 def popup_animated(
     image_source,
-    message=None,
-    background_color=None,
-    text_color=None,
+    message: Optional[str] = None,
+    background_color: Optional[str] = None,
+    text_color: Optional[str] = None,
     font=None,
-    no_titlebar=True,
-    grab_anywhere=True,
-    keep_on_top=True,
+    no_titlebar: bool = True,
+    grab_anywhere: bool = True,
+    keep_on_top: bool = True,
     location=(None, None),
     relative_location=(None, None),
     alpha_channel=None,
-    time_between_frames=0,
+    time_between_frames: int = 0,
     transparent_color=None,
-    title='',
+    title: str = '',
     icon=None,
-    no_buffering=False,
+    no_buffering: bool = False,
 ):
     """
      Show animation one frame at a time.  This function has its own internal clocking meaning you can call it at any frequency
