@@ -135,12 +135,6 @@ VStretch = VPush
 VP = VPush
 FlexForm = Window
 
-# additional aliases
-
-popup_timed = popup_auto_close
-test = main
-sdk_help = main_sdk_help
-
 
 # get the tkinter detailed version
 tclversion_detailed = tkinter.Tcl().eval('info patchlevel')
@@ -16491,6 +16485,12 @@ if _mac_should_set_alpha_to_99():
     # Applyting Mac OS 12.3+ Alpha Channel fix.  Sets the default Alpha Channel to 0.99
     set_options(alpha_channel=0.99)
 
+
+# additional aliases
+
+popup_timed = popup_auto_close
+test = main
+sdk_help = main_sdk_help
 
 # ------------------------ Set the "Official PySimpleGUI Theme Colors" ------------------------
 
