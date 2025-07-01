@@ -11,23 +11,24 @@ import threading
 import tkinter
 import tkinter as tk
 import warnings
-
-from typing import Any, Dict, List, Literal, Optional, Tuple, Union
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Literal
+from typing import Optional
+from typing import Tuple
+from typing import Union
 
 import FreeSimpleGUI
-
-from FreeSimpleGUI import (
-    _BuildResults,
-    _Debugger,
-    _debugger_window_is_open,
-    _FindElementWithFocusInSubForm,
-    _get_hidden_master_root,
-    _global_settings_get_watermark_info,
-    _long_func_thread,
-    _refresh_debugger,
-    _TimerPeriodic,
-)
-
+from FreeSimpleGUI import _BuildResults
+from FreeSimpleGUI import _Debugger
+from FreeSimpleGUI import _debugger_window_is_open
+from FreeSimpleGUI import _FindElementWithFocusInSubForm
+from FreeSimpleGUI import _get_hidden_master_root
+from FreeSimpleGUI import _global_settings_get_watermark_info
+from FreeSimpleGUI import _long_func_thread
+from FreeSimpleGUI import _refresh_debugger
+from FreeSimpleGUI import _TimerPeriodic
 from FreeSimpleGUI import BUTTON_TYPE_CALENDAR_CHOOSER
 from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
 from FreeSimpleGUI import ELEM_TYPE_BUTTON

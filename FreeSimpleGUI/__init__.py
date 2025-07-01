@@ -31,8 +31,13 @@ from math import fabs
 from tkinter import filedialog  # noqa
 from tkinter import ttk
 from tkinter.colorchooser import askcolor  # noqa
-
-from typing import Any, Dict, List, Literal, Optional, Tuple, Union
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Literal
+from typing import Optional
+from typing import Tuple
+from typing import Union
 
 from FreeSimpleGUI._utils import _error_popup_with_traceback
 from FreeSimpleGUI.elements.base import Element
