@@ -152,7 +152,7 @@ class Window:
         auto_close_duration=FreeSimpleGUI.DEFAULT_AUTOCLOSE_TIME,
         icon=None,
         force_toplevel: bool = False,
-        alpha_channel: Optonal[float] = None,
+        alpha_channel: Optional[float] = None,
         return_keyboard_events=False,
         use_default_focus=True,
         text_justification=None,

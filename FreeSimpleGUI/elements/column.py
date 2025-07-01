@@ -3,6 +3,11 @@ from __future__ import annotations
 import tkinter as tk
 import warnings
 
+# noreorder
+from typing import (
+    Optional,
+)
+
 import FreeSimpleGUI
 from FreeSimpleGUI import _make_ttk_scrollbar
 from FreeSimpleGUI import _random_error_emoji
