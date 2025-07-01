@@ -151,48 +151,48 @@ class Window:
         auto_close=False,
         auto_close_duration=FreeSimpleGUI.DEFAULT_AUTOCLOSE_TIME,
         icon=None,
-        force_toplevel=False,
-        alpha_channel=None,
+        force_toplevel: bool = False,
+        alpha_channel: Optonal[float] = None,
         return_keyboard_events=False,
         use_default_focus=True,
         text_justification=None,
-        no_titlebar=False,
-        grab_anywhere=False,
-        grab_anywhere_using_control=True,
+        no_titlebar: bool = False,
+        grab_anywhere: bool = False,
+        grab_anywhere_using_control: bool = True,
         keep_on_top=None,
-        resizable=False,
-        disable_close=False,
-        disable_minimize=False,
+        resizable: bool = False,
+        disable_close: bool = False,
+        disable_minimize: bool = False,
         right_click_menu=None,
-        transparent_color=None,
-        debugger_enabled=True,
-        right_click_menu_background_color=None,
-        right_click_menu_text_color=None,
-        right_click_menu_disabled_text_color=None,
+        transparent_color: Optional[str] = None,
+        debugger_enabled: bool = True,
+        right_click_menu_background_color: Optional[str] = None,
+        right_click_menu_text_color: Optional[str] = None,
+        right_click_menu_disabled_text_color: Optional[str] = None,
         right_click_menu_selected_colors=(None, None),
         right_click_menu_font=None,
-        right_click_menu_tearoff=False,
-        finalize=False,
-        element_justification='left',
-        ttk_theme=None,
-        use_ttk_buttons=None,
-        modal=False,
-        enable_close_attempted_event=False,
-        enable_window_config_events=False,
-        titlebar_background_color=None,
-        titlebar_text_color=None,
+        right_click_menu_tearoff: bool = False,
+        finalize: bool = False,
+        element_justification: Literal["left", "right", "center"] = "left",
+        ttk_theme: Optional[str] = None,
+        use_ttk_buttons: Optional[bool] = None,
+        modal: bool = False,
+        enable_close_attempted_event: bool = False,
+        enable_window_config_events: bool = False,
+        titlebar_background_color: Optional[str] = None,
+        titlebar_text_color: Optional[str] = None,
         titlebar_font=None,
         titlebar_icon=None,
-        use_custom_titlebar=None,
-        scaling=None,
-        sbar_trough_color=None,
-        sbar_background_color=None,
-        sbar_arrow_color=None,
-        sbar_width=None,
-        sbar_arrow_width=None,
-        sbar_frame_color=None,
-        sbar_relief=None,
-        watermark=None,
+        use_custom_titlebar: Optional[bool] = None,
+        scaling: Optional[float] = None,
+        sbar_trough_color: Optional[str] = None,
+        sbar_background_color: Optional[str] = None,
+        sbar_arrow_color: Optional[str] = None,
+        sbar_width: Optional[int] = None,
+        sbar_arrow_width: Optional[int] = None,
+        sbar_frame_color: Optional[str] = None,
+        sbar_relief: Optional[str] = None,
+        watermark: Optional[bool] = None,
         metadata=None,
     ):
         """
@@ -325,9 +325,9 @@ class Window:
         self._metadata = None  # type: Any
         self.AutoSizeText = auto_size_text if auto_size_text is not None else FreeSimpleGUI.DEFAULT_AUTOSIZE_TEXT
         self.AutoSizeButtons = auto_size_buttons if auto_size_buttons is not None else FreeSimpleGUI.DEFAULT_AUTOSIZE_BUTTONS
-        self.Title = str(title)
+        self.Title: str = str(title)
         self.Rows = []  # a list of ELEMENTS for this row
-        self.DefaultElementSize = default_element_size if default_element_size is not None else FreeSimpleGUI.DEFAULT_ELEMENT_SIZE
+        self.DefaultElementSize: Tuple[int, int] = default_element_size if default_element_size is not None else FreeSimpleGUI.DEFAULT_ELEMENT_SIZE
         self.DefaultButtonElementSize = default_button_element_size if default_button_element_size != (None, None) else FreeSimpleGUI.DEFAULT_BUTTON_ELEMENT_SIZE
         if FreeSimpleGUI.DEFAULT_WINDOW_LOCATION != (None, None) and location == (None, None):
             self.Location = FreeSimpleGUI.DEFAULT_WINDOW_LOCATION
@@ -360,12 +360,12 @@ class Window:
         self.ReturnValues = None
         self.ReturnValuesList = []
         self.ReturnValuesDictionary = {}
-        self.DictionaryKeyCounter = 0
+        self.DictionaryKeyCounter: int = 0
         self.LastButtonClicked = None
-        self.LastButtonClickedWasRealtime = False
-        self.UseDictionary = False
-        self.UseDefaultFocus = use_default_focus
-        self.ReturnKeyboardEvents = return_keyboard_events
+        self.LastButtonClickedWasRealtime: bool = False
+        self.UseDictionary: bool = False
+        self.UseDefaultFocus: bool = use_default_focus
+        self.ReturnKeyboardEvents: bool = return_keyboard_events
         self.LastKeyboardEvent = None
         self.TextJustification = text_justification
         self.NoTitleBar = no_titlebar
@@ -413,7 +413,7 @@ class Window:
         self.UseTtkButtons = use_ttk_buttons if use_ttk_buttons is not None else FreeSimpleGUI.USE_TTK_BUTTONS
         self.user_bind_dict = {}  # Used when user defines a tkinter binding using bind method - convert bind string to key modifier
         self.user_bind_event = None  # Used when user defines a tkinter binding using bind method - event data from tkinter
-        self.modal = modal
+        self.modal: bool = modal
         self.thread_queue = None  # type: queue.Queue
         self.thread_lock = None  # type: threading.Lock
         self.thread_timer = None  # type: tk.Misc
@@ -641,7 +641,7 @@ class Window:
         if Window._watermark is not None:
             self.add_row(Window._watermark(self))
 
-    def layout(self, rows):
+    def layout(self, rows: List[List[Element]]):
         """
         Second of two preferred ways of telling a Window what its layout is. The other way is to pass the layout as
         a parameter to Window object.  The parameter method is the currently preferred method. This call to Layout
@@ -839,7 +839,7 @@ class Window:
         element = row[col_num]
         return element
 
-    def _GetDefaultElementSize(self):
+    def _GetDefaultElementSize(self) -> Tuple[int, int]:
         """
         Returns the default elementSize
 
@@ -934,7 +934,7 @@ class Window:
         return should_submit_window
 
     # @_timeit_summary
-    def read(self, timeout=None, timeout_key=TIMEOUT_KEY, close=False):
+    def read(self, timeout: Optional[int] = None, timeout_key=TIMEOUT_KEY, close: bool = False):
         """
         THE biggest deal method in the Window class! This is how you get all of your data from your Window.
             Pass in a timeout (in milliseconds) to wait for a maximum of timeout milliseconds. Will return timeout_key
@@ -1003,7 +1003,7 @@ class Window:
         return results
 
     # @_timeit
-    def _read(self, timeout=None, timeout_key=TIMEOUT_KEY):
+    def _read(self, timeout: Optional[int] = None, timeout_key=TIMEOUT_KEY):
         """
         THE biggest deal method in the Window class! This is how you get all of your data from your Window.
             Pass in a timeout (in milliseconds) to wait for a maximum of timeout milliseconds. Will return timeout_key
@@ -1170,7 +1170,7 @@ class Window:
             return None, None
         return _BuildResults(self, False, self)
 
-    def _start_autoclose_timer(self):
+    def _start_autoclose_timer(self) -> None:
         duration = FreeSimpleGUI.DEFAULT_AUTOCLOSE_TIME if self.AutoCloseDuration is None else self.AutoCloseDuration
         self.TKAfterID = self.TKroot.after(int(duration * 1000), self._AutoCloseAlarmCallback)
 
@@ -1249,7 +1249,7 @@ class Window:
                 return k
         return matches[0] if len(matches) else None
 
-    def FindElement(self, key, silent_on_error=False):
+    def FindElement(self, key, silent_on_error: bool = False):
         """
         ** Warning ** This call will eventually be depricated. **
 
@@ -1273,7 +1273,7 @@ class Window:
 
         return self.find_element(key, silent_on_error=silent_on_error)
 
-    def find_element(self, key, silent_on_error=False, supress_guessing=None, supress_raise=None):
+    def find_element(self, key, silent_on_error: bool = False, supress_guessing: Optional[bool] = None, supress_raise: Optional[bool] = None):
         """
         Find element object associated with the provided key.
         THIS METHOD IS NO LONGER NEEDED to be called by the user
@@ -1344,7 +1344,7 @@ class Window:
     Find = find_element  # Shortcut function, most likely not used by many people.
     Elem = find_element  # NEW for 2019!  More laziness... Another shortcut
 
-    def find_element_with_focus(self):
+    def find_element_with_focus(self) -> Optional[Element]:
         """
         Returns the Element that currently has focus as reported by tkinter. If no element is found None is returned!
         :return: An Element if one has been found with focus or None if no element found
@@ -1353,11 +1353,10 @@ class Window:
         element = _FindElementWithFocusInSubForm(self)
         return element
 
-    def widget_to_element(self, widget):
+    def widget_to_element(self, widget) -> None:
         """
         Returns the element that matches a supplied tkinter widget.
         If no matching element is found, then None is returned.
-
 
         :return:    Element that uses the specified widget
         :rtype:     Element | None
@@ -1369,7 +1368,7 @@ class Window:
                 return element
         return None
 
-    def _BuildKeyDict(self):
+    def _BuildKeyDict(self) -> None:
         """
         Used internally only! Not user callable
         Builds a dictionary containing all elements with keys for this window.
@@ -1377,7 +1376,7 @@ class Window:
         dict = {}
         self.AllKeysDict = self._BuildKeyDictForWindow(self, self, dict)
 
-    def _BuildKeyDictForWindow(self, top_window, window, key_dict):
+    def _BuildKeyDictForWindow(self, top_window: "Window", window, key_dict):
         """
         Loop through all Rows and all Container Elements for this window and create the keys for all of them.
         Note that the calls are recursive as all pathes must be walked
@@ -2642,7 +2641,7 @@ class Window:
         """
         return self.AllKeysDict
 
-    def key_is_good(self, key):
+    def key_is_good(self, key) -> bool:
         """
         Checks to see if this is a good key for this window
         If there's an element with the key provided, then True is returned
@@ -2655,7 +2654,7 @@ class Window:
             return True
         return False
 
-    def get_scaling(self):
+    def get_scaling(self) -> float:
         """
         Returns the current scaling value set for this window
 
@@ -2674,10 +2673,10 @@ class Window:
 
         return scaling
 
-    def _custom_titlebar_restore_callback(self, event):
+    def _custom_titlebar_restore_callback(self, event) -> None:
         self._custom_titlebar_restore()
 
-    def _custom_titlebar_restore(self):
+    def _custom_titlebar_restore(self) -> None:
         if running_linux():
             self.TKroot.unbind('<Button-1>')
             self.TKroot.deiconify()
@@ -2697,7 +2696,7 @@ class Window:
                 self.TKroot.attributes('-fullscreen', False)
         self.maximized = False
 
-    def _custom_titlebar_minimize(self):
+    def _custom_titlebar_minimize(self) -> None:
         if running_linux():
             self.TKroot.wm_attributes('-type', 'normal')
             self.TKroot.wm_overrideredirect(False)
@@ -2708,7 +2707,7 @@ class Window:
             self.TKroot.iconify()
             self.TKroot.bind('<Expose>', self._custom_titlebar_restore_callback)
 
-    def _custom_titlebar_callback(self, key):
+    def _custom_titlebar_callback(self, key) -> None:
         """
         One of the Custom Titlbar buttons was clicked
         :param key:
@@ -2727,7 +2726,7 @@ class Window:
             if not self.DisableClose:
                 self._OnClosingCallback()
 
-    def timer_start(self, frequency_ms, key=EVENT_TIMER, repeating=True):
+    def timer_start(self, frequency_ms: int, key=EVENT_TIMER, repeating: bool = True) -> int:
         """
         Starts a timer that gnerates Timer Events.  The default is to repeat the timer events until timer is stopped.
         You can provide your own key or a default key will be used.  The default key is defined
@@ -2746,7 +2745,7 @@ class Window:
         timer = _TimerPeriodic(self, frequency_ms=frequency_ms, key=key, repeating=repeating)
         return timer.id
 
-    def timer_stop(self, timer_id):
+    def timer_stop(self, timer_id: int) -> None:
         """
         Stops a timer with a given ID
 
@@ -2756,13 +2755,13 @@ class Window:
         """
         _TimerPeriodic.stop_timer_with_id(timer_id)
 
-    def timer_stop_all(self):
+    def timer_stop_all(self) -> None:
         """
         Stops all timers for THIS window
         """
         _TimerPeriodic.stop_all_timers_for_window(self)
 
-    def timer_get_active_timers(self):
+    def timer_get_active_timers(self) -> List[int]:
         """
         Returns a list of currently active timers for a window
         :return:    List of timers for the window
@@ -2818,7 +2817,7 @@ class Window:
         """
         return self.read(*args, **kwargs)
 
-    def _is_window_created(self, additional_message=''):
+    def _is_window_created(self, additional_message: str = '') -> bool:
         msg = str(additional_message)
         if self.TKroot is None:
             warnings.warn(
@@ -2834,7 +2833,7 @@ class Window:
             return False
         return True
 
-    def _has_custom_titlebar_element(self):
+    def _has_custom_titlebar_element(self) -> bool:
         for elem in self.AllKeysDict.values():
             if elem.Key in (TITLEBAR_MAXIMIZE_KEY, TITLEBAR_CLOSE_KEY, TITLEBAR_IMAGE_KEY):
                 return True

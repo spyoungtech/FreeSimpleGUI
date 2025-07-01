@@ -1441,7 +1441,7 @@ def pin(elem: Element, vertical_alignment=None, shrink: bool = True, expand_x: O
         return Column([[elem]], pad=(0, 0), vertical_alignment=vertical_alignment, expand_x=expand_x, expand_y=expand_y)
 
 
-def vtop(elem_or_row, expand_x=None, expand_y=None, background_color=None):
+def vtop(elem_or_row, expand_x: Optional[bool] = None, expand_y: Optional[bool] = None, background_color: Optional[str] = None):
     """
     Align an element or a row of elements to the top of the row that contains it
 
@@ -1480,7 +1480,7 @@ def vtop(elem_or_row, expand_x=None, expand_y=None, background_color=None):
     )
 
 
-def vcenter(elem_or_row, expand_x=None, expand_y=None, background_color=None):
+def vcenter(elem_or_row, expand_x: Optional[bool] = None, expand_y: Optional[bool] = None, background_color: Optional[str] = None):
     """
     Align an element or a row of elements to the center of the row that contains it
 
@@ -1519,7 +1519,7 @@ def vcenter(elem_or_row, expand_x=None, expand_y=None, background_color=None):
     )
 
 
-def vbottom(elem_or_row, expand_x=None, expand_y=None, background_color=None):
+def vbottom(elem_or_row, expand_x: Optional[bool] = None, expand_y: Optional[bool] = None, background_color: Optional[str] = None):
     """
     Align an element or a row of elements to the bottom of the row that contains it
 
@@ -1558,7 +1558,7 @@ def vbottom(elem_or_row, expand_x=None, expand_y=None, background_color=None):
     )
 
 
-def Titlebar(title='', icon=None, text_color=None, background_color=None, font=None, key=None, k=None):
+def Titlebar(title: str = '', icon=None, text_color: Optional[str] = None, background_color: Optional[str] = None, font=None, key=None, k=None):
     """
     A custom titlebar that replaces the OS provided titlebar, thus giving you control
     the is not possible using the OS provided titlebar such as the color.
@@ -1666,16 +1666,16 @@ def Titlebar(title='', icon=None, text_color=None, background_color=None, font=N
 
 def MenubarCustom(
     menu_definition,
-    disabled_text_color=None,
+    disabled_text_color: Optional[str] = None,
     bar_font=None,
     font=None,
-    tearoff=False,
+    tearoff: bool = False,
     pad=0,
     p=None,
-    background_color=None,
-    text_color=None,
-    bar_background_color=None,
-    bar_text_color=None,
+    background_color: Optional[str] = None,
+    text_color: Optional[str] = None,
+    bar_background_color: Optional[str] = None,
+    bar_text_color: Optional[str] = None,
     key=None,
     k=None,
 ):
@@ -1755,26 +1755,26 @@ def MenubarCustom(
 
 # -------------------------  FOLDER BROWSE Element lazy function  ------------------------- #
 def FolderBrowse(
-    button_text='Browse',
+    button_text: str = 'Browse',
     target=(ThisRow, -1),
-    initial_folder=None,
-    tooltip=None,
+    initial_folder: Optional[str] = None,
+    tooltip: Optional[str] = None,
     size=(None, None),
     s=(None, None),
-    auto_size_button=None,
+    auto_size_button: Optional[bool] = None,
     button_color=None,
-    disabled=False,
-    change_submits=False,
-    enable_events=False,
+    disabled: bool = False,
+    change_submits: bool = False,
+    enable_events: bool = False,
     font=None,
     pad=None,
     p=None,
     key=None,
     k=None,
-    visible=True,
+    visible: bool = True,
     metadata=None,
-    expand_x=False,
-    expand_y=False,
+    expand_x: bool = False,
+    expand_y: bool = False,
 ):
     """
     :param button_text:      text in the button (Default value = 'Browse')
