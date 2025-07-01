@@ -11,87 +11,79 @@ import threading
 import tkinter
 import tkinter as tk
 import warnings
-
-from typing import Any, Dict, List, Literal, Optional, Tuple, Union
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Literal
+from typing import Optional
+from typing import Tuple
+from typing import Union
 
 import FreeSimpleGUI
-
-from FreeSimpleGUI import (
-    _BuildResults,
-    _Debugger,
-    _debugger_window_is_open,
-    _FindElementWithFocusInSubForm,
-    _get_hidden_master_root,
-    _global_settings_get_watermark_info,
-    _long_func_thread,
-    _refresh_debugger,
-    _TimerPeriodic,
-)
-
-from FreeSimpleGUI import (
-    BUTTON_TYPE_CALENDAR_CHOOSER,
-    COLOR_SYSTEM_DEFAULT,
-    ELEM_TYPE_BUTTON,
-    ELEM_TYPE_BUTTONMENU,
-    ELEM_TYPE_COLUMN,
-    ELEM_TYPE_FRAME,
-    ELEM_TYPE_GRAPH,
-    ELEM_TYPE_IMAGE,
-    ELEM_TYPE_INPUT_CHECKBOX,
-    ELEM_TYPE_INPUT_COMBO,
-    ELEM_TYPE_INPUT_LISTBOX,
-    ELEM_TYPE_INPUT_MULTILINE,
-    ELEM_TYPE_INPUT_OPTION_MENU,
-    ELEM_TYPE_INPUT_RADIO,
-    ELEM_TYPE_INPUT_SLIDER,
-    ELEM_TYPE_INPUT_SPIN,
-    ELEM_TYPE_INPUT_TEXT,
-    ELEM_TYPE_MENUBAR,
-    ELEM_TYPE_PANE,
-    ELEM_TYPE_PROGRESS_BAR,
-    ELEM_TYPE_SEPARATOR,
-    ELEM_TYPE_TAB,
-    ELEM_TYPE_TAB_GROUP,
-    ELEM_TYPE_TABLE,
-    ELEM_TYPE_TREE,
-    EMOJI_BASE64_KEY,
-    EVENT_TIMER,
-    GRAB_ANYWHERE_IGNORE_THESE_WIDGETS,
-    TITLEBAR_CLOSE_KEY,
-    TITLEBAR_IMAGE_KEY,
-    TITLEBAR_MAXIMIZE_KEY,
-    TITLEBAR_METADATA_MARKER,
-    TITLEBAR_MINIMIZE_KEY,
-    TITLEBAR_TEXT_KEY,
-    TIMEOUT_KEY,
-    WINDOW_CLOSE_ATTEMPTED_EVENT,
-    WINDOW_CONFIG_EVENT,
-)
-
-from FreeSimpleGUI import (
-    fill_form_with_values,
-    InitializeResults,
-    PackFormIntoFrame,
-    popup_error_with_traceback,
-    popup_get_date,
-    popup_quick_message,
-    pysimplegui_user_settings,
-    running_linux,
-    running_mac,
-    running_windows,
-    StartupTK,
-    theme_input_background_color,
-    theme_input_text_color,
-    theme_use_custom_titlebar,
-    Titlebar,
-    TTKPartOverrides,
-)
-
-from FreeSimpleGUI._utils import (
-    _error_popup_with_traceback,
-    _exit_mainloop,
-)
-
+from FreeSimpleGUI import _BuildResults
+from FreeSimpleGUI import _Debugger
+from FreeSimpleGUI import _debugger_window_is_open
+from FreeSimpleGUI import _FindElementWithFocusInSubForm
+from FreeSimpleGUI import _get_hidden_master_root
+from FreeSimpleGUI import _global_settings_get_watermark_info
+from FreeSimpleGUI import _long_func_thread
+from FreeSimpleGUI import _refresh_debugger
+from FreeSimpleGUI import _TimerPeriodic
+from FreeSimpleGUI import BUTTON_TYPE_CALENDAR_CHOOSER
+from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
+from FreeSimpleGUI import ELEM_TYPE_BUTTON
+from FreeSimpleGUI import ELEM_TYPE_BUTTONMENU
+from FreeSimpleGUI import ELEM_TYPE_COLUMN
+from FreeSimpleGUI import ELEM_TYPE_FRAME
+from FreeSimpleGUI import ELEM_TYPE_GRAPH
+from FreeSimpleGUI import ELEM_TYPE_IMAGE
+from FreeSimpleGUI import ELEM_TYPE_INPUT_CHECKBOX
+from FreeSimpleGUI import ELEM_TYPE_INPUT_COMBO
+from FreeSimpleGUI import ELEM_TYPE_INPUT_LISTBOX
+from FreeSimpleGUI import ELEM_TYPE_INPUT_MULTILINE
+from FreeSimpleGUI import ELEM_TYPE_INPUT_OPTION_MENU
+from FreeSimpleGUI import ELEM_TYPE_INPUT_RADIO
+from FreeSimpleGUI import ELEM_TYPE_INPUT_SLIDER
+from FreeSimpleGUI import ELEM_TYPE_INPUT_SPIN
+from FreeSimpleGUI import ELEM_TYPE_INPUT_TEXT
+from FreeSimpleGUI import ELEM_TYPE_MENUBAR
+from FreeSimpleGUI import ELEM_TYPE_PANE
+from FreeSimpleGUI import ELEM_TYPE_PROGRESS_BAR
+from FreeSimpleGUI import ELEM_TYPE_SEPARATOR
+from FreeSimpleGUI import ELEM_TYPE_TAB
+from FreeSimpleGUI import ELEM_TYPE_TAB_GROUP
+from FreeSimpleGUI import ELEM_TYPE_TABLE
+from FreeSimpleGUI import ELEM_TYPE_TREE
+from FreeSimpleGUI import EMOJI_BASE64_KEY
+from FreeSimpleGUI import EVENT_TIMER
+from FreeSimpleGUI import fill_form_with_values
+from FreeSimpleGUI import GRAB_ANYWHERE_IGNORE_THESE_WIDGETS
+from FreeSimpleGUI import InitializeResults
+from FreeSimpleGUI import PackFormIntoFrame
+from FreeSimpleGUI import popup_error_with_traceback
+from FreeSimpleGUI import popup_get_date
+from FreeSimpleGUI import popup_quick_message
+from FreeSimpleGUI import pysimplegui_user_settings
+from FreeSimpleGUI import running_linux
+from FreeSimpleGUI import running_mac
+from FreeSimpleGUI import running_windows
+from FreeSimpleGUI import StartupTK
+from FreeSimpleGUI import theme_input_background_color
+from FreeSimpleGUI import theme_input_text_color
+from FreeSimpleGUI import theme_use_custom_titlebar
+from FreeSimpleGUI import TIMEOUT_KEY
+from FreeSimpleGUI import Titlebar
+from FreeSimpleGUI import TITLEBAR_CLOSE_KEY
+from FreeSimpleGUI import TITLEBAR_IMAGE_KEY
+from FreeSimpleGUI import TITLEBAR_MAXIMIZE_KEY
+from FreeSimpleGUI import TITLEBAR_METADATA_MARKER
+from FreeSimpleGUI import TITLEBAR_MINIMIZE_KEY
+from FreeSimpleGUI import TITLEBAR_TEXT_KEY
+from FreeSimpleGUI import TTKPartOverrides
+from FreeSimpleGUI import WINDOW_CLOSE_ATTEMPTED_EVENT
+from FreeSimpleGUI import WINDOW_CONFIG_EVENT
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+from FreeSimpleGUI._utils import _exit_mainloop
 from FreeSimpleGUI.elements.base import Element
 from FreeSimpleGUI.elements.helpers import _simplified_dual_color_to_tuple
 from FreeSimpleGUI.elements.helpers import button_color_to_tuple
@@ -108,7 +100,7 @@ class Window:
     _animated_popup_dict: Dict = {}
     _active_windows: Dict[Window, tk.Tk] = {}
     _move_all_windows = False  # if one window moved, they will move
-    _window_that_exited: "Window" = None
+    _window_that_exited: 'Window' = None
     _root_running_mainloop: tk.Tk = None  # (may be the hidden root or a window's root)
     _timeout_key = None
     _TKAfterID = None  # timer that is used to run reads with timeouts

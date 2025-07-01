@@ -31,10 +31,12 @@ from math import fabs
 from tkinter import filedialog  # noqa
 from tkinter import ttk
 from tkinter.colorchooser import askcolor  # noqa
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Tuple
 
-from typing import Any, Dict, List, Tuple  # noqa
-
-
+from FreeSimpleGUI._utils import _error_popup_with_traceback
 from FreeSimpleGUI.elements.base import Element
 from FreeSimpleGUI.elements.button import Button
 from FreeSimpleGUI.elements.button import ButtonMenu
@@ -48,11 +50,12 @@ from FreeSimpleGUI.elements.combo import Combo
 from FreeSimpleGUI.elements.error import ErrorElement
 from FreeSimpleGUI.elements.frame import Frame
 from FreeSimpleGUI.elements.graph import Graph
+from FreeSimpleGUI.elements.helpers import AddMenuItem
+from FreeSimpleGUI.elements.helpers import button_color_to_tuple
 from FreeSimpleGUI.elements.image import Image
 from FreeSimpleGUI.elements.input import Input
 from FreeSimpleGUI.elements.list_box import Listbox
 from FreeSimpleGUI.elements.menu import Menu
-from FreeSimpleGUI.elements.helpers import AddMenuItem, button_color_to_tuple
 from FreeSimpleGUI.elements.multiline import Multiline
 from FreeSimpleGUI.elements.multiline import Output
 from FreeSimpleGUI.elements.option_menu import OptionMenu
@@ -76,7 +79,6 @@ from FreeSimpleGUI.elements.tree import Tree
 from FreeSimpleGUI.elements.tree import TreeData
 from FreeSimpleGUI.tray import SystemTray
 from FreeSimpleGUI.window import Window
-from FreeSimpleGUI._utils import _error_popup_with_traceback
 
 # Element aliases
 In = Input
