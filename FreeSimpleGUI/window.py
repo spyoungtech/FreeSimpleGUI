@@ -11,76 +11,87 @@ import threading
 import tkinter
 import tkinter as tk
 import warnings
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Tuple
+
+from typing import Any, Dict, List, Literal, Optional, Tuple, Union
 
 import FreeSimpleGUI
-from FreeSimpleGUI import _BuildResults
-from FreeSimpleGUI import _Debugger
-from FreeSimpleGUI import _debugger_window_is_open
-from FreeSimpleGUI import _FindElementWithFocusInSubForm
-from FreeSimpleGUI import _get_hidden_master_root
-from FreeSimpleGUI import _global_settings_get_watermark_info
-from FreeSimpleGUI import _long_func_thread
-from FreeSimpleGUI import _refresh_debugger
-from FreeSimpleGUI import _TimerPeriodic
-from FreeSimpleGUI import BUTTON_TYPE_CALENDAR_CHOOSER
-from FreeSimpleGUI import COLOR_SYSTEM_DEFAULT
-from FreeSimpleGUI import ELEM_TYPE_BUTTON
-from FreeSimpleGUI import ELEM_TYPE_BUTTONMENU
-from FreeSimpleGUI import ELEM_TYPE_COLUMN
-from FreeSimpleGUI import ELEM_TYPE_FRAME
-from FreeSimpleGUI import ELEM_TYPE_GRAPH
-from FreeSimpleGUI import ELEM_TYPE_IMAGE
-from FreeSimpleGUI import ELEM_TYPE_INPUT_CHECKBOX
-from FreeSimpleGUI import ELEM_TYPE_INPUT_COMBO
-from FreeSimpleGUI import ELEM_TYPE_INPUT_LISTBOX
-from FreeSimpleGUI import ELEM_TYPE_INPUT_MULTILINE
-from FreeSimpleGUI import ELEM_TYPE_INPUT_OPTION_MENU
-from FreeSimpleGUI import ELEM_TYPE_INPUT_RADIO
-from FreeSimpleGUI import ELEM_TYPE_INPUT_SLIDER
-from FreeSimpleGUI import ELEM_TYPE_INPUT_SPIN
-from FreeSimpleGUI import ELEM_TYPE_INPUT_TEXT
-from FreeSimpleGUI import ELEM_TYPE_MENUBAR
-from FreeSimpleGUI import ELEM_TYPE_PANE
-from FreeSimpleGUI import ELEM_TYPE_PROGRESS_BAR
-from FreeSimpleGUI import ELEM_TYPE_SEPARATOR
-from FreeSimpleGUI import ELEM_TYPE_TAB
-from FreeSimpleGUI import ELEM_TYPE_TAB_GROUP
-from FreeSimpleGUI import ELEM_TYPE_TABLE
-from FreeSimpleGUI import ELEM_TYPE_TREE
-from FreeSimpleGUI import EMOJI_BASE64_KEY
-from FreeSimpleGUI import EVENT_TIMER
-from FreeSimpleGUI import fill_form_with_values
-from FreeSimpleGUI import GRAB_ANYWHERE_IGNORE_THESE_WIDGETS
-from FreeSimpleGUI import InitializeResults
-from FreeSimpleGUI import PackFormIntoFrame
-from FreeSimpleGUI import popup_error_with_traceback
-from FreeSimpleGUI import popup_get_date
-from FreeSimpleGUI import popup_quick_message
-from FreeSimpleGUI import pysimplegui_user_settings
-from FreeSimpleGUI import running_linux
-from FreeSimpleGUI import running_mac
-from FreeSimpleGUI import running_windows
-from FreeSimpleGUI import StartupTK
-from FreeSimpleGUI import theme_input_background_color
-from FreeSimpleGUI import theme_input_text_color
-from FreeSimpleGUI import theme_use_custom_titlebar
-from FreeSimpleGUI import TIMEOUT_KEY
-from FreeSimpleGUI import Titlebar
-from FreeSimpleGUI import TITLEBAR_CLOSE_KEY
-from FreeSimpleGUI import TITLEBAR_IMAGE_KEY
-from FreeSimpleGUI import TITLEBAR_MAXIMIZE_KEY
-from FreeSimpleGUI import TITLEBAR_METADATA_MARKER
-from FreeSimpleGUI import TITLEBAR_MINIMIZE_KEY
-from FreeSimpleGUI import TITLEBAR_TEXT_KEY
-from FreeSimpleGUI import TTKPartOverrides
-from FreeSimpleGUI import WINDOW_CLOSE_ATTEMPTED_EVENT
-from FreeSimpleGUI import WINDOW_CONFIG_EVENT
-from FreeSimpleGUI._utils import _error_popup_with_traceback
-from FreeSimpleGUI._utils import _exit_mainloop
+
+from FreeSimpleGUI import (
+    _BuildResults,
+    _Debugger,
+    _debugger_window_is_open,
+    _FindElementWithFocusInSubForm,
+    _get_hidden_master_root,
+    _global_settings_get_watermark_info,
+    _long_func_thread,
+    _refresh_debugger,
+    _TimerPeriodic,
+)
+
+from FreeSimpleGUI import (
+    BUTTON_TYPE_CALENDAR_CHOOSER,
+    COLOR_SYSTEM_DEFAULT,
+    ELEM_TYPE_BUTTON,
+    ELEM_TYPE_BUTTONMENU,
+    ELEM_TYPE_COLUMN,
+    ELEM_TYPE_FRAME,
+    ELEM_TYPE_GRAPH,
+    ELEM_TYPE_IMAGE,
+    ELEM_TYPE_INPUT_CHECKBOX,
+    ELEM_TYPE_INPUT_COMBO,
+    ELEM_TYPE_INPUT_LISTBOX,
+    ELEM_TYPE_INPUT_MULTILINE,
+    ELEM_TYPE_INPUT_OPTION_MENU,
+    ELEM_TYPE_INPUT_RADIO,
+    ELEM_TYPE_INPUT_SLIDER,
+    ELEM_TYPE_INPUT_SPIN,
+    ELEM_TYPE_INPUT_TEXT,
+    ELEM_TYPE_MENUBAR,
+    ELEM_TYPE_PANE,
+    ELEM_TYPE_PROGRESS_BAR,
+    ELEM_TYPE_SEPARATOR,
+    ELEM_TYPE_TAB,
+    ELEM_TYPE_TAB_GROUP,
+    ELEM_TYPE_TABLE,
+    ELEM_TYPE_TREE,
+    EMOJI_BASE64_KEY,
+    EVENT_TIMER,
+    GRAB_ANYWHERE_IGNORE_THESE_WIDGETS,
+    TITLEBAR_CLOSE_KEY,
+    TITLEBAR_IMAGE_KEY,
+    TITLEBAR_MAXIMIZE_KEY,
+    TITLEBAR_METADATA_MARKER,
+    TITLEBAR_MINIMIZE_KEY,
+    TITLEBAR_TEXT_KEY,
+    TIMEOUT_KEY,
+    WINDOW_CLOSE_ATTEMPTED_EVENT,
+    WINDOW_CONFIG_EVENT,
+)
+
+from FreeSimpleGUI import (
+    fill_form_with_values,
+    InitializeResults,
+    PackFormIntoFrame,
+    popup_error_with_traceback,
+    popup_get_date,
+    popup_quick_message,
+    pysimplegui_user_settings,
+    running_linux,
+    running_mac,
+    running_windows,
+    StartupTK,
+    theme_input_background_color,
+    theme_input_text_color,
+    theme_use_custom_titlebar,
+    Titlebar,
+    TTKPartOverrides,
+)
+
+from FreeSimpleGUI._utils import (
+    _error_popup_with_traceback,
+    _exit_mainloop,
+)
+
 from FreeSimpleGUI.elements.base import Element
 from FreeSimpleGUI.elements.helpers import _simplified_dual_color_to_tuple
 from FreeSimpleGUI.elements.helpers import button_color_to_tuple
@@ -91,14 +102,14 @@ class Window:
     Represents a single Window
     """
 
-    NumOpenWindows = 0
+    NumOpenWindows: int = 0
     _user_defined_icon = None
-    hidden_master_root = None  # type: tk.Tk
-    _animated_popup_dict = {}  # type: Dict
-    _active_windows = {}  # type: Dict[Window, tk.Tk()]
+    hidden_master_root: tk.Tk = None
+    _animated_popup_dict: Dict = {}
+    _active_windows: Dict[Window, tk.Tk] = {}
     _move_all_windows = False  # if one window moved, they will move
-    _window_that_exited = None  # type: Window
-    _root_running_mainloop = None  # type: tk.Tk()    # (may be the hidden root or a window's root)
+    _window_that_exited: "Window" = None
+    _root_running_mainloop: tk.Tk = None  # (may be the hidden root or a window's root)
     _timeout_key = None
     _TKAfterID = None  # timer that is used to run reads with timeouts
     _window_running_mainloop = None  # The window that is running the mainloop
@@ -109,8 +120,8 @@ class Window:
     _floating_debug_window_build_needed = False
     _main_debug_window_build_needed = False
     # rereouted stdout info. List of tuples (window, element, previous destination)
-    _rerouted_stdout_stack = []  # type: List[Tuple[Window, Element]]
-    _rerouted_stderr_stack = []  # type: List[Tuple[Window, Element]]
+    _rerouted_stdout_stack: List[Tuple[Window, Element]] = []
+    _rerouted_stderr_stack: List[Tuple[Window, Element]] = []
     _original_stdout = None
     _original_stderr = None
     _watermark = None
@@ -119,18 +130,18 @@ class Window:
 
     def __init__(
         self,
-        title,
-        layout=None,
-        default_element_size=None,
-        default_button_element_size=(None, None),
-        auto_size_text=None,
-        auto_size_buttons=None,
-        location=(None, None),
-        relative_location=(None, None),
-        size=(None, None),
-        element_padding=None,
-        margins=(None, None),
-        button_color=None,
+        title: str,
+        layout: Union[List[List[Element]], Tuple[Tuple[Element, ...], ...], None] = None,
+        default_element_size: Optional[Tuple[int, int]] = None,
+        default_button_element_size: Union[Tuple[int, int], Tuple[None, None]] = (None, None),
+        auto_size_text: Optional[bool] = None,
+        auto_size_buttons: Optional[bool] = None,
+        location: Union[Tuple[int, int], Tuple[None, None], None] = (None, None),
+        relative_location: Union[Tuple[int, int], Tuple[None, None]] = (None, None),
+        size: Union[Tuple[int, int], Tuple[None, None]] = (None, None),
+        element_padding: Union[Tuple[int, int], Tuple[Tuple[int, int], Tuple[int, int]], int, None] = None,
+        margins: Union[Tuple[int, int], Tuple[None, None]] = (None, None),
+        button_color: Union[Tuple[str, str], str, None] = None,
         font=None,
         progress_bar_color=(None, None),
         background_color=None,
@@ -335,9 +346,9 @@ class Window:
             self.WindowIcon = FreeSimpleGUI.DEFAULT_WINDOW_ICON
         self.AutoClose = auto_close
         self.NonBlocking = False
-        self.TKroot = None  # type: tk.Tk
-        self.TKrootDestroyed = False
-        self.CurrentlyRunningMainloop = False
+        self.TKroot: tk.Tk = None
+        self.TKrootDestroyed: bool = False
+        self.CurrentlyRunningMainloop: bool = False
         self.FormRemainedOpen = False
         self.TKAfterID = None
         self.ProgressBarColor = progress_bar_color
@@ -394,7 +405,7 @@ class Window:
         self.DebuggerEnabled = debugger_enabled
         self.WasClosed = False
         self.ElementJustification = element_justification
-        self.FocusSet = False
+        self.FocusSet: bool = False
         self.metadata = metadata
         self.TtkTheme = ttk_theme or FreeSimpleGUI.DEFAULT_TTK_THEME
         self.UseTtkButtons = use_ttk_buttons if use_ttk_buttons is not None else FreeSimpleGUI.USE_TTK_BUTTONS
@@ -1796,7 +1807,7 @@ class Window:
         self.LastKeyboardEvent = 'MouseWheel:Down' if event.delta < 0 or event.num == 5 else 'MouseWheel:Up'
         _exit_mainloop(self)
 
-    def _Close(self, without_event=False):
+    def _Close(self, without_event: bool = False):
         """
         The internal close call that does the real work of building. This method basically sets up for closing
         but doesn't destroy the window like the User's version of Close does
@@ -1818,7 +1829,7 @@ class Window:
         self.RootNeedsDestroying = True
         return
 
-    def close(self):
+    def close(self) -> None:
         """
         Closes window.  Users can safely call even if window has been destroyed.   Should always call when done with
         a window so that resources are properly freed up within your thread.
@@ -1853,7 +1864,7 @@ class Window:
         self.Rows = None
         self.TKroot = None
 
-    def is_closed(self, quick_check=None):
+    def is_closed(self, quick_check: bool = False) -> bool:
         """
         Returns True is the window is maybe closed.  Can be difficult to tell sometimes
         NOTE - the call to TKroot.update was taking over 500 ms sometimes so added a flag to bypass the lengthy call.
@@ -2760,7 +2771,7 @@ class Window:
     @classmethod
     def _restore_stdout(cls):
         for item in cls._rerouted_stdout_stack:
-            (window, element) = item  # type: (Window, Element)
+            (window, element) = item
             if not window.is_closed():
                 sys.stdout = element
                 break
@@ -2772,7 +2783,7 @@ class Window:
     @classmethod
     def _restore_stderr(cls):
         for item in cls._rerouted_stderr_stack:
-            (window, element) = item  # type: (Window, Element)
+            (window, element) = item
             if not window.is_closed():
                 sys.stderr = element
                 break

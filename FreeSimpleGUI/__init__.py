@@ -31,10 +31,106 @@ from math import fabs
 from tkinter import filedialog  # noqa
 from tkinter import ttk
 from tkinter.colorchooser import askcolor  # noqa
-from typing import Any  # noqa
-from typing import Dict  # noqa
-from typing import List  # noqa
-from typing import Tuple  # noqa
+
+from typing import Any, Dict, List, Tuple  # noqa
+
+
+from FreeSimpleGUI.elements.base import Element
+from FreeSimpleGUI.elements.button import Button
+from FreeSimpleGUI.elements.button import ButtonMenu
+from FreeSimpleGUI.elements.calendar import TKCalendar
+from FreeSimpleGUI.elements.canvas import Canvas
+from FreeSimpleGUI.elements.checkbox import Checkbox
+from FreeSimpleGUI.elements.column import Column
+from FreeSimpleGUI.elements.column import TkFixedFrame
+from FreeSimpleGUI.elements.column import TkScrollableFrame
+from FreeSimpleGUI.elements.combo import Combo
+from FreeSimpleGUI.elements.error import ErrorElement
+from FreeSimpleGUI.elements.frame import Frame
+from FreeSimpleGUI.elements.graph import Graph
+from FreeSimpleGUI.elements.image import Image
+from FreeSimpleGUI.elements.input import Input
+from FreeSimpleGUI.elements.list_box import Listbox
+from FreeSimpleGUI.elements.menu import Menu
+from FreeSimpleGUI.elements.helpers import AddMenuItem, button_color_to_tuple
+from FreeSimpleGUI.elements.multiline import Multiline
+from FreeSimpleGUI.elements.multiline import Output
+from FreeSimpleGUI.elements.option_menu import OptionMenu
+from FreeSimpleGUI.elements.pane import Pane
+from FreeSimpleGUI.elements.progress_bar import ProgressBar
+from FreeSimpleGUI.elements.progress_bar import TKProgressBar
+from FreeSimpleGUI.elements.radio import Radio
+from FreeSimpleGUI.elements.separator import HorizontalSeparator
+from FreeSimpleGUI.elements.separator import VerticalSeparator
+from FreeSimpleGUI.elements.sizegrip import Sizegrip
+from FreeSimpleGUI.elements.slider import Slider
+from FreeSimpleGUI.elements.spin import Spin
+from FreeSimpleGUI.elements.status_bar import StatusBar
+from FreeSimpleGUI.elements.stretch import Push
+from FreeSimpleGUI.elements.stretch import VPush
+from FreeSimpleGUI.elements.tab import Tab
+from FreeSimpleGUI.elements.tab import TabGroup
+from FreeSimpleGUI.elements.table import Table
+from FreeSimpleGUI.elements.text import Text
+from FreeSimpleGUI.elements.tree import Tree
+from FreeSimpleGUI.elements.tree import TreeData
+from FreeSimpleGUI.tray import SystemTray
+from FreeSimpleGUI.window import Window
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+
+# Element aliases
+In = Input
+InputText = Input
+I = Input  # noqa
+InputCombo = Combo
+DropDown = InputCombo
+Drop = InputCombo
+DD = Combo
+InputOptionMenu = OptionMenu
+LBox = Listbox
+LB = Listbox
+R = Radio
+Rad = Radio
+CB = Checkbox
+CBox = Checkbox
+Check = Checkbox
+Sp = Spin
+ML = Multiline
+MLine = Multiline
+Txt = Text  # type: Text
+T = Text  # type: Text
+SBar = StatusBar
+B = Button
+Btn = Button
+BMenu = ButtonMenu
+BM = ButtonMenu
+Im = Image
+PBar = ProgressBar
+Prog = ProgressBar
+Progress = ProgressBar
+G = Graph
+Fr = Frame
+VSeperator = VerticalSeparator
+VSeparator = VerticalSeparator
+VSep = VerticalSeparator
+MenuBar = Menu
+HSeparator = HorizontalSeparator
+HSep = HorizontalSeparator
+SGrip = Sizegrip
+Sl = Slider
+Col = Column
+MenuBar = Menu
+P = Push
+Stretch = Push
+VStretch = VPush
+VP = VPush
+FlexForm = Window
+
+# additional aliases
+
+popup_timed = popup_auto_close
+test = main
+sdk_help = main_sdk_help
 
 
 # get the tkinter detailed version
@@ -1075,7 +1171,7 @@ class _TimerPeriodic:
     # Dictionary containing the active timers.  Format is {id : _TimerPeriodic object}
     active_timers = {}  # type: dict[int:_TimerPeriodic]
 
-    def __init__(self, window, frequency_ms, key=EVENT_TIMER, repeating=True):
+    def __init__(self, window: Window, frequency_ms: int, key=EVENT_TIMER, repeating: bool = True):
         """
         :param window:          The window to send events to
         :type window:           FreeSimpleGUI.window.Window
@@ -1104,7 +1200,7 @@ class _TimerPeriodic:
             timer.stop()
 
     @classmethod
-    def stop_all_timers_for_window(cls, window):
+    def stop_all_timers_for_window(cls, window: Window):
         """
         Stops all timers for a given window
         :param window:      The window to stop timers for
@@ -1115,7 +1211,7 @@ class _TimerPeriodic:
                 timer.running = False
 
     @classmethod
-    def get_all_timers_for_window(cls, window):
+    def get_all_timers_for_window(cls, window: Window):
         """
         Returns a list of timer IDs for a given window
         :param window:      The window to find timers for
@@ -4262,7 +4358,7 @@ def _BuildResultsForSubform(form, initialize_only, top_level_form):
     return form.ReturnValues
 
 
-def fill_form_with_values(window, values_dict):
+def fill_form_with_values(window: Window, values_dict):
     """
     Fills a window with values provided in a values dictionary { element_key : new_value }
 
@@ -4451,7 +4547,7 @@ def _make_ttk_style_name(base_style, element, primary_style=False):
     return style_name
 
 
-def _make_ttk_scrollbar(element, orientation, window):
+def _make_ttk_scrollbar(element, orientation, window: Window):
     """
     Creates a ttk scrollbar for elements as they are being added to the layout
 
@@ -4583,7 +4679,7 @@ def _make_ttk_scrollbar(element, orientation, window):
 
 
 # @_timeit
-def PackFormIntoFrame(form, containing_frame, toplevel_form):
+def PackFormIntoFrame(form: Window, containing_frame, toplevel_form: Window):
     """
 
     :param form:             a window class
@@ -6865,7 +6961,7 @@ def _get_hidden_master_root():
     return Window.hidden_master_root
 
 
-def _no_titlebar_setup(window):
+def _no_titlebar_setup(window: Window):
     """
     Does the operations required to turn off the titlebar for the window.
     The Raspberry Pi required the settings to be make after the window's creation.
@@ -6892,7 +6988,7 @@ def _no_titlebar_setup(window):
         warnings.warn(f'** Problem setting no titlebar {e} **', UserWarning)
 
 
-def _convert_window_to_tk(window):
+def _convert_window_to_tk(window: Window):
     """
 
     :type window: (Window)
@@ -6953,7 +7049,7 @@ def _convert_window_to_tk(window):
 
 
 # ----====----====----====----====----==== STARTUP TK ====----====----====----====----====----#
-def StartupTK(window):
+def StartupTK(window: Window):
     """
     NOT user callable
     Creates the window (for real) lays out all the elements, etc.  It's a HUGE set of things it does.  It's the basic
@@ -6963,7 +7059,7 @@ def StartupTK(window):
     :type window:  (Window)
 
     """
-    window = window  # type: Window
+    window: Window = window
     # global _my_windows
     # ow = _my_windows.NumOpenWindows
     ow = Window.NumOpenWindows
@@ -7225,16 +7321,16 @@ class _QuickMeter:
 
     def __init__(
         self,
-        title,
-        current_value,
-        max_value,
+        title: str,
+        current_value: int,
+        max_value: int,
         key,
         *args,
         orientation='v',
         bar_color=(None, None),
         button_color=(None, None),
         size=DEFAULT_PROGRESS_BAR_SIZE,
-        border_width=None,
+        border_width: Optional[int] = None,
         grab_anywhere=False,
         no_titlebar=False,
         keep_on_top=None,
@@ -7280,7 +7376,7 @@ class _QuickMeter:
         self.button_color = button_color
         self.border_width = border_width
         self.no_titlebar = no_titlebar
-        self.title = title
+        self.title: str = title
         self.current_value = current_value
         self.max_value = max_value
         self.close_reason = None
@@ -12029,7 +12125,7 @@ def popup_notify(
     )
 
 
-def popup_menu(window, element, menu_def, title=None, location=(None, None)):
+def popup_menu(window: Window, element, menu_def, title=None, location=(None, None)):
     """
     Makes a "popup menu"
     This type of menu is what you get when a normal menu or a right click menu is torn off
@@ -16346,7 +16442,7 @@ def main():
     set_options(force_modal_windows=forced_modal)
 
 
-def _optional_window_data(window):
+def _optional_window_data(window: Window):
     """
     A function to help with testing PySimpleGUI releases. Makes it easier to add a watermarked line to the bottom
     of a window while testing release candidates.
@@ -16385,104 +16481,6 @@ _read_mac_global_settings()
 if _mac_should_set_alpha_to_99():
     # Applyting Mac OS 12.3+ Alpha Channel fix.  Sets the default Alpha Channel to 0.99
     set_options(alpha_channel=0.99)
-
-
-from FreeSimpleGUI.elements.base import Element
-from FreeSimpleGUI.elements.button import Button
-from FreeSimpleGUI.elements.button import ButtonMenu
-from FreeSimpleGUI.elements.calendar import TKCalendar
-from FreeSimpleGUI.elements.canvas import Canvas
-from FreeSimpleGUI.elements.checkbox import Checkbox
-from FreeSimpleGUI.elements.column import Column
-from FreeSimpleGUI.elements.column import TkFixedFrame
-from FreeSimpleGUI.elements.column import TkScrollableFrame
-from FreeSimpleGUI.elements.combo import Combo
-from FreeSimpleGUI.elements.error import ErrorElement
-from FreeSimpleGUI.elements.frame import Frame
-from FreeSimpleGUI.elements.graph import Graph
-from FreeSimpleGUI.elements.image import Image
-from FreeSimpleGUI.elements.input import Input
-from FreeSimpleGUI.elements.list_box import Listbox
-from FreeSimpleGUI.elements.menu import Menu
-from FreeSimpleGUI.elements.helpers import AddMenuItem, button_color_to_tuple
-from FreeSimpleGUI.elements.multiline import Multiline
-from FreeSimpleGUI.elements.multiline import Output
-from FreeSimpleGUI.elements.option_menu import OptionMenu
-from FreeSimpleGUI.elements.pane import Pane
-from FreeSimpleGUI.elements.progress_bar import ProgressBar
-from FreeSimpleGUI.elements.progress_bar import TKProgressBar
-from FreeSimpleGUI.elements.radio import Radio
-from FreeSimpleGUI.elements.separator import HorizontalSeparator
-from FreeSimpleGUI.elements.separator import VerticalSeparator
-from FreeSimpleGUI.elements.sizegrip import Sizegrip
-from FreeSimpleGUI.elements.slider import Slider
-from FreeSimpleGUI.elements.spin import Spin
-from FreeSimpleGUI.elements.status_bar import StatusBar
-from FreeSimpleGUI.elements.stretch import Push
-from FreeSimpleGUI.elements.stretch import VPush
-from FreeSimpleGUI.elements.tab import Tab
-from FreeSimpleGUI.elements.tab import TabGroup
-from FreeSimpleGUI.elements.table import Table
-from FreeSimpleGUI.elements.text import Text
-from FreeSimpleGUI.elements.tree import Tree
-from FreeSimpleGUI.elements.tree import TreeData
-from FreeSimpleGUI.tray import SystemTray
-from FreeSimpleGUI.window import Window
-from FreeSimpleGUI._utils import _error_popup_with_traceback
-
-# Element aliases
-In = Input
-InputText = Input
-I = Input  # noqa
-InputCombo = Combo
-DropDown = InputCombo
-Drop = InputCombo
-DD = Combo
-InputOptionMenu = OptionMenu
-LBox = Listbox
-LB = Listbox
-R = Radio
-Rad = Radio
-CB = Checkbox
-CBox = Checkbox
-Check = Checkbox
-Sp = Spin
-ML = Multiline
-MLine = Multiline
-Txt = Text  # type: Text
-T = Text  # type: Text
-SBar = StatusBar
-B = Button
-Btn = Button
-BMenu = ButtonMenu
-BM = ButtonMenu
-Im = Image
-PBar = ProgressBar
-Prog = ProgressBar
-Progress = ProgressBar
-G = Graph
-Fr = Frame
-VSeperator = VerticalSeparator
-VSeparator = VerticalSeparator
-VSep = VerticalSeparator
-MenuBar = Menu
-HSeparator = HorizontalSeparator
-HSep = HorizontalSeparator
-SGrip = Sizegrip
-Sl = Slider
-Col = Column
-MenuBar = Menu
-P = Push
-Stretch = Push
-VStretch = VPush
-VP = VPush
-FlexForm = Window
-
-# additional aliases
-
-popup_timed = popup_auto_close
-test = main
-sdk_help = main_sdk_help
 
 
 # ------------------------ Set the "Official PySimpleGUI Theme Colors" ------------------------
