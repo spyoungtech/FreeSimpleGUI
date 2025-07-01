@@ -173,7 +173,7 @@ class Window:
         right_click_menu_font=None,
         right_click_menu_tearoff: bool = False,
         finalize: bool = False,
-        element_justification: Literal["left", "right", "center"] = "left",
+        element_justification: Literal['left', 'right', 'center'] = 'left',
         ttk_theme: Optional[str] = None,
         use_ttk_buttons: Optional[bool] = None,
         modal: bool = False,
@@ -1376,7 +1376,7 @@ class Window:
         dict = {}
         self.AllKeysDict = self._BuildKeyDictForWindow(self, self, dict)
 
-    def _BuildKeyDictForWindow(self, top_window: "Window", window, key_dict):
+    def _BuildKeyDictForWindow(self, top_window: 'Window', window, key_dict):
         """
         Loop through all Rows and all Container Elements for this window and create the keys for all of them.
         Note that the calls are recursive as all pathes must be walked
