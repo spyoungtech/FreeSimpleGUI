@@ -31,10 +31,109 @@ from math import fabs
 from tkinter import filedialog  # noqa
 from tkinter import ttk
 from tkinter.colorchooser import askcolor  # noqa
-from typing import Any  # noqa
-from typing import Dict  # noqa
-from typing import List  # noqa
-from typing import Tuple  # noqa
+
+# noreorder
+from typing import (
+    Any,
+    Dict,
+    List,
+    Literal,
+    Optional,
+    Tuple,
+    Union,
+)
+
+from FreeSimpleGUI._utils import _error_popup_with_traceback
+from FreeSimpleGUI.elements.base import Element
+from FreeSimpleGUI.elements.button import Button
+from FreeSimpleGUI.elements.button import ButtonMenu
+from FreeSimpleGUI.elements.calendar import TKCalendar
+from FreeSimpleGUI.elements.canvas import Canvas
+from FreeSimpleGUI.elements.checkbox import Checkbox
+from FreeSimpleGUI.elements.column import Column
+from FreeSimpleGUI.elements.column import TkFixedFrame
+from FreeSimpleGUI.elements.column import TkScrollableFrame
+from FreeSimpleGUI.elements.combo import Combo
+from FreeSimpleGUI.elements.error import ErrorElement
+from FreeSimpleGUI.elements.frame import Frame
+from FreeSimpleGUI.elements.graph import Graph
+from FreeSimpleGUI.elements.helpers import AddMenuItem
+from FreeSimpleGUI.elements.helpers import button_color_to_tuple
+from FreeSimpleGUI.elements.image import Image
+from FreeSimpleGUI.elements.input import Input
+from FreeSimpleGUI.elements.list_box import Listbox
+from FreeSimpleGUI.elements.menu import Menu
+from FreeSimpleGUI.elements.multiline import Multiline
+from FreeSimpleGUI.elements.multiline import Output
+from FreeSimpleGUI.elements.option_menu import OptionMenu
+from FreeSimpleGUI.elements.pane import Pane
+from FreeSimpleGUI.elements.progress_bar import ProgressBar
+from FreeSimpleGUI.elements.progress_bar import TKProgressBar
+from FreeSimpleGUI.elements.radio import Radio
+from FreeSimpleGUI.elements.separator import HorizontalSeparator
+from FreeSimpleGUI.elements.separator import VerticalSeparator
+from FreeSimpleGUI.elements.sizegrip import Sizegrip
+from FreeSimpleGUI.elements.slider import Slider
+from FreeSimpleGUI.elements.spin import Spin
+from FreeSimpleGUI.elements.status_bar import StatusBar
+from FreeSimpleGUI.elements.stretch import Push
+from FreeSimpleGUI.elements.stretch import VPush
+from FreeSimpleGUI.elements.tab import Tab
+from FreeSimpleGUI.elements.tab import TabGroup
+from FreeSimpleGUI.elements.table import Table
+from FreeSimpleGUI.elements.text import Text
+from FreeSimpleGUI.elements.tree import Tree
+from FreeSimpleGUI.elements.tree import TreeData
+from FreeSimpleGUI.tray import SystemTray
+from FreeSimpleGUI.window import Window
+
+# Element aliases
+In = Input
+InputText = Input
+I = Input  # noqa
+InputCombo = Combo
+DropDown = InputCombo
+Drop = InputCombo
+DD = Combo
+InputOptionMenu = OptionMenu
+LBox = Listbox
+LB = Listbox
+R = Radio
+Rad = Radio
+CB = Checkbox
+CBox = Checkbox
+Check = Checkbox
+Sp = Spin
+ML = Multiline
+MLine = Multiline
+Txt = Text  # type: Text
+T = Text  # type: Text
+SBar = StatusBar
+B = Button
+Btn = Button
+BMenu = ButtonMenu
+BM = ButtonMenu
+Im = Image
+PBar = ProgressBar
+Prog = ProgressBar
+Progress = ProgressBar
+G = Graph
+Fr = Frame
+VSeperator = VerticalSeparator
+VSeparator = VerticalSeparator
+VSep = VerticalSeparator
+MenuBar = Menu
+HSeparator = HorizontalSeparator
+HSep = HorizontalSeparator
+SGrip = Sizegrip
+Sl = Slider
+Col = Column
+MenuBar = Menu
+P = Push
+Stretch = Push
+VStretch = VPush
+VP = VPush
+FlexForm = Window
 
 
 # get the tkinter detailed version
@@ -782,7 +881,7 @@ DEFAULT_USER_SETTINGS_PYSIMPLEGUI_FILENAME = '_PySimpleGUI_settings_global_.json
 # ====================================================================== #
 # One-liner functions that are handy as f_ck                             #
 # ====================================================================== #
-def rgb(red, green, blue):
+def rgb(red: int, green: int, blue: int) -> str:
     """
     Given integer values of Red, Green, Blue, return a color string "#RRGGBB"
     :param red:   Red portion from 0 to 255
@@ -973,7 +1072,7 @@ class ToolTip:
     This is an INTERNALLY USED only class.  Users should not refer to this class at all.
     """
 
-    def __init__(self, widget, text, timeout=DEFAULT_TOOLTIP_TIME):
+    def __init__(self, widget, text: str, timeout: int = DEFAULT_TOOLTIP_TIME) -> None:
         """
         :param widget:  The tkinter widget
         :type widget:   widget type varies
@@ -993,7 +1092,7 @@ class ToolTip:
         self.widget.bind('<Leave>', self.leave)
         self.widget.bind('<ButtonPress>', self.leave)
 
-    def enter(self, event=None):
+    def enter(self, event=None) -> None:
         """
         Called by tkinter when mouse enters a widget
         :param event: from tkinter.  Has x,y coordinates of mouse
@@ -1004,7 +1103,7 @@ class ToolTip:
         self.y = event.y
         self.schedule()
 
-    def leave(self, event=None):
+    def leave(self, event=None) -> None:
         """
         Called by tktiner when mouse exits a widget
         :param event: from tkinter.  Event info that's not used by function.
@@ -1014,14 +1113,14 @@ class ToolTip:
         self.unschedule()
         self.hidetip()
 
-    def schedule(self):
+    def schedule(self) -> None:
         """
         Schedule a timer to time how long mouse is hovering
         """
         self.unschedule()
         self.id = self.widget.after(self.timeout, self.showtip)
 
-    def unschedule(self):
+    def unschedule(self) -> None:
         """
         Cancel timer used to time mouse hover
         """
@@ -1029,7 +1128,7 @@ class ToolTip:
             self.widget.after_cancel(self.id)
         self.id = None
 
-    def showtip(self):
+    def showtip(self) -> None:
         """
         Creates a topoltip window with the tooltip text inside of it
         """
@@ -1061,7 +1160,7 @@ class ToolTip:
             label.config(font=TOOLTIP_FONT)
         label.pack()
 
-    def hidetip(self):
+    def hidetip(self) -> None:
         """
         Destroy the tooltip window
         """
@@ -1071,11 +1170,11 @@ class ToolTip:
 
 
 class _TimerPeriodic:
-    id_counter = 1
+    id_counter: int = 1
     # Dictionary containing the active timers.  Format is {id : _TimerPeriodic object}
     active_timers = {}  # type: dict[int:_TimerPeriodic]
 
-    def __init__(self, window, frequency_ms, key=EVENT_TIMER, repeating=True):
+    def __init__(self, window: Window, frequency_ms: int, key=EVENT_TIMER, repeating: bool = True):
         """
         :param window:          The window to send events to
         :type window:           FreeSimpleGUI.window.Window
@@ -1084,16 +1183,16 @@ class _TimerPeriodic:
         :param repeating:       If True then the timer will run, repeatedly sending events, until stopped
         :type repeating:        bool
         """
-        self.window = window
-        self.frequency_ms = frequency_ms
-        self.repeating = repeating
+        self.window: Window = window
+        self.frequency_ms: int = frequency_ms
+        self.repeating: bool = repeating
         self.key = key
-        self.id = _TimerPeriodic.id_counter
+        self.id: int = _TimerPeriodic.id_counter
         _TimerPeriodic.id_counter += 1
         self.start()
 
     @classmethod
-    def stop_timer_with_id(cls, timer_id):
+    def stop_timer_with_id(cls, timer_id: int):
         """
         Not user callable!
         :return: A simple counter that makes each container element unique
@@ -1104,7 +1203,7 @@ class _TimerPeriodic:
             timer.stop()
 
     @classmethod
-    def stop_all_timers_for_window(cls, window):
+    def stop_all_timers_for_window(cls, window: Window) -> None:
         """
         Stops all timers for a given window
         :param window:      The window to stop timers for
@@ -1115,7 +1214,7 @@ class _TimerPeriodic:
                 timer.running = False
 
     @classmethod
-    def get_all_timers_for_window(cls, window):
+    def get_all_timers_for_window(cls, window: Window):
         """
         Returns a list of timer IDs for a given window
         :param window:      The window to find timers for
@@ -1130,7 +1229,7 @@ class _TimerPeriodic:
 
         return timers
 
-    def timer_thread(self):
+    def timer_thread(self) -> None:
         """
         The thread that sends events to the window.  Runs either once or in a loop until timer is stopped
         """
@@ -1149,7 +1248,7 @@ class _TimerPeriodic:
                 del _TimerPeriodic.active_timers[self.id]
                 return
 
-    def start(self):
+    def start(self) -> None:
         """
         Starts a timer by starting a timer thread
         Adds timer to the list of active timers
@@ -1159,14 +1258,14 @@ class _TimerPeriodic:
         self.thread.start()
         _TimerPeriodic.active_timers[self.id] = self
 
-    def stop(self):
+    def stop(self) -> None:
         """
         Stops a timer
         """
         self.running = False
 
 
-def _long_func_thread(window, end_key, original_func):
+def _long_func_thread(window: Window, end_key, original_func) -> None:
     """
     Used to run long operations on the user's behalf. Called by the window object
 
@@ -1183,7 +1282,7 @@ def _long_func_thread(window, end_key, original_func):
         window.write_event_value(end_key, return_value)
 
 
-def _timeout_alarm_callback_hidden():
+def _timeout_alarm_callback_hidden() -> None:
     """
     Read Timeout Alarm callback. Will kick a mainloop call out of the tkinter event loop and cause it to return
     """
@@ -1199,7 +1298,7 @@ def _timeout_alarm_callback_hidden():
     Window._window_that_exited = None
 
 
-def read_all_windows(timeout=None, timeout_key=TIMEOUT_KEY):
+def read_all_windows(timeout: Optional[int] = None, timeout_key=TIMEOUT_KEY):
     """
     Reads all windows that are "active" when the call is made. "Active" means that it's been finalized or read.
     If a window has not been finalized then it will not be considered an "active window"
@@ -1291,7 +1390,7 @@ def read_all_windows(timeout=None, timeout_key=TIMEOUT_KEY):
 
 
 # ------------------------- A fake Element... the Pad Element ------------------------- #
-def Sizer(h_pixels=0, v_pixels=0):
+def Sizer(h_pixels: int = 0, v_pixels: int = 0):
     """
     "Pushes" out the size of whatever it is placed inside of.  This includes Columns, Frames, Tabs and Windows
 
@@ -1306,7 +1405,7 @@ def Sizer(h_pixels=0, v_pixels=0):
     return Canvas(size=(0, 0), pad=((h_pixels, 0), (v_pixels, 0)))
 
 
-def pin(elem, vertical_alignment=None, shrink=True, expand_x=None, expand_y=None):
+def pin(elem: Element, vertical_alignment=None, shrink: bool = True, expand_x: Optional[bool] = None, expand_y: Optional[bool] = None):
     """
     Pin's an element provided into a layout so that when it's made invisible and visible again, it will
      be in the correct place.  Otherwise it will be placed at the end of its containing window/column.
@@ -1342,7 +1441,7 @@ def pin(elem, vertical_alignment=None, shrink=True, expand_x=None, expand_y=None
         return Column([[elem]], pad=(0, 0), vertical_alignment=vertical_alignment, expand_x=expand_x, expand_y=expand_y)
 
 
-def vtop(elem_or_row, expand_x=None, expand_y=None, background_color=None):
+def vtop(elem_or_row, expand_x: Optional[bool] = None, expand_y: Optional[bool] = None, background_color: Optional[str] = None):
     """
     Align an element or a row of elements to the top of the row that contains it
 
@@ -1381,7 +1480,7 @@ def vtop(elem_or_row, expand_x=None, expand_y=None, background_color=None):
     )
 
 
-def vcenter(elem_or_row, expand_x=None, expand_y=None, background_color=None):
+def vcenter(elem_or_row, expand_x: Optional[bool] = None, expand_y: Optional[bool] = None, background_color: Optional[str] = None):
     """
     Align an element or a row of elements to the center of the row that contains it
 
@@ -1420,7 +1519,7 @@ def vcenter(elem_or_row, expand_x=None, expand_y=None, background_color=None):
     )
 
 
-def vbottom(elem_or_row, expand_x=None, expand_y=None, background_color=None):
+def vbottom(elem_or_row, expand_x: Optional[bool] = None, expand_y: Optional[bool] = None, background_color: Optional[str] = None):
     """
     Align an element or a row of elements to the bottom of the row that contains it
 
@@ -1459,7 +1558,7 @@ def vbottom(elem_or_row, expand_x=None, expand_y=None, background_color=None):
     )
 
 
-def Titlebar(title='', icon=None, text_color=None, background_color=None, font=None, key=None, k=None):
+def Titlebar(title: str = '', icon=None, text_color: Optional[str] = None, background_color: Optional[str] = None, font=None, key=None, k=None):
     """
     A custom titlebar that replaces the OS provided titlebar, thus giving you control
     the is not possible using the OS provided titlebar such as the color.
@@ -1567,16 +1666,16 @@ def Titlebar(title='', icon=None, text_color=None, background_color=None, font=N
 
 def MenubarCustom(
     menu_definition,
-    disabled_text_color=None,
+    disabled_text_color: Optional[str] = None,
     bar_font=None,
     font=None,
-    tearoff=False,
+    tearoff: bool = False,
     pad=0,
     p=None,
-    background_color=None,
-    text_color=None,
-    bar_background_color=None,
-    bar_text_color=None,
+    background_color: Optional[str] = None,
+    text_color: Optional[str] = None,
+    bar_background_color: Optional[str] = None,
+    bar_text_color: Optional[str] = None,
     key=None,
     k=None,
 ):
@@ -1656,26 +1755,26 @@ def MenubarCustom(
 
 # -------------------------  FOLDER BROWSE Element lazy function  ------------------------- #
 def FolderBrowse(
-    button_text='Browse',
+    button_text: str = 'Browse',
     target=(ThisRow, -1),
-    initial_folder=None,
-    tooltip=None,
+    initial_folder: Optional[str] = None,
+    tooltip: Optional[str] = None,
     size=(None, None),
     s=(None, None),
-    auto_size_button=None,
+    auto_size_button: Optional[bool] = None,
     button_color=None,
-    disabled=False,
-    change_submits=False,
-    enable_events=False,
+    disabled: bool = False,
+    change_submits: bool = False,
+    enable_events: bool = False,
     font=None,
     pad=None,
     p=None,
     key=None,
     k=None,
-    visible=True,
+    visible: bool = True,
     metadata=None,
-    expand_x=False,
-    expand_y=False,
+    expand_x: bool = False,
+    expand_y: bool = False,
 ):
     """
     :param button_text:      text in the button (Default value = 'Browse')
@@ -4262,7 +4361,7 @@ def _BuildResultsForSubform(form, initialize_only, top_level_form):
     return form.ReturnValues
 
 
-def fill_form_with_values(window, values_dict):
+def fill_form_with_values(window: Window, values_dict):
     """
     Fills a window with values provided in a values dictionary { element_key : new_value }
 
@@ -4451,7 +4550,7 @@ def _make_ttk_style_name(base_style, element, primary_style=False):
     return style_name
 
 
-def _make_ttk_scrollbar(element, orientation, window):
+def _make_ttk_scrollbar(element, orientation, window: Window):
     """
     Creates a ttk scrollbar for elements as they are being added to the layout
 
@@ -4583,7 +4682,7 @@ def _make_ttk_scrollbar(element, orientation, window):
 
 
 # @_timeit
-def PackFormIntoFrame(form, containing_frame, toplevel_form):
+def PackFormIntoFrame(form: Window, containing_frame, toplevel_form: Window):
     """
 
     :param form:             a window class
@@ -6865,7 +6964,7 @@ def _get_hidden_master_root():
     return Window.hidden_master_root
 
 
-def _no_titlebar_setup(window):
+def _no_titlebar_setup(window: Window):
     """
     Does the operations required to turn off the titlebar for the window.
     The Raspberry Pi required the settings to be make after the window's creation.
@@ -6892,7 +6991,7 @@ def _no_titlebar_setup(window):
         warnings.warn(f'** Problem setting no titlebar {e} **', UserWarning)
 
 
-def _convert_window_to_tk(window):
+def _convert_window_to_tk(window: Window):
     """
 
     :type window: (Window)
@@ -6953,7 +7052,7 @@ def _convert_window_to_tk(window):
 
 
 # ----====----====----====----====----==== STARTUP TK ====----====----====----====----====----#
-def StartupTK(window):
+def StartupTK(window: Window):
     """
     NOT user callable
     Creates the window (for real) lays out all the elements, etc.  It's a HUGE set of things it does.  It's the basic
@@ -6963,7 +7062,7 @@ def StartupTK(window):
     :type window:  (Window)
 
     """
-    window = window  # type: Window
+    window: Window = window
     # global _my_windows
     # ow = _my_windows.NumOpenWindows
     ow = Window.NumOpenWindows
@@ -7225,16 +7324,16 @@ class _QuickMeter:
 
     def __init__(
         self,
-        title,
-        current_value,
-        max_value,
+        title: str,
+        current_value: int,
+        max_value: int,
         key,
         *args,
         orientation='v',
         bar_color=(None, None),
         button_color=(None, None),
         size=DEFAULT_PROGRESS_BAR_SIZE,
-        border_width=None,
+        border_width: Optional[int] = None,
         grab_anywhere=False,
         no_titlebar=False,
         keep_on_top=None,
@@ -7280,7 +7379,7 @@ class _QuickMeter:
         self.button_color = button_color
         self.border_width = border_width
         self.no_titlebar = no_titlebar
-        self.title = title
+        self.title: str = title
         self.current_value = current_value
         self.max_value = max_value
         self.close_reason = None
@@ -7872,7 +7971,7 @@ CPRINT_DESTINATION_WINDOW = None
 CPRINT_DESTINATION_MULTILINE_ELMENT_KEY = None
 
 
-def cprint_set_output_destination(window, multiline_key):
+def cprint_set_output_destination(window: Window, multiline_key):
     """
     Sets up the color print (cprint) output destination
     :param window:        The window that the cprint call will route the output to
@@ -11617,16 +11716,16 @@ def popup_get_text(
 
 
 def popup_get_date(
-    start_mon=None,
-    start_day=None,
-    start_year=None,
-    begin_at_sunday_plus=0,
-    no_titlebar=True,
-    title='Choose Date',
-    keep_on_top=True,
+    start_mon: Optional[int] = None,
+    start_day: Optional[int] = None,
+    start_year: Optional[int] = None,
+    begin_at_sunday_plus: int = 0,
+    no_titlebar: bool = True,
+    title: str = 'Choose Date',
+    keep_on_top: bool = True,
     location=(None, None),
     relative_location=(None, None),
-    close_when_chosen=False,
+    close_when_chosen: bool = False,
     icon=None,
     locale=None,
     month_names=None,
@@ -11634,8 +11733,8 @@ def popup_get_date(
     day_font='TkFixedFont 9',
     mon_year_font='TkFixedFont 10',
     arrow_font='TkFixedFont 7',
-    modal=True,
-):
+    modal: bool = True,
+) -> Optional[int, int, int]:
     """
     Display a calendar window, get the user's choice, return as a tuple (mon, day, year)
 
@@ -11696,7 +11795,7 @@ def popup_get_date(
         cur_day = cur_day
     cur_year = start_year or cur_year
 
-    def update_days(window, month, year, begin_at_sunday_plus):
+    def update_days(window: Window, month: int, year: int, begin_at_sunday_plus):
         [window[(week, day)].update('') for day in range(7) for week in range(6)]
         weeks = calendar.monthcalendar(year, month)
         month_days = list(itertools.chain.from_iterable([[0 for _ in range(8 - begin_at_sunday_plus)]] + weeks))
@@ -11859,21 +11958,21 @@ def popup_get_date(
 
 def popup_animated(
     image_source,
-    message=None,
-    background_color=None,
-    text_color=None,
+    message: Optional[str] = None,
+    background_color: Optional[str] = None,
+    text_color: Optional[str] = None,
     font=None,
-    no_titlebar=True,
-    grab_anywhere=True,
-    keep_on_top=True,
+    no_titlebar: bool = True,
+    grab_anywhere: bool = True,
+    keep_on_top: bool = True,
     location=(None, None),
     relative_location=(None, None),
     alpha_channel=None,
-    time_between_frames=0,
+    time_between_frames: int = 0,
     transparent_color=None,
-    title='',
+    title: str = '',
     icon=None,
-    no_buffering=False,
+    no_buffering: bool = False,
 ):
     """
      Show animation one frame at a time.  This function has its own internal clocking meaning you can call it at any frequency
@@ -12049,7 +12148,7 @@ def popup_notify(
     )
 
 
-def popup_menu(window, element, menu_def, title=None, location=(None, None)):
+def popup_menu(window: Window, element, menu_def, title=None, location=(None, None)):
     """
     Makes a "popup menu"
     This type of menu is what you get when a normal menu or a right click menu is torn off
@@ -16366,7 +16465,7 @@ def main():
     set_options(force_modal_windows=forced_modal)
 
 
-def _optional_window_data(window):
+def _optional_window_data(window: Window):
     """
     A function to help with testing PySimpleGUI releases. Makes it easier to add a watermarked line to the bottom
     of a window while testing release candidates.
@@ -16407,103 +16506,11 @@ if _mac_should_set_alpha_to_99():
     set_options(alpha_channel=0.99)
 
 
-from FreeSimpleGUI.elements.base import Element
-from FreeSimpleGUI.elements.button import Button
-from FreeSimpleGUI.elements.button import ButtonMenu
-from FreeSimpleGUI.elements.calendar import TKCalendar
-from FreeSimpleGUI.elements.canvas import Canvas
-from FreeSimpleGUI.elements.checkbox import Checkbox
-from FreeSimpleGUI.elements.column import Column
-from FreeSimpleGUI.elements.column import TkFixedFrame
-from FreeSimpleGUI.elements.column import TkScrollableFrame
-from FreeSimpleGUI.elements.combo import Combo
-from FreeSimpleGUI.elements.error import ErrorElement
-from FreeSimpleGUI.elements.frame import Frame
-from FreeSimpleGUI.elements.graph import Graph
-from FreeSimpleGUI.elements.image import Image
-from FreeSimpleGUI.elements.input import Input
-from FreeSimpleGUI.elements.list_box import Listbox
-from FreeSimpleGUI.elements.menu import Menu
-from FreeSimpleGUI.elements.helpers import AddMenuItem, button_color_to_tuple
-from FreeSimpleGUI.elements.multiline import Multiline
-from FreeSimpleGUI.elements.multiline import Output
-from FreeSimpleGUI.elements.option_menu import OptionMenu
-from FreeSimpleGUI.elements.pane import Pane
-from FreeSimpleGUI.elements.progress_bar import ProgressBar
-from FreeSimpleGUI.elements.progress_bar import TKProgressBar
-from FreeSimpleGUI.elements.radio import Radio
-from FreeSimpleGUI.elements.separator import HorizontalSeparator
-from FreeSimpleGUI.elements.separator import VerticalSeparator
-from FreeSimpleGUI.elements.sizegrip import Sizegrip
-from FreeSimpleGUI.elements.slider import Slider
-from FreeSimpleGUI.elements.spin import Spin
-from FreeSimpleGUI.elements.status_bar import StatusBar
-from FreeSimpleGUI.elements.stretch import Push
-from FreeSimpleGUI.elements.stretch import VPush
-from FreeSimpleGUI.elements.tab import Tab
-from FreeSimpleGUI.elements.tab import TabGroup
-from FreeSimpleGUI.elements.table import Table
-from FreeSimpleGUI.elements.text import Text
-from FreeSimpleGUI.elements.tree import Tree
-from FreeSimpleGUI.elements.tree import TreeData
-from FreeSimpleGUI.tray import SystemTray
-from FreeSimpleGUI.window import Window
-from FreeSimpleGUI._utils import _error_popup_with_traceback
-
-# Element aliases
-In = Input
-InputText = Input
-I = Input  # noqa
-InputCombo = Combo
-DropDown = InputCombo
-Drop = InputCombo
-DD = Combo
-InputOptionMenu = OptionMenu
-LBox = Listbox
-LB = Listbox
-R = Radio
-Rad = Radio
-CB = Checkbox
-CBox = Checkbox
-Check = Checkbox
-Sp = Spin
-ML = Multiline
-MLine = Multiline
-Txt = Text  # type: Text
-T = Text  # type: Text
-SBar = StatusBar
-B = Button
-Btn = Button
-BMenu = ButtonMenu
-BM = ButtonMenu
-Im = Image
-PBar = ProgressBar
-Prog = ProgressBar
-Progress = ProgressBar
-G = Graph
-Fr = Frame
-VSeperator = VerticalSeparator
-VSeparator = VerticalSeparator
-VSep = VerticalSeparator
-MenuBar = Menu
-HSeparator = HorizontalSeparator
-HSep = HorizontalSeparator
-SGrip = Sizegrip
-Sl = Slider
-Col = Column
-MenuBar = Menu
-P = Push
-Stretch = Push
-VStretch = VPush
-VP = VPush
-FlexForm = Window
-
 # additional aliases
 
 popup_timed = popup_auto_close
 test = main
 sdk_help = main_sdk_help
-
 
 # ------------------------ Set the "Official PySimpleGUI Theme Colors" ------------------------
 

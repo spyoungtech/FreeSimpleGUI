@@ -17,12 +17,12 @@ maintainers = [
 keywords = ["PySimpleGui", "fork", "GUI", "UI", "tkinter", "Qt", "WxPython", "Remi", "wrapper", "simple", "easy", "beginner", "novice", "student", "graphics", "progressbar", "progressmeter"]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
     "Topic :: Multimedia :: Graphics",
     "Operating System :: OS Independent",
