@@ -1676,6 +1676,7 @@ def FolderBrowse(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
     :param button_text:      text in the button (Default value = 'Browse')
@@ -1744,6 +1745,7 @@ def FolderBrowse(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs,
     )
 
 
@@ -1770,6 +1772,7 @@ def FileBrowse(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
 
@@ -1841,6 +1844,7 @@ def FileBrowse(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs,
     )
 
 
@@ -1868,6 +1872,7 @@ def FilesBrowse(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
     Allows browsing of multiple files. File list is returned as a single list with the delimiter defined using the files_delimiter parameter.
@@ -1942,6 +1947,7 @@ def FilesBrowse(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
     button._files_delimiter = files_delimiter
     return button
@@ -1971,6 +1977,7 @@ def FileSaveAs(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
 
@@ -2044,6 +2051,7 @@ def FileSaveAs(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
 
 
@@ -2071,6 +2079,7 @@ def SaveAs(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
 
@@ -2144,6 +2153,7 @@ def SaveAs(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
 
 
@@ -2167,6 +2177,7 @@ def Save(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
 
@@ -2229,6 +2240,7 @@ def Save(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
 
 
@@ -2252,6 +2264,7 @@ def Submit(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
 
@@ -2314,6 +2327,7 @@ def Submit(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
 
 
@@ -2338,6 +2352,7 @@ def Open(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
 
@@ -2400,6 +2415,7 @@ def Open(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
 
 
@@ -2423,6 +2439,7 @@ def OK(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
 
@@ -2485,6 +2502,7 @@ def OK(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
 
 
@@ -2508,6 +2526,7 @@ def Ok(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
 
@@ -2570,6 +2589,7 @@ def Ok(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
 
 
@@ -2593,6 +2613,7 @@ def Cancel(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
 
@@ -2655,6 +2676,7 @@ def Cancel(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
 
 
@@ -2678,6 +2700,7 @@ def Quit(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
 
@@ -2740,6 +2763,7 @@ def Quit(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
 
 
@@ -2763,6 +2787,7 @@ def Exit(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
 
@@ -2825,6 +2850,7 @@ def Exit(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
 
 
@@ -2848,6 +2874,7 @@ def Yes(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
 
@@ -2910,6 +2937,7 @@ def Yes(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
 
 
@@ -2933,6 +2961,7 @@ def No(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
 
@@ -2995,6 +3024,7 @@ def No(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
 
 
@@ -3018,6 +3048,7 @@ def Help(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
 
@@ -3080,6 +3111,7 @@ def Help(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
 
 
@@ -3103,6 +3135,7 @@ def Debug(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs,
 ):
     """
     This Button has been changed in how it works!!
@@ -3174,6 +3207,7 @@ def Debug(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs,
     )
 
 
@@ -3201,6 +3235,7 @@ def SimpleButton(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs,
 ):
     """
     DEPIRCATED
@@ -3276,6 +3311,7 @@ def SimpleButton(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
 
 
@@ -3303,6 +3339,7 @@ def CloseButton(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
     DEPRICATED
@@ -3379,6 +3416,7 @@ def CloseButton(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
 
 
@@ -3409,6 +3447,7 @@ def ReadButton(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
     :param button_text:      text in the button
@@ -3483,6 +3522,7 @@ def ReadButton(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
 
 
@@ -3515,6 +3555,7 @@ def RealtimeButton(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs,
 ):
     """
 
@@ -3592,6 +3633,7 @@ def RealtimeButton(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
 
 
@@ -3620,6 +3662,7 @@ def DummyButton(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
     This is a special type of Button.
@@ -3703,6 +3746,7 @@ def DummyButton(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
 
 
@@ -3743,6 +3787,7 @@ def CalendarButton(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
     Button that will show a calendar chooser window.  Fills in the target element with result
@@ -3845,6 +3890,7 @@ def CalendarButton(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
     button.calendar_close_when_chosen = close_when_date_chosen
     button.calendar_default_date_M_D_Y = default_date_m_d_y
@@ -3887,6 +3933,7 @@ def ColorChooserButton(
     metadata=None,
     expand_x=False,
     expand_y=False,
+    **kwargs
 ):
     """
 
@@ -3970,6 +4017,7 @@ def ColorChooserButton(
         metadata=metadata,
         expand_x=expand_x,
         expand_y=expand_y,
+        **kwargs
     )
     button.default_color = default_color
     return button
