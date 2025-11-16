@@ -10180,6 +10180,7 @@ def popup_non_blocking(
     relative_location=(None, None),
     image=None,
     modal=False,
+    drop_whitespace=True,
 ):
     """
     Show Popup window and immediately return (does not block)
@@ -10244,6 +10245,7 @@ def popup_non_blocking(
         relative_location=relative_location,
         image=image,
         modal=modal,
+        drop_whitespace=drop_whitespace,
     )
 
 
@@ -10268,6 +10270,7 @@ def popup_quick(
     relative_location=(None, None),
     image=None,
     modal=False,
+    drop_whitespace=True,
 ):
     """
     Show Popup box that doesn't block and closes itself
@@ -10334,6 +10337,7 @@ def popup_quick(
         relative_location=relative_location,
         image=image,
         modal=modal,
+        drop_whitespace=drop_whitespace,
     )
 
 
@@ -10358,6 +10362,7 @@ def popup_quick_message(
     relative_location=(None, None),
     image=None,
     modal=False,
+    drop_whitespace=True,
 ):
     """
     Show Popup window with no titlebar, doesn't block, and auto closes itself.
@@ -10423,6 +10428,7 @@ def popup_quick_message(
         relative_location=relative_location,
         image=image,
         modal=modal,
+        drop_whitespace=drop_whitespace,
     )
 
 
@@ -10446,6 +10452,7 @@ def popup_no_titlebar(
     relative_location=(None, None),
     image=None,
     modal=True,
+    drop_whitespace=True,
 ):
     """
     Display a Popup without a titlebar.   Enables grab anywhere so you can move it
@@ -10509,6 +10516,7 @@ def popup_no_titlebar(
         relative_location=relative_location,
         image=image,
         modal=modal,
+        drop_whitespace=drop_whitespace,
     )
 
 
@@ -10533,6 +10541,7 @@ def popup_auto_close(
     relative_location=(None, None),
     image=None,
     modal=True,
+    drop_whitespace=True,
 ):
     """Popup that closes itself after some time period
 
@@ -10598,6 +10607,7 @@ def popup_auto_close(
         relative_location=relative_location,
         image=image,
         modal=modal,
+        drop_whitespace=drop_whitespace,
     )
 
 
@@ -10621,6 +10631,7 @@ def popup_error(
     relative_location=(None, None),
     image=None,
     modal=True,
+    drop_whitespace=True,
 ):
     """
     Popup with colored button and 'Error' as button text
@@ -10685,6 +10696,7 @@ def popup_error(
         relative_location=relative_location,
         image=image,
         modal=modal,
+        drop_whitespace=drop_whitespace,
     )
 
 
@@ -10708,6 +10720,7 @@ def popup_cancel(
     relative_location=(None, None),
     image=None,
     modal=True,
+    drop_whitespace=True,
 ):
     """
     Display Popup with "cancelled" button text
@@ -10771,6 +10784,7 @@ def popup_cancel(
         relative_location=relative_location,
         image=image,
         modal=modal,
+        drop_whitespace=drop_whitespace,
     )
 
 
@@ -10794,6 +10808,7 @@ def popup_ok(
     relative_location=(None, None),
     image=None,
     modal=True,
+    drop_whitespace=True,
 ):
     """
     Display Popup with OK button only
@@ -10857,6 +10872,7 @@ def popup_ok(
         relative_location=relative_location,
         image=image,
         modal=modal,
+        drop_whitespace=drop_whitespace,
     )
 
 
@@ -10880,6 +10896,7 @@ def popup_ok_cancel(
     relative_location=(None, None),
     image=None,
     modal=True,
+    drop_whitespace=True,
 ):
     """
     Display popup with OK and Cancel buttons
@@ -10943,6 +10960,7 @@ def popup_ok_cancel(
         relative_location=relative_location,
         image=image,
         modal=modal,
+        drop_whitespace=drop_whitespace,
     )
 
 
@@ -10966,6 +10984,7 @@ def popup_yes_no(
     relative_location=(None, None),
     image=None,
     modal=True,
+    drop_whitespace=True,
 ):
     """
     Display Popup with Yes and No buttons
@@ -11029,6 +11048,7 @@ def popup_yes_no(
         relative_location=relative_location,
         image=image,
         modal=modal,
+        drop_whitespace=drop_whitespace,
     )
 
 
