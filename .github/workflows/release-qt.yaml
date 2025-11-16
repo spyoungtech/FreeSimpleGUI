@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v5
     - name: setup python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v6
       with:
         python-version: 3.11
     - name: build
@@ -28,7 +28,7 @@ jobs:
       with:
         packages-dir: FreeSimpleGUIQt/dist/
     - name: Release GitHub
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       with:
         files: "FreeSimpleGUIQt/dist/*"
       env:
